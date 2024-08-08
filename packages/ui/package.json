@@ -36,7 +36,7 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.10",
+    "@types/eslint": "^9.0.0",
     "@types/node": "^20.14.12",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.17.0",
