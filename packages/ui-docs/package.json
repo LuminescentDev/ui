@@ -28,7 +28,7 @@
     "@builder.io/qwik-city": "^1.8.0",
     "@luminescent/ui": "^1.2.4",
     "@luminescent/ui-qwik": "^1.2.4",
-    "@types/eslint": "^8.56.11",
+    "@types/eslint": "^9.0.0",
     "@types/node": "^22.4.2",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
     "@typescript-eslint/parser": "^8.2.0",
