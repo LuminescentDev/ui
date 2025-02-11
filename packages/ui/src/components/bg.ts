@@ -17,8 +17,7 @@ export default function ({ matchUtilities, theme }: PluginAPI) {
   });
   matchUtilities({
     'lum-bg': (value) => {
-      const code = value.replace('.', '-');
-      const color = value.split('.')[0];
+      const color = value.split('-')[0];
       const shades = Object.values(colors).filter((c) => {
         return c.startsWith(color) && !c.includes('/');
       });
@@ -28,8 +27,8 @@ export default function ({ matchUtilities, theme }: PluginAPI) {
 
       return {
         color: textColor == value ? 'inherit' : theme(`colors.${textColor}`) ?? 'inherit',
-        [`@apply border bg-${theme(`colors.${value.split('/')[0]}`) ? code : `[${value}]`}`]: '',
-        borderColor: `${theme(`colors.${borderColor ?? value}`) ?? borderColor ?? value}`,
+        backgroundColor: `${theme(`colors.${value.split('/')[0]}`) ?? value}`,
+        border: `1px solid ${theme(`colors.${borderColor ?? value}`) ?? borderColor ?? value}`,
         outline: 'none',
         '&:focus': {
           border: `1px solid ${textColor == value ? 'white' : theme(`colors.${textColor}`) ?? 'white'}`,

@@ -1,7 +1,18 @@
 import plugin from 'tailwindcss/plugin';
-import { readdirSync } from 'fs';
+import bg from './components/bg';
+import btn from './components/btn';
+import card from './components/card';
+import input from './components/input';
+import loading from './components/loading';
+import pad from './components/pad';
+import scroll from './components/scroll';
 
 export default plugin(async function (plugin) {
-  const components = readdirSync(__dirname + '/components').map((file: string) => file.split('.')[0]) as string[];
-  components.forEach(async (component) => (await import(`./components/${component}`)).default(plugin));
+  bg(plugin);
+  btn(plugin);
+  card(plugin);
+  input(plugin);
+  loading(plugin);
+  pad(plugin);
+  scroll(plugin);
 });
