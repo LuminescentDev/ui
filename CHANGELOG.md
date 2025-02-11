@@ -1,3 +1,7 @@
+## 1.4.1 (2025-02-11)
+
+This was a version bump only, there were no code changes.
+
 ## 1.3.1 (2024-12-05)
 
 This was a version bump only, there were no code changes.
