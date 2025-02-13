@@ -56,6 +56,6 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "peerDependencies": {
-    "@luminescent/ui": "^1.4.0"
+    "@luminescent/ui": "^1.4.1"
   }
 }

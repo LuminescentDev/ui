@@ -7,7 +7,7 @@
  */
 @import "tailwindcss";
 @plugin "@anuragroy/tailwindcss-animate";
-@plugin "../../ui/src/index.ts";
+@plugin "@luminescent/ui";
 @config "../tailwind.config.js";
 
 /* Custom styles */

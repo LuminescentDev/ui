@@ -49,5 +49,5 @@ if (workspaceVersion === null) {
     dryRun: options.dryRun,
     verbose: options.verbose,
   });
-  process.exit(publishStatus);
+  process.exit(`${publishStatus.code}`);
 }
