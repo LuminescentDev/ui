@@ -111,8 +111,8 @@ importers:
   packages/ui-qwik:
     dependencies:
       '@luminescent/ui':
-        specifier: ^1.4.0
-        version: 1.4.0
+        specifier: ^1.4.1
+        version: 1.4.1
     devDependencies:
       '@anuragroy/tailwindcss-animate':
         specifier: ^1.0.6
@@ -1623,8 +1623,8 @@ packages:
     resolution: {integrity: sha512-2ZcI6q3YyE4i3YbW1lmwDMLpCQ9/vCtwO6bD7vHY+5T1Ih2NvpoiJI1JeEqIlGhrjKVdx7H9xISFNOWVWuSC4Q==}
     engines: {node: '>=15.0.0'}
 
-  '@luminescent/ui@1.4.0':
-    resolution: {integrity: sha512-CoS+LK99GrfZlFFNEq4sS92sFi9TEPgVV+nAwd9bz2HcyzFdPpo8MW7XrAC0oXXbbvwtRjNIqD7/iXbU1W+NLw==}
+  '@luminescent/ui@1.4.1':
+    resolution: {integrity: sha512-SXb+Mj6yKzIWfd7Yh5g8ueSKWyCIVKzNj0lK1m2vSJfREnZV2SPuSzefubwJPBRdrlCt3GgKyEouF/6a1L+Bqw==}
     engines: {node: '>=15.0.0'}
 
   '@mdx-js/mdx@3.0.1':
@@ -5908,7 +5908,7 @@ snapshots:
 
   '@luminescent/ui@1.2.4': {}
 
-  '@luminescent/ui@1.4.0': {}
+  '@luminescent/ui@1.4.1': {}
 
   '@mdx-js/mdx@3.0.1':
     dependencies:
