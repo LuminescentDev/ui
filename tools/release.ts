@@ -49,5 +49,12 @@ if (workspaceVersion === null) {
     dryRun: options.dryRun,
     verbose: options.verbose,
   });
-  process.exit(`${publishStatus.code}`);
+  let statuscode = 0;
+  Object.entries(publishStatus).forEach(([project, status]) => {
+    console.log(`📦 ${project}: ${status.code == 0 ? 'Success' : 'Fail'}`);
+    if (status.code == 1) {
+      statuscode = 1;
+    }
+  });
+  process.exit(statuscode);
 }
