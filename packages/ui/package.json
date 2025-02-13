@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui",
-  "version": "1.4.5-0",
+  "version": "1.4.6-0",
   "description": "Luminescent UI library",
   "main": "./lib/index.js",
   "types": "./lib-types/index.d.ts",
