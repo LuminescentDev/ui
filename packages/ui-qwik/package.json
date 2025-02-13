@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui-qwik",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Luminescent UI library",
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
@@ -56,6 +56,6 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "peerDependencies": {
-    "@luminescent/ui": "^1.4.3"
+    "@luminescent/ui": "^1.4.2"
   }
 }
