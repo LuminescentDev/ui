@@ -26,9 +26,9 @@ export default function ({ matchUtilities, theme }: PluginAPI) {
       const textColor = shades[index - 5 < 0 ? shades.length - 1 : index - 5] || shades[index + 5 > shades.length - 1 ? 0 : index + 5];
 
       return {
+        [`@apply border bg-${theme(`colors.${value.split('/')[0]}`) ? value : `[${value}]`}`]: {},
         color: textColor == value ? 'inherit' : theme(`colors.${textColor}`) ?? 'inherit',
-        backgroundColor: `${theme(`colors.${value.split('/')[0]}`) ?? value}`,
-        border: `1px solid ${theme(`colors.${borderColor ?? value}`) ?? borderColor ?? value}`,
+        borderColor: `${theme(`colors.${borderColor ?? value}`) ?? borderColor ?? value}`,
         outline: 'none',
         '&:focus': {
           border: `1px solid ${textColor == value ? 'white' : theme(`colors.${textColor}`) ?? 'white'}`,
