@@ -8,6 +8,9 @@ export default function ({ matchUtilities, theme }: PluginAPI) {
       colors[`${color}/${i*5}`] = `${color}/${i*5/100}`;
     }
   });
+  ['transparent', 'current', 'inherit'].forEach((color) => {
+    colors[color] = color;
+  });
   matchUtilities({
     'lum-bg': (value) => {
       const color = value.split('-')[0];
