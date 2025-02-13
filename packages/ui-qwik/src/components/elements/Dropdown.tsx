@@ -45,7 +45,7 @@ export const DropdownRaw = component$<DropdownProps>(({ id, values, class: Class
         </select>
       }
       <button class={{
-        'lum-btn lum-pad-md text-base lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md': true,
+        'lum-btn lum-pad-md text-base lum-bg-gray-800 group-hover:lum-bg-gray-700 focus-within:lum-bg-gray-700 rounded-md': true,
         ...Class,
       }} onClick$={() => {
         if (!hover) store.opened = !store.opened;
@@ -60,12 +60,14 @@ export const DropdownRaw = component$<DropdownProps>(({ id, values, class: Class
           'motion-safe:transition-all ease-out': true,
           'transform rotate-180': store.opened,
           'group-hover:transform group-hover:rotate-180 duration-300 group-hover:duration-75': hover,
+          'focus-within:transform focus-within:rotate-180 focus-within:duration-75': true,
         }}/>
       </button>
       <div class={{
         'transition-all ease-out absolute top-full pt-2 left-0 z-[1000] ': true,
         'opacity-0 scale-95 pointer-events-none': !store.opened,
         'group-hover:pointer-events-auto group-hover:opacity-100 group-hover:scale-100 duration-300 group-hover:duration-75': hover,
+        'focus-within:pointer-events-auto focus-within:opacity-100 focus-within:scale-100 focus-within:duration-75': true,
       }}>
         <div id={`lui-${id}-opts`} class={{
           'motion-safe:transition-all p-1 gap-1 lum-bg-gray-800 backdrop-blur-xl flex flex-col border max-h-72 lum-scroll overflow-auto select-none rounded-md': true,
