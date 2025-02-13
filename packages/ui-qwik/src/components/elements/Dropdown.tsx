@@ -48,7 +48,7 @@ export const DropdownRaw = component$<DropdownProps>(({ id, values, class: Class
         'lum-btn lum-pad-md text-base lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md': true,
         ...Class,
       }} onClick$={() => {
-        store.opened = !store.opened;
+        if (!hover) store.opened = !store.opened;
       }}>
         {display}
         {!display && values &&
