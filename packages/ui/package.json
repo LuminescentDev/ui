@@ -14,11 +14,13 @@
       "import": "./lib/components/*",
       "require": "./lib/components/*",
       "types": "./lib-types/components/*"
-    }
+    },
+    "./css": "./src/index.css"
   },
   "files": [
     "lib",
-    "lib-types"
+    "lib-types",
+    "src/index.css"
   ],
   "engines": {
     "node": ">=15.0.0"
@@ -30,7 +32,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "pnpm lint && tsc",
     "dev": "echo \"No dev script specified\" && exit 0",
     "lint": "eslint \"src/**/*.ts*\"",
     "test": "echo \"No test specified\" && exit 0"

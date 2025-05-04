@@ -1,7 +1,5 @@
 import type { PluginAPI } from 'tailwindcss/types/config';
 
-export const defaultClasses = 'lum-pad-md text-base lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md';
-
 export default function ({ addComponents }: PluginAPI) {
   addComponents({
     '.lum-scroll': {

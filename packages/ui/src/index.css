@@ -1,0 +1,4 @@
+@utility lum-btn-p-* {
+  padding-y: calc(var(--spacing) * --value(integer))
+  padding-y: calc(var(--spacing) * --value(integer) * 2)
+}

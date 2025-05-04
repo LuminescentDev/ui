@@ -2,7 +2,7 @@ import type { PluginAPI } from 'tailwindcss/types/config';
 
 export default function ({ matchUtilities, theme }: PluginAPI) {
   const colors: { [key: string]: string } = {};
-  Object.keys(theme('colors')!).forEach((color) => {
+  Object.keys(theme('colors')).forEach((color) => {
     colors[color] = color;
     for (let i = 1; i < 20; i++) {
       colors[`${color}/${i*5}`] = `${color}/${i*5/100}`;
@@ -22,12 +22,11 @@ export default function ({ matchUtilities, theme }: PluginAPI) {
       const borderColor = shades[index - 1 < 0 ? shades.length - 1 : index - 1] || shades[index + 1 > shades.length - 1 ? 0 : index + 1];
       const textColor = shades[index - 5 < 0 ? shades.length - 1 : index - 5] || shades[index + 5 > shades.length - 1 ? 0 : index + 5];
       return {
-        color: textColor == value ? 'inherit' : theme(`colors.${textColor}`) ?? 'inherit',
         backgroundColor: `${theme(`colors.${value}`) ?? borderColor ?? value}`,
         border: `1px solid ${theme(`colors.${borderColor ?? value}${opacity}`) ?? borderColor ?? value}`,
         outline: 'none',
         '&:focus': {
-          border: `1px solid ${textColor == value ? 'white' : theme(`colors.${textColor}`) ?? 'white'}`,
+          border: `1px solid ${theme(`colors.${textColor}`) ?? 'white'}`,
         },
       };
     },

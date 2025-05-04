@@ -34,6 +34,7 @@ export default tseslint.config(
       '@typescript-eslint/restrict-template-expressions': 'off',
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/only-throw-error': 'off',
+      '@typescript-eslint/unbound-method': 'off',
       'indent': ['error', 2],
       'quotes': ['error', 'single'],
       'semi': ['error', 'always'],
