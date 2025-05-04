@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Card, Header, Dropdown, Toggle } from '@luminescent/ui-qwik';
+import { Header, Dropdown, Toggle } from '@luminescent/ui-qwik';
 
 interface DropdownOptions {
   display?: string;
@@ -9,7 +9,7 @@ interface DropdownOptions {
 export default component$(() => {
   const store = useStore<DropdownOptions>({});
   return (
-    <Card>
+    <div class="lum-card">
       <Header id="dropdown" anchor>
         Dropdown
       </Header>
@@ -36,7 +36,7 @@ export default component$(() => {
           Select Input
         </Dropdown>
       </div>
-      <textarea class="lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md h-32" value={`
+      <textarea class="lum-input h-32" value={`
 <Dropdown id="dropdown-input"${store.display ? ` display={${store.display}}` : ''}${store.hover ? ' hover' : ''}>
   values={[
     { name: <div class="bg-red-500">Any element you want</div>, value: '1' },
@@ -47,7 +47,6 @@ export default component$(() => {
 >
   Select Input
 </Dropdown>`} />
-    </Card>
+    </div>
   );
 });
-

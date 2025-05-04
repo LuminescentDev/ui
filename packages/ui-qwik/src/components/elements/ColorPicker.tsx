@@ -36,7 +36,7 @@ export const ColorPicker = component$<ColorPickerProps>(({ id, value = '#000000'
     value: value,
   });
 
-  const setColor = $((color: string) => {
+  const setColor = $(async (color: string) => {
     if (!color.match(/^#[0-9A-F]{6}$/i)) return;
     const number = hexStringToNumber(color);
     const hsv = rgbToHsv(hexNumberToRgb(number));
@@ -46,10 +46,10 @@ export const ColorPicker = component$<ColorPickerProps>(({ id, value = '#000000'
     store.bPosition = (1 - hsv.v) * maxHue;
 
     store.value = color;
-    onInput$?.(store.value);
+    await onInput$?.(store.value);
   });
 
-  const hueChange = $((e: MouseEvent | TouchEvent, hOffset: number) => {
+  const hueChange = $(async (e: MouseEvent | TouchEvent, hOffset: number) => {
     const { y } = getMousePosition(e);
     store.hue.position = clamp(maxHue - (y - hOffset), 0, maxHue);
     const hsvColor = rgbToHsv(hexNumberToRgb(hexStringToNumber(store.value)));
@@ -58,13 +58,13 @@ export const ColorPicker = component$<ColorPickerProps>(({ id, value = '#000000'
     store.hue.color = rgbToHex(hsvToRgb({ h, s: 1, v: 1 }));
 
     store.value = rgbToHex(hsvToRgb(hsvColor));
-    onInput$?.(store.value);
+    await onInput$?.(store.value);
   });
 
-  const hueMouseDown = $((e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
+  const hueMouseDown = $(async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
     const hOffset = el.getBoundingClientRect().top;
-    hueChange(e, hOffset);
-    const eventListener = (e: MouseEvent | TouchEvent) => hueChange(e, hOffset);
+    await hueChange(e, hOffset);
+    const eventListener = (e: MouseEvent | TouchEvent) => void hueChange(e, hOffset);
     window.addEventListener('mousemove', eventListener);
     window.addEventListener('touchmove', eventListener);
     const mouseUpListener = () => {
@@ -77,7 +77,7 @@ export const ColorPicker = component$<ColorPickerProps>(({ id, value = '#000000'
     window.addEventListener('touchend', mouseUpListener);
   });
 
-  const sbChange = $((e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
+  const sbChange = $(async (e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
     const { x, y } = getMousePosition(e);
     store.bPosition = clamp(y - hOffset.top, 0, maxHue);
     store.sPosition = clamp(x - hOffset.left, 0, width);
@@ -89,13 +89,13 @@ export const ColorPicker = component$<ColorPickerProps>(({ id, value = '#000000'
       s,
       v,
     }));
-    onInput$?.(store.value);
+    await onInput$?.(store.value);
   });
 
-  const sbMouseDown = $((e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
+  const sbMouseDown = $(async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
     const offset = el.getBoundingClientRect();
-    sbChange(e, offset);
-    const eventListener = (e: MouseEvent | TouchEvent) => sbChange(e, offset);
+    await sbChange(e, offset);
+    const eventListener = (e: MouseEvent | TouchEvent) => void sbChange(e, offset);
     window.addEventListener('mousemove', eventListener);
     window.addEventListener('touchmove', eventListener);
     const mouseUpListener = () => {
@@ -114,9 +114,9 @@ export const ColorPicker = component$<ColorPickerProps>(({ id, value = '#000000'
       'flex': true,
       'flex-col': !horizontal,
       ...props.class,
-    }} id={id} onInput$={(e, el) => {
+    }} id={id} onInput$={async (e, el) => {
       if (!el.dataset.value) return;
-      setColor(el.dataset.value);
+      await setColor(el.dataset.value);
     }}>
       <div class="flex gap-4">
         <div class="w-[125px] h-[150px] rounded-md relative"
@@ -176,36 +176,36 @@ export const ColorPicker = component$<ColorPickerProps>(({ id, value = '#000000'
             </div>
           }
           <input class={{
-            'w-full lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md': true,
+            'w-full lum-input p-1 text-xs': true,
             'border-t-0 rounded-t-none': preview == 'top',
             'border-b-0 rounded-b-none': preview == 'bottom',
           }} value={store.value} style={preview == 'full' ? {
             backgroundColor: `${store.value}`,
             color: getBrightness(hexNumberToRgb(hexStringToNumber(store.value))) > 0.5 ? 'black' : 'white',
           } : {}
-          } onInput$={(e, el) => {
-            setColor(el.value);
+          } onInput$={async (e, el) => {
+            await setColor(el.value);
           }}/>
         </div>}
         {colors.map((color, i) => {
           return (
             <button key={i} class={{
-              'w-[1.6rem] h-[1.6rem] rounded-md hover:scale-110 motion-safe:transition-all duration-300 hover:duration-75 ease-out -outline-offset-1 outline outline-1 outline-white/30': true,
+              'w-[1.6rem] h-[1.6rem] lum-btn p-0 border-white/30 border-2 hover:border-white': true,
             }}
             style={{
               background: color,
-              outline: color === store.value ? '2px solid #ffffffaa' : undefined,
+              borderColor: color === store.value ? '#ffffff' : undefined,
             }}
-            onClick$={() => {
-              setColor(color);
+            onClick$={async () => {
+              await setColor(color);
             }}
             ></button>
           );
         })}
-        <button class="w-[1.6rem] h-[1.6rem] border border-gray-700 rounded-md hover:scale-110 motion-safe:transition-all duration-300 hover:duration-75 ease-out"
-          onClick$={() => {
+        <button class="w-[1.6rem] h-[1.6rem] lum-btn p-0.5"
+          onClick$={async () => {
             const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-            setColor(color);
+            await setColor(color);
           }}
         >
           <Shuffle class="fill-current text-gray-300 pl-0.5 p-0.5" />

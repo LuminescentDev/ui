@@ -39,7 +39,7 @@ export default component$(() => {
       <div>
         <Toggle id="toggle-input" label="Toggle" round={store.round} checkbox={store.checkbox} onColor={store.onColor} offColor={store.offColor} center={store.center} />
       </div>
-      <textarea class="lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md h-32" value={`<Toggle id="toggle-input" label="Toggle"${store.round ? ' round' : ''}${store.checkbox ? ' checkbox' : ''}${store.onColor ? ` onColor="${store.onColor}"` : ''}${store.offColor ? ` offColor="${store.offColor}"` : ''}${store.center ? ' center' : ''} />`} />
+      <textarea class="lum-input h-32" value={`<Toggle id="toggle-input" label="Toggle"${store.round ? ' round' : ''}${store.checkbox ? ' checkbox' : ''}${store.onColor ? ` onColor="${store.onColor}"` : ''}${store.offColor ? ` offColor="${store.offColor}"` : ''}${store.center ? ' center' : ''} />`} />
     </div>
   );
 });

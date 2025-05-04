@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Card, Dropdown, Header, Toggle, toggleOnColorClasses, toggleOffColorClasses } from '@luminescent/ui-qwik';
+import { Dropdown, Header, Toggle, toggleOnColorClasses, toggleOffColorClasses } from '@luminescent/ui-qwik';
 
 interface toggleOptions {
   checkbox?: boolean;
@@ -12,7 +12,7 @@ interface toggleOptions {
 export default component$(() => {
   const store = useStore<toggleOptions>({});
   return (
-    <Card>
+    <div class="lum-card">
       <Header id="toggle" anchor>
         Toggle
       </Header>
@@ -37,9 +37,9 @@ export default component$(() => {
       <Toggle id="toggle-round" onChange$={(e, element) => store.round = element.checked}
         label='round'/>
       <div>
-        <Toggle id="toggle" label="Toggle" round={store.round} checkbox={store.checkbox} onColor={store.onColor} offColor={store.offColor} center={store.center} />
+        <Toggle id="toggle-input" label="Toggle" round={store.round} checkbox={store.checkbox} onColor={store.onColor} offColor={store.offColor} center={store.center} />
       </div>
-      <textarea class="lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md h-32" value={`<Toggle id="toggle" label="Toggle"${store.round ? ' round' : ''}${store.checkbox ? ' checkbox' : ''}${store.onColor ? ` onColor="${store.onColor}"` : ''}${store.offColor ? ` offColor="${store.offColor}"` : ''}${store.center ? ' center' : ''} />`} />
-    </Card>
+      <textarea class="lum-input h-32" value={`<Toggle id="toggle-input" label="Toggle"${store.round ? ' round' : ''}${store.checkbox ? ' checkbox' : ''}${store.onColor ? ` onColor="${store.onColor}"` : ''}${store.offColor ? ` offColor="${store.offColor}"` : ''}${store.center ? ' center' : ''} />`} />
+    </div>
   );
 });

@@ -1,22 +1,33 @@
-/* Import Font */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+@import "tailwindcss";
+@plugin "@anuragroy/tailwindcss-animate";
 
-/**
- * Tailwind CSS imports
- * View the full documentation at https://tailwindcss.com
- */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "@luminescent/ui/css";
+@plugin "@luminescent/ui";
 
-/* Custom styles */
-body {
-  font-family: "Inter", sans-serif;
-  overflow-y: scroll;
+@config "../tailwind.config.js";
+
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+}
+
+@layer utilities {
+  .animation-delay-2000 { animation-delay: -5s; }
+  .animation-delay-4000 { animation-delay: -10s; }
+}
+
+html {
+  overflow: overlay;
+  background: radial-gradient(
+    var(--color-gray-900) 0%,
+    var(--color-gray-950) 100%
+  );
+  background-color: var(--color-gray-950);
 }
 
 * {
   scroll-behavior: smooth;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 *::-webkit-scrollbar {
   appearance: none;
@@ -25,7 +36,7 @@ body {
   height: 8px;
 }
 *::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: #00000022;
 }
 *::-webkit-scrollbar-thumb {
   background-color: #ffffff20;

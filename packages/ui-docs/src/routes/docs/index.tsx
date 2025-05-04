@@ -9,7 +9,7 @@ import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
 import Toggle from '~/components/docs/Toggle';
 import IconsLogos from '~/components/docs/IconsLogos';
-import { Card, Header } from '@luminescent/ui-qwik';
+import { Header } from '@luminescent/ui-qwik';
 import Readme from '../../../../../README.md';
 
 export default component$(() => {
@@ -22,11 +22,11 @@ export default component$(() => {
       <Header>
         Get Started
       </Header>
-      <Card>
+      <div class="lum-card">
         <div class="flex flex-col gap-4 text-sm [&>pre]:p-4 [&>pre]:bg-gray-950/40 [&>pre]:border [&>pre]:border-gray-800 [&>pre]:rounded-lg [&>pre]:text-gray-400">
           <Readme />
         </div>
-      </Card>
+      </div>
 
       <Header>
         Components

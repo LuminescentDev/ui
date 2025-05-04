@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { Header } from '../../index';
+import { Header } from '@luminescent/ui-qwik';
 
 export default component$(() => {
   return (

@@ -12,7 +12,7 @@ export default component$(() => {
           Scroll to anchor
         </a>
       </div>
-      <textarea class="lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md h-32" value={'<Anchor id="anchor"/>'} />
+      <textarea class="lum-input h-32" value={'<Anchor id="anchor"/>'} />
     </div>
   );
 });

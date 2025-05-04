@@ -6,18 +6,11 @@ To use the Luminescent UI Tailwind Library, you need to install the package from
 pnpm install @luminescent/ui
 ```
 
-Once installed, include the following to your tailwind config
+Once installed, include the following to css file
 
-```javascript
-/** @type {import('tailwindcss').Config} */
-
-import tailwindConfig from '@luminescent/ui/config';
-
-export default {
-  plugins: [
-    require('@luminescent/ui'),
-  ],
-};
+```css
+@import "@luminescent/ui/css";
+@plugin "@luminescent/ui";
 ```
 
 Once finished, you can use the classes included, shown in the documentation.

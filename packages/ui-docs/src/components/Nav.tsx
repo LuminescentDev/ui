@@ -1,44 +1,53 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
-import { LogoDiscord, LogoLuminescent, LogoLuminescentFull, Nav } from '@luminescent/ui-qwik';
-import { CubeOutline, LogoGithub } from 'qwik-ionicons';
+import { LogoDiscord, LogoLuminescentFull, Nav } from '@luminescent/ui-qwik';
+import { Book, Github } from 'lucide-icons-qwik';
 
 export default component$(() => {
   return (
-    <Nav floating fixed>
-      <Link q:slot="start" href="/" class="lum-btn lum-bg-transparent text-[#f0ccfb] fill-[#f0ccfb]">
+    <Nav floating fixed colorClass="lum-bg-gray-800/50 !text-gray-100">
+      <Link q:slot="start" href="/" class="lum-btn lum-bg-transparent">
         <div class="font-semibold flex items-center gap-1 text-[#f0ccfb] fill-[#f0ccfb]" style="filter: drop-shadow(0 0 1rem #CB6CE6);">
-          <LogoLuminescentFull width={100} class="mt-1" /> / ui
+          <LogoLuminescentFull width={100} class="mt-1" />
         </div>
       </Link>
 
-      <Link q:slot="end" href="/docs" class="lum-btn lum-bg-transparent hidden sm:flex">
-        <CubeOutline width={24} /> Docs
+      <Link q:slot="end" href="/docs" class={{
+        'hidden sm:flex lum-btn lum-bg-transparent': true,
+      }}>
+        <Book size={20} /> Docs
       </Link>
-      <a q:slot="end" href="https://github.com/luminescentDev/ui" class="lum-btn lum-bg-transparent lum-pad-equal-md hidden sm:flex">
-        <LogoGithub width={24} class="fill-current" />
+      <a q:slot="end" href="https://luminescent.dev" class="lum-btn lum-bg-transparent">
+        <div class="font-semibold flex items-center gap-1">
+          <LogoLuminescentFull width={100} class="mt-1" />
+        </div>
       </a>
-      <a q:slot="end" href="https://luminescent.dev/discord" class="lum-btn lum-bg-transparent lum-pad-equal-md hidden sm:flex">
-        <LogoDiscord width={24} />
-      </a>
-      <a q:slot="end" href="https://luminescent.dev" class="lum-btn lum-bg-transparent lum-pad-equal-md hidden sm:flex">
-        <LogoLuminescent width={24} />
-      </a>
+      <div q:slot='end' class="hidden sm:flex gap-2">
+        <SocialButtons />
+      </div>
 
-      <Link q:slot="mobile" href="/docs" class="lum-btn lum-bg-transparent w-full">
-        <CubeOutline width={24} /> Docs
+      <Link q:slot="mobile" href="/docs" class="lum-btn lum-bg-transparent">
+        <Book size={20} /> Docs
       </Link>
+      <a q:slot="mobile" href="https://luminescent.dev" class="lum-btn lum-bg-transparent">
+        <div class="font-semibold flex items-center gap-1">
+          <LogoLuminescentFull width={100} class="mt-1" />
+        </div>
+      </a>
       <div q:slot='mobile' class="flex justify-evenly">
-        <a q:slot="" href="https://github.com/luminescentDev/ui">
-          <LogoGithub width={24} />
-        </a>
-        <a q:slot="end" href="https://luminescent.dev/discord">
-          <LogoDiscord width={24} />
-        </a>
-        <a q:slot="end" href="https://luminescent.dev">
-          <LogoLuminescent width={24} />
-        </a>
+        <SocialButtons />
       </div>
     </Nav>
   );
+});
+
+export const SocialButtons = component$(() => {
+  return <>
+    <a href="https://github.com/LuminescentDev" title="GitHub" class="lum-btn lum-bg-transparent p-2">
+      <Github size={20} />
+    </a>
+    <a href="/discord" title="Discord" class="lum-btn lum-bg-transparent p-2">
+      <LogoDiscord width="20" />
+    </a>
+  </>;
 });

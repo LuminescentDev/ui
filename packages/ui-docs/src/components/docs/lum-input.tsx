@@ -1,18 +1,18 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Header } from '../../index';
+import { Header } from '@luminescent/ui-qwik';
 
 export default component$(() => {
   const store = useStore({
-    class: 'lum-btn',
+    class: 'lum-input',
   });
   return (
     <div class="lum-card">
-      <Header id="button" anchor>
-        Button
+      <Header id="input" anchor>
+        Input
       </Header>
       <div>
-        <label for="button-class">class</label>
-        <input id="button-class" class="w-full lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md"
+        <label for="input-class">class</label>
+        <input id="input-class" class="w-full lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md"
           onInput$={(e, el) => store.class = el.value}
           value={store.class}
         />
@@ -22,15 +22,19 @@ export default component$(() => {
       </div>
       <div class="lum-card">
         <div>
-          <button class={store.class}>
-            Button
-          </button>
+          <input class={store.class}/>
+          <textarea class={{
+            [store.class]: true,
+            'h-32': true,
+          }} />
         </div>
       </div>
       <textarea class="lum-input h-32" value={`
-<button class="${store.class}">
-  Button
-</button>`} />
+<input class="${store.class}"/>
+<textarea class={{
+  '${store.class}': true,
+  'h-32': true,
+}} />`} />
     </div>
   );
 });

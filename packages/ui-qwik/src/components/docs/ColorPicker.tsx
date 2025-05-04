@@ -28,7 +28,7 @@ export default component$(() => {
       <div class="flex">
         <ColorPicker id="color-picker" preview={store.preview} horizontal={store.horizontal} showInput={store.showInput} onInput$={() => {}}/>
       </div>
-      <textarea class="lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md h-32" value={`<ColorPicker id="color-picker"${store.preview ? ` preview="${store.preview}"` : ''}${store.horizontal ? ' horizontal' : ''}${store.showInput == false ? ' showInput="false"' : ''}/>`} />
+      <textarea class="lum-input h-32" value={`<ColorPicker id="color-picker"${store.preview ? ` preview="${store.preview}"` : ''}${store.horizontal ? ' horizontal' : ''}${store.showInput == false ? ' showInput="false"' : ''}/>`} />
     </div>
   );
 });

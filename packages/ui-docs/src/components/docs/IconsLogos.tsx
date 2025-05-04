@@ -1,15 +1,15 @@
 import { component$ } from '@builder.io/qwik';
 import {
-  Card, Header, LogoBirdflop, LogoDiscord, LogoFabric, LogoForge, LogoLuminescent, LogoLuminescentFull, LogoPaper, LogoPterodactyl, LogoPurpur, LogoVelocity, LogoWaterfall,
+  Header, LogoBirdflop, LogoDiscord, LogoFabric, LogoForge, LogoLuminescent, LogoLuminescentFull, LogoPaper, LogoPterodactyl, LogoPurpur, LogoVelocity, LogoWaterfall,
 } from '@luminescent/ui-qwik';
 
 export default component$(() => {
   return (
-    <Card>
+    <div class="lum-card">
       <Header id="icons" anchor>
         Icons/Logos
       </Header>
-      <Card>
+      <div class="lum-card">
         <div class="flex gap-10 flex-wrap justify-evenly">
           <LogoBirdflop width={40} />
           <LogoDiscord width={40} />
@@ -23,7 +23,8 @@ export default component$(() => {
           <LogoVelocity width={40} />
           <LogoWaterfall width={40} />
         </div>
-      </Card>
-    </Card>
+      </div>
+    </div>
   );
 });
+

@@ -46,29 +46,28 @@ export const NumberInputRaw = component$<NumberInputRawProps>(({ input, onDecrem
       'flex gap-2 text-gray-50 touch-manipulation': true,
     }}>
       <button  class={{
-        'lum-btn lum-pad-equal-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md': true,
+        'lum-btn p-2': true,
       }} data-action="decrement" aria-label="Decrement" disabled={props.min ? value <= props.min : false}
-      onClick$={input ? $((event, element) => {
+      onClick$={input ? $(async (event, element) => {
         const siblingInput = element.nextElementSibling as HTMLInputElement;
         siblingInput.stepDown();
-        onDecrement$(event, element, siblingInput);
+        await onDecrement$(event, element, siblingInput);
       }) : onDecrement$}>
         <Minus width="24" class="fill-current" />
       </button>
       { input &&
         <input {...props} type="number" value={value} step={step} class={{
-          'lum-input text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md': true,
-          'text-center': true,
+          'lum-input text-center': true,
           ...props.class,
         }}/>
       }
       <button class={{
-        'lum-btn lum-pad-equal-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md': true,
+        'lum-btn p-2': true,
       }} data-action="increment" aria-label="Increment" disabled={props.max ? value >= props.max : false}
-      onClick$={input ? $((event, element) => {
+      onClick$={input ? $(async (event, element) => {
         const siblingInput = element.previousElementSibling as HTMLInputElement;
         siblingInput.stepUp();
-        onIncrement$(event, element, siblingInput);
+        await onIncrement$(event, element, siblingInput);
       }) : onIncrement$}>
         <Plus width="24" class="fill-current" />
       </button>

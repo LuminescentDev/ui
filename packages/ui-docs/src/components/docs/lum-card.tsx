@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Blobs, Header, Toggle } from '../../index';
+import { Blobs, Header, Toggle } from '@luminescent/ui-qwik';
 
 export default component$(() => {
   const store = useStore({

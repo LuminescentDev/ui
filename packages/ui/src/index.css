@@ -1,4 +1,22 @@
 @utility lum-btn-p-* {
-  padding-y: calc(var(--spacing) * --value(integer))
-  padding-y: calc(var(--spacing) * --value(integer) * 2)
+  padding: calc(var(--spacing) * --value(integer))
+    calc(var(--spacing) * --value(integer) * 2)
+    calc(var(--spacing) * --value(integer))
+    calc(var(--spacing) * --value(integer) * 2);
+}
+
+@utility lum-input {
+  @apply flex motion-safe:transition duration-300 hover:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg whitespace-nowrap touch-manipulation select-none p-2 lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md;
+}
+
+@utility lum-btn {
+  @apply flex items-center gap-3 motion-safe:transition duration-300 hover:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg motion-safe:active:scale-95 whitespace-nowrap touch-manipulation select-none text-center lum-btn-p-2 text-base lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md;
+}
+
+@utility lum-card {
+  @apply flex flex-col gap-3 whitespace-pre-wrap lum-bg-gray-900 p-7 rounded-lg;
+}
+
+@utility lum-loading {
+  @apply animate-spin rounded-full border-transparent border-l-current border-t-current border-2;
 }

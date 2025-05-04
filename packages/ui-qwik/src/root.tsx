@@ -1,6 +1,5 @@
 import { component$ } from '@builder.io/qwik';
 
-import Playground from './components/docs/Playground';
 import LumClasses from '~/components/docs/lum-classes';
 import LumBtn from './components/docs/lum-btn';
 import LumCard from './components/docs/lum-card';
@@ -27,8 +26,6 @@ export default component$(() => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body class="bg-gray-950 text-gray-200 max-w-6xl mx-auto py-24 px-4 flex flex-col gap-4">
-        <Playground />
-
         <Header>
           Luminescent UI Tailwind Components
         </Header>
