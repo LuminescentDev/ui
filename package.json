@@ -10,7 +10,7 @@
   "packageManager": "pnpm@10.10.0",
   "scripts": {
     "build:release": "pnpm build && pnpm release",
-    "build": "pnpm nx run-many -t build --output-style=stream",
+    "build": "pnpm nx run-many -t build --output-style=stream --parallel=false",
     "release": "tsx tools/release.ts",
     "start:docs": "pnpm build && cd packages/ui-docs && pnpm run start"
   },
