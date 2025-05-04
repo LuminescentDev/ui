@@ -1,0 +1,4 @@
+name = "luminescent-ui-docs"
+pages_build_output_dir = "packages/ui-docs/dist"
+compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2025-04-02"
