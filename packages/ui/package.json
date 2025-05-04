@@ -36,12 +36,13 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.11",
-    "@types/node": "^22.13.1",
-    "@typescript-eslint/eslint-plugin": "^8.24.0",
-    "@typescript-eslint/parser": "^8.24.0",
-    "eslint": "^8.57.0",
+    "@eslint/js": "^9.26.0",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.15.3",
+    "eslint": "^9.26.0",
+    "globals": "^16.0.0",
     "tailwindcss": "3.4.10",
-    "typescript": "5.7.3"
+    "typescript": "5.8.3",
+    "typescript-eslint": "^8.31.1"
   }
 }
