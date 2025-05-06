@@ -1,3 +1,19 @@
+@source "../node_modules/@luminescent/ui-qwik";
+
+@theme {
+  --color-luminescent-50: oklch(97.1% 0.014 379.198);
+  --color-luminescent-100: oklch(94.8% 0.028 306.258);
+  --color-luminescent-200: oklch(89.9% 0.061 307.231);
+  --color-luminescent-300: oklch(82.3% 0.12 310.018);
+  --color-luminescent-400: oklch(71.8% 0.202 313.761);
+  --color-luminescent-500: oklch(0.66 0.241 318.308);
+  --color-luminescent-600: oklch(59.2% 0.249 324.584);
+  --color-luminescent-700: oklch(52.5% 0.223 327.958);
+  --color-luminescent-800: oklch(45.9% 0.187 327.815);
+  --color-luminescent-900: oklch(40.8% 0.153 326.432);
+  --color-luminescent-950: oklch(28.4% 0.109 327.907);
+}
+
 @utility lum-btn-p-* {
   padding: calc(var(--spacing) * --value(integer))
     calc(var(--spacing) * --value(integer) * 2)

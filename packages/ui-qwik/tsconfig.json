@@ -22,5 +22,5 @@
     }
   },
   "include": ["src"],
-  "exclude": ["tailwind.config.js", "src/tailwind.config.js"]
+  "exclude": ["tailwind.config.js"]
 }

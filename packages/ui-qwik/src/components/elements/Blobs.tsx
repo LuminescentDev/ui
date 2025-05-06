@@ -4,7 +4,7 @@ export interface BlobProps {
   class?: { [key: string]: boolean };
   style?: { [key: string]: string | number };
   color?: keyof typeof blobColorClasses | [string, string, string];
-  blur?: 'sm' | 'md' | 'lg' | 'xl';
+  blur?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export const blobColorClasses = {
@@ -63,6 +63,7 @@ export const Blobs = component$<BlobProps>(
           class={{
             'absolute top-0 h-[30cqw] w-[30cqw] rounded-full opacity-20 ease-in-out':
               true,
+            'blur-xs': blur === 'xs',
             'blur-sm': blur === 'sm',
             'blur-md': blur === 'md',
             'blur-lg': blur === 'lg',
@@ -75,6 +76,7 @@ export const Blobs = component$<BlobProps>(
           class={{
             'absolute top-0 h-[30cqw] w-[30cqw] rounded-full opacity-20 ease-in-out':
               true,
+            'blur-xs': blur === 'xs',
             'blur-sm': blur === 'sm',
             'blur-md': blur === 'md',
             'blur-lg': blur === 'lg',
@@ -88,6 +90,7 @@ export const Blobs = component$<BlobProps>(
           class={{
             'absolute top-0 h-[30cqw] w-[30cqw] rounded-full opacity-20 ease-in-out':
               true,
+            'blur-xs': blur === 'xs',
             'blur-sm': blur === 'sm',
             'blur-md': blur === 'md',
             'blur-lg': blur === 'lg',

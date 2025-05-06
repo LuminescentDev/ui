@@ -25,7 +25,7 @@ export default component$(() => {
         <title>Luminescent UI</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body class="mx-auto flex max-w-6xl flex-col gap-4 bg-gray-950 px-4 py-24 text-gray-200">
+      <body class="mx-auto flex max-w-6xl flex-col gap-4 bg-gray-950 px-4 py-24">
         <Header>Luminescent UI Tailwind Components</Header>
         <LumClasses />
         <LumBtn />

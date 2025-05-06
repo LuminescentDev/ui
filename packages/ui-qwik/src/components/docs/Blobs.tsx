@@ -3,7 +3,7 @@ import { Blobs, Header, Dropdown, blobColorClasses } from '../../index';
 
 interface blobsOptions {
   color?: keyof typeof blobColorClasses;
-  blur?: 'sm' | 'md' | 'lg' | 'xl';
+  blur?: 'xs' |  'sm' | 'md' | 'lg' | 'xl';
 }
 
 export default component$(() => {
@@ -29,9 +29,9 @@ export default component$(() => {
       <Dropdown
         id="blobs-blur"
         onChange$={(e, element) =>
-          (store.blur = element.value as 'sm' | 'md' | 'lg' | 'xl')
+          (store.blur = element.value as 'xs' | 'sm' | 'md' | 'lg' | 'xl')
         }
-        values={['sm', 'md', 'lg', 'xl'].map((size) => ({
+        values={['xs', 'sm', 'md', 'lg', 'xl'].map((size) => ({
           name: size,
           value: size,
         }))}

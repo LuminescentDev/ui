@@ -11,16 +11,20 @@
       "require": "./lib/index.qwik.cjs",
       "types": "./lib-types/index.d.ts"
     },
-    "./config": "./src/tailwind.config.js"
+    "./config": "./tailwind.config.js"
   },
   "files": [
     "lib",
     "lib-types",
-    "src/tailwind.config.js"
+    "tailwind.config.js"
   ],
   "engines": {
-    "node": ">=15.0.0"
+    "node": ">=23.11.0",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">=10.10.0"
   },
+  "packageManager": "pnpm@10.10.0",
   "license": "AGPL-3.0-or-later",
   "private": false,
   "type": "module",

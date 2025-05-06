@@ -2,10 +2,10 @@
   "name": "@luminescent/ui-monorepo",
   "private": true,
   "engines": {
-    "node": ">=16.8.0 <18.0.0 || >=18.11",
+    "node": ">=23.11.0",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
-    "pnpm": ">=8.6.12"
+    "pnpm": ">=10.10.0"
   },
   "packageManager": "pnpm@10.10.0",
   "scripts": {
@@ -22,9 +22,6 @@
     "yargs": "^17.7.2"
   },
   "pnpm": {
-    "ignoredBuiltDependencies": [
-      "nx"
-    ],
     "onlyBuiltDependencies": [
       "esbuild",
       "nx",

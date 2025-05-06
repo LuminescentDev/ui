@@ -11,15 +11,25 @@
 @import '@luminescent/ui/css';
 @plugin "@luminescent/ui";
 
+@theme {
+  --font-display: 'Satoshi', 'sans-serif';
+}
+
 @config "../tailwind.config.js";
 
-/* Custom styles */
-body {
-  font-family: 'Inter', sans-serif;
+html {
+  overflow: overlay;
+  background: radial-gradient(
+    var(--color-gray-900) 0%,
+    var(--color-gray-950) 100%
+  );
+  @apply text-gray-200 bg-gray-950;
 }
 
 * {
   scroll-behavior: smooth;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 *::-webkit-scrollbar {
   appearance: none;
@@ -28,18 +38,12 @@ body {
   height: 8px;
 }
 *::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: #00000022;
 }
 *::-webkit-scrollbar-thumb {
   background-color: #ffffff20;
   border: 1px solid #ffffff20;
   border-radius: 3px;
-}
-*::-webkit-scrollbar-thumb:hover {
-  background-color: #ffffff40;
-}
-*::-webkit-scrollbar-thumb:active {
-  background-color: #ffffff60;
 }
 *::-webkit-scrollbar-corner {
   background-color: transparent;

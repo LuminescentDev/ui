@@ -1,22 +1,20 @@
 @import 'tailwindcss';
-@plugin "@anuragroy/tailwindcss-animate";
+@plugin '@anuragroy/tailwindcss-animate';
 
 @import '@luminescent/ui/css';
-@plugin "@luminescent/ui";
+@plugin '@luminescent/ui';
 
-@config "../tailwind.config.js";
+@config '@luminescent/ui-qwik/config';
 
 @theme {
   --font-display: 'Satoshi', 'sans-serif';
 }
 
-@layer utilities {
-  .animation-delay-2000 {
-    animation-delay: -5s;
-  }
-  .animation-delay-4000 {
-    animation-delay: -10s;
-  }
+@utility animation-delay-2000 {
+  animation-delay: -5s;
+}
+@utility animation-delay-4000 {
+  animation-delay: -10s;
 }
 
 html {
@@ -25,7 +23,7 @@ html {
     var(--color-gray-900) 0%,
     var(--color-gray-950) 100%
   );
-  background-color: var(--color-gray-950);
+  @apply text-gray-200 bg-gray-950;
 }
 
 * {

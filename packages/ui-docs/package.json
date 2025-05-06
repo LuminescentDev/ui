@@ -1,10 +1,14 @@
 {
   "name": "@luminescent/ui-docs",
   "description": "Luminescent UI Documentation",
-  "engines": {
-    "node": ">=15.0.0"
-  },
   "private": true,
+  "engines": {
+    "node": ">=23.11.0",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">=10.10.0"
+  },
+  "packageManager": "pnpm@10.10.0",
   "trustedDependencies": [
     "sharp"
   ],
