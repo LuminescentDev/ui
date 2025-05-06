@@ -7,34 +7,49 @@ export default component$(() => {
   return (
     <Nav floating fixed colorClass="lum-bg-gray-800/50 !text-gray-100">
       <Link q:slot="start" href="/" class="lum-btn lum-bg-transparent">
-        <div class="font-semibold flex items-center gap-1 text-[#f0ccfb] fill-[#f0ccfb]" style="filter: drop-shadow(0 0 1rem #CB6CE6);">
+        <div
+          class="font-semibold flex items-center gap-1 text-[#f0ccfb] fill-[#f0ccfb]"
+          style="filter: drop-shadow(0 0 1rem #CB6CE6);"
+        >
           <LogoLuminescentFull width={100} class="mt-1" />
         </div>
       </Link>
 
-      <Link q:slot="end" href="/docs" class={{
-        'hidden sm:flex lum-btn lum-bg-transparent': true,
-      }}>
+      <Link
+        q:slot="end"
+        href="/docs"
+        class={{
+          'hidden sm:flex lum-btn lum-bg-transparent': true,
+        }}
+      >
         <Book size={20} /> Docs
       </Link>
-      <a q:slot="end" href="https://luminescent.dev" class="lum-btn lum-bg-transparent">
+      <a
+        q:slot="end"
+        href="https://luminescent.dev"
+        class="lum-btn lum-bg-transparent"
+      >
         <div class="font-semibold flex items-center gap-1">
           <LogoLuminescentFull width={100} class="mt-1" />
         </div>
       </a>
-      <div q:slot='end' class="hidden sm:flex gap-2">
+      <div q:slot="end" class="hidden sm:flex gap-2">
         <SocialButtons />
       </div>
 
       <Link q:slot="mobile" href="/docs" class="lum-btn lum-bg-transparent">
         <Book size={20} /> Docs
       </Link>
-      <a q:slot="mobile" href="https://luminescent.dev" class="lum-btn lum-bg-transparent">
+      <a
+        q:slot="mobile"
+        href="https://luminescent.dev"
+        class="lum-btn lum-bg-transparent"
+      >
         <div class="font-semibold flex items-center gap-1">
           <LogoLuminescentFull width={100} class="mt-1" />
         </div>
       </a>
-      <div q:slot='mobile' class="flex justify-evenly">
+      <div q:slot="mobile" class="flex justify-evenly">
         <SocialButtons />
       </div>
     </Nav>
@@ -42,12 +57,18 @@ export default component$(() => {
 });
 
 export const SocialButtons = component$(() => {
-  return <>
-    <a href="https://github.com/LuminescentDev" title="GitHub" class="lum-btn lum-bg-transparent p-2">
-      <Github size={20} />
-    </a>
-    <a href="/discord" title="Discord" class="lum-btn lum-bg-transparent p-2">
-      <LogoDiscord width="20" />
-    </a>
-  </>;
+  return (
+    <>
+      <a
+        href="https://github.com/LuminescentDev"
+        title="GitHub"
+        class="lum-btn lum-bg-transparent p-2"
+      >
+        <Github size={20} />
+      </a>
+      <a href="/discord" title="Discord" class="lum-btn lum-bg-transparent p-2">
+        <LogoDiscord width="20" />
+      </a>
+    </>
+  );
 });

@@ -26,17 +26,13 @@ export default component$(() => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body class="bg-gray-950 text-gray-200 max-w-6xl mx-auto py-24 px-4 flex flex-col gap-4">
-        <Header>
-          Luminescent UI Tailwind Components
-        </Header>
+        <Header>Luminescent UI Tailwind Components</Header>
         <LumClasses />
         <LumBtn />
         <LumCard />
         <LumInput />
 
-        <Header>
-          Luminescent UI Qwik Components
-        </Header>
+        <Header>Luminescent UI Qwik Components</Header>
         <Anchor />
         <Blobs />
         <ColorInput />

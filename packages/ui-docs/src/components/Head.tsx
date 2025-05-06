@@ -15,8 +15,15 @@ export const RouterHead = component$(() => {
       <meta content="#0D0D0D" name="theme-color" />
 
       <link rel="canonical" href={loc.url.href} />
-      <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/86643576" />
-      <meta name="og:image" content="https://avatars.githubusercontent.com/u/86643576" />
+      <link
+        rel="icon"
+        type="image/png"
+        href="https://avatars.githubusercontent.com/u/86643576"
+      />
+      <meta
+        name="og:image"
+        content="https://avatars.githubusercontent.com/u/86643576"
+      />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       {head.meta.map((m, i) => (

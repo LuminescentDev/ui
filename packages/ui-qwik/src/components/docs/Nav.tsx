@@ -15,30 +15,54 @@ export default component$(() => {
       <Header id="nav" anchor>
         Nav
       </Header>
-      <Toggle id="nav-fixed" onChange$={(e, element) => store.fixed = element.checked}
-        label="fixed" />
-      <Toggle id="nav-floating" onChange$={(e, element) => store.floating = element.checked}
-        label="floating" />
-      <Toggle id="nav-nohamburger" onChange$={(e, element) => store.nohamburger = element.checked}
-        label="nohamburger" />
+      <Toggle
+        id="nav-fixed"
+        onChange$={(e, element) => (store.fixed = element.checked)}
+        label="fixed"
+      />
+      <Toggle
+        id="nav-floating"
+        onChange$={(e, element) => (store.floating = element.checked)}
+        label="floating"
+      />
+      <Toggle
+        id="nav-nohamburger"
+        onChange$={(e, element) => (store.nohamburger = element.checked)}
+        label="nohamburger"
+      />
       <label for="nav-colorclass">colorClass</label>
-      <input id="nav-colorclass" class="w-full lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md"
-        onInput$={(e, el) => store.colorClass = el.value}
+      <input
+        id="nav-colorclass"
+        class="w-full lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md"
+        onInput$={(e, el) => (store.colorClass = el.value)}
         value={store.colorClass}
         placeholder="lum-bg-gray-900"
       />
       <div class="lum-card relative h-40">
-        <Nav floating={store.floating} fixed={store.fixed} nohamburger={store.nohamburger} colorClass={store.colorClass}>
-
+        <Nav
+          floating={store.floating}
+          fixed={store.fixed}
+          nohamburger={store.nohamburger}
+          colorClass={store.colorClass}
+        >
           <button q:slot="start" class={'lum-btn lum-bg-transparent'}>
             Brand
           </button>
 
-          <button q:slot="center" class={'lum-btn lum-bg-transparent hidden sm:flex'}>
+          <button
+            q:slot="center"
+            class={'lum-btn lum-bg-transparent hidden sm:flex'}
+          >
             Center Button
           </button>
 
-          <DropdownRaw id="nav-dropdown" hover q:slot="end" class={{ 'hidden sm:flex lum-bg-transparent': true }} display="Dropdown">
+          <DropdownRaw
+            id="nav-dropdown"
+            hover
+            q:slot="end"
+            class={{ 'hidden sm:flex lum-bg-transparent': true }}
+            display="Dropdown"
+          >
             <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent'}>
               Option 1
             </button>
@@ -56,7 +80,10 @@ export default component$(() => {
           <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
             button 2
           </button>
-          <h3 q:slot="mobile" class="mx-4 py-2 text-gray-400 border-b border-gray-700">
+          <h3
+            q:slot="mobile"
+            class="mx-4 py-2 text-gray-400 border-b border-gray-700"
+          >
             Dropdown
           </h3>
           <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
@@ -68,10 +95,11 @@ export default component$(() => {
           <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
             Option 3
           </button>
-
         </Nav>
       </div>
-      <textarea class="lum-input h-32" value={`
+      <textarea
+        class="lum-input h-32"
+        value={`
 <Nav${store.floating ? ' floating' : ''}${store.fixed ? ' fixed' : ''}${store.colorClass ? ` colorClass="${store.colorClass}"` : ''}>
 
   <button q:slot="start" class={'lum-btn lum-bg-transparent'}>
@@ -113,7 +141,8 @@ export default component$(() => {
     Option 3
   </button>
 
-</Nav>`} />
+</Nav>`}
+      />
     </div>
   );
 });

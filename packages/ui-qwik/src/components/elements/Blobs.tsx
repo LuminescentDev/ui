@@ -1,4 +1,3 @@
-
 import { component$ } from '@builder.io/qwik';
 
 export interface BlobProps {
@@ -45,44 +44,60 @@ const blobClasses = [
   'animate-blob6',
 ];
 
-export const Blobs = component$<BlobProps>(({ color = 'darkgray', blur = 'xl', ...props }) => {
-  const blob = Math.round(Math.random() * 6);
-  const colorClass = typeof color == 'string' ? blobColorClasses[color] : color;
+export const Blobs = component$<BlobProps>(
+  ({ color = 'darkgray', blur = 'xl', ...props }) => {
+    const blob = Math.round(Math.random() * 6);
+    const colorClass =
+      typeof color == 'string' ? blobColorClasses[color] : color;
 
-  return (
-    <div class={{
-      'motion-reduce:hidden absolute inset-0 transition-all animate-in fade-in anim-duration-[2s]': true,
-      ...props.class,
-    }} style={{ containerType: 'size', ...props.style }}>
-      <div class={{
-        'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out': true,
-        'blur-sm': blur === 'sm',
-        'blur-md': blur === 'md',
-        'blur-lg': blur === 'lg',
-        'blur-xl': blur === 'xl',
-        [blobClasses[blob]]: true,
-        [colorClass[0]]: true,
-      }} />
-      <div class={{
-        'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out': true,
-        'blur-sm': blur === 'sm',
-        'blur-md': blur === 'md',
-        'blur-lg': blur === 'lg',
-        'blur-xl': blur === 'xl',
-        'anim-delay-[-5s]': true,
-        [blobClasses[blob]]: true,
-        [colorClass[1]]: true,
-      }} />
-      <div class={{
-        'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out': true,
-        'blur-sm': blur === 'sm',
-        'blur-md': blur === 'md',
-        'blur-lg': blur === 'lg',
-        'blur-xl': blur === 'xl',
-        'anim-delay-[-10s]': true,
-        [blobClasses[blob]]: true,
-        [colorClass[2]]: true,
-      }} />
-    </div>
-  );
-});
+    return (
+      <div
+        class={{
+          'motion-reduce:hidden absolute inset-0 transition-all animate-in fade-in anim-duration-[2s]':
+            true,
+          ...props.class,
+        }}
+        style={{ containerType: 'size', ...props.style }}
+      >
+        <div
+          class={{
+            'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out':
+              true,
+            'blur-sm': blur === 'sm',
+            'blur-md': blur === 'md',
+            'blur-lg': blur === 'lg',
+            'blur-xl': blur === 'xl',
+            [blobClasses[blob]]: true,
+            [colorClass[0]]: true,
+          }}
+        />
+        <div
+          class={{
+            'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out':
+              true,
+            'blur-sm': blur === 'sm',
+            'blur-md': blur === 'md',
+            'blur-lg': blur === 'lg',
+            'blur-xl': blur === 'xl',
+            'anim-delay-[-5s]': true,
+            [blobClasses[blob]]: true,
+            [colorClass[1]]: true,
+          }}
+        />
+        <div
+          class={{
+            'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out':
+              true,
+            'blur-sm': blur === 'sm',
+            'blur-md': blur === 'md',
+            'blur-lg': blur === 'lg',
+            'blur-xl': blur === 'xl',
+            'anim-delay-[-10s]': true,
+            [blobClasses[blob]]: true,
+            [colorClass[2]]: true,
+          }}
+        />
+      </div>
+    );
+  },
+);

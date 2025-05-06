@@ -1,4 +1,5 @@
-export const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+export const clamp = (value: number, min: number, max: number) =>
+  Math.min(Math.max(value, min), max);
 
 export function getMousePosition(e: MouseEvent | TouchEvent) {
   if (window.TouchEvent && e instanceof TouchEvent) {
@@ -9,23 +10,23 @@ export function getMousePosition(e: MouseEvent | TouchEvent) {
   return { x: mouse.clientX, y: mouse.clientY };
 }
 
-export const pad2 = (c: string) => c.length == 1 ? '0' + c : '' + c;
+export const pad2 = (c: string) => (c.length == 1 ? '0' + c : '' + c);
 
 // Each member has a range of 0-1
 export type RGBAColor = {
-  r: number
-  g: number
-  b: number
-  a?: number
-}
+  r: number;
+  g: number;
+  b: number;
+  a?: number;
+};
 
 // Each member has a range of 0-1
 export type HSVAColor = {
-  h: number
-  s: number
-  v: number
-  a?: number
-}
+  h: number;
+  s: number;
+  v: number;
+  a?: number;
+};
 
 export function getBrightness(color: RGBAColor) {
   const { r, g, b } = color;
@@ -51,7 +52,8 @@ export function rgbToHex(color: RGBAColor) {
   return hex.join('').toUpperCase();
 }
 
-export const hexStringToNumber = (color: string) => parseInt(color.replace('#', ''), 16);
+export const hexStringToNumber = (color: string) =>
+  parseInt(color.replace('#', ''), 16);
 
 export function hsvToRgb(color: HSVAColor) {
   let { h } = color;

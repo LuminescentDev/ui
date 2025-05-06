@@ -3,9 +3,22 @@ import { $, Slot, component$, useStyles$ } from '@builder.io/qwik';
 import { Plus } from '../../svg/Plus';
 import { Minus } from '../../svg/Minus';
 
-interface NumberInputRawProps extends Omit<(PropsOf<'input'> & { type: 'number' }), 'class' | 'type'> {
-  onDecrement$: QRL<(event: PointerEvent, element: HTMLButtonElement, inputElement?: HTMLInputElement) => void>;
-  onIncrement$: QRL<(event: PointerEvent, element: HTMLButtonElement, inputElement?: HTMLInputElement) => void>;
+interface NumberInputRawProps
+  extends Omit<PropsOf<'input'> & { type: 'number' }, 'class' | 'type'> {
+  onDecrement$: QRL<
+    (
+      event: PointerEvent,
+      element: HTMLButtonElement,
+      inputElement?: HTMLInputElement,
+    ) => void
+  >;
+  onIncrement$: QRL<
+    (
+      event: PointerEvent,
+      element: HTMLButtonElement,
+      inputElement?: HTMLInputElement,
+    ) => void
+  >;
   input?: boolean;
   class?: { [key: string]: boolean };
   value?: number;
@@ -14,7 +27,7 @@ interface NumberInputRawProps extends Omit<(PropsOf<'input'> & { type: 'number' 
   step?: number;
 }
 
-interface NumberInputProps extends Omit<NumberInputRawProps, 'children'>{
+interface NumberInputProps extends Omit<NumberInputRawProps, 'children'> {
   id: string;
 }
 
@@ -29,8 +42,9 @@ export const NumberInput = component$<NumberInputProps>((props) => {
   );
 });
 
-export const NumberInputRaw = component$<NumberInputRawProps>(({ input, onDecrement$, onIncrement$, value = 0, step = 1, ...props }) => {
-  useStyles$(`
+export const NumberInputRaw = component$<NumberInputRawProps>(
+  ({ input, onDecrement$, onIncrement$, value = 0, step = 1, ...props }) => {
+    useStyles$(`
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -41,36 +55,65 @@ export const NumberInputRaw = component$<NumberInputRawProps>(({ input, onDecrem
     }
   `);
 
-  return (
-    <div class={{
-      'flex gap-2 text-gray-50 touch-manipulation': true,
-    }}>
-      <button  class={{
-        'lum-btn p-2': true,
-      }} data-action="decrement" aria-label="Decrement" disabled={props.min ? value <= props.min : false}
-      onClick$={input ? $(async (event, element) => {
-        const siblingInput = element.nextElementSibling as HTMLInputElement;
-        siblingInput.stepDown();
-        await onDecrement$(event, element, siblingInput);
-      }) : onDecrement$}>
-        <Minus width="24" class="fill-current" />
-      </button>
-      { input &&
-        <input {...props} type="number" value={value} step={step} class={{
-          'lum-input text-center': true,
-          ...props.class,
-        }}/>
-      }
-      <button class={{
-        'lum-btn p-2': true,
-      }} data-action="increment" aria-label="Increment" disabled={props.max ? value >= props.max : false}
-      onClick$={input ? $(async (event, element) => {
-        const siblingInput = element.previousElementSibling as HTMLInputElement;
-        siblingInput.stepUp();
-        await onIncrement$(event, element, siblingInput);
-      }) : onIncrement$}>
-        <Plus width="24" class="fill-current" />
-      </button>
-    </div>
-  );
-});
+    return (
+      <div
+        class={{
+          'flex gap-2 text-gray-50 touch-manipulation': true,
+        }}
+      >
+        <button
+          class={{
+            'lum-btn p-2': true,
+          }}
+          data-action="decrement"
+          aria-label="Decrement"
+          disabled={props.min ? value <= props.min : false}
+          onClick$={
+            input
+              ? $(async (event, element) => {
+                const siblingInput =
+                    element.nextElementSibling as HTMLInputElement;
+                siblingInput.stepDown();
+                await onDecrement$(event, element, siblingInput);
+              })
+              : onDecrement$
+          }
+        >
+          <Minus width="24" class="fill-current" />
+        </button>
+        {input && (
+          <input
+            {...props}
+            type="number"
+            value={value}
+            step={step}
+            class={{
+              'lum-input text-center': true,
+              ...props.class,
+            }}
+          />
+        )}
+        <button
+          class={{
+            'lum-btn p-2': true,
+          }}
+          data-action="increment"
+          aria-label="Increment"
+          disabled={props.max ? value >= props.max : false}
+          onClick$={
+            input
+              ? $(async (event, element) => {
+                const siblingInput =
+                    element.previousElementSibling as HTMLInputElement;
+                siblingInput.stepUp();
+                await onIncrement$(event, element, siblingInput);
+              })
+              : onIncrement$
+          }
+        >
+          <Plus width="24" class="fill-current" />
+        </button>
+      </div>
+    );
+  },
+);

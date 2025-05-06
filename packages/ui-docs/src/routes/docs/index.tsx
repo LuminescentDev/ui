@@ -19,18 +19,14 @@ export default component$(() => {
         Luminescent UI Documentation
       </h1>
 
-      <Header>
-        Get Started
-      </Header>
+      <Header>Get Started</Header>
       <div class="lum-card">
         <div class="flex flex-col gap-4 text-sm [&>pre]:p-4 [&>pre]:bg-gray-950/40 [&>pre]:border [&>pre]:border-gray-800 [&>pre]:rounded-lg [&>pre]:text-gray-400">
           <Readme />
         </div>
       </div>
 
-      <Header>
-        Components
-      </Header>
+      <Header>Components</Header>
       <Anchor />
       <Blobs />
       <ColorPicker />
@@ -39,7 +35,6 @@ export default component$(() => {
       <NumberInput />
       <Toggle />
       <IconsLogos />
-
     </section>
   );
 });

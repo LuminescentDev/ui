@@ -12,17 +12,28 @@ export default component$(() => {
       <Header id="numberinput" anchor>
         NumberInput
       </Header>
-      <Toggle id="numberinput-input" onChange$={(e, element) => store.input = element.checked}
-        label='input' />
+      <Toggle
+        id="numberinput-input"
+        onChange$={(e, element) => (store.input = element.checked)}
+        label="input"
+      />
       <div>
-        <NumberInput id="number-input" onDecrement$={() => {}} onIncrement$={() => {}} input={store.input}>
+        <NumberInput
+          id="number-input"
+          onDecrement$={() => {}}
+          onIncrement$={() => {}}
+          input={store.input}
+        >
           Number Input
         </NumberInput>
       </div>
-      <textarea class="lum-input h-32" value={`
+      <textarea
+        class="lum-input h-32"
+        value={`
 <NumberInput id="number-input"${store.input ? ' input' : ''}>
   Number Input
-</NumberInput`} />
+</NumberInput`}
+      />
     </div>
   );
 });

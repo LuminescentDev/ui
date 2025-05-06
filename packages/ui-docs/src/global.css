@@ -1,18 +1,22 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@anuragroy/tailwindcss-animate";
 
-@import "@luminescent/ui/css";
+@import '@luminescent/ui/css';
 @plugin "@luminescent/ui";
 
 @config "../tailwind.config.js";
 
 @theme {
-  --font-display: "Satoshi", "sans-serif";
+  --font-display: 'Satoshi', 'sans-serif';
 }
 
 @layer utilities {
-  .animation-delay-2000 { animation-delay: -5s; }
-  .animation-delay-4000 { animation-delay: -10s; }
+  .animation-delay-2000 {
+    animation-delay: -5s;
+  }
+  .animation-delay-4000 {
+    animation-delay: -10s;
+  }
 }
 
 html {

@@ -1,6 +1,17 @@
 import { component$ } from '@builder.io/qwik';
 import {
-  Header, LogoBirdflop, LogoDiscord, LogoFabric, LogoForge, LogoLuminescent, LogoLuminescentFull, LogoPaper, LogoPterodactyl, LogoPurpur, LogoVelocity, LogoWaterfall,
+  Header,
+  LogoBirdflop,
+  LogoDiscord,
+  LogoFabric,
+  LogoForge,
+  LogoLuminescent,
+  LogoLuminescentFull,
+  LogoPaper,
+  LogoPterodactyl,
+  LogoPurpur,
+  LogoVelocity,
+  LogoWaterfall,
 } from '../../index';
 
 export default component$(() => {

@@ -1,2 +1,2 @@
 reject:
-  - "vite" # building broken on v6
+  - 'vite' # building broken on v6

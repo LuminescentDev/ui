@@ -1,21 +1,21 @@
 /* Import Font */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
 
 /**
  * Tailwind CSS imports
  * View the full documentation at https://tailwindcss.com
  */
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@anuragroy/tailwindcss-animate";
 
-@import "@luminescent/ui/css";
+@import '@luminescent/ui/css';
 @plugin "@luminescent/ui";
 
 @config "../tailwind.config.js";
 
 /* Custom styles */
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 * {

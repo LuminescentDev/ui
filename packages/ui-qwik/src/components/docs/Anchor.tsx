@@ -4,9 +4,7 @@ import { Header } from '../../index';
 export default component$(() => {
   return (
     <div class="lum-card">
-      <Header id="anchor">
-        Anchor
-      </Header>
+      <Header id="anchor">Anchor</Header>
       <div class="flex">
         <a href="#anchor" class={'lum-btn'}>
           Scroll to anchor
