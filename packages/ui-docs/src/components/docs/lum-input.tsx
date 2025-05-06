@@ -19,8 +19,7 @@ export default component$(() => {
           value={store.class}
         />
         <p class="text-gray-500">
-          warning: only lum- classes are safelisted and other classes that
-          aren't loaded in tailwind and arbitrary values will not work
+          warning: only some classes will work because of the way tailwindcss works
         </p>
       </div>
       <div class="lum-card">

@@ -1,5 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
+import { Header } from '@luminescent/ui-qwik';
+import Readme from '../../../../../README.md';
 
 import Anchor from '~/components/docs/Anchor';
 import Blobs from '~/components/docs/Blobs';
@@ -9,8 +11,10 @@ import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
 import Toggle from '~/components/docs/Toggle';
 import IconsLogos from '~/components/docs/IconsLogos';
-import { Header } from '@luminescent/ui-qwik';
-import Readme from '../../../../../README.md';
+import LumClasses from '~/components/docs/lum-classes';
+import LumBtn from '~/components/docs/lum-btn';
+import LumCard from '~/components/docs/lum-card';
+import LumInput from '~/components/docs/lum-input';
 
 export default component$(() => {
   return (
@@ -26,7 +30,13 @@ export default component$(() => {
         </div>
       </div>
 
-      <Header>Components</Header>
+      <Header>Luminescent UI Tailwind Components</Header>
+      <LumClasses />
+      <LumBtn />
+      <LumCard />
+      <LumInput />
+
+      <Header>Luminescent UI Qwik Components</Header>
       <Anchor />
       <Blobs />
       <ColorPicker />

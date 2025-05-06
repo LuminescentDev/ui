@@ -7,7 +7,7 @@ import LumInput from './components/docs/lum-input';
 
 import Anchor from '~/components/docs/Anchor';
 import Blobs from '~/components/docs/Blobs';
-import ColorInput from '~/components/docs/ColorPicker';
+import ColorPicker from '~/components/docs/ColorPicker';
 import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
 import Dropdown from '~/components/docs/Dropdown';
@@ -35,7 +35,7 @@ export default component$(() => {
         <Header>Luminescent UI Qwik Components</Header>
         <Anchor />
         <Blobs />
-        <ColorInput />
+        <ColorPicker />
         <Dropdown />
         <Nav />
         <NumberInput />
