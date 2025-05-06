@@ -8,15 +8,15 @@ export default component$(() => {
         Classes
       </Header>
       <p>Background Classes</p>
-      <p class="lum-bg-gray-800 flex rounded-lg px-3 py-2 whitespace-pre-wrap">
+      <p class="lum-input whitespace-pre-wrap">
         lum-bg-{'<color>/[opacity]'}
       </p>
       <p>Element Classes</p>
-      <p class="lum-bg-gray-800 flex rounded-lg px-3 py-2 whitespace-pre-wrap">
+      <p class="lum-input whitespace-pre-wrap">
         lum-btn lum-card lum-input
       </p>
       <p>Padding Classes</p>
-      <p class="lum-bg-gray-800 flex rounded-lg px-3 py-2 whitespace-pre-wrap">
+      <p class="lum-input whitespace-pre-wrap">
         lum-btn-p-{'<size>'}
       </p>
     </div>

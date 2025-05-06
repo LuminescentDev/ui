@@ -14,7 +14,7 @@ export default component$(() => {
         <label for="button-class">class</label>
         <input
           id="button-class"
-          class="lum-input lum-pad-sm lum-bg-gray-800 hover:lum-bg-gray-700 w-full rounded-md text-sm"
+          class="lum-input"
           onInput$={(e, el) => (store.class = el.value)}
           value={store.class}
         />

@@ -33,7 +33,7 @@ export default component$(() => {
       <label for="nav-colorclass">colorClass</label>
       <input
         id="nav-colorclass"
-        class="lum-input lum-pad-sm lum-bg-gray-800 hover:lum-bg-gray-700 w-full rounded-md text-sm"
+        class="lum-input"
         onInput$={(e, el) => (store.colorClass = el.value)}
         value={store.colorClass}
         placeholder="lum-bg-gray-900"

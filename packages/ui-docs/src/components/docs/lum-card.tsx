@@ -18,7 +18,7 @@ export default component$(() => {
         <label for="card-class">class</label>
         <input
           id="card-class"
-          class="lum-input lum-pad-sm lum-bg-gray-800 hover:lum-bg-gray-700 w-full rounded-md text-sm"
+          class="lum-input"
           onInput$={(e, el) => (store.class = el.value)}
           value={store.class}
         />
@@ -67,7 +67,7 @@ export default component$(() => {
                 >
                   This is a card
                 </h2>
-                <h3 class="text-sm text-gray-400">Hello Luminescent v2</h3>
+                <h3 class="text-sm text-gray-400">This is a description</h3>
               </div>
               <div class="lum-loading h-5 w-5"></div>
             </div>
@@ -81,7 +81,7 @@ export default component$(() => {
               >
                 This is a card
               </h2>
-              <h3 class="text-sm text-gray-400">Hello Luminescent v2</h3>
+              <h3 class="text-sm text-gray-400">This is a description</h3>
             </div>
           )}
           {store.blobs && (
@@ -121,7 +121,7 @@ export default component$(() => {
         This is a card
       </h2>
       <h3 class="text-gray-400 text-sm">
-        Hello Luminescent v2
+        This is a description
       </h3>
     </div>
     <div class="lum-loading w-5 h-5"></div>
@@ -135,7 +135,7 @@ export default component$(() => {
       This is a card
     </h2>
     <h3 class="text-gray-400 text-sm">
-      Hello Luminescent v2
+      This is a description
     </h3>
   </div>
   `

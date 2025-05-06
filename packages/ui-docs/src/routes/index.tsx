@@ -24,13 +24,13 @@ export default component$(() => {
         <div class="flex justify-center gap-2">
           <a
             href="https://github.com/LuminescentDev/ui"
-            class="lum-btn lum-bg-transparent lum-pad-equal-lg rounded-xl fill-gray-100 hover:fill-white"
+            class="lum-btn lum-bg-transparent"
           >
             <Github size={30} />
           </a>
           <a
             href="/discord"
-            class="lum-btn lum-bg-transparent hover:lum-bg-indigo-700 lum-pad-equal-lg rounded-xl fill-indigo-300 hover:fill-white"
+            class="lum-btn lum-bg-transparent"
           >
             <LogoDiscord width={30} />
           </a>
@@ -38,17 +38,11 @@ export default component$(() => {
 
         <div class="flex justify-center gap-2">
           <Link
-            class="lum-btn lum-pad-xl lum-bg-blue-700 hover:lum-bg-blue-600 rounded-xl text-lg"
+            class="lum-btn"
             href="/docs"
           >
-            <Book size={30} class="text-3xl" /> Docs
+            <Book size={30} /> Docs
           </Link>
-          <a
-            class="lum-btn lum-pad-xl lum-bg-pink-700 hover:lum-bg-pink-600 rounded-xl text-lg"
-            href="https://luminescent.dev"
-          >
-            <LogoLuminescentFull width={120} />
-          </a>
         </div>
       </section>
     </>

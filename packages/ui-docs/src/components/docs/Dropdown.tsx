@@ -16,7 +16,7 @@ export default component$(() => {
       <label for="dropdown-display">display</label>
       <input
         id="dropdown-display"
-        class="lum-input lum-pad-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md text-sm"
+        class="lum-input"
         onInput$={(e, el) => (store.display = el.value)}
         value={store.display}
       />
