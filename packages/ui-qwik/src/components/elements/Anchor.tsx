@@ -5,5 +5,5 @@ interface AnchorProps {
 }
 
 export const Anchor = component$<AnchorProps>(({ id }) => (
-  <span id={id} class="block h-32 -mt-32 pointer-events-none" />
+  <span id={id} class="pointer-events-none -mt-32 block h-32" />
 ));

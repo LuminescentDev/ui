@@ -23,7 +23,7 @@ export const Nav = component$<NavContainerProps>(
       <nav
         {...props}
         class={{
-          'motion-safe:transition-all duration-200 flex flex-col top-0 left-0 w-full z-50':
+          'top-0 left-0 z-50 flex w-full flex-col duration-200 motion-safe:transition-all':
             true,
           fixed: fixed,
           absolute: !fixed,
@@ -33,19 +33,19 @@ export const Nav = component$<NavContainerProps>(
         {!nohamburger && (
           <div
             class={{
-              'sm:hidden motion-safe:transition-all flex flex-col px-2 items-center absolute w-full top-full':
+              'absolute top-full flex w-full flex-col items-center px-2 motion-safe:transition-all sm:hidden':
                 true,
               'mt-2': menu.value,
-              'opacity-0 pointer-events-none': !menu.value,
+              'pointer-events-none opacity-0': !menu.value,
               'before:backdrop-blur-lg': !colorClass.includes('transparent'),
-              'before:absolute before:content-[""] before:w-full before:h-full before:drop-shadow-xl before:-z-10 before:rounded-lg':
+              'before:absolute before:-z-10 before:h-full before:w-full before:rounded-lg before:drop-shadow-xl before:content-[""]':
                 true,
             }}
           >
             <div
               class={{
                 [colorClass]: true,
-                'flex flex-col gap-2 motion-safe:transition-all max-w-7xl w-full px-2 py-4 border rounded-lg':
+                'flex w-full max-w-7xl flex-col gap-2 rounded-lg border px-2 py-4 motion-safe:transition-all':
                   true,
               }}
             >
@@ -56,40 +56,40 @@ export const Nav = component$<NavContainerProps>(
         <div
           class={{
             [colorClass]: !floating,
-            '!border-t-0 !border-x-0': !floating,
+            '!border-x-0 !border-t-0': !floating,
             'before:backdrop-blur-lg':
               !colorClass.includes('transparent') && !floating,
-            'before:absolute before:content-[""] before:w-full before:h-full before:drop-shadow-xl before:-z-10':
+            'before:absolute before:-z-10 before:h-full before:w-full before:drop-shadow-xl before:content-[""]':
               !floating,
-            'relative mt-2 mx-2': floating,
+            'relative mx-2 mt-2': floating,
           }}
         >
           <div
             class={{
-              'flex justify-evenly w-full mx-auto px-2 max-w-7xl': true,
+              'mx-auto flex w-full max-w-7xl justify-evenly px-2': true,
               [colorClass]: floating,
-              'border rounded-lg': floating,
+              'rounded-lg border': floating,
               'before:backdrop-blur-lg':
                 !colorClass.includes('transparent') && floating,
-              'before:absolute before:content-[""] before:w-full before:max-w-7xl before:h-full before:rounded-lg before:drop-shadow-xl before:-z-10':
+              'before:absolute before:-z-10 before:h-full before:w-full before:max-w-7xl before:rounded-lg before:drop-shadow-xl before:content-[""]':
                 floating,
             }}
           >
-            <div class="flex items-center flex-1 gap-2 py-2 justify-start">
+            <div class="flex flex-1 items-center justify-start gap-2 py-2">
               <Slot name="start" />
             </div>
-            <div class="flex items-center flex-1 gap-2 py-2 justify-center">
+            <div class="flex flex-1 items-center justify-center gap-2 py-2">
               <Slot name="center" />
             </div>
-            <div class="flex items-center flex-1 gap-2 py-2 justify-end">
+            <div class="flex flex-1 items-center justify-end gap-2 py-2">
               <Slot name="end" />
               {!nohamburger && (
                 <button
-                  class={'lum-btn p-2 lum-bg-transparent sm:hidden'}
+                  class={'lum-btn lum-bg-transparent p-2 sm:hidden'}
                   onClick$={() => (menu.value = !menu.value)}
                 >
                   <svg
-                    class="w-6 h-6"
+                    class="h-6 w-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

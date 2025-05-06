@@ -39,7 +39,7 @@ export default component$(() => {
       >
         blur
       </Dropdown>
-      <div class="relative h-96 w-96 border border-gray-800 rounded-md">
+      <div class="relative h-96 w-96 rounded-md border border-gray-800">
         <Blobs color={store.color} blur={store.blur} />
       </div>
       <textarea

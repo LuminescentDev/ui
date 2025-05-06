@@ -16,7 +16,7 @@ interface DropdownProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {
 export const Dropdown = component$<DropdownProps>((props) => {
   return (
     <div class="flex flex-col">
-      <label for={props.id} class="text-gray-300 pb-1 select-none">
+      <label for={props.id} class="pb-1 text-gray-300 select-none">
         <Slot />
       </label>
       <DropdownRaw {...props} />
@@ -72,30 +72,30 @@ export const DropdownRaw = component$<DropdownProps>(
           <ChevronDown
             width={16}
             class={{
-              'motion-safe:transition-all ease-out': true,
-              'transform rotate-180': store.opened,
-              'group-hover:transform group-hover:rotate-180 duration-300 group-hover:duration-75':
+              'ease-out motion-safe:transition-all': true,
+              'rotate-180 transform': store.opened,
+              'duration-300 group-hover:rotate-180 group-hover:transform group-hover:duration-75':
                 hover,
-              'focus-within:transform focus-within:rotate-180 focus-within:duration-75':
+              'focus-within:rotate-180 focus-within:transform focus-within:duration-75':
                 true,
             }}
           />
         </button>
         <div
           class={{
-            'transition-all ease-out absolute top-full pt-2 left-0 z-[1000] ':
+            'absolute top-full left-0 z-[1000] pt-2 transition-all ease-out':
               true,
-            'opacity-0 scale-95 pointer-events-none': !store.opened,
-            'group-hover:pointer-events-auto group-hover:opacity-100 group-hover:scale-100 duration-300 group-hover:duration-75':
+            'pointer-events-none scale-95 opacity-0': !store.opened,
+            'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75':
               hover,
-            'focus-within:pointer-events-auto focus-within:opacity-100 focus-within:scale-100 focus-within:duration-75':
+            'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75':
               true,
           }}
         >
           <div
             id={`lui-${id}-opts`}
             class={{
-              'motion-safe:transition-all p-1 gap-1 lum-bg-gray-800 backdrop-blur-xl flex flex-col border max-h-72 lum-scroll overflow-auto select-none rounded-md':
+              'lum-bg-gray-800 lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-md border p-1 backdrop-blur-xl select-none motion-safe:transition-all':
                 true,
             }}
           >

@@ -12,7 +12,7 @@ interface HeaderProps extends Omit<PropsOf<'h2'>, 'class'> {
 export const Header = component$<HeaderProps>(({ id, anchor, ...props }) => (
   <h2
     class={{
-      'flex gap-2 group items-center font-bold text-xl sm:text-2xl whitespace-nowrap text-white':
+      'group flex items-center gap-2 text-xl font-bold whitespace-nowrap text-white sm:text-2xl':
         true,
       ...props.class,
     }}
@@ -27,7 +27,7 @@ export const Header = component$<HeaderProps>(({ id, anchor, ...props }) => (
         }}
       >
         <Link
-          class="transition-all opacity-10 group-hover:opacity-100 duration-300 group-hover:duration-75"
+          class="opacity-10 transition-all duration-300 group-hover:opacity-100 group-hover:duration-75"
           width={24}
         />
       </a>

@@ -21,7 +21,7 @@ export default component$(() => {
         Icons/Logos
       </Header>
       <div class="lum-card">
-        <div class="flex gap-10 flex-wrap justify-evenly">
+        <div class="flex flex-wrap justify-evenly gap-10">
           <LogoBirdflop width={40} />
           <LogoDiscord width={40} />
           <LogoFabric width={40} />

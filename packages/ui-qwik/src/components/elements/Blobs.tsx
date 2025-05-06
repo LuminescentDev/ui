@@ -53,7 +53,7 @@ export const Blobs = component$<BlobProps>(
     return (
       <div
         class={{
-          'motion-reduce:hidden absolute inset-0 transition-all animate-in fade-in anim-duration-[2s]':
+          'animate-in fade-in anim-duration-[2s] absolute inset-0 transition-all motion-reduce:hidden':
             true,
           ...props.class,
         }}
@@ -61,7 +61,7 @@ export const Blobs = component$<BlobProps>(
       >
         <div
           class={{
-            'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out':
+            'absolute top-0 h-[30cqw] w-[30cqw] rounded-full opacity-20 ease-in-out':
               true,
             'blur-sm': blur === 'sm',
             'blur-md': blur === 'md',
@@ -73,7 +73,7 @@ export const Blobs = component$<BlobProps>(
         />
         <div
           class={{
-            'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out':
+            'absolute top-0 h-[30cqw] w-[30cqw] rounded-full opacity-20 ease-in-out':
               true,
             'blur-sm': blur === 'sm',
             'blur-md': blur === 'md',
@@ -86,7 +86,7 @@ export const Blobs = component$<BlobProps>(
         />
         <div
           class={{
-            'absolute top-0 w-[30cqw] h-[30cqw] rounded-full opacity-20 ease-in-out':
+            'absolute top-0 h-[30cqw] w-[30cqw] rounded-full opacity-20 ease-in-out':
               true,
             'blur-sm': blur === 'sm',
             'blur-md': blur === 'md',

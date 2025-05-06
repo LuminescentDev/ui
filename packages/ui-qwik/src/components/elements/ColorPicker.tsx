@@ -149,7 +149,7 @@ export const ColorPicker = component$<ColorPickerProps>(
     return (
       <div
         class={{
-          'motion-safe:transition-all p-4 lum-bg-gray-900 flex gap-4 rounded-lg touch-none':
+          'lum-bg-gray-900 flex touch-none gap-4 rounded-lg p-4 motion-safe:transition-all':
             true,
           flex: true,
           'flex-col': !horizontal,
@@ -163,7 +163,7 @@ export const ColorPicker = component$<ColorPickerProps>(
       >
         <div class="flex gap-4">
           <div
-            class="w-[125px] h-[150px] rounded-md relative"
+            class="relative h-[150px] w-[125px] rounded-md"
             style={{
               background: `linear-gradient(to right, #FFFFFF, ${store.hue.color})`,
             }}
@@ -172,10 +172,10 @@ export const ColorPicker = component$<ColorPickerProps>(
             preventdefault:mousedown
             preventdefault:touchstart
           >
-            <div class="w-[125px] h-[150px] rounded-[0.3rem] bg-gradient-to-b from-transparent to-black border border-gray-700" />
+            <div class="h-[150px] w-[125px] rounded-[0.3rem] border border-gray-700 bg-gradient-to-b from-transparent to-black" />
             <div
               class={{
-                'absolute -top-2 -left-2 w-4 h-4 border rounded-full bg-white':
+                'absolute -top-2 -left-2 h-4 w-4 rounded-full border bg-white':
                   true,
                 'border-white':
                   getBrightness(
@@ -193,7 +193,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             />
           </div>
           <div
-            class="h-[150px] relative w-2 border border-gray-700 rounded-md"
+            class="relative h-[150px] w-2 rounded-md border border-gray-700"
             style={{
               background:
                 'linear-gradient(to bottom, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000)',
@@ -204,7 +204,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             preventdefault:touchstart
           >
             <div
-              class="absolute -bottom-2 -left-[5px] w-4 h-4 border border-white rounded-full bg-[#ff0000]"
+              class="absolute -bottom-2 -left-[5px] h-4 w-4 rounded-full border border-white bg-[#ff0000]"
               style={{
                 transform: `translateY(${-store.hue.position}px)`,
                 background: store.hue.color,
@@ -212,11 +212,11 @@ export const ColorPicker = component$<ColorPickerProps>(
             />
           </div>
         </div>
-        <div class="w-[150px] flex flex-wrap gap-1 justify-between">
+        <div class="flex w-[150px] flex-wrap justify-between gap-1">
           {showInput && (
             <div
               class={{
-                'flex w-[150px] pb-3 mb-2 border-b border-b-gray-700': true,
+                'mb-2 flex w-[150px] border-b border-b-gray-700 pb-3': true,
                 'flex-row gap-1': preview == 'left',
                 'flex-row-reverse gap-1': preview == 'right',
                 'flex-col': preview == 'top',
@@ -227,9 +227,9 @@ export const ColorPicker = component$<ColorPickerProps>(
                 <div
                   class={{
                     'border border-gray-700': true,
-                    'h-full aspect-square rounded-md':
+                    'aspect-square h-full rounded-md':
                       preview == 'left' || preview == 'right',
-                    'w-full h-3': preview == 'top' || preview == 'bottom',
+                    'h-3 w-full': preview == 'top' || preview == 'bottom',
                     'rounded-t-md': preview == 'top',
                     'rounded-b-md': preview == 'bottom',
                   }}
@@ -240,9 +240,9 @@ export const ColorPicker = component$<ColorPickerProps>(
               )}
               <input
                 class={{
-                  'w-full lum-input p-1 text-xs': true,
-                  'border-t-0 rounded-t-none': preview == 'top',
-                  'border-b-0 rounded-b-none': preview == 'bottom',
+                  'lum-input w-full p-1 text-xs': true,
+                  'rounded-t-none border-t-0': preview == 'top',
+                  'rounded-b-none border-b-0': preview == 'bottom',
                 }}
                 value={store.value}
                 style={
@@ -269,7 +269,7 @@ export const ColorPicker = component$<ColorPickerProps>(
               <button
                 key={i}
                 class={{
-                  'w-[1.6rem] h-[1.6rem] lum-btn p-0 border-white/30 border-2 hover:border-white':
+                  'lum-btn h-[1.6rem] w-[1.6rem] border-2 border-white/30 p-0 hover:border-white':
                     true,
                 }}
                 style={{
@@ -283,13 +283,13 @@ export const ColorPicker = component$<ColorPickerProps>(
             );
           })}
           <button
-            class="w-[1.6rem] h-[1.6rem] lum-btn p-0.5"
+            class="lum-btn h-[1.6rem] w-[1.6rem] p-0.5"
             onClick$={async () => {
               const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
               await setColor(color);
             }}
           >
-            <Shuffle class="fill-current text-gray-300 pl-0.5 p-0.5" />
+            <Shuffle class="fill-current p-0.5 pl-0.5 text-gray-300" />
           </button>
         </div>
       </div>

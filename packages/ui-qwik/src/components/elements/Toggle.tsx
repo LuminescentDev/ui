@@ -320,24 +320,24 @@ export const Toggle = component$<ToggleProps>(
     return (
       <div
         class={{
-          'flex gap-3 items-center touch-manipulation': true,
+          'flex touch-manipulation items-center gap-3': true,
           'justify-center': center,
         }}
       >
-        <label class="inline-flex relative items-center cursor-pointer">
+        <label class="relative inline-flex cursor-pointer items-center">
           <input
             type="checkbox"
             {...props}
             class={{
-              'sr-only peer': true,
+              'peer sr-only': true,
               ...props.class,
             }}
           />
           <div
             class={{
-              'motion-safe:transition duration-300 hover:duration-75 ease-out h-7 peer border hover:shadow-lg':
+              'peer h-7 border duration-300 ease-out hover:shadow-lg hover:duration-75 motion-safe:transition':
                 true,
-              'after:content-[\'\'] after:absolute after:top-[4px] after:left-[4px] after:border after:h-5 after:w-5 after:motion-safe:transition-all after:duration-300 after:hover:duration-75 after:ease-out':
+              'after:absolute after:top-[4px] after:left-[4px] after:h-5 after:w-5 after:border after:duration-300 after:ease-out after:content-[\'\'] after:hover:duration-75 after:motion-safe:transition-all':
                 true,
               'rounded-md after:rounded-[0.2rem]': !round,
               'rounded-full after:rounded-full': round,
@@ -351,7 +351,7 @@ export const Toggle = component$<ToggleProps>(
           />
         </label>
         {label && (
-          <label for={props.id} class="text-gray-300 flex gap-2 select-none">
+          <label for={props.id} class="flex gap-2 text-gray-300 select-none">
             {label}
           </label>
         )}

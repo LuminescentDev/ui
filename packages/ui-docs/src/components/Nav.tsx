@@ -8,7 +8,7 @@ export default component$(() => {
     <Nav floating fixed colorClass="lum-bg-gray-800/50 !text-gray-100">
       <Link q:slot="start" href="/" class="lum-btn lum-bg-transparent">
         <div
-          class="font-semibold flex items-center gap-1 text-[#f0ccfb] fill-[#f0ccfb]"
+          class="flex items-center gap-1 fill-[#f0ccfb] font-semibold text-[#f0ccfb]"
           style="filter: drop-shadow(0 0 1rem #CB6CE6);"
         >
           <LogoLuminescentFull width={100} class="mt-1" />
@@ -19,7 +19,7 @@ export default component$(() => {
         q:slot="end"
         href="/docs"
         class={{
-          'hidden sm:flex lum-btn lum-bg-transparent': true,
+          'lum-btn lum-bg-transparent hidden sm:flex': true,
         }}
       >
         <Book size={20} /> Docs
@@ -29,11 +29,11 @@ export default component$(() => {
         href="https://luminescent.dev"
         class="lum-btn lum-bg-transparent"
       >
-        <div class="font-semibold flex items-center gap-1">
+        <div class="flex items-center gap-1 font-semibold">
           <LogoLuminescentFull width={100} class="mt-1" />
         </div>
       </a>
-      <div q:slot="end" class="hidden sm:flex gap-2">
+      <div q:slot="end" class="hidden gap-2 sm:flex">
         <SocialButtons />
       </div>
 
@@ -45,7 +45,7 @@ export default component$(() => {
         href="https://luminescent.dev"
         class="lum-btn lum-bg-transparent"
       >
-        <div class="font-semibold flex items-center gap-1">
+        <div class="flex items-center gap-1 font-semibold">
           <LogoLuminescentFull width={100} class="mt-1" />
         </div>
       </a>

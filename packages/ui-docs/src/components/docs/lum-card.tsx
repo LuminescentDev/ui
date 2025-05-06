@@ -18,7 +18,7 @@ export default component$(() => {
         <label for="card-class">class</label>
         <input
           id="card-class"
-          class="w-full lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md"
+          class="lum-input lum-pad-sm lum-bg-gray-800 hover:lum-bg-gray-700 w-full rounded-md text-sm"
           onInput$={(e, el) => (store.class = el.value)}
           value={store.class}
         />
@@ -53,7 +53,7 @@ export default component$(() => {
           }}
         >
           {store.blur && (
-            <div class="lum-card lum-bg-transparent absolute inset-0 w-full h-full z-10 backdrop-blur-xl transition opacity-0 hover:opacity-100">
+            <div class="lum-card lum-bg-transparent absolute inset-0 z-10 h-full w-full opacity-0 backdrop-blur-xl transition hover:opacity-100">
               <Header>Blur Content</Header>
             </div>
           )}
@@ -62,27 +62,27 @@ export default component$(() => {
               <div class="flex-1">
                 <h2
                   class={{
-                    'font-bold text-xl sm:text-2xl whitespace-nowrap text-white':
+                    'text-xl font-bold whitespace-nowrap text-white sm:text-2xl':
                       true,
                   }}
                 >
                   This is a card
                 </h2>
-                <h3 class="text-gray-400 text-sm">Hello Luminescent v2</h3>
+                <h3 class="text-sm text-gray-400">Hello Luminescent v2</h3>
               </div>
-              <div class="lum-loading w-5 h-5"></div>
+              <div class="lum-loading h-5 w-5"></div>
             </div>
           ) : (
             <div>
               <h2
                 class={{
-                  'font-bold text-xl sm:text-2xl whitespace-nowrap text-white':
+                  'text-xl font-bold whitespace-nowrap text-white sm:text-2xl':
                     true,
                 }}
               >
                 This is a card
               </h2>
-              <h3 class="text-gray-400 text-sm">Hello Luminescent v2</h3>
+              <h3 class="text-sm text-gray-400">Hello Luminescent v2</h3>
             </div>
           )}
           {store.blobs && (

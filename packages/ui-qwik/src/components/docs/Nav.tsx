@@ -33,7 +33,7 @@ export default component$(() => {
       <label for="nav-colorclass">colorClass</label>
       <input
         id="nav-colorclass"
-        class="w-full lum-input lum-pad-sm text-sm lum-bg-gray-800 hover:lum-bg-gray-700 rounded-md"
+        class="lum-input lum-pad-sm lum-bg-gray-800 hover:lum-bg-gray-700 w-full rounded-md text-sm"
         onInput$={(e, el) => (store.colorClass = el.value)}
         value={store.colorClass}
         placeholder="lum-bg-gray-900"
@@ -60,7 +60,7 @@ export default component$(() => {
             id="nav-dropdown"
             hover
             q:slot="end"
-            class={{ 'hidden sm:flex lum-bg-transparent': true }}
+            class={{ 'lum-bg-transparent hidden sm:flex': true }}
             display="Dropdown"
           >
             <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent'}>
@@ -82,7 +82,7 @@ export default component$(() => {
           </button>
           <h3
             q:slot="mobile"
-            class="mx-4 py-2 text-gray-400 border-b border-gray-700"
+            class="mx-4 border-b border-gray-700 py-2 text-gray-400"
           >
             Dropdown
           </h3>
