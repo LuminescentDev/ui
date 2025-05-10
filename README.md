@@ -21,9 +21,9 @@ Once finished, you can use the classes included, shown in the documentation.
 pnpm install @luminescent/ui-qwik
 ```
 
-Once installed, you can use the components included in the library, shown in the documentation.
+Once installed, include the following to your tailwind css file after the previous imports
 
-If you want to use the Blobs component however, include the following to your tailwind css file after the previous imports
 ```css
 @config "@luminescent/ui-qwik/config";
+@source "../node_modules/@luminescent/ui-qwik";
 ```

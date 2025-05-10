@@ -1,5 +1,3 @@
-@source "../node_modules/@luminescent/ui-qwik";
-
 @theme {
   --color-luminescent-50: oklch(97.1% 0.014 379.198);
   --color-luminescent-100: oklch(94.8% 0.028 306.258);

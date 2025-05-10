@@ -5,6 +5,7 @@
 @plugin '@luminescent/ui';
 
 @config '@luminescent/ui-qwik/config';
+@source "../node_modules/@luminescent/ui-qwik";
 
 @theme {
   --font-display: 'Satoshi', 'sans-serif';
