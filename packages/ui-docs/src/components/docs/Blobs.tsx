@@ -1,7 +1,7 @@
 import { component$, useStore } from '@builder.io/qwik';
 import {
+  Anchor,
   Blobs,
-  Header,
   Dropdown,
   blobColorClasses,
 } from '@luminescent/ui-qwik';
@@ -15,9 +15,11 @@ export default component$(() => {
   const store = useStore<blobsOptions>({});
   return (
     <div class="lum-card">
-      <Header id="blobs" anchor>
-        Blobs
-      </Header>
+      <Anchor id="blobs">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Blobs
+        </h2>
+      </Anchor>
       <Dropdown
         id="blobs-color"
         onChange$={(e, element) =>

@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Header, Nav, DropdownRaw, Toggle } from '@luminescent/ui-qwik';
+import { Anchor, Nav, DropdownRaw, Toggle } from '@luminescent/ui-qwik';
 
 interface navOptions {
   fixed?: boolean;
@@ -12,9 +12,11 @@ export default component$(() => {
   const store = useStore<navOptions>({});
   return (
     <div class="lum-card">
-      <Header id="nav" anchor>
-        Nav
-      </Header>
+      <Anchor id="nav">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Nav
+        </h2>
+      </Anchor>
       <Toggle
         id="nav-fixed"
         onChange$={(e, element) => (store.fixed = element.checked)}

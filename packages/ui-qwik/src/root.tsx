@@ -15,7 +15,6 @@ import Toggle from '~/components/docs/Toggle';
 import IconsLogos from '~/components/docs/IconsLogos';
 
 import './global.css';
-import { Header } from './components/elements';
 
 export default component$(() => {
   return (
@@ -26,13 +25,17 @@ export default component$(() => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body class="mx-auto flex max-w-6xl flex-col gap-4 bg-gray-950 px-4 py-24">
-        <Header>Luminescent UI Tailwind Components</Header>
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Luminescent UI Tailwind Components
+        </h2>
         <LumClasses />
         <LumBtn />
         <LumCard />
         <LumInput />
 
-        <Header>Luminescent UI Qwik Components</Header>
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Luminescent UI Qwik Components
+        </h2>
         <Anchor />
         <Blobs />
         <ColorPicker />

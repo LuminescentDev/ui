@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Header, Dropdown, Toggle } from '../../index';
+import { Dropdown, Toggle, Anchor } from '../../index';
 
 interface DropdownOptions {
   display?: string;
@@ -10,9 +10,11 @@ export default component$(() => {
   const store = useStore<DropdownOptions>({});
   return (
     <div class="lum-card">
-      <Header id="dropdown" anchor>
-        Dropdown
-      </Header>
+      <Anchor id="dropdown">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Dropdown
+        </h2>
+      </Anchor>
       <label for="dropdown-display">display</label>
       <input
         id="dropdown-display"

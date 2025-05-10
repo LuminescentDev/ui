@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Header } from '../../index';
+import { Anchor } from '../../index';
 
 export default component$(() => {
   const store = useStore({
@@ -7,9 +7,11 @@ export default component$(() => {
   });
   return (
     <div class="lum-card">
-      <Header id="button" anchor>
-        Button
-      </Header>
+      <Anchor id="button">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Button
+        </h2>
+      </Anchor>
       <div>
         <label for="button-class">class</label>
         <input

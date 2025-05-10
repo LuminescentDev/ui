@@ -1,12 +1,14 @@
 import { component$ } from '@builder.io/qwik';
-import { Header } from '../../index';
+import { Anchor } from '../../index';
 
 export default component$(() => {
   return (
     <div class="lum-card">
-      <Header id="classes" anchor>
-        Classes
-      </Header>
+      <Anchor id="classes">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Classes
+        </h2>
+      </Anchor>
       <p>Background Classes</p>
       <p class="lum-input whitespace-pre-wrap">
         lum-bg-{'<color>/[opacity]'}

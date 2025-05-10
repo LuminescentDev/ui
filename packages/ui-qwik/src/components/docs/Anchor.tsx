@@ -1,15 +1,24 @@
 import { component$ } from '@builder.io/qwik';
-import { Header } from '../../index';
+import { Anchor } from '../../index';
 
 export default component$(() => {
   return (
     <div class="lum-card">
-      <Header id="anchor">Anchor</Header>
-      <div class="flex">
-        <a href="#anchor" class={'lum-btn'}>
-          Scroll to anchor
-        </a>
-      </div>
+      <Anchor id="anchor">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Anchor
+        </h2>
+        <h3 class="text-sm text-gray-400">The element is in the title</h3>
+      </Anchor>
+      <textarea
+        class="lum-input h-32"
+        value={`
+<Anchor id="anchor">
+  <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+    Anchor
+  </h2>
+</Anchor>`}
+      />
       <textarea class="lum-input h-32" value={'<Anchor id="anchor"/>'} />
     </div>
   );

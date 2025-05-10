@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Header, NumberInput, Toggle } from '../../index';
+import { Anchor, NumberInput, Toggle } from '../../index';
 
 interface numberInputOptions {
   input?: boolean;
@@ -9,9 +9,11 @@ export default component$(() => {
   const store = useStore<numberInputOptions>({});
   return (
     <div class="lum-card">
-      <Header id="numberinput" anchor>
-        NumberInput
-      </Header>
+      <Anchor id="numberinput">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          NumberInput
+        </h2>
+      </Anchor>
       <Toggle
         id="numberinput-input"
         onChange$={(e, element) => (store.input = element.checked)}

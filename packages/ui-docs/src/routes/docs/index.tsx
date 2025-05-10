@@ -1,6 +1,5 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { Header } from '@luminescent/ui-qwik';
 import Readme from '../../../../../README.md';
 
 import Anchor from '~/components/docs/Anchor';
@@ -23,20 +22,26 @@ export default component$(() => {
         Luminescent UI Documentation
       </h1>
 
-      <Header>Get Started</Header>
+      <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        Get Started
+      </h2>
       <div class="lum-card">
         <div class="flex flex-col gap-4 text-sm [&>pre]:rounded-lg [&>pre]:border [&>pre]:border-gray-800 [&>pre]:bg-gray-950/40 [&>pre]:p-4 [&>pre]:text-gray-400">
           <Readme />
         </div>
       </div>
 
-      <Header>Luminescent UI Tailwind Components</Header>
+      <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        Luminescent UI Tailwind Components
+      </h2>
       <LumClasses />
       <LumBtn />
       <LumCard />
       <LumInput />
 
-      <Header>Luminescent UI Qwik Components</Header>
+      <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        Luminescent UI Qwik Components
+      </h2>
       <Anchor />
       <Blobs />
       <ColorPicker />

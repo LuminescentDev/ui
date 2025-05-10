@@ -1,18 +1,25 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Blobs, Header, Dropdown, blobColorClasses } from '../../index';
+import {
+  Anchor,
+  Blobs,
+  Dropdown,
+  blobColorClasses,
+} from '../../index';
 
 interface blobsOptions {
   color?: keyof typeof blobColorClasses;
-  blur?: 'xs' |  'sm' | 'md' | 'lg' | 'xl';
+  blur?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export default component$(() => {
   const store = useStore<blobsOptions>({});
   return (
     <div class="lum-card">
-      <Header id="blobs" anchor>
-        Blobs
-      </Header>
+      <Anchor id="blobs">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Blobs
+        </h2>
+      </Anchor>
       <Dropdown
         id="blobs-color"
         onChange$={(e, element) =>
@@ -29,9 +36,9 @@ export default component$(() => {
       <Dropdown
         id="blobs-blur"
         onChange$={(e, element) =>
-          (store.blur = element.value as 'xs' | 'sm' | 'md' | 'lg' | 'xl')
+          (store.blur = element.value as 'sm' | 'md' | 'lg' | 'xl')
         }
-        values={['xs', 'sm', 'md', 'lg', 'xl'].map((size) => ({
+        values={['sm', 'md', 'lg', 'xl'].map((size) => ({
           name: size,
           value: size,
         }))}

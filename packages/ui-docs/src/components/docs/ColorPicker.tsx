@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Header, Dropdown, Toggle, ColorPicker } from '@luminescent/ui-qwik';
+import { Anchor, Dropdown, Toggle, ColorPicker } from '@luminescent/ui-qwik';
 
 interface colorPickerOptions {
   preview?: 'left' | 'right' | 'top' | 'bottom' | 'full';
@@ -11,9 +11,11 @@ export default component$(() => {
   const store = useStore<colorPickerOptions>({});
   return (
     <div class="lum-card">
-      <Header id="colorpicker" anchor>
-        ColorPicker
-      </Header>
+      <Anchor id="colorpicker">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          ColorPicker
+        </h2>
+      </Anchor>
       <Dropdown
         id="colorpicker-preview"
         onChange$={(e, element) =>

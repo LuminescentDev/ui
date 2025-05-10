@@ -1,10 +1,10 @@
 import { component$, useStore } from '@builder.io/qwik';
 import {
+  Anchor,
   Dropdown,
-  Header,
   Toggle,
-  toggleOffColorClasses,
   toggleOnColorClasses,
+  toggleOffColorClasses,
 } from '../../index';
 
 interface toggleOptions {
@@ -19,9 +19,11 @@ export default component$(() => {
   const store = useStore<toggleOptions>({});
   return (
     <div class="lum-card">
-      <Header id="toggle" anchor>
-        Toggle
-      </Header>
+      <Anchor id="toggle">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Toggle
+        </h2>
+      </Anchor>
       <Dropdown
         id="toggle-oncolor"
         onChange$={(e, element) =>

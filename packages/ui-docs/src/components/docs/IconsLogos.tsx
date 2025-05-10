@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import {
-  Header,
+  Anchor,
   LogoBirdflop,
   LogoDiscord,
   LogoFabric,
@@ -17,9 +17,11 @@ import {
 export default component$(() => {
   return (
     <div class="lum-card">
-      <Header id="icons" anchor>
-        Icons/Logos
-      </Header>
+      <Anchor id="icons">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Icons/Logos
+        </h2>
+      </Anchor>
       <div class="lum-card">
         <div class="flex flex-wrap justify-evenly gap-10">
           <LogoBirdflop width={40} />

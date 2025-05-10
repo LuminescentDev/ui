@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Blobs, Header, Toggle } from '@luminescent/ui-qwik';
+import { Anchor, Blobs, Toggle } from '@luminescent/ui-qwik';
 
 export default component$(() => {
   const store = useStore({
@@ -11,9 +11,11 @@ export default component$(() => {
 
   return (
     <div class="lum-card">
-      <Header id="card" anchor>
-        Card
-      </Header>
+      <Anchor id="card">
+        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+          Card
+        </h2>
+      </Anchor>
       <div>
         <label for="card-class">class</label>
         <input
@@ -53,18 +55,15 @@ export default component$(() => {
         >
           {store.blur && (
             <div class="lum-card lum-bg-transparent absolute inset-0 z-10 h-full w-full opacity-0 backdrop-blur-xl transition hover:opacity-100">
-              <Header>Blur Content</Header>
+              <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+                Blur Content
+              </h2>
             </div>
           )}
           {store.loading ? (
             <div class="flex">
               <div class="flex-1">
-                <h2
-                  class={{
-                    'text-xl font-bold whitespace-nowrap text-white sm:text-2xl':
-                      true,
-                  }}
-                >
+                <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
                   This is a card
                 </h2>
                 <h3 class="text-sm text-gray-400">This is a description</h3>
@@ -73,12 +72,7 @@ export default component$(() => {
             </div>
           ) : (
             <div>
-              <h2
-                class={{
-                  'text-xl font-bold whitespace-nowrap text-white sm:text-2xl':
-                    true,
-                }}
-              >
+              <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
                 This is a card
               </h2>
               <h3 class="text-sm text-gray-400">This is a description</h3>
@@ -103,9 +97,9 @@ export default component$(() => {
     store.blur
       ? `
   <div class="lum-card lum-bg-transparent absolute inset-0 w-full h-full z-10 backdrop-blur-xl transition opacity-0 hover:opacity-100">
-    <Header>
+    <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
       Blur Content
-    </Header>
+    </h2>
   </div>
   `
       : ''
