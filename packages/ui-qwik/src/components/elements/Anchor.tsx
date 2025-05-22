@@ -10,13 +10,12 @@ interface AnchorProps extends Omit<PropsOf<'div'>, 'class'> {
 export const Anchor = component$<AnchorProps>(({ id, ...props }) => (
   <div {...props}
     class={{
-      'group flex items-center gap-2':
+      'group flex items-center gap-2 scroll-mt-32':
         true,
       ...props.class,
     }}
   >
     <Slot />
-    {id && <span id={id} class="pointer-events-none -mt-32 block h-32" />}
     {id && (
       <a
         href={`#${id}`}
