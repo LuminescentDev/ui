@@ -7,14 +7,15 @@ interface LogoBirdflopProps extends IconProps {
 }
 
 export const LogoBirdflop = component$<LogoBirdflopProps>(
-  ({ confused, fillGradient, ...props }) => {
+  ({ confused, fillGradient, size, ...props }) => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 1080 1080"
+        width={size}
+        height={size}
         {...props}
-        height={props.width}
       >
         <defs>
           {fillGradient && (

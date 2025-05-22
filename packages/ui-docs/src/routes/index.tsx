@@ -13,8 +13,8 @@ export default component$(() => {
             class="flex items-center gap-2 fill-[#f0ccfb] font-semibold text-[#f0ccfb] select-none sm:gap-5"
             style="filter: drop-shadow(0 0 3rem #CB6CE6);"
           >
-            <LogoLuminescentFull width={400} class="mt-2 hidden sm:flex" />
-            <LogoLuminescentFull width={200} class="mt-1 flex sm:hidden" /> / ui
+            <LogoLuminescentFull size={400} class="mt-2 hidden sm:flex" />
+            <LogoLuminescentFull size={200} class="mt-1 flex sm:hidden" /> / ui
           </div>
         </h1>
         <h2 class="animate-in fade-in slide-in-from-top-16 anim-duration-1000 my-6 text-lg text-gray-300 sm:text-2xl">
@@ -32,7 +32,7 @@ export default component$(() => {
             href="/discord"
             class="lum-btn lum-bg-transparent hover:lum-bg-indigo-800/60 p-2"
           >
-            <LogoDiscord width={30} />
+            <LogoDiscord size={30} />
           </a>
         </div>
         <Link

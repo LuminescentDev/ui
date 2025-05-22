@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import type { IconProps } from './IconProps';
 
-export const LogoFabric = component$<IconProps>((props) => {
+export const LogoFabric = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,8 +11,9 @@ export const LogoFabric = component$<IconProps>((props) => {
       stroke-linejoin="round"
       clip-rule="evenodd"
       viewBox="0 0 24 24"
+      width={size}
+      height={size}
       {...props}
-      height={props.width}
     >
       <path fill="none" d="M0 0h24v24H0z" />
       <path

@@ -24,17 +24,17 @@ export default component$(() => {
       </Anchor>
       <div class="lum-card">
         <div class="flex flex-wrap justify-evenly gap-10">
-          <LogoBirdflop width={40} />
-          <LogoDiscord width={40} />
-          <LogoFabric width={40} />
-          <LogoForge width={40} />
-          <LogoLuminescent width={40} />
-          <LogoLuminescentFull width={40} />
-          <LogoPaper width={40} />
-          <LogoPterodactyl width={40} />
-          <LogoPurpur width={40} />
-          <LogoVelocity width={40} />
-          <LogoWaterfall width={40} />
+          <LogoBirdflop size={40} />
+          <LogoDiscord size={40} />
+          <LogoFabric size={40} />
+          <LogoForge size={40} />
+          <LogoLuminescent size={40} />
+          <LogoLuminescentFull size={40} />
+          <LogoPaper size={40} />
+          <LogoPterodactyl size={40} />
+          <LogoPurpur size={40} />
+          <LogoVelocity size={40} />
+          <LogoWaterfall size={40} />
         </div>
       </div>
     </div>

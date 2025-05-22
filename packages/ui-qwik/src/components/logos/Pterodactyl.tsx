@@ -1,15 +1,16 @@
 import { component$ } from '@builder.io/qwik';
 import type { IconProps } from './IconProps';
 
-export const LogoPterodactyl = component$<IconProps>((props) => {
+export const LogoPterodactyl = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 180 180"
       preserveAspectRatio="xMidYMid meet"
+      width={size}
+      height={size}
       {...props}
-      height={props.width}
     >
       <g
         transform="translate(0,180) scale(0.100000,-0.100000)"

@@ -2,7 +2,7 @@ import { component$, useStore } from '@builder.io/qwik';
 import {
   Anchor,
   Blobs,
-  Dropdown,
+  SelectMenu,
   blobColorClasses,
 } from '../../index';
 
@@ -20,7 +20,7 @@ export default component$(() => {
           Blobs
         </h2>
       </Anchor>
-      <Dropdown
+      <SelectMenu
         id="blobs-color"
         onChange$={(e, element) =>
           (store.color = element.value as keyof typeof blobColorClasses)
@@ -32,8 +32,8 @@ export default component$(() => {
         value="darkgray"
       >
         color
-      </Dropdown>
-      <Dropdown
+      </SelectMenu>
+      <SelectMenu
         id="blobs-blur"
         onChange$={(e, element) =>
           (store.blur = element.value as 'sm' | 'md' | 'lg' | 'xl')
@@ -45,7 +45,7 @@ export default component$(() => {
         value="xl"
       >
         blur
-      </Dropdown>
+      </SelectMenu>
       <div class="relative h-96 w-96 rounded-md border border-gray-800">
         <Blobs color={store.color} blur={store.blur} />
       </div>

@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import type { IconProps } from './IconProps';
 
-export const LogoForge = component$<IconProps>((props) => {
+export const LogoForge = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg
       xml:space="preserve"
@@ -11,8 +11,9 @@ export const LogoForge = component$<IconProps>((props) => {
       stroke-miterlimit="1.5"
       clip-rule="evenodd"
       viewBox="0 0 24 24"
+      width={size}
+      height={size}
       {...props}
-      height={props.width}
     >
       <path fill="none" d="M0 0h24v24H0z" />
       <path

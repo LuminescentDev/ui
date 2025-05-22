@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Anchor, Dropdown, Toggle, ColorPicker } from '../../index';
+import { Anchor, SelectMenu, Toggle, ColorPicker } from '../../index';
 
 interface colorPickerOptions {
   preview?: 'left' | 'right' | 'top' | 'bottom' | 'full';
@@ -16,7 +16,7 @@ export default component$(() => {
           ColorPicker
         </h2>
       </Anchor>
-      <Dropdown
+      <SelectMenu
         id="colorpicker-preview"
         onChange$={(e, element) =>
           (store.preview = element.value as
@@ -33,7 +33,7 @@ export default component$(() => {
         value="left"
       >
         preview
-      </Dropdown>
+      </SelectMenu>
       <Toggle
         id="colorpicker-horizontal"
         label="horizontal"

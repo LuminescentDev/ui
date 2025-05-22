@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import type { IconProps } from './IconProps';
 
-export const LogoPurpur = component$<IconProps>((props) => {
+export const LogoPurpur = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg
       xml:space="preserve"
@@ -11,8 +11,9 @@ export const LogoPurpur = component$<IconProps>((props) => {
       stroke-miterlimit="1.5"
       clip-rule="evenodd"
       viewBox="0 0 24 24"
+      width={size}
+      height={size}
       {...props}
-      height={props.width}
     >
       <defs>
         <path

@@ -11,6 +11,7 @@ import ColorPicker from '~/components/docs/ColorPicker';
 import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
 import Dropdown from '~/components/docs/Dropdown';
+import SelectMenu from './components/docs/SelectMenu';
 import Toggle from '~/components/docs/Toggle';
 import IconsLogos from '~/components/docs/IconsLogos';
 
@@ -24,7 +25,7 @@ export default component$(() => {
         <title>Luminescent UI</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body class="mx-auto flex max-w-6xl flex-col gap-4 bg-gray-950 px-4 py-24">
+      <body class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-24">
         <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Luminescent UI Tailwind Components
         </h2>
@@ -39,6 +40,7 @@ export default component$(() => {
         <Anchor />
         <Blobs />
         <ColorPicker />
+        <SelectMenu />
         <Dropdown />
         <Nav />
         <NumberInput />

@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 @plugin '@anuragroy/tailwindcss-animate';
 
-@import '@luminescent/ui/css';
-@plugin '@luminescent/ui';
+@import '@luminescent/ui';
+@plugin '@luminescent/ui/lum-bg';
 
 @config '@luminescent/ui-qwik/config';
 @source "../node_modules/@luminescent/ui-qwik";

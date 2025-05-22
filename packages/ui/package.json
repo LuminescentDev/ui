@@ -5,22 +5,19 @@
   "main": "./lib/index.js",
   "types": "./lib-types/index.d.ts",
   "exports": {
-    ".": {
+    ".": "./src/index.css",
+    "./formatting": "./src/formatting.css",
+    "./lum-bg": {
       "import": "./lib/index.js",
       "require": "./lib/index.js",
       "types": "./lib-types/index.d.ts"
-    },
-    "./components/*": {
-      "import": "./lib/components/*",
-      "require": "./lib/components/*",
-      "types": "./lib-types/components/*"
-    },
-    "./css": "./src/index.css"
+    }
   },
   "files": [
     "lib",
     "lib-types",
-    "src/index.css"
+    "src/index.css",
+    "src/formatting.css"
   ],
   "engines": {
     "node": ">=23.11.0",

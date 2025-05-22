@@ -1,7 +1,7 @@
 import { component$, useStore } from '@builder.io/qwik';
 import {
   Anchor,
-  Dropdown,
+  SelectMenu,
   Toggle,
   toggleOnColorClasses,
   toggleOffColorClasses,
@@ -24,7 +24,7 @@ export default component$(() => {
           Toggle
         </h2>
       </Anchor>
-      <Dropdown
+      <SelectMenu
         id="toggle-oncolor"
         onChange$={(e, element) =>
           (store.onColor = element.value as keyof typeof toggleOnColorClasses)
@@ -36,8 +36,8 @@ export default component$(() => {
         value="blue"
       >
         onColor
-      </Dropdown>
-      <Dropdown
+      </SelectMenu>
+      <SelectMenu
         id="toggle-offcolor"
         onChange$={(e, element) =>
           (store.offColor = element.value as keyof typeof toggleOffColorClasses)
@@ -49,7 +49,7 @@ export default component$(() => {
         value="darkgray"
       >
         offColor
-      </Dropdown>
+      </SelectMenu>
       <Toggle
         id="toggle-center"
         onChange$={(e, element) => (store.center = element.checked)}

@@ -1,5 +1,5 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Anchor, Nav, DropdownRaw, Toggle } from '@luminescent/ui-qwik';
+import { Anchor, Nav, SelectMenuRaw, Toggle } from '@luminescent/ui-qwik';
 
 interface navOptions {
   fixed?: boolean;
@@ -58,12 +58,11 @@ export default component$(() => {
             Center Button
           </button>
 
-          <DropdownRaw
+          <SelectMenuRaw
             id="nav-dropdown"
-            hover
+            hover customDropdown
             q:slot="end"
             class={{ 'lum-bg-transparent hidden sm:flex': true }}
-            display="Dropdown"
           >
             <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent'}>
               Option 1
@@ -74,7 +73,10 @@ export default component$(() => {
             <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent'}>
               Option 3
             </button>
-          </DropdownRaw>
+            <p q:slot="dropdown">
+              Dropdown
+            </p>
+          </SelectMenuRaw>
 
           <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
             button 1

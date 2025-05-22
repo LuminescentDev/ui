@@ -11,7 +11,7 @@ export default component$(() => {
           class="flex items-center gap-1 fill-[#f0ccfb] font-semibold text-[#f0ccfb]"
           style="filter: drop-shadow(0 0 1rem #CB6CE6);"
         >
-          <LogoLuminescentFull width={100} class="mt-1" />
+          <LogoLuminescentFull size={100} class="mt-1" />
         </div>
       </Link>
 
@@ -30,7 +30,7 @@ export default component$(() => {
         class="lum-btn lum-bg-transparent"
       >
         <div class="flex items-center gap-1 font-semibold">
-          <LogoLuminescentFull width={100} class="mt-1" />
+          <LogoLuminescentFull size={100} class="mt-1" />
         </div>
       </a>
       <div q:slot="end" class="hidden gap-2 sm:flex">
@@ -46,7 +46,7 @@ export default component$(() => {
         class="lum-btn lum-bg-transparent"
       >
         <div class="flex items-center gap-1 font-semibold">
-          <LogoLuminescentFull width={100} class="mt-1" />
+          <LogoLuminescentFull size={100} class="mt-1" />
         </div>
       </a>
       <div q:slot="mobile" class="flex justify-evenly">
@@ -67,7 +67,7 @@ export const SocialButtons = component$(() => {
         <Github size={20} />
       </a>
       <a href="/discord" title="Discord" class="lum-btn lum-bg-transparent p-2">
-        <LogoDiscord width="20" />
+        <LogoDiscord size={20} />
       </a>
     </>
   );

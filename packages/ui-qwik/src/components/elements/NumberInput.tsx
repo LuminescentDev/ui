@@ -79,7 +79,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
               : onDecrement$
           }
         >
-          <Minus width="24" class="fill-current" />
+          <Minus size={24} />
         </button>
         {input && (
           <input
@@ -111,7 +111,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
               : onIncrement$
           }
         >
-          <Plus width="24" class="fill-current" />
+          <Plus size={24} />
         </button>
       </div>
     );

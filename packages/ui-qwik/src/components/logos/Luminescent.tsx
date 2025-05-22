@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import type { IconProps } from './IconProps';
 
-export const LogoLuminescent = component$<IconProps>((props) => {
+export const LogoLuminescent = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,8 +11,9 @@ export const LogoLuminescent = component$<IconProps>((props) => {
       preserveAspectRatio="xMidYMid meet"
       version="1.0"
       fill="currentColor"
+      width={size}
+      height={size}
       {...props}
-      height={props.width}
     >
       <g fill-opacity="1">
         <g transform="translate(86.97656, 254.624983)">
@@ -23,7 +24,7 @@ export const LogoLuminescent = component$<IconProps>((props) => {
   );
 });
 
-export const LogoLuminescentFull = component$<IconProps>((props) => {
+export const LogoLuminescentFull = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +34,7 @@ export const LogoLuminescentFull = component$<IconProps>((props) => {
       preserveAspectRatio="xMidYMid meet"
       version="1.0"
       fill="currentColor"
+      height={size}
       {...props}
     >
       <g fill-opacity="1">
