@@ -1,3 +1,13 @@
+## 3.0.1 (2025-05-22)
+
+### 🚀 Features
+
+- update a bunch of stuff ([3e7ed79](https://github.com/LuminescentDev/ui/commit/3e7ed79))
+
+### ❤️ Thank You
+
+- saboooor
+
 # 3.0.0 (2025-05-22)
 
 ### 🚀 Features
