@@ -1,3 +1,7 @@
+## 3.0.3 (2025-05-26)
+
+This was a version bump only, there were no code changes.
+
 ## 3.0.2 (2025-05-26)
 
 fix for individual fill gradients and a bit of style changes for formatting
