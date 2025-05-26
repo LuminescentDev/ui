@@ -67,7 +67,7 @@ pre code {
 }
 
 code {
-  @apply bg-gray-800 py-0.5 px-1 rounded-md select-all border-b-2 border-b-gray-700 break-all sm:break-none;
+  @apply bg-gray-800 py-0.5 px-1 rounded-md select-all border-b-2 border-b-gray-700 break-all sm:break-normal;
 }
 
 table {
