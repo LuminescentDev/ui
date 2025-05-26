@@ -1,26 +1,67 @@
 ## 3.0.2 (2025-05-26)
 
-This was a version bump only, there were no code changes.
+fix for individual fill gradients and a bit of style changes for formatting
 
 ## 3.0.1 (2025-05-22)
 
-### 🚀 Features
+Renamed imports
 
-- update a bunch of stuff ([3e7ed79](https://github.com/LuminescentDev/ui/commit/3e7ed79))
+Migration Guide:
 
-### ❤️ Thank You
+```css
+@import '@luminescent/ui/css';
+@plugin '@luminescent/ui';
+```
 
-- saboooor
+```css
+@import '@luminescent/ui';
+@plugin '@luminescent/ui/lum-bg';
+```
 
-# 3.0.0 (2025-05-22)
+New formatting import that applies default formatting to various elements
 
-### 🚀 Features
+```css
+@import 'luminescent/ui/formatting'
+```
 
-- update a bunch of stuff ([3e7ed79](https://github.com/LuminescentDev/ui/commit/3e7ed79))
+All icon size properties have been renamed from 'width' to 'size'
 
-### ❤️ Thank You
+Migration Guide:
 
-- saboooor
+```html
+<LogoLuminescent width={20}>
+```
+
+```html
+<LogoLuminescent size={20}>
+```
+
+Dropdown has been renamed to SelectMenu, display property has been moved to a slot. It's recommended to also use the slot if you need a fallback value to show as a display
+
+Migration Guide
+
+```html
+<Dropdown display={<p>Dropdown uwu<p>}>
+  Dropdown
+  <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent">
+    Option 4 (not an actual value)
+  </button>
+</Dropdown>
+```
+
+```html
+<SelectMenu customDropdown>
+  Select Menu
+  <p q:slot="dropdown">
+    Select Menu uwu
+  <p>
+  <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent">
+    Option 4 (not an actual value)
+  </button>
+</SelectMenu>
+```
+
+Icons have been updated to use lucide icons
 
 ## 2.1.0 (2025-05-10)
 
