@@ -26,7 +26,9 @@ export default component$(() => {
       </div>
       <div class="lum-card">
         <div>
-          <button class={store.class}>Button</button>
+          <button class={store.class}>
+            Button
+          </button>
         </div>
       </div>
       <textarea

@@ -98,7 +98,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
           >
             {values?.map(({ name, value }, i) => {
               return (
-                <button
+                <button type="button"
                   class={{
                     'lum-btn lum-bg-transparent': true,
                   }}

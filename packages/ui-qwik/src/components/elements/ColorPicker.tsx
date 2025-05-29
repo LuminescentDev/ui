@@ -266,7 +266,7 @@ export const ColorPicker = component$<ColorPickerProps>(
           )}
           {colors.map((color, i) => {
             return (
-              <button
+              <button type="button"
                 key={i}
                 class={{
                   'lum-btn h-[1.6rem] w-[1.6rem] border-2 border-white/30 p-0 hover:border-white':
@@ -282,7 +282,7 @@ export const ColorPicker = component$<ColorPickerProps>(
               ></button>
             );
           })}
-          <button
+          <button type="button"
             class="lum-btn h-[1.6rem] w-[1.6rem] p-0.5"
             onClick$={async () => {
               const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;

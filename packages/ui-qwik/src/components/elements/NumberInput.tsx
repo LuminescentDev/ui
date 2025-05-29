@@ -61,7 +61,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
           'flex touch-manipulation gap-2 text-gray-50': true,
         }}
       >
-        <button
+        <button type="button"
           class={{
             'lum-btn p-2': true,
           }}
@@ -93,7 +93,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
             }}
           />
         )}
-        <button
+        <button type="button"
           class={{
             'lum-btn p-2': true,
           }}

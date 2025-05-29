@@ -10,7 +10,7 @@ interface DropdownProps extends Omit<PropsOf<'button'>, 'class'> {
 
 export const Dropdown = component$<DropdownProps>(({ class: Class, hover, opened, ...props }) => {
   return (
-    <button
+    <button type="button"
       class={{
         'lum-btn': true,
         ...Class,
