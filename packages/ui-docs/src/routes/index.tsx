@@ -13,8 +13,8 @@ export default component$(() => {
             class="flex items-center gap-2 fill-[#f0ccfb] font-semibold text-[#f0ccfb] select-none sm:gap-5"
             style="filter: drop-shadow(0 0 3rem #CB6CE6);"
           >
-            <LogoLuminescentFull size={400} class="mt-2 hidden sm:flex" />
-            <LogoLuminescentFull size={200} class="mt-1 flex sm:hidden" /> / ui
+            <LogoLuminescentFull size={70} class="mt-2 hidden sm:flex" />
+            <LogoLuminescentFull size={45} class="mt-1 flex sm:hidden" /> / ui
           </div>
         </h1>
         <h2 class="animate-in fade-in slide-in-from-top-16 anim-duration-1000 my-6 text-lg text-gray-300 sm:text-2xl">

@@ -30,7 +30,7 @@ export default component$(() => {
         class="lum-btn lum-bg-transparent"
       >
         <div class="flex items-center gap-1 font-semibold">
-          <LogoLuminescentFull size={100} class="mt-1" />
+          <LogoLuminescentFull size={20} class="mt-1" />
         </div>
       </a>
       <div q:slot="end" class="hidden gap-2 sm:flex">
