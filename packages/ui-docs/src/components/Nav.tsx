@@ -11,7 +11,7 @@ export default component$(() => {
           class="flex items-center gap-1 fill-[#f0ccfb] font-semibold text-[#f0ccfb]"
           style="filter: drop-shadow(0 0 1rem #CB6CE6);"
         >
-          <LogoLuminescentFull size={100} class="mt-1" />
+          <LogoLuminescentFull size={20} class="mt-1" />
         </div>
       </Link>
 
@@ -46,7 +46,7 @@ export default component$(() => {
         class="lum-btn lum-bg-transparent"
       >
         <div class="flex items-center gap-1 font-semibold">
-          <LogoLuminescentFull size={100} class="mt-1" />
+          <LogoLuminescentFull size={20} class="mt-1" />
         </div>
       </a>
       <div q:slot="mobile" class="flex justify-evenly">
