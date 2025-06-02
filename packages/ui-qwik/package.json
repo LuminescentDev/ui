@@ -24,7 +24,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.11.1",
   "license": "AGPL-3.0-or-later",
   "private": false,
   "type": "module",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@anuragroy/tailwindcss-animate": "^1.0.6",
-    "@builder.io/qwik": "1.13.0",
+    "@builder.io/qwik": "1.14.1",
     "@builder.io/qwik-city": "^1.13.0",
     "@eslint/js": "^9.26.0",
     "@tailwindcss/vite": "^4.1.5",
@@ -62,7 +62,7 @@
     "tailwindcss": "4.1.5",
     "typescript": "5.8.3",
     "typescript-eslint": "^8.31.1",
-    "vite": "5.4.14",
+    "vite": "5.4.19",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "peerDependencies": {
