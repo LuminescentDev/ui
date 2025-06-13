@@ -1,9 +1,10 @@
 import { component$, useStore } from '@builder.io/qwik';
-import { Anchor, Blobs, Toggle } from '@luminescent/ui-qwik';
+import { Anchor, Blobs, Toggle, Hoverable } from '@luminescent/ui-qwik';
 
 export default component$(() => {
   const store = useStore({
-    class: 'lum-card',
+    class: 'lum-card lum-hoverable max-w-md',
+    hoverable: false,
     blur: false,
     blobs: false,
     loading: false,
@@ -30,18 +31,33 @@ export default component$(() => {
       </div>
       <Toggle
         id="card-blur"
-        onChange$={(e, element) => (store.blur = element.checked)}
+        onChange$={(e, element) => {
+          store.blur = element.checked;
+          if (element.checked) store.hoverable = false;
+        }}
         label="blur"
+        checked={store.blur}
       />
       <Toggle
         id="card-blobs"
         onChange$={(e, element) => (store.blobs = element.checked)}
         label="blobs"
+        checked={store.blobs}
       />
       <Toggle
         id="card-loading"
         onChange$={(e, element) => (store.loading = element.checked)}
         label="loading"
+        checked={store.loading}
+      />
+      <Toggle
+        id="card-hoverable"
+        onChange$={(e, element) => {
+          store.hoverable = element.checked;
+          if (element.checked) store.blur = false;
+        }}
+        label="hoverable (qwik only)"
+        checked={store.hoverable}
       />
       <div class="lum-card">
         <div
@@ -49,9 +65,8 @@ export default component$(() => {
             [store.class]: true,
             relative: true,
           }}
-          style={{
-            transformStyle: 'preserve-3d',
-          }}
+          onMouseMove$={(e, el) => (store.hoverable ? Hoverable.onMouseMove$(e, el) : null)}
+          onMouseLeave$={(e, el) => (store.hoverable ? Hoverable.onMouseLeave$(e, el) : null)}
         >
           {store.blur && (
             <div class="lum-card lum-bg-transparent absolute inset-0 z-10 h-full w-full opacity-0 backdrop-blur-xl transition hover:opacity-100">
@@ -92,7 +107,15 @@ export default component$(() => {
       <textarea
         class="lum-input h-32"
         value={`
-<div class="${store.blur || store.blobs ? 'relative ' : ''}${store.class}" ${store.blobs ? 'style={{ transformStyle: "preserve-3d" }}' : ''}>
+${store.hoverable ? `
+import { Hoverable } from '@luminescent/ui-qwik'
+` : ''}
+<div class="${store.blur || store.blobs ? 'relative ' : ''}${store.class}"
+${store.hoverable ? `
+  onMouseMove$={(e, el) => Hoverable.onMouseMove$(e, el)}
+  onMouseLeave$={(e, el) => Hoverable.onMouseLeave$(e, el)}
+` : ''}
+>
   ${
     store.blur
       ? `
