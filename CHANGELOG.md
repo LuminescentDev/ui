@@ -1,3 +1,7 @@
+## 4.0.0-0 (2025-06-13)
+
+This was a version bump only, there were no code changes.
+
 ## 4.0.0 (2025-06-12)
 
 Added some variables that you can change on your global.css file to change the default values
