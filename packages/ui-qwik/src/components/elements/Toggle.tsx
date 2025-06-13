@@ -339,7 +339,7 @@ export const Toggle = component$<ToggleProps>(
                 true,
               'after:absolute after:top-[4px] after:left-[4px] after:h-5 after:w-5 after:border after:duration-300 after:ease-out after:content-[\'\'] after:hover:duration-75 after:motion-safe:transition-all':
                 true,
-              'rounded-md after:rounded-[0.2rem]': !round,
+              'rounded-lum after:rounded-lum-1': !round,
               'rounded-full after:rounded-full': round,
               'w-12 peer-checked:after:translate-x-full': !checkbox,
               'w-7 after:opacity-0 peer-checked:after:opacity-100': checkbox,

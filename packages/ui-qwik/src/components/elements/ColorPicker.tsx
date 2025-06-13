@@ -149,9 +149,7 @@ export const ColorPicker = component$<ColorPickerProps>(
     return (
       <div
         class={{
-          'lum-bg-gray-900 flex touch-none gap-4 rounded-lg p-4 motion-safe:transition-all':
-            true,
-          flex: true,
+          'lum-card touch-none p-4 motion-safe:transition-all': true,
           'flex-col': !horizontal,
           ...props.class,
         }}
@@ -172,10 +170,10 @@ export const ColorPicker = component$<ColorPickerProps>(
             preventdefault:mousedown
             preventdefault:touchstart
           >
-            <div class="h-[150px] w-[125px] rounded-[0.3rem] border border-gray-700 bg-gradient-to-b from-transparent to-black" />
+            <div class="h-[150px] w-[125px] rounded-md border border-gray-700 bg-gradient-to-b from-transparent to-black" />
             <div
               class={{
-                'absolute -top-2 -left-2 h-4 w-4 rounded-full border bg-white':
+                'absolute -top-2 -left-2 h-4 w-4 rounded-md border bg-white':
                   true,
                 'border-white':
                   getBrightness(
@@ -204,7 +202,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             preventdefault:touchstart
           >
             <div
-              class="absolute -bottom-2 -left-[5px] h-4 w-4 rounded-full border border-white bg-[#ff0000]"
+              class="absolute -bottom-2 -left-[5px] h-4 w-4 rounded-md border border-white bg-[#ff0000]"
               style={{
                 transform: `translateY(${-store.hue.position}px)`,
                 background: store.hue.color,
@@ -226,12 +224,12 @@ export const ColorPicker = component$<ColorPickerProps>(
               {preview != 'full' && (
                 <div
                   class={{
-                    'border border-gray-700': true,
-                    'aspect-square h-full rounded-md':
+                    'border border-gray-700 rounded-sm': true,
+                    'aspect-square h-full':
                       preview == 'left' || preview == 'right',
                     'h-3 w-full': preview == 'top' || preview == 'bottom',
-                    'rounded-t-md': preview == 'top',
-                    'rounded-b-md': preview == 'bottom',
+                    'rounded-b-none': preview == 'top',
+                    'rounded-t-none': preview == 'bottom',
                   }}
                   style={{
                     backgroundColor: `${store.value}`,
@@ -240,7 +238,7 @@ export const ColorPicker = component$<ColorPickerProps>(
               )}
               <input
                 class={{
-                  'lum-input w-full p-1 text-xs': true,
+                  'lum-input w-full p-1 text-xs rounded-sm': true,
                   'rounded-t-none border-t-0': preview == 'top',
                   'rounded-b-none border-b-0': preview == 'bottom',
                 }}
@@ -269,7 +267,7 @@ export const ColorPicker = component$<ColorPickerProps>(
               <button type="button"
                 key={i}
                 class={{
-                  'lum-btn h-[1.6rem] w-[1.6rem] border-2 border-white/30 p-0 hover:border-white':
+                  'lum-btn rounded-sm h-[1.6rem] w-[1.6rem] border-2 border-white/30 p-0 hover:border-white':
                     true,
                 }}
                 style={{
@@ -283,7 +281,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             );
           })}
           <button type="button"
-            class="lum-btn h-[1.6rem] w-[1.6rem] p-0.5"
+            class="lum-btn rounded-sm h-[1.6rem] w-[1.6rem] p-0.5"
             onClick$={async () => {
               const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
               await setColor(color);

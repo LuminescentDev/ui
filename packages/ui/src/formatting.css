@@ -7,7 +7,7 @@ a.lum-btn, a.lum-card {
 }
 
 blockquote {
-  @apply bg-gray-800 border-l-6 border-l-blue-400 rounded-md px-6 py-8 my-4 border border-gray-700;
+  @apply bg-gray-800 border-l-6 border-l-blue-400 rounded-lum px-6 py-8 my-4 border border-gray-700;
 }
 
 blockquote p:first-child {
@@ -55,7 +55,7 @@ li {
 }
 
 pre {
-  @apply rounded-md overflow-auto p-4 bg-gray-800 my-2;
+  @apply rounded-lum overflow-auto p-4 bg-gray-800 my-2;
 }
 
 pre.shiki {
@@ -67,7 +67,7 @@ pre code {
 }
 
 code {
-  @apply bg-gray-800 py-0.5 px-1 rounded-md select-all border-b-2 border-b-gray-700 break-all sm:break-normal;
+  @apply bg-gray-800 py-0.5 px-1 rounded-lum select-all border-b-2 border-b-gray-700 break-all sm:break-normal;
 }
 
 table {
@@ -87,7 +87,7 @@ th:last-child, td:last-child {
 }
 
 img {
-  @apply rounded-md overflow-hidden;
+  @apply rounded-lum overflow-hidden;
 }
 
 hr {

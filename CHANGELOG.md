@@ -1,3 +1,43 @@
+## 4.0.0 (2025-06-12)
+
+Added some variables that you can change on your global.css file to change the default values
+
+```css
+@theme {
+  --lum-border-radius: var(--radius-md);
+  --lum-btn-p-x: 2;
+  --lum-input-p-x: 1.5;
+}
+```
+
+You can use the rounded-lum utility to apply the default border radius to any element.
+
+In addition, you can also nest rounded border radius classes by appending the amount of padding to the class name, such as `rounded-lum-2` for an element that has the `p-2` class.
+
+
+Added border-gradient- utility class to apply a gradient border to an element.
+
+Example:
+
+```html
+<div class="border-gradient-1 before:from-blue-500 before:to-purple-500">
+  This is a div with a gradient border
+</div>
+<div class="border-gradient-2 before:bg-gradient-to-r before:from-blue-500 before:to-purple-500">
+  This is a div with a gradient that goes from left to right
+</div>
+```
+
+Added mouse-tracking card that follows the mouse cursor around the screen. qwik only for now.
+```jsx
+import { Hoverable } from '@luminescent/ui-qwik';
+<div class="lum-card lum-hoverable" onMouseMove$={(e, el) => Hoverable.onMouseMove$(e, el)} onMouseLeave$={(e, el) => Hoverable.onMouseLeave$(e, el)}>
+  This card follows the mouse cursor around the screen
+</div>
+```
+
+Added a 'lum-hoverable' class that applies a pop out effect on hover to any element.
+
 ## 3.0.4 (2025-05-29)
 
 This was a version bump only, there were no code changes.

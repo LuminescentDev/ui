@@ -10,7 +10,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="lum-card">
+    <div class="lum-card border-gradient-1 before:from-red-500 before:to-blue-500">
       <Anchor id="card">
         <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Card
@@ -81,7 +81,7 @@ export default component$(() => {
           {store.blobs && (
             <Blobs
               color="gray"
-              class={{ 'absolute overflow-clip rounded-lg': true }}
+              class={{ 'absolute overflow-clip rounded-lum': true }}
               style={{
                 transform: 'translateZ(-10px)',
               }}
@@ -137,7 +137,7 @@ export default component$(() => {
   ${
     store.blobs
       ? `
-    <Blobs color='gray' class={{ 'absolute overflow-clip rounded-lg': true }} style={{
+    <Blobs color='gray' class={{ 'absolute overflow-clip rounded-lum': true }} style={{
       transform: 'translateZ(-10px)',
     }}/>
   `

@@ -46,13 +46,13 @@ export default component$(() => {
       >
         blur
       </SelectMenu>
-      <div class="relative h-96 w-96 rounded-md border border-gray-800">
+      <div class="relative h-96 w-96 rounded-lum border border-gray-800">
         <Blobs color={store.color} blur={store.blur} />
       </div>
       <textarea
         class="lum-input h-32"
         value={`
-<div class="relative h-96 w-96 border border-gray-800 rounded-md">
+<div class="relative h-96 w-96 border border-gray-800 rounded-lum">
   <Blobs${(store.color && ` color="${store.color}"`) ?? ''}${(store.blur && ` blur="${store.blur}"`) ?? ''}/>
 </div>`}
       />

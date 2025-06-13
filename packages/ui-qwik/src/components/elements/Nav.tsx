@@ -39,14 +39,14 @@ export const Nav = component$<NavContainerProps>(
               'mt-2': menu.value,
               'pointer-events-none opacity-0': !menu.value,
               'before:backdrop-blur-lg': !colorClass.includes('transparent'),
-              'before:absolute before:-z-10 before:h-full before:w-full before:rounded-lg before:drop-shadow-xl before:content-[""]':
+              'before:absolute before:-z-10 before:h-full before:w-full before:rounded-lum before:drop-shadow-xl before:content-[""]':
                 true,
             }}
           >
             <div
               class={{
                 [colorClass]: true,
-                'flex w-full max-w-7xl flex-col gap-2 rounded-lg border px-2 py-4 motion-safe:transition-all':
+                'flex w-full max-w-7xl flex-col gap-2 rounded-lum border px-2 py-4 motion-safe:transition-all':
                   true,
               }}
             >
@@ -69,10 +69,10 @@ export const Nav = component$<NavContainerProps>(
             class={{
               'mx-auto flex w-full max-w-7xl justify-evenly px-2': true,
               [colorClass]: floating,
-              'rounded-lg border': floating,
+              'rounded-lum border': floating,
               'before:backdrop-blur-lg':
                 !colorClass.includes('transparent') && floating,
-              'before:absolute before:-z-10 before:h-full before:w-full before:max-w-7xl before:rounded-lg before:drop-shadow-xl before:content-[""]':
+              'before:absolute before:-z-10 before:h-full before:w-full before:max-w-7xl before:rounded-lum before:drop-shadow-xl before:content-[""]':
                 floating,
             }}
           >
