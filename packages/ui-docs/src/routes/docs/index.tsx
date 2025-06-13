@@ -14,6 +14,7 @@ import LumClasses from '~/components/docs/lum-classes';
 import LumBtn from '~/components/docs/lum-btn';
 import LumCard from '~/components/docs/lum-card';
 import LumInput from '~/components/docs/lum-input';
+import SelectMenu from '~/components/docs/SelectMenu';
 
 export default component$(() => {
   return (
@@ -45,6 +46,7 @@ export default component$(() => {
       <Anchor />
       <Blobs />
       <ColorPicker />
+      <SelectMenu />
       <Dropdown />
       <Nav />
       <NumberInput />
