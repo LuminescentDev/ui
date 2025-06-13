@@ -5,6 +5,7 @@ import Readme from '../../../../../README.md';
 import Anchor from '~/components/docs/Anchor';
 import Blobs from '~/components/docs/Blobs';
 import ColorPicker from '~/components/docs/ColorPicker';
+import SelectMenu from '~/components/docs/SelectMenu';
 import Dropdown from '~/components/docs/Dropdown';
 import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
@@ -14,7 +15,7 @@ import LumClasses from '~/components/docs/lum-classes';
 import LumBtn from '~/components/docs/lum-btn';
 import LumCard from '~/components/docs/lum-card';
 import LumInput from '~/components/docs/lum-input';
-import SelectMenu from '~/components/docs/SelectMenu';
+import Settings from '~/components/docs/Settings';
 
 export default component$(() => {
   return (
@@ -31,6 +32,8 @@ export default component$(() => {
           <Readme />
         </div>
       </div>
+
+      <Settings />
 
       <h2 class="text-xl font-bold from-gray-100 whitespace-nowrap text-white sm:text-2xl">
         Luminescent UI Tailwind Components

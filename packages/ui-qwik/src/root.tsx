@@ -1,4 +1,5 @@
 import { component$ } from '@builder.io/qwik';
+import Settings from './components/docs/Settings';
 
 import LumClasses from '~/components/docs/lum-classes';
 import LumBtn from './components/docs/lum-btn';
@@ -26,6 +27,7 @@ export default component$(() => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-24">
+        <Settings />
         <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Luminescent UI Tailwind Components
         </h2>
