@@ -31,7 +31,7 @@ export default component$(() => {
 
   return (
     <div class="lum-card border-gradient-1 before:from-luminescent-200 before:to-luminescent-800">
-      <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl lum-bg-gray-500/50">
         Settings
       </h2>
       <p>

@@ -15,6 +15,15 @@
   --lum-input-p-x: 1.5;
 }
 
+@utility lum-bg-* {
+  @apply border border-transparent outline-none;
+  background-color: --value(--color-*, [color]);
+  background-color: --value('inherit', 'transparent', 'currentColor');
+  &:focus {
+    @apply border-white;
+  }
+}
+
 @utility rounded-lum {
   border-radius: var(--lum-border-radius);
 }
