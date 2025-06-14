@@ -1,3 +1,7 @@
+## 4.0.2 (2025-06-14)
+
+This was a version bump only, there were no code changes.
+
 ## 4.0.1 (2025-06-14)
 
 ### 🚀 Features
