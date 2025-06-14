@@ -24,13 +24,13 @@
   --alpha: --modifier(integer);
 
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --bg-color: --value('inherit', 'transparent', 'currentColor');
-
   --border-color: color-mix(in oklab, white var(--lum-border-lightness), var(--bg-color));
-  --border-color: --value('inherit', 'transparent', 'currentColor');
 
   background-color: var(--bg-color);
   border-color: var(--border-color);
+
+  background-color: --value('inherit', 'transparent', 'currentColor');
+  border-color: --value('inherit', 'transparent', 'currentColor');
 
   &:focus {
     @apply border-white;
@@ -43,16 +43,16 @@
   --alpha: --modifier(integer);
 
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --bg-color: --value('inherit', 'transparent', 'currentColor');
-
   --border-color: color-mix(in oklab, white var(--lum-border-lightness), var(--bg-color));
+
+  --bg-color: --value('inherit', 'transparent', 'currentColor');
   --border-color: --value('inherit', 'transparent', 'currentColor');
 
   background-color: var(--bg-color);
   border-color: var(--border-color);
 
   &::after, &:hover {
-    background-color: color-mix(in oklab, white 10%, var(--bg-color));
+    background-color: --alpha(color-mix(in oklab, white 10%, --value(--color-*)) / calc(var(--alpha, 100) * 1%));
     border-color: var(--border-color);
 
     background-color: --value('inherit', 'transparent', 'currentColor');
