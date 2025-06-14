@@ -1,8 +1,4 @@
-## 4.0.0-0 (2025-06-13)
-
-This was a version bump only, there were no code changes.
-
-## 4.0.0 (2025-06-12)
+## 4.0.0 (2025-06-14)
 
 lum-bg no longer requires a separate import, it's now included in the main css file.
 Migration Guide:
@@ -53,7 +49,7 @@ Example:
   This is a div with a gradient border
 </div>
 <div class="border-gradient-2 before:bg-gradient-to-r before:from-blue-500 before:to-purple-500">
-  This is a div with a gradient that goes from left to right
+  This is a div with a gradient border that goes from left to right
 </div>
 ```
 
@@ -68,14 +64,6 @@ import { Hoverable } from '@luminescent/ui-qwik';
 Added a 'lum-hoverable' class that applies a pop out effect on hover to any element.
 
 Some small styling changes were made and may change the look of some elements, such as the NumberInput component.
-
-## 3.0.4 (2025-05-29)
-
-This was a version bump only, there were no code changes.
-
-## 3.0.3 (2025-05-26)
-
-This was a version bump only, there were no code changes.
 
 ## 3.0.2 (2025-05-26)
 
