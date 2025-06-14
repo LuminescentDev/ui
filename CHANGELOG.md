@@ -4,6 +4,18 @@ This was a version bump only, there were no code changes.
 
 ## 4.0.0 (2025-06-12)
 
+lum-bg no longer requires a separate import, it's now included in the main css file.
+Migration Guide:
+
+```css
+@import '@luminescent/ui/css';
+@plugin '@luminescent/ui/lum-bg';
+```
+
+```css
+@import '@luminescent/ui/css';
+```
+
 Added some variables that you can change on your global.css file to change the default values
 
 ```css

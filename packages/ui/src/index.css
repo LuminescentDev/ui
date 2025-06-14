@@ -13,12 +13,17 @@
   --lum-border-radius: var(--radius-md);
   --lum-btn-p-x: 2;
   --lum-input-p-x: 1.5;
+  --lum-border-lightness: 20%;
 }
+
 
 @utility lum-bg-* {
   @apply border border-transparent outline-none;
-  background-color: --value(--color-*, [color]);
+  --alpha: --modifier(integer);
+  background-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
   background-color: --value('inherit', 'transparent', 'currentColor');
+  border-color: color-mix(in oklab, white var(--lum-border-lightness), --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%)));
+  border-color: --value('inherit', 'transparent', 'currentColor');
   &:focus {
     @apply border-white;
   }

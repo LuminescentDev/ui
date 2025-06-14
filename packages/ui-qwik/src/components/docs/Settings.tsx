@@ -4,6 +4,7 @@ import { NumberInput } from '../../index';
 export default component$(() => {
   const store = useStore({
     borderRadius: 0.375,
+    borderLightness: 20,
     btnPaddingX: 2,
     inputPaddingX: 1.5,
   });
@@ -18,6 +19,10 @@ export default component$(() => {
     document.documentElement.style.setProperty(
       '--lum-border-radius',
       `${store.borderRadius}rem`,
+    );
+    document.documentElement.style.setProperty(
+      '--lum-border-lightness',
+      `${store.borderLightness}%`,
     );
     document.documentElement.style.setProperty(
       '--lum-btn-p-x',
@@ -38,10 +43,13 @@ export default component$(() => {
         --lum-border-radius: {store.borderRadius}rem
       </p>
       <p>
-        --lum-btn-p-x: {store.btnPaddingX}rem
+        --lum-border-lightness: {store.borderLightness}%
       </p>
       <p>
-        --lum-input-p-x: {store.inputPaddingX}rem
+        --lum-btn-p-x: {store.btnPaddingX}
+      </p>
+      <p>
+        --lum-input-p-x: {store.inputPaddingX}
       </p>
       <NumberInput
         id="border-radius"
@@ -58,6 +66,22 @@ export default component$(() => {
         value={store.borderRadius}
       >
         lum-border-radius
+      </NumberInput>
+      <NumberInput
+        id="border-lightness"
+        onIncrement$={() => {
+          store.borderLightness += 1;
+        }}
+        onDecrement$={() => {
+          store.borderLightness -= 1;
+        }}
+        onInput$={(e, el) => {
+          store.borderLightness = Number(el.value);
+        }}
+        input
+        value={store.borderLightness}
+      >
+        lum-border-lightness
       </NumberInput>
       <NumberInput
         id="lum-btn-p-x"

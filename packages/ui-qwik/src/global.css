@@ -9,7 +9,6 @@
 @plugin "@anuragroy/tailwindcss-animate";
 
 @import '@luminescent/ui';
-@plugin '@luminescent/ui/lum-bg';
 
 @theme {
   --font-display: 'Satoshi', 'sans-serif';

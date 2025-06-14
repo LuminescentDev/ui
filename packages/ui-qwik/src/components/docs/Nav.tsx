@@ -64,13 +64,13 @@ export default component$(() => {
             q:slot="end"
             class={{ 'lum-bg-transparent hidden sm:flex': true }}
           >
-            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent'}>
+            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent rounded-lum-1'}>
               Option 1
             </button>
-            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent'}>
+            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent rounded-lum-1'}>
               Option 2
             </button>
-            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent'}>
+            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent rounded-lum-1'}>
               Option 3
             </button>
             <p q:slot="dropdown">
@@ -115,13 +115,13 @@ export default component$(() => {
   </button>
 
   <DropdownRaw id="nav-dropdown" q:slot="end" hover class={{ 'hidden sm:flex lum-bg-transparent': true }} display="Dropdown">
-    <button class={'lum-btn lum-bg-transparent'} q:slot="extra-buttons">
+    <button class={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
       Option 1
     </button>
-    <button class={'lum-btn lum-bg-transparent'} q:slot="extra-buttons">
+    <button class={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
       Option 2
     </button>
-    <button class={'lum-btn lum-bg-transparent'} q:slot="extra-buttons">
+    <button class={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
       Option 3
     </button>
   </DropdownRaw>
