@@ -58,12 +58,12 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
     return (
       <div
         class={{
-          'flex touch-manipulation gap-2 text-gray-50': true,
+          'flex touch-manipulation gap-1 text-gray-50': true,
         }}
       >
         <button type="button"
           class={{
-            'lum-btn p-2': true,
+            'lum-btn p-2 rounded-r-sm': true,
           }}
           data-action="decrement"
           aria-label="Decrement"
@@ -79,7 +79,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
               : onDecrement$
           }
         >
-          <Minus size={24} />
+          <Minus size={20} />
         </button>
         {input && (
           <input
@@ -88,14 +88,14 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
             value={value}
             step={step}
             class={{
-              'lum-input text-center': true,
+              'lum-input text-center rounded-sm lum-input-p-1': true,
               ...props.class,
             }}
           />
         )}
         <button type="button"
           class={{
-            'lum-btn p-2': true,
+            'lum-btn p-2 rounded-l-sm': true,
           }}
           data-action="increment"
           aria-label="Increment"
@@ -111,7 +111,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
               : onIncrement$
           }
         >
-          <Plus size={24} />
+          <Plus size={20} />
         </button>
       </div>
     );

@@ -10,24 +10,55 @@
   --color-luminescent-800: oklch(45.9% 0.187 327.815);
   --color-luminescent-900: oklch(40.8% 0.153 326.432);
   --color-luminescent-950: oklch(28.4% 0.109 327.907);
-  --lum-border-radius: var(--radius-md);
+  --lum-default-alpha: 100;
   --lum-btn-p-x: 2;
   --lum-input-p-x: 1.5;
+  --lum-border-radius: var(--radius-md);
   --lum-border-lightness: 20%;
 }
 
 
 @utility lum-bg-* {
   @apply border border-transparent outline-none;
+  --alpha: var(--lum-default-alpha);
   --alpha: --modifier(integer);
-  background-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  background-color: --value('inherit', 'transparent', 'currentColor');
-  border-color: color-mix(in oklab, white var(--lum-border-lightness), --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%)));
-  border-color: --value('inherit', 'transparent', 'currentColor');
+
+  --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
+  --bg-color: --value('inherit', 'transparent', 'currentColor');
+
+  --border-color: color-mix(in oklab, white var(--lum-border-lightness), var(--bg-color));
+  --border-color: --value('inherit', 'transparent', 'currentColor');
+
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+
   &:focus {
     @apply border-white;
   }
 }
+
+@utility lum-toggle-bg-* {
+  @apply border border-transparent outline-none;
+  --alpha: var(--lum-default-alpha);
+  --alpha: --modifier(integer);
+
+  --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
+  --bg-color: --value('inherit', 'transparent', 'currentColor');
+
+  --border-color: color-mix(in oklab, white var(--lum-border-lightness), var(--bg-color));
+  --border-color: --value('inherit', 'transparent', 'currentColor');
+
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+
+  &::after, &:hover {
+    background-color: color-mix(in oklab, white 10%, var(--bg-color));
+    border-color: var(--border-color);
+
+    background-color: --value('inherit', 'transparent', 'currentColor');
+  }
+}
+
 
 @utility rounded-lum {
   border-radius: var(--lum-border-radius);

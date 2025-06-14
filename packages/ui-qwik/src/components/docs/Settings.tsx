@@ -3,6 +3,8 @@ import { NumberInput } from '../../index';
 
 export default component$(() => {
   const store = useStore({
+    defaultAlpha: 100,
+    defaultBackdropFilter: undefined as string | undefined,
     borderRadius: 0.375,
     borderLightness: 20,
     btnPaddingX: 2,
@@ -16,6 +18,10 @@ export default component$(() => {
     if (!isBrowser) return;
 
     // set the CSS variables on the root element
+    document.documentElement.style.setProperty(
+      '--lum-default-alpha',
+      `${store.defaultAlpha}`,
+    );
     document.documentElement.style.setProperty(
       '--lum-border-radius',
       `${store.borderRadius}rem`,
@@ -36,9 +42,12 @@ export default component$(() => {
 
   return (
     <div class="lum-card border-gradient-1 before:from-luminescent-200 before:to-luminescent-800">
-      <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl lum-bg-gray-500/50">
+      <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
         Settings
       </h2>
+      <p>
+        --lum-default-alpha: {store.defaultAlpha}
+      </p>
       <p>
         --lum-border-radius: {store.borderRadius}rem
       </p>
@@ -51,6 +60,22 @@ export default component$(() => {
       <p>
         --lum-input-p-x: {store.inputPaddingX}
       </p>
+      <NumberInput
+        id="default-alpha"
+        onIncrement$={() => {
+          store.defaultAlpha += 1;
+        }}
+        onDecrement$={() => {
+          store.defaultAlpha -= 1;
+        }}
+        onInput$={(e, el) => {
+          store.defaultAlpha = Number(el.value);
+        }}
+        input
+        value={store.defaultAlpha}
+      >
+        lum-default-alpha
+      </NumberInput>
       <NumberInput
         id="border-radius"
         onIncrement$={() => {

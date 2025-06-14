@@ -16,13 +16,26 @@ Migration Guide:
 @import '@luminescent/ui/css';
 ```
 
+Toggle component has been rewritten to use the new lum-bg classes, which will allow for more customization on how you want the toggle to look like.
+Migration Guide:
+
+```html
+<Toggle id="toggle-input" label="Toggle" onColor="green" offColor="slate" />
+```
+
+```html
+<Toggle id="toggle-input" label="Toggle" class="lum-toggle-bg-slate-600 peer-checked:lum-toggle-bg-green-600" />
+```
+
 Added some variables that you can change on your global.css file to change the default values
 
 ```css
 @theme {
-  --lum-border-radius: var(--radius-md);
+  --lum-default-alpha: 100;
   --lum-btn-p-x: 2;
   --lum-input-p-x: 1.5;
+  --lum-border-radius: var(--radius-md);
+  --lum-border-lightness: 20%;
 }
 ```
 
@@ -53,6 +66,8 @@ import { Hoverable } from '@luminescent/ui-qwik';
 ```
 
 Added a 'lum-hoverable' class that applies a pop out effect on hover to any element.
+
+Some small styling changes were made and may change the look of some elements, such as the NumberInput component.
 
 ## 3.0.4 (2025-05-29)
 
