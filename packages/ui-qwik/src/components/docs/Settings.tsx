@@ -1,15 +1,16 @@
-import { component$, isBrowser, useStore, useTask$ } from '@builder.io/qwik';
-import { NumberInput } from '../../index';
+import { component$, isBrowser, useSignal, useStore, useTask$ } from '@builder.io/qwik';
+import { ColorPicker, NumberInput } from '../../index';
 
 export default component$(() => {
   const store = useStore({
-    defaultAlpha: 100,
-    defaultBackdropFilter: undefined as string | undefined,
     borderRadius: 0.375,
-    borderLightness: 20,
+    borderColor: 'var(--color-gray-300)',
+    borderMix: 20,
     btnPaddingX: 2,
     inputPaddingX: 1.5,
   });
+
+  const open = useSignal(false);
 
   useTask$(({ track }) => {
     for (const key in store) {
@@ -19,16 +20,16 @@ export default component$(() => {
 
     // set the CSS variables on the root element
     document.documentElement.style.setProperty(
-      '--lum-default-alpha',
-      `${store.defaultAlpha}`,
-    );
-    document.documentElement.style.setProperty(
       '--lum-border-radius',
       `${store.borderRadius}rem`,
     );
     document.documentElement.style.setProperty(
-      '--lum-border-lightness',
-      `${store.borderLightness}%`,
+      '--lum-border-color',
+      `${store.borderColor}`,
+    );
+    document.documentElement.style.setProperty(
+      '--lum-border-mix',
+      `${store.borderMix}%`,
     );
     document.documentElement.style.setProperty(
       '--lum-btn-p-x',
@@ -46,13 +47,13 @@ export default component$(() => {
         Settings
       </h2>
       <p>
-        --lum-default-alpha: {store.defaultAlpha}
-      </p>
-      <p>
         --lum-border-radius: {store.borderRadius}rem
       </p>
       <p>
-        --lum-border-lightness: {store.borderLightness}%
+        --lum-border-color: {store.borderColor}
+      </p>
+      <p>
+        --lum-border-mix: {store.borderMix}%
       </p>
       <p>
         --lum-btn-p-x: {store.btnPaddingX}
@@ -60,22 +61,6 @@ export default component$(() => {
       <p>
         --lum-input-p-x: {store.inputPaddingX}
       </p>
-      <NumberInput
-        id="default-alpha"
-        onIncrement$={() => {
-          store.defaultAlpha += 1;
-        }}
-        onDecrement$={() => {
-          store.defaultAlpha -= 1;
-        }}
-        onInput$={(e, el) => {
-          store.defaultAlpha = Number(el.value);
-        }}
-        input
-        value={store.defaultAlpha}
-      >
-        lum-default-alpha
-      </NumberInput>
       <NumberInput
         id="border-radius"
         onIncrement$={() => {
@@ -92,21 +77,67 @@ export default component$(() => {
       >
         lum-border-radius
       </NumberInput>
+
+      <label for="border-color">
+        lum-border-color
+      </label>
+      <div class="flex gap-1 relative">
+        <div class="aspect-square rounded-lum rounded-r-sm" style={{
+          background: store.borderColor,
+        }}></div>
+        <input id="border-color"
+          class={{
+            'lum-input lum-input-p-1 rounded-l-sm': true,
+          }}
+          value={store.borderColor}
+          onInput$={(e, el) => {
+            const picker = document.getElementById('border-color-picker')!;
+            picker.dataset.value = el.value;
+            picker.dispatchEvent(new Event('input'));
+          }}
+          onMouseUp$={() => {
+            const picker = document.getElementById('border-color-picker')!;
+            picker.dataset.value = store.borderColor;
+            picker.dispatchEvent(new Event('input'));
+            open.value = !open.value;
+            const abortController = new AbortController();
+            document.addEventListener('click', (e) => {
+              if (e.target instanceof HTMLElement && !e.target.closest('#border-color-popup')) {
+                abortController.abort();
+              }
+            }, { signal: abortController.signal });
+          }}
+        />
+        <div id="border-color-popup" stoppropagation:mousedown class={{
+          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-[1000] mt-2 left-0': true,
+          'opacity-0 scale-95 pointer-events-none': !open.value,
+        }}>
+          <ColorPicker
+            id="border-color-picker"
+            value={store.borderColor}
+            onInput$={newColor => {
+              store.borderColor = newColor;
+            }}
+            showInput={false}
+          />
+        </div>
+      </div>
+
       <NumberInput
-        id="border-lightness"
+        id="border-mix"
         onIncrement$={() => {
-          store.borderLightness += 1;
+          store.borderMix += 1;
         }}
         onDecrement$={() => {
-          store.borderLightness -= 1;
+          store.borderMix -= 1;
         }}
         onInput$={(e, el) => {
-          store.borderLightness = Number(el.value);
+          store.borderMix = Number(el.value);
         }}
         input
-        value={store.borderLightness}
+        value={store.borderMix}
       >
-        lum-border-lightness
+        lum-border-mix
       </NumberInput>
       <NumberInput
         id="lum-btn-p-x"

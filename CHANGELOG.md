@@ -41,7 +41,7 @@ Added some variables that you can change on your global.css file to change the d
   --lum-btn-p-x: 2;
   --lum-input-p-x: 1.5;
   --lum-border-radius: var(--radius-md);
-  --lum-border-lightness: 20%;
+  --lum-border-mix: 20%;
 }
 ```
 

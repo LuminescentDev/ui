@@ -14,7 +14,8 @@
   --lum-btn-p-x: 2;
   --lum-input-p-x: 1.5;
   --lum-border-radius: var(--radius-md);
-  --lum-border-lightness: 20%;
+  --lum-border-mix: 20%;
+  --lum-border-color: var(--color-gray-300);
 }
 
 
@@ -24,7 +25,7 @@
   --alpha: --modifier(integer);
 
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, white var(--lum-border-lightness), var(--bg-color));
+  --border-color: color-mix(in oklab, var(--lum-border-color) var(--lum-border-mix), var(--bg-color));
 
   background-color: var(--bg-color);
   border-color: var(--border-color);
@@ -43,7 +44,7 @@
   --alpha: --modifier(integer);
 
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, white var(--lum-border-lightness), var(--bg-color));
+  --border-color: color-mix(in oklab, var(--lum-border-color) var(--lum-border-mix), var(--bg-color));
 
   --bg-color: --value('inherit', 'transparent', 'currentColor');
   --border-color: --value('inherit', 'transparent', 'currentColor');

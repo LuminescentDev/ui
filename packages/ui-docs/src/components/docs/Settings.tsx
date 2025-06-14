@@ -4,7 +4,8 @@ import { NumberInput } from '@luminescent/ui-qwik';
 export default component$(() => {
   const store = useStore({
     borderRadius: 0.375,
-    borderLightness: 20,
+    borderColor: 'var(--color-gray-300)',
+    borderMix: 20,
     btnPaddingX: 2,
     inputPaddingX: 1.5,
   });
@@ -21,8 +22,12 @@ export default component$(() => {
       `${store.borderRadius}rem`,
     );
     document.documentElement.style.setProperty(
-      '--lum-border-lightness',
-      `${store.borderLightness}%`,
+      '--lum-border-color',
+      `${store.borderColor}`,
+    );
+    document.documentElement.style.setProperty(
+      '--lum-border-mix',
+      `${store.borderMix}%`,
     );
     document.documentElement.style.setProperty(
       '--lum-btn-p-x',
@@ -43,7 +48,10 @@ export default component$(() => {
         --lum-border-radius: {store.borderRadius}rem
       </p>
       <p>
-        --lum-border-lightness: {store.borderLightness}%
+        --lum-border-color: {store.borderColor}%
+      </p>
+      <p>
+        --lum-border-mix: {store.borderMix}%
       </p>
       <p>
         --lum-btn-p-x: {store.btnPaddingX}
@@ -67,21 +75,33 @@ export default component$(() => {
       >
         lum-border-radius
       </NumberInput>
+      <label for="border-color" class="block mb-2">
+        lum-border-color
+      </label>
+      <input
+        id="border-color"
+        type="color"
+        value={store.borderColor}
+        onInput$={(e, el) => {
+          store.borderColor = el.value;
+        }}
+        class="lum-input lum-bg-transparent"
+      />
       <NumberInput
-        id="border-lightness"
+        id="border-mix"
         onIncrement$={() => {
-          store.borderLightness += 1;
+          store.borderMix += 1;
         }}
         onDecrement$={() => {
-          store.borderLightness -= 1;
+          store.borderMix -= 1;
         }}
         onInput$={(e, el) => {
-          store.borderLightness = Number(el.value);
+          store.borderMix = Number(el.value);
         }}
         input
-        value={store.borderLightness}
+        value={store.borderMix}
       >
-        lum-border-lightness
+        lum-border-mix
       </NumberInput>
       <NumberInput
         id="lum-btn-p-x"
