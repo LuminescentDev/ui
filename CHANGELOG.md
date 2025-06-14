@@ -1,3 +1,13 @@
+## 4.0.1 (2025-06-14)
+
+### 🚀 Features
+
+- update Toggle component for new lum-bg classes and enhance customization options ([d965fb6](https://github.com/LuminescentDev/ui/commit/d965fb6))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 4.0.0 (2025-06-14)
 
 lum-bg no longer requires a separate import, it's now included in the main css file.
