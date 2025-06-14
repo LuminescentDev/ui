@@ -1,5 +1,5 @@
-import { component$, isBrowser, useStore, useTask$ } from '@builder.io/qwik';
-import { NumberInput } from '@luminescent/ui-qwik';
+import { component$, isBrowser, useSignal, useStore, useTask$ } from '@builder.io/qwik';
+import { ColorPicker, NumberInput } from '@luminescent/ui-qwik';
 
 export default component$(() => {
   const store = useStore({
@@ -9,6 +9,8 @@ export default component$(() => {
     btnPaddingX: 2,
     inputPaddingX: 1.5,
   });
+
+  const open = useSignal(false);
 
   useTask$(({ track }) => {
     for (const key in store) {
@@ -48,7 +50,7 @@ export default component$(() => {
         --lum-border-radius: {store.borderRadius}rem
       </p>
       <p>
-        --lum-border-color: {store.borderColor}%
+        --lum-border-color: {store.borderColor}
       </p>
       <p>
         --lum-border-mix: {store.borderMix}%
@@ -75,18 +77,52 @@ export default component$(() => {
       >
         lum-border-radius
       </NumberInput>
-      <label for="border-color" class="block mb-2">
+
+      <label for="border-color">
         lum-border-color
       </label>
-      <input
-        id="border-color"
-        type="color"
-        value={store.borderColor}
-        onInput$={(e, el) => {
-          store.borderColor = el.value;
-        }}
-        class="lum-input lum-bg-transparent"
-      />
+      <div class="flex gap-1 relative">
+        <div class="aspect-square rounded-lum rounded-r-sm" style={{
+          background: store.borderColor,
+        }}></div>
+        <input id="border-color"
+          class={{
+            'lum-input lum-input-p-1 rounded-l-sm': true,
+          }}
+          value={store.borderColor}
+          onInput$={(e, el) => {
+            const picker = document.getElementById('border-color-picker')!;
+            picker.dataset.value = el.value;
+            picker.dispatchEvent(new Event('input'));
+          }}
+          onMouseUp$={() => {
+            const picker = document.getElementById('border-color-picker')!;
+            picker.dataset.value = store.borderColor;
+            picker.dispatchEvent(new Event('input'));
+            open.value = !open.value;
+            const abortController = new AbortController();
+            document.addEventListener('click', (e) => {
+              if (e.target instanceof HTMLElement && !e.target.closest('#border-color-popup')) {
+                abortController.abort();
+              }
+            }, { signal: abortController.signal });
+          }}
+        />
+        <div id="border-color-popup" stoppropagation:mousedown class={{
+          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-[1000] mt-2 left-0': true,
+          'opacity-0 scale-95 pointer-events-none': !open.value,
+        }}>
+          <ColorPicker
+            id="border-color-picker"
+            value={store.borderColor}
+            onInput$={newColor => {
+              store.borderColor = newColor;
+            }}
+            showInput={false}
+          />
+        </div>
+      </div>
+
       <NumberInput
         id="border-mix"
         onIncrement$={() => {
