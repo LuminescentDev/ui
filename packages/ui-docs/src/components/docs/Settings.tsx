@@ -3,12 +3,14 @@ import { ColorPicker, NumberInput } from '@luminescent/ui-qwik';
 
 export default component$(() => {
   const store = useStore({
-    defaultAlpha: 100,
-    borderRadius: 0.375,
-    borderColor: 'var(--color-gray-300)',
-    borderMix: 20,
-    btnPaddingX: 2,
-    inputPaddingX: 1.5,
+    '--lum-default-alpha': 100,
+    '--lum-border-radius': 0.375,
+    '--lum-border-mix': 20,
+    '--lum-btn-p-x': 2,
+    '--lum-input-p-x': 1.5,
+    '--color-lum-border': 'var(--color-gray-300)',
+    '--color-lum-card-bg': 'var(--color-gray-900)',
+    '--color-lum-input-bg': 'var(--color-gray-800)',
   });
 
   const open = useSignal(false);
@@ -20,30 +22,17 @@ export default component$(() => {
     if (!isBrowser) return;
 
     // set the CSS variables on the root element
-    document.documentElement.style.setProperty(
-      '--lum-default-alpha',
-      `${store.defaultAlpha}`,
-    );
-    document.documentElement.style.setProperty(
-      '--lum-border-radius',
-      `${store.borderRadius}rem`,
-    );
-    document.documentElement.style.setProperty(
-      '--lum-border-color',
-      `${store.borderColor}`,
-    );
-    document.documentElement.style.setProperty(
-      '--lum-border-mix',
-      `${store.borderMix}%`,
-    );
-    document.documentElement.style.setProperty(
-      '--lum-btn-p-x',
-      `${store.btnPaddingX}`,
-    );
-    document.documentElement.style.setProperty(
-      '--lum-input-p-x',
-      `${store.inputPaddingX}`,
-    );
+    Object.keys(store).forEach((key) => {
+      let suffix = '';
+      if (key == '--lum-border-mix') {
+        suffix = '%';
+      }
+      if (key == '--lum-border-radius') {
+        suffix = 'rem';
+      }
+      console.log(key, store[key as keyof typeof store], suffix);
+      document.documentElement.style.setProperty(key, `${store[key as keyof typeof store]}${suffix}`);
+    });
   });
 
   return (
@@ -52,68 +41,124 @@ export default component$(() => {
         Settings
       </h2>
       <p>
-        --lum-default-alpha: {store.defaultAlpha}
+        --lum-border-mix: {store['--lum-border-mix']}%
       </p>
       <p>
-        --lum-border-radius: {store.borderRadius}rem
+        --lum-btn-p-x: {store['--lum-btn-p-x']}
       </p>
       <p>
-        --lum-border-color: {store.borderColor}
+        --lum-input-p-x: {store['--lum-input-p-x']}
       </p>
       <p>
-        --lum-border-mix: {store.borderMix}%
+        --color-lum-border: {store['--color-lum-border']}
       </p>
       <p>
-        --lum-btn-p-x: {store.btnPaddingX}
+        --color-lum-card-bg: {store['--color-lum-card-bg']}
       </p>
       <p>
-        --lum-input-p-x: {store.inputPaddingX}
+        --color-lum-input-bg: {store['--color-lum-input-bg']}
       </p>
       <NumberInput
         id="default-alpha"
         onIncrement$={() => {
-          store.defaultAlpha += 1;
+          store['--lum-default-alpha'] += 1;
         }}
         onDecrement$={() => {
-          store.defaultAlpha -= 1;
+          store['--lum-default-alpha'] -= 1;
         }}
         onInput$={(e, el) => {
-          store.defaultAlpha = Number(el.value);
+          store['--lum-default-alpha'] = Number(el.value);
         }}
         input
-        value={store.defaultAlpha}
+        value={store['--lum-default-alpha']}
       >
         lum-default-alpha
       </NumberInput>
+      <p>
+        --lum-default-alpha: {store['--lum-default-alpha']}
+      </p>
+
       <NumberInput
         id="border-radius"
         onIncrement$={() => {
-          store.borderRadius += 0.01;
+          store['--lum-border-radius'] += 0.01;
         }}
         onDecrement$={() => {
-          store.borderRadius -= 0.01;
+          store['--lum-border-radius'] -= 0.01;
         }}
         onInput$={(e, el) => {
-          store.borderRadius = Number(el.value);
+          store['--lum-border-radius'] = Number(el.value);
         }}
         input
-        value={store.borderRadius}
+        value={store['--lum-border-radius']}
       >
         lum-border-radius
       </NumberInput>
+      <p>
+        --lum-border-radius: {store['--lum-border-radius']}rem
+      </p>
+
+      <NumberInput
+        id="border-mix"
+        onIncrement$={() => {
+          store['--lum-border-mix'] += 1;
+        }}
+        onDecrement$={() => {
+          store['--lum-border-mix'] -= 1;
+        }}
+        onInput$={(e, el) => {
+          store['--lum-border-mix'] = Number(el.value);
+        }}
+        input
+        value={store['--lum-border-mix']}
+      >
+        lum-border-mix
+      </NumberInput>
+      <NumberInput
+        id="lum-btn-p-x"
+        onIncrement$={() => {
+          store['--lum-btn-p-x'] += 0.5;
+        }}
+        onDecrement$={() => {
+          store['--lum-btn-p-x'] -= 0.5;
+        }}
+        onInput$={(e, el) => {
+          store['--lum-btn-p-x'] = Number(el.value);
+        }}
+        input
+        value={store['--lum-btn-p-x']}
+      >
+        lum-btn-p-x
+      </NumberInput>
+      <NumberInput
+        id="lum-input-p-x"
+        onIncrement$={() => {
+          store['--lum-input-p-x'] += 0.5;
+        }}
+        onDecrement$={() => {
+          store['--lum-input-p-x'] -= 0.5;
+        }}
+        onInput$={(e, el) => {
+          store['--lum-input-p-x'] = Number(el.value);
+        }}
+        input
+        value={store['--lum-input-p-x']}
+      >
+        lum-input-p-x
+      </NumberInput>
 
       <label for="border-color">
-        lum-border-color
+        color-lum-border
       </label>
       <div class="flex gap-1 relative">
         <div class="aspect-square rounded-lum rounded-r-sm" style={{
-          background: store.borderColor,
+          background: store['--color-lum-border'],
         }}></div>
         <input id="border-color"
           class={{
             'lum-input lum-input-p-1 rounded-l-sm': true,
           }}
-          value={store.borderColor}
+          value={store['--color-lum-border']}
           onInput$={(e, el) => {
             const picker = document.getElementById('border-color-picker')!;
             picker.dataset.value = el.value;
@@ -121,7 +166,7 @@ export default component$(() => {
           }}
           onMouseUp$={() => {
             const picker = document.getElementById('border-color-picker')!;
-            picker.dataset.value = store.borderColor;
+            picker.dataset.value = store['--color-lum-border'];
             picker.dispatchEvent(new Event('input'));
             open.value = !open.value;
             const abortController = new AbortController();
@@ -138,63 +183,14 @@ export default component$(() => {
         }}>
           <ColorPicker
             id="border-color-picker"
-            value={store.borderColor}
+            value={store['--color-lum-border']}
             onInput$={newColor => {
-              store.borderColor = newColor;
+              store['--color-lum-border'] = newColor;
             }}
             showInput={false}
           />
         </div>
       </div>
-
-      <NumberInput
-        id="border-mix"
-        onIncrement$={() => {
-          store.borderMix += 1;
-        }}
-        onDecrement$={() => {
-          store.borderMix -= 1;
-        }}
-        onInput$={(e, el) => {
-          store.borderMix = Number(el.value);
-        }}
-        input
-        value={store.borderMix}
-      >
-        lum-border-mix
-      </NumberInput>
-      <NumberInput
-        id="lum-btn-p-x"
-        onIncrement$={() => {
-          store.btnPaddingX += 0.5;
-        }}
-        onDecrement$={() => {
-          store.btnPaddingX -= 0.5;
-        }}
-        onInput$={(e, el) => {
-          store.btnPaddingX = Number(el.value);
-        }}
-        input
-        value={store.btnPaddingX}
-      >
-        lum-btn-p-x
-      </NumberInput>
-      <NumberInput
-        id="lum-input-p-x"
-        onIncrement$={() => {
-          store.inputPaddingX += 0.5;
-        }}
-        onDecrement$={() => {
-          store.inputPaddingX -= 0.5;
-        }}
-        onInput$={(e, el) => {
-          store.inputPaddingX = Number(el.value);
-        }}
-        input
-        value={store.inputPaddingX}
-      >
-        lum-input-p-x
-      </NumberInput>
     </div>
   );
 });

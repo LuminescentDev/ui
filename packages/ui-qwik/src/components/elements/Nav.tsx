@@ -15,7 +15,7 @@ export const Nav = component$<NavContainerProps>(
     fixed,
     floating,
     nohamburger,
-    colorClass = 'lum-bg-gray-900',
+    colorClass = 'lum-bg-lum-card-bg',
     ...props
   }) => {
     const menu = useSignal(false);

@@ -92,7 +92,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
           <div
             id={`lui-${id}-opts`}
             class={{
-              'lum-bg-gray-800 lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all':
+              'lum-bg-lum-input-bg lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all':
                 true,
             }}
           >

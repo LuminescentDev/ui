@@ -38,7 +38,7 @@ export default component$(() => {
         class="lum-input"
         onInput$={(e, el) => (store.colorClass = el.value)}
         value={store.colorClass}
-        placeholder="lum-bg-gray-900"
+        placeholder="lum-bg-lum-card-bg"
       />
       <div class="lum-card relative h-40">
         <Nav

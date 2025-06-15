@@ -43,7 +43,7 @@ export const Toggle = component$<ToggleProps>(
               'rounded-full after:rounded-full': round,
               'w-12 peer-checked:after:translate-x-full': !checkbox,
               'w-7 after:opacity-0 peer-checked:after:opacity-100': checkbox,
-              'lum-toggle-bg-gray-800 peer-checked:lum-toggle-bg-blue-500': true,
+              'lum-toggle-bg-lum-input-bg peer-checked:lum-toggle-bg-lum-accent': true,
               [props.class ?? '']: !!props.class,
             }}
           />
