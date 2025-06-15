@@ -1,6 +1,61 @@
 import { component$, isBrowser, useSignal, useStore, useTask$ } from '@builder.io/qwik';
 import { ColorPicker, NumberInput } from '@luminescent/ui-qwik';
 
+const ColorInput = component$(({ onInput$, color, id }: {
+  onInput$?: (newColor: string) => void;
+  color: string;
+  id: string;
+}) => {
+  const open = useSignal(false);
+
+  return (
+    <div>
+      <label for={id}>
+        <Slot />
+      </label>
+      <div class="flex gap-1 relative">
+        <div class="rounded-lum rounded-r-sm p-4 lum-bg-gray-900" style={{
+          background: color,
+        }}/>
+        <input id={id}
+          class={{
+            'lum-input lum-input-p-1 rounded-l-sm': true,
+          }}
+          value={color}
+          onInput$={(e, el) => {
+            const picker = document.getElementById(`${id}-picker`)!;
+            picker.dataset.value = el.value;
+            picker.dispatchEvent(new Event('input'));
+          }}
+          onMouseUp$={() => {
+            const picker = document.getElementById(`${id}-picker`)!;
+            picker.dataset.value = color;
+            picker.dispatchEvent(new Event('input'));
+            open.value = !open.value;
+            const abortController = new AbortController();
+            document.addEventListener('click', (e) => {
+              if (e.target instanceof HTMLElement && !e.target.closest(`#${id}-popup`)) {
+                abortController.abort();
+              }
+            }, { signal: abortController.signal });
+          }}
+        />
+        <div id={`${id}-popup`} stoppropagation:mousedown class={{
+          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-[1000] mt-2 left-0': true,
+          'opacity-0 scale-95 pointer-events-none': !open.value,
+        }}>
+          <ColorPicker
+            id={`${id}-picker`}
+            value={color}
+            onInput$={onInput$}
+            showInput={false}
+          />
+        </div>
+      </div>
+    </div>
+  );
+});
+
 export default component$(() => {
   const store = useStore({
     '--lum-default-alpha': 100,
@@ -11,9 +66,9 @@ export default component$(() => {
     '--color-lum-border': 'var(--color-gray-300)',
     '--color-lum-card-bg': 'var(--color-gray-900)',
     '--color-lum-input-bg': 'var(--color-gray-800)',
+    '--color-lum-input-hover-bg': 'var(--color-gray-700)',
+    '--color-lum-accent': 'var(--color-blue-500)',
   });
-
-  const open = useSignal(false);
 
   useTask$(({ track }) => {
     for (const key in store) {
@@ -40,24 +95,6 @@ export default component$(() => {
       <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
         Settings
       </h2>
-      <p>
-        --lum-border-mix: {store['--lum-border-mix']}%
-      </p>
-      <p>
-        --lum-btn-p-x: {store['--lum-btn-p-x']}
-      </p>
-      <p>
-        --lum-input-p-x: {store['--lum-input-p-x']}
-      </p>
-      <p>
-        --color-lum-border: {store['--color-lum-border']}
-      </p>
-      <p>
-        --color-lum-card-bg: {store['--color-lum-card-bg']}
-      </p>
-      <p>
-        --color-lum-input-bg: {store['--color-lum-input-bg']}
-      </p>
       <NumberInput
         id="default-alpha"
         onIncrement$={() => {
@@ -72,11 +109,8 @@ export default component$(() => {
         input
         value={store['--lum-default-alpha']}
       >
-        lum-default-alpha
-      </NumberInput>
-      <p>
         --lum-default-alpha: {store['--lum-default-alpha']}
-      </p>
+      </NumberInput>
 
       <NumberInput
         id="border-radius"
@@ -92,11 +126,8 @@ export default component$(() => {
         input
         value={store['--lum-border-radius']}
       >
-        lum-border-radius
-      </NumberInput>
-      <p>
         --lum-border-radius: {store['--lum-border-radius']}rem
-      </p>
+      </NumberInput>
 
       <NumberInput
         id="border-mix"
@@ -112,7 +143,7 @@ export default component$(() => {
         input
         value={store['--lum-border-mix']}
       >
-        lum-border-mix
+        --lum-border-mix: {store['--lum-border-mix']}%
       </NumberInput>
       <NumberInput
         id="lum-btn-p-x"
@@ -128,7 +159,7 @@ export default component$(() => {
         input
         value={store['--lum-btn-p-x']}
       >
-        lum-btn-p-x
+        --lum-btn-p-x: {store['--lum-btn-p-x']}
       </NumberInput>
       <NumberInput
         id="lum-input-p-x"
@@ -144,53 +175,34 @@ export default component$(() => {
         input
         value={store['--lum-input-p-x']}
       >
-        lum-input-p-x
+        --lum-input-p-x: {store['--lum-input-p-x']}
       </NumberInput>
 
-      <label for="border-color">
-        color-lum-border
-      </label>
-      <div class="flex gap-1 relative">
-        <div class="aspect-square rounded-lum rounded-r-sm" style={{
-          background: store['--color-lum-border'],
-        }}></div>
-        <input id="border-color"
-          class={{
-            'lum-input lum-input-p-1 rounded-l-sm': true,
-          }}
-          value={store['--color-lum-border']}
-          onInput$={(e, el) => {
-            const picker = document.getElementById('border-color-picker')!;
-            picker.dataset.value = el.value;
-            picker.dispatchEvent(new Event('input'));
-          }}
-          onMouseUp$={() => {
-            const picker = document.getElementById('border-color-picker')!;
-            picker.dataset.value = store['--color-lum-border'];
-            picker.dispatchEvent(new Event('input'));
-            open.value = !open.value;
-            const abortController = new AbortController();
-            document.addEventListener('click', (e) => {
-              if (e.target instanceof HTMLElement && !e.target.closest('#border-color-popup')) {
-                abortController.abort();
-              }
-            }, { signal: abortController.signal });
-          }}
-        />
-        <div id="border-color-popup" stoppropagation:mousedown class={{
-          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-[1000] mt-2 left-0': true,
-          'opacity-0 scale-95 pointer-events-none': !open.value,
-        }}>
-          <ColorPicker
-            id="border-color-picker"
-            value={store['--color-lum-border']}
-            onInput$={newColor => {
-              store['--color-lum-border'] = newColor;
-            }}
-            showInput={false}
-          />
-        </div>
-      </div>
+      <ColorInput color={store['--color-lum-border']} id="border-color" onInput$={(newColor) => {
+        store['--color-lum-border'] = newColor;
+      }}>
+        --color-lum-border
+      </ColorInput>
+      <ColorInput color={store['--color-lum-card-bg']} id="card-bg-color" onInput$={(newColor) => {
+        store['--color-lum-card-bg'] = newColor;
+      }}>
+        --color-lum-card-bg
+      </ColorInput>
+      <ColorInput color={store['--color-lum-input-bg']} id="input-bg-color" onInput$={(newColor) => {
+        store['--color-lum-input-bg'] = newColor;
+      }}>
+        --color-lum-input-bg
+      </ColorInput>
+      <ColorInput color={store['--color-lum-input-hover-bg']} id="input-hover-bg-color" onInput$={(newColor) => {
+        store['--color-lum-input-hover-bg'] = newColor;
+      }}>
+        --color-lum-input-hover-bg
+      </ColorInput>
+      <ColorInput color={store['--color-lum-accent']} id="accent-color" onInput$={(newColor) => {
+        store['--color-lum-accent'] = newColor;
+      }}>
+        --color-lum-accent
+      </ColorInput>
     </div>
   );
 });
