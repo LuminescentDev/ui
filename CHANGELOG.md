@@ -1,3 +1,13 @@
+## 4.1.0 (2025-06-15)
+
+### 🚀 Features
+
+- add more color variables   --color-lum-card-bg: var(--color-gray-900);   --color-lum-input-bg: var(--color-gray-800);   --color-lum-input-hover-bg: var(--color-gray-700);   --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 4.0.2 (2025-06-14)
 
 This was a version bump only, there were no code changes.
