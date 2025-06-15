@@ -1,8 +1,8 @@
-import { component$, isBrowser, Slot, useSignal, useStore, useTask$ } from '@builder.io/qwik';
+import { component$, isBrowser, QRL, Slot, useSignal, useStore, useTask$ } from '@builder.io/qwik';
 import { ColorPicker, NumberInput } from '../../index';
 
 const ColorInput = component$(({ onInput$, color, id }: {
-  onInput$?: (newColor: string) => void;
+  onInput$?: QRL<(newColor: string) => void>;
   color: string;
   id: string;
 }) => {
