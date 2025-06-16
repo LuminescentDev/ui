@@ -68,6 +68,8 @@ export default component$(() => {
     '--color-lum-input-bg': 'var(--color-gray-800)',
     '--color-lum-input-hover-bg': 'var(--color-gray-700)',
     '--color-lum-accent': 'var(--color-blue-500)',
+    '--color-lum-text': 'var(--color-gray-100)',
+    '--color-lum-text-secondary': 'var(--color-gray-400)',
   });
 
   useTask$(({ track }) => {
@@ -202,6 +204,16 @@ export default component$(() => {
         store['--color-lum-accent'] = newColor;
       }}>
         --color-lum-accent
+      </ColorInput>
+      <ColorInput color={store['--color-lum-text']} id="text-color" onInput$={(newColor) => {
+        store['--color-lum-text'] = newColor;
+      }}>
+        --color-lum-text
+      </ColorInput>
+      <ColorInput color={store['--color-lum-text-secondary']} id="text-secondary-color" onInput$={(newColor) => {
+        store['--color-lum-text-secondary'] = newColor;
+      }}>
+        --color-lum-text-secondary
       </ColorInput>
     </div>
   );
