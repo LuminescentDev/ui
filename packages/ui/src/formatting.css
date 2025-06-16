@@ -3,7 +3,7 @@ a {
 }
 
 a.lum-btn, a.lum-card {
-  @apply text-gray-100! hover:no-underline!;
+  @apply text-lum-text! hover:no-underline!;
 }
 
 blockquote {
@@ -39,11 +39,11 @@ h4 {
 }
 
 p {
-  @apply text-gray-400;
+  @apply text-lum-text-secondary;
 }
 
 ul, ol {
-  @apply my-4 ml-10 text-gray-400 list-disc;
+  @apply my-4 ml-10 text-lum-text-secondary list-disc;
 }
 
 ol {

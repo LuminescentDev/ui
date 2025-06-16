@@ -49,7 +49,7 @@ export const Toggle = component$<ToggleProps>(
           />
         </label>
         {label && (
-          <label for={props.id} class="flex gap-2 text-gray-300 select-none">
+          <label for={props.id} class="flex gap-2 text-lum-text select-none">
             {label}
           </label>
         )}

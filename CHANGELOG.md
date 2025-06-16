@@ -197,7 +197,7 @@ Migration guide:
 <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
   This is a header with a subheader
 </h2>
-<h3 class="text-sm text-gray-400">
+<h3 class="text-sm text-lum-text-secondary">
   This is a subheader
 </h3>
 ```

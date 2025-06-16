@@ -25,7 +25,7 @@ export default component$(() => {
           onInput$={(e, el) => (store.class = el.value)}
           value={store.class}
         />
-        <p class="text-gray-500">
+        <p class="text-lum-text-secondary">
           warning: only some classes will work because of the way tailwindcss works
         </p>
       </div>
@@ -81,7 +81,7 @@ export default component$(() => {
                 <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
                   This is a card
                 </h2>
-                <h3 class="text-sm text-gray-400">This is a description</h3>
+                <h3 class="text-sm text-lum-text-secondary">This is a description</h3>
               </div>
               <div class="lum-loading h-5 w-5"></div>
             </div>
@@ -90,7 +90,7 @@ export default component$(() => {
               <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
                 This is a card
               </h2>
-              <h3 class="text-sm text-gray-400">This is a description</h3>
+              <h3 class="text-sm text-lum-text-secondary">This is a description</h3>
             </div>
           )}
           {store.blobs && (
@@ -137,7 +137,7 @@ ${store.hoverable ? `
       }}>
         This is a card
       </h2>
-      <h3 class="text-gray-400 text-sm">
+      <h3 class="text-lum-text-secondary text-sm">
         This is a description
       </h3>
     </div>
@@ -151,7 +151,7 @@ ${store.hoverable ? `
     }}>
       This is a card
     </h2>
-    <h3 class="text-gray-400 text-sm">
+    <h3 class="text-lum-text-secondary text-sm">
       This is a description
     </h3>
   </div>

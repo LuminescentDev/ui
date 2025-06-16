@@ -5,7 +5,7 @@ import { Book, Github } from 'lucide-icons-qwik';
 
 export default component$(() => {
   return (
-    <Nav floating fixed colorClass="lum-bg-lum-input-bg/50 !text-gray-100">
+    <Nav floating fixed colorClass="lum-bg-lum-input-bg/50 !text-lum-text">
       <Link q:slot="start" href="/" class="lum-btn lum-bg-transparent">
         <div
           class="flex items-center gap-1 fill-[#f0ccfb] font-semibold text-[#f0ccfb]"

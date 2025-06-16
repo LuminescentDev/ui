@@ -86,7 +86,7 @@ export default component$(() => {
           </button>
           <h3
             q:slot="mobile"
-            class="mx-4 border-b border-gray-700 py-2 text-gray-400"
+            class="mx-4 border-b border-gray-700 py-2 text-lum-text-secondary"
           >
             Dropdown
           </h3>
@@ -132,7 +132,7 @@ export default component$(() => {
   <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
     button 2
   </button>
-  <h3 q:slot="mobile" class="mx-4 py-2 text-gray-400 border-b border-gray-700">
+  <h3 q:slot="mobile" class="mx-4 py-2 text-lum-text-secondary border-b border-gray-700">
     Dropdown
   </h3>
   <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">

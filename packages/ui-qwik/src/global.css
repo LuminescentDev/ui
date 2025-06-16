@@ -22,7 +22,7 @@ html {
     var(--color-gray-900) 0%,
     var(--color-gray-950) 100%
   );
-  @apply text-gray-200 bg-gray-950;
+  @apply text-lum-text bg-gray-950;
 }
 
 * {

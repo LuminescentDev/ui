@@ -16,7 +16,7 @@ interface SelectMenuProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {
 export const SelectMenu = component$<SelectMenuProps>((props) => {
   return (
     <div class="flex flex-col">
-      <label for={props.id} class="pb-1 text-gray-300 select-none">
+      <label for={props.id} class="pb-1 text-lum-text select-none">
         <Slot />
       </label>
       <SelectMenuRaw {...props}>

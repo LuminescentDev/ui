@@ -8,7 +8,7 @@ export default component$(() => {
   return (
     <>
       <section class="mx-auto flex min-h-[calc(100svh)] max-w-7xl flex-col items-center justify-center px-4 pt-40">
-        <h1 class="animate-in fade-in slide-in-from-top-8 anim-duration-1000 relative text-3xl font-bold text-gray-100 sm:text-6xl">
+        <h1 class="animate-in fade-in slide-in-from-top-8 anim-duration-1000 relative text-3xl font-bold text-lum-text sm:text-6xl">
           <div
             class="flex items-center gap-2 fill-[#f0ccfb] font-semibold text-[#f0ccfb] select-none sm:gap-5"
             style="filter: drop-shadow(0 0 3rem #CB6CE6);"
@@ -17,7 +17,7 @@ export default component$(() => {
             <LogoLuminescentFull size={45} class="mt-1 flex sm:hidden" /> / ui
           </div>
         </h1>
-        <h2 class="animate-in fade-in slide-in-from-top-16 anim-duration-1000 my-6 text-lg text-gray-300 sm:text-2xl">
+        <h2 class="animate-in fade-in slide-in-from-top-16 anim-duration-1000 my-6 text-lg text-lum-text sm:text-2xl">
           A ui library built for Tailwind CSS with components for Qwik
         </h2>
 

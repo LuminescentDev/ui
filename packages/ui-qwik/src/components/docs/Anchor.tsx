@@ -8,7 +8,7 @@ export default component$(() => {
         <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Anchor
         </h2>
-        <h3 class="text-sm text-gray-400">The element is in the title</h3>
+        <h3 class="text-sm text-lum-text-secondary">The element is in the title</h3>
       </Anchor>
       <textarea
         class="lum-input h-32"

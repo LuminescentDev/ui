@@ -28,7 +28,7 @@ export default component$(() => {
           onInput$={(e, el) => (store.class = el.value)}
           value={store.class}
         />
-        <p class="text-gray-500">
+        <p class="text-lum-text-secondary">
           warning: only some classes will work because of the way tailwindcss works
         </p>
       </div>

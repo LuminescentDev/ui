@@ -28,7 +28,7 @@ export default component$(() => {
         Get Started
       </h2>
       <div class="lum-card">
-        <div class="flex flex-col gap-4 text-sm [&>pre]:rounded-lum [&>pre]:border [&>pre]:border-gray-800 [&>pre]:bg-gray-950/40 [&>pre]:p-4 [&>pre]:text-gray-400">
+        <div class="flex flex-col gap-4 text-sm [&>pre]:rounded-lum [&>pre]:border [&>pre]:border-gray-800 [&>pre]:bg-gray-950/40 [&>pre]:p-4 [&>pre]:text-lum-text-secondary">
           <Readme />
         </div>
       </div>

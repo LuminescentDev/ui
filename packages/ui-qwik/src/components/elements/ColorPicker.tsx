@@ -287,7 +287,7 @@ export const ColorPicker = component$<ColorPickerProps>(
               await setColor(color);
             }}
           >
-            <Shuffle class="p-0.5 pl-0.5 text-gray-300" />
+            <Shuffle class="p-0.5 pl-0.5 text-lum-text" />
           </button>
         </div>
       </div>
