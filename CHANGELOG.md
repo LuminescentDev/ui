@@ -1,3 +1,13 @@
+## 4.1.1 (2025-06-16)
+
+### 🚀 Features
+
+- update text color variables to use lum-text and lum-text-secondary ([7934342](https://github.com/LuminescentDev/ui/commit/7934342))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 4.1.0 (2025-06-15)
 
 ### 🚀 Features
