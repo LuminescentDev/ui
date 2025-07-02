@@ -16,24 +16,26 @@ export default component$(() => {
           ColorPicker
         </h2>
       </Anchor>
-      <SelectMenu
-        id="colorpicker-preview"
-        onChange$={(e, element) =>
-          (store.preview = element.value as
-            | 'left'
-            | 'right'
-            | 'top'
-            | 'bottom'
-            | 'full')
-        }
-        values={['left', 'right', 'top', 'bottom', 'full'].map((preview) => ({
-          name: preview,
-          value: preview,
-        }))}
-        value="left"
-      >
-        preview
-      </SelectMenu>
+      <div class="flex">
+        <SelectMenu
+          id="colorpicker-preview"
+          onChange$={(e, element) =>
+            (store.preview = element.value as
+              | 'left'
+              | 'right'
+              | 'top'
+              | 'bottom'
+              | 'full')
+          }
+          values={['left', 'right', 'top', 'bottom', 'full'].map((preview) => ({
+            name: preview,
+            value: preview,
+          }))}
+          value="left"
+        >
+          preview
+        </SelectMenu>
+      </div>
       <Toggle
         id="colorpicker-horizontal"
         label="horizontal"

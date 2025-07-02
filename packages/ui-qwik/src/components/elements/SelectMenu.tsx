@@ -6,6 +6,7 @@ interface SelectMenuProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {
   class?: { [key: string]: boolean };
   customDropdown?: boolean;
   hover?: boolean;
+  align?: 'left' | 'right' | 'center';
   values?: {
     name: JSXChildren;
     value: string | number;
@@ -32,7 +33,7 @@ export const SelectMenu = component$<SelectMenuProps>((props) => {
 });
 
 export const SelectMenuRaw = component$<SelectMenuProps>(
-  ({ id, values, class: Class, customDropdown, hover, ...props }) => {
+  ({ id, values, class: Class, customDropdown, hover, align, ...props }) => {
     const store = useStore({
       opened: false,
       value: props.value,
@@ -62,7 +63,10 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
         )}
         <Dropdown
           opened={store.opened}
-          class={Class}
+          class={{
+            'w-full': true,
+            ...Class,
+          }}
           onClick$={() => {
             if (!hover) store.opened = !store.opened;
           }}
@@ -78,10 +82,13 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
             </span>
           )}
         </Dropdown>
-        <div
+        <div id={`lui-${id}-opts-container`}
           class={{
-            'absolute top-full left-0 z-[1000] pt-2 transition-all ease-out':
+            'absolute z-[1000] pt-2 transition-all ease-out':
               true,
+            'left-0': align === 'left',
+            'right-0': align === 'right',
+            'left-1/2 -translate-x-1/2': align === 'center',
             'pointer-events-none scale-95 opacity-0': !store.opened,
             'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75':
               hover,

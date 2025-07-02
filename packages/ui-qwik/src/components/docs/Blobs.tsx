@@ -20,32 +20,36 @@ export default component$(() => {
           Blobs
         </h2>
       </Anchor>
-      <SelectMenu
-        id="blobs-color"
-        onChange$={(e, element) =>
-          (store.color = element.value as keyof typeof blobColorClasses)
-        }
-        values={Object.keys(blobColorClasses).map((color) => ({
-          name: color,
-          value: color,
-        }))}
-        value="darkgray"
-      >
-        color
-      </SelectMenu>
-      <SelectMenu
-        id="blobs-blur"
-        onChange$={(e, element) =>
-          (store.blur = element.value as 'sm' | 'md' | 'lg' | 'xl')
-        }
-        values={['sm', 'md', 'lg', 'xl'].map((size) => ({
-          name: size,
-          value: size,
-        }))}
-        value="xl"
-      >
-        blur
-      </SelectMenu>
+      <div class="flex">
+        <SelectMenu
+          id="blobs-color"
+          onChange$={(e, element) =>
+            (store.color = element.value as keyof typeof blobColorClasses)
+          }
+          values={Object.keys(blobColorClasses).map((color) => ({
+            name: color,
+            value: color,
+          }))}
+          value="darkgray"
+        >
+          color
+        </SelectMenu>
+      </div>
+      <div class="flex">
+        <SelectMenu
+          id="blobs-blur"
+          onChange$={(e, element) =>
+            (store.blur = element.value as 'sm' | 'md' | 'lg' | 'xl')
+          }
+          values={['sm', 'md', 'lg', 'xl'].map((size) => ({
+            name: size,
+            value: size,
+          }))}
+          value="xl"
+        >
+          blur
+        </SelectMenu>
+      </div>
       <div class="relative h-96 w-96 rounded-lum border border-gray-800">
         <Blobs color={store.color} blur={store.blur} />
       </div>
