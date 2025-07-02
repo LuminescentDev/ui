@@ -1,3 +1,7 @@
+## 4.2.1 (2025-07-02)
+
+This was a version bump only, there were no code changes.
+
 ## 4.2.0 (2025-07-02)
 
 added align prop to select menu for aligning the dropdown content, which can be set to 'left', 'center', or 'right'. Default is 'left'.
