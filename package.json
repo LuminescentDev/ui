@@ -7,7 +7,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.12.4",
   "scripts": {
     "build:release": "pnpm build && pnpm release",
     "build": "pnpm nx run-many -t build --output-style=stream --parallel=false",
@@ -16,13 +16,14 @@
   },
   "type": "module",
   "devDependencies": {
-    "@nx/js": "^20.8.1",
-    "nx": "20.8.1",
-    "tsx": "^4.19.4",
-    "yargs": "^17.7.2"
+    "@nx/js": "^21.2.1",
+    "nx": "21.2.1",
+    "tsx": "^4.20.3",
+    "yargs": "^18.0.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
       "esbuild",
       "nx",
       "sharp"
