@@ -4,6 +4,7 @@ import { SelectMenu, Toggle, Anchor } from '@luminescent/ui-qwik';
 interface SelectMenuOptions {
   customDropdown?: boolean;
   hover?: boolean;
+  align?: 'left' | 'right' | 'center';
 }
 
 export default component$(() => {
@@ -25,7 +26,25 @@ export default component$(() => {
         label="hover"
         onInput$={(e, el) => (store.hover = el.checked)}
       />
-      <div>
+      <div class="flex">
+        <SelectMenu
+          id="selectmenu-align"
+          onChange$={(e, element) =>
+            (store.align = element.value as
+              | 'left'
+              | 'right'
+              | 'center')
+          }
+          values={['left', 'right', 'center'].map((preview) => ({
+            name: preview,
+            value: preview,
+          }))}
+          value="left"
+        >
+          align
+        </SelectMenu>
+      </div>
+      <div class="flex">
         <SelectMenu
           id="selectmenu-input"
           values={[
@@ -39,6 +58,7 @@ export default component$(() => {
           value="1"
           customDropdown={store.customDropdown}
           hover={store.hover}
+          align={store.align}
         >
           Select Menu
           <p q:slot="dropdown">
@@ -63,9 +83,7 @@ export default component$(() => {
     { name: 'Option 2', value: '2' },
     { name: 'Option 3', value: '3' },
   ]}
-  value="1"
-  customDropdown={store.customDropdown}
-  hover={store.hover}
+  value="1"${store.customDropdown ? ' customDropdown' : ''}${store.hover ? ' hover' : ''}${store.align ? ` align="${store.align}"` : ''}
 >
   Select Menu
   <p q:slot="dropdown">
