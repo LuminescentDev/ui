@@ -1,3 +1,12 @@
+## 4.2.0 (2025-07-02)
+
+added align prop to select menu for aligning the dropdown content, which can be set to 'left', 'center', or 'right'. Default is 'left'.
+
+added theme colors to formatting
+
+Breaking Changes:
+- the SelectMenu component now takes up the full width of its parent container by default, in addition to the align prop. If you want to change the width, you can use the `w-auto` class.
+
 ## 4.1.1 (2025-06-16)
 
 ### 🚀 Features
