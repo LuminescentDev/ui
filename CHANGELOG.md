@@ -1,3 +1,13 @@
+## 4.3.0-0 (2025-07-05)
+
+### 🚀 Features
+
+- add Sidebar component and update imports in elements and root ([6301903](https://github.com/LuminescentDev/ui/commit/6301903))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 4.2.2 (2025-07-05)
 
 Fixed the dropdown menu not animating when hover is enabled and hovering over the dropdown button.
