@@ -40,7 +40,7 @@ importers:
         version: 1.14.1(rollup@4.40.1)(typescript@5.8.3)(vite@5.4.14(@types/node@24.0.10)(lightningcss@1.30.1))
       '@cloudflare/workers-types':
         specifier: ^4.20250702.0
-        version: 4.20250702.0
+        version: 4.20250705.0
       '@eslint/js':
         specifier: ^9.30.1
         version: 9.30.1
@@ -806,8 +806,8 @@ packages:
     peerDependencies:
       vite: ^5
 
-  '@cloudflare/workers-types@4.20250702.0':
-    resolution: {integrity: sha512-gUuWeVvb0Y6E8h83nI19Ay+69x+9Xjz99TdhX0JdZoNTtyVX9KcdQgGcRK+Tmt2WC0z2AQaPq/qVmNihAgS7iQ==}
+  '@cloudflare/workers-types@4.20250705.0':
+    resolution: {integrity: sha512-+eKIUEW0loB+CCgkfpa6UCTacnn3YOCllLpLbKfwR0qdoIfzmeOpadqY/W6ZSi/9v0tpQqTPB80tkhu7a7Cyug==}
 
   '@emnapi/core@1.2.0':
     resolution: {integrity: sha512-E7Vgw78I93we4ZWdYCb4DGAwRROGkMIXk7/y87UmANR+J6qsWusmC3gLt0H+O0KOt5e6O38U8oJamgbudrES/w==}
@@ -4599,7 +4599,7 @@ snapshots:
       rollup: 4.40.1
       vite: 5.4.14(@types/node@24.0.10)(lightningcss@1.30.1)
 
-  '@cloudflare/workers-types@4.20250702.0': {}
+  '@cloudflare/workers-types@4.20250705.0': {}
 
   '@emnapi/core@1.2.0':
     dependencies:
