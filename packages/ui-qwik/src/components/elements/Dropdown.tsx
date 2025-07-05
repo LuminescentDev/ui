@@ -12,7 +12,7 @@ export const Dropdown = component$<DropdownProps>(({ class: Class, hover, opened
   return (
     <button type="button"
       class={{
-        'lum-btn': true,
+        'group lum-btn': true,
         ...Class,
       }}
       {...props}
