@@ -9,10 +9,11 @@ import LumInput from './components/docs/lum-input';
 import Anchor from '~/components/docs/Anchor';
 import Blobs from '~/components/docs/Blobs';
 import ColorPicker from '~/components/docs/ColorPicker';
+import Dropdown from '~/components/docs/Dropdown';
 import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
-import Dropdown from '~/components/docs/Dropdown';
 import SelectMenu from './components/docs/SelectMenu';
+import Sidebar from './components/docs/Sidebar';
 import Toggle from '~/components/docs/Toggle';
 import IconsLogos from '~/components/docs/IconsLogos';
 
@@ -42,10 +43,11 @@ export default component$(() => {
         <Anchor />
         <Blobs />
         <ColorPicker />
-        <SelectMenu />
         <Dropdown />
         <Nav />
         <NumberInput />
+        <SelectMenu />
+        <Sidebar />
         <Toggle />
         <IconsLogos />
       </body>

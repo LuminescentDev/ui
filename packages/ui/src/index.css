@@ -40,7 +40,7 @@
   border-color: --value('inherit', 'transparent', 'currentColor');
 
   &:focus {
-    @apply border-white;
+    @apply border-lum-accent;
   }
 }
 
