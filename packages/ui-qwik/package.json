@@ -1,7 +1,7 @@
 {
   "name": "@luminescent/ui-qwik",
-  "version": "4.3.0-0",
-  "description": "Luminescent UI library",
+  "version": "5.0.0-0",
+  "description": "Luminescent UI library - Qwik",
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
   "types": "./lib-types/index.d.ts",
@@ -52,8 +52,6 @@
     "@tailwindcss/vite": "^4.1.11",
     "@types/eslint": "^9.6.1",
     "@types/node": "^24.0.10",
-    "@typescript-eslint/eslint-plugin": "^8.35.1",
-    "@typescript-eslint/parser": "^8.35.1",
     "eslint": "^9.30.1",
     "eslint-plugin-qwik": "^1.14.1",
     "globals": "^16.3.0",

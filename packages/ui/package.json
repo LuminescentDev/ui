@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui",
-  "version": "4.3.0-0",
+  "version": "5.0.0-0",
   "description": "Luminescent UI library",
   "exports": {
     ".": "./src/index.css",

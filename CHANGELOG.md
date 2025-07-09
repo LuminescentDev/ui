@@ -1,3 +1,17 @@
+## 5.0.0-0 (2025-07-09)
+
+### 🚀 Features
+
+- update a bunch of stuff ([3e7ed79](https://github.com/LuminescentDev/ui/commit/3e7ed79))
+- update Toggle component for new lum-bg classes and enhance customization options ([d965fb6](https://github.com/LuminescentDev/ui/commit/d965fb6))
+- add more color variables   --color-lum-card-bg: var(--color-gray-900);   --color-lum-input-bg: var(--color-gray-800);   --color-lum-input-hover-bg: var(--color-gray-700);   --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
+- update text color variables to use lum-text and lum-text-secondary ([7934342](https://github.com/LuminescentDev/ui/commit/7934342))
+- add Sidebar component and update imports in elements and root ([6301903](https://github.com/LuminescentDev/ui/commit/6301903))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 4.3.0-0 (2025-07-05)
 
 ### 🚀 Features
