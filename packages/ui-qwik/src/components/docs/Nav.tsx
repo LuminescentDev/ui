@@ -47,13 +47,13 @@ export default component$(() => {
           nohamburger={store.nohamburger}
           colorClass={store.colorClass}
         >
-          <button q:slot="start" class={'lum-btn lum-bg-transparent'}>
+          <button q:slot="start" class="lum-btn lum-bg-transparent">
             Brand
           </button>
 
           <button
             q:slot="center"
-            class={'lum-btn lum-bg-transparent hidden sm:flex'}
+            class="lum-btn lum-bg-transparent hidden sm:flex"
           >
             Center Button
           </button>
@@ -64,13 +64,13 @@ export default component$(() => {
             q:slot="end"
             class={{ 'lum-bg-transparent hidden sm:flex': true }}
           >
-            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent rounded-lum-1'}>
+            <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
               Option 1
             </button>
-            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent rounded-lum-1'}>
+            <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
               Option 2
             </button>
-            <button q:slot="extra-buttons" class={'lum-btn lum-bg-transparent rounded-lum-1'}>
+            <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
               Option 3
             </button>
             <p q:slot="dropdown">
@@ -78,10 +78,10 @@ export default component$(() => {
             </p>
           </SelectMenuRaw>
 
-          <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
+          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
             button 1
           </button>
-          <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
+          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
             button 2
           </button>
           <h3
@@ -90,13 +90,13 @@ export default component$(() => {
           >
             Dropdown
           </h3>
-          <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
+          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
             Option 1
           </button>
-          <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
+          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
             Option 2
           </button>
-          <button q:slot="mobile" class={'lum-btn lum-bg-transparent'}>
+          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
             Option 3
           </button>
         </Nav>

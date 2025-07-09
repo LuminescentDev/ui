@@ -50,9 +50,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
           <select
             {...props}
             id={id}
-            class={{
-              hidden: true,
-            }}
+            class="hidden"
           >
             {values.map((value, i) => {
               return (
@@ -98,17 +96,12 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
         >
           <div
             id={`lui-${id}-opts`}
-            class={{
-              'lum-bg-lum-input-bg lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all':
-                true,
-            }}
+            class="lum-bg-lum-input-bg lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all"
           >
             {values?.map(({ name, value }, i) => {
               return (
                 <button type="button"
-                  class={{
-                    'lum-btn lum-bg-transparent rounded-lum-1': true,
-                  }}
+                  class="lum-btn lum-bg-transparent rounded-lum-1"
                   key={i}
                   onClick$={() => {
                     store.opened = false;

@@ -35,3 +35,15 @@ Once installed, include the following to your tailwind css file after the previo
 @config "@luminescent/ui-qwik/config";
 @source "../node_modules/@luminescent/ui-qwik";
 ```
+
+## To use the Luminescent UI React Library, you need to install the react package from npm in addition to the main package.
+
+```bash
+pnpm install @luminescent/ui-react
+```
+
+Once installed, include the following to your tailwind css file after the previous imports
+
+```css
+@source "../node_modules/@luminescent/ui-react";
+```

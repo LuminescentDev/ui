@@ -3,8 +3,6 @@
  * View the full documentation at https://tailwindcss.com
  */
 @import 'tailwindcss';
-@plugin "@anuragroy/tailwindcss-animate";
-
 @import '@luminescent/ui';
 
 @theme {

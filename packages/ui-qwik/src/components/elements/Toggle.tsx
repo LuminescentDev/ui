@@ -20,18 +20,12 @@ export const Toggle = component$<ToggleProps>(
     ...props
   }) => {
     return (
-      <div
-        class={{
-          'flex touch-manipulation items-center gap-3': true,
-        }}
-      >
+      <div class="flex touch-manipulation items-center gap-3">
         <label class="relative inline-flex cursor-pointer items-center">
           <input
             type="checkbox"
             {...props}
-            class={{
-              'peer sr-only': true,
-            }}
+            class="peer sr-only"
           />
           <div
             class={{

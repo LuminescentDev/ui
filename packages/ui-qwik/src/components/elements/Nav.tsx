@@ -2,7 +2,7 @@ import type { PropsOf } from '@builder.io/qwik';
 import { Slot, component$, useSignal } from '@builder.io/qwik';
 import { Menu } from '~/svg/Menu';
 
-interface NavContainerProps extends Omit<PropsOf<'nav'>, 'class'> {
+interface NavProps extends Omit<PropsOf<'nav'>, 'class'> {
   class?: { [key: string]: boolean };
   fixed?: boolean;
   floating?: boolean;
@@ -10,7 +10,7 @@ interface NavContainerProps extends Omit<PropsOf<'nav'>, 'class'> {
   colorClass?: string;
 }
 
-export const Nav = component$<NavContainerProps>(
+export const Nav = component$<NavProps>(
   ({
     fixed,
     floating,
