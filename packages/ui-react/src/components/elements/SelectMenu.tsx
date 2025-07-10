@@ -53,6 +53,7 @@ export function SelectMenuRaw({
       {values && (
         <select
           {...props}
+          className="hidden"
           ref={selectRef}
         >
           {values.map((value, i) => {
