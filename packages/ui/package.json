@@ -16,7 +16,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.12.4",
+  "packageManager": "pnpm@10.13.1",
   "license": "AGPL-3.0-or-later",
   "private": false,
   "type": "module",
