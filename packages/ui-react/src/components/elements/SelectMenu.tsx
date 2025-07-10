@@ -1,7 +1,7 @@
 import type React from "react";
 import { getClasses } from "../functions";
 import { Dropdown } from "./Dropdown";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 interface SelectMenuProps
   extends React.SelectHTMLAttributes<HTMLSelectElement> {
@@ -14,7 +14,6 @@ interface SelectMenuProps
   }[];
   dropdown?: React.ReactNode;
   'extra-buttons'?: React.ReactNode;
-  id: string;
 }
 
 export function SelectMenu({
@@ -37,12 +36,13 @@ export function SelectMenu({
 }
 
 export function SelectMenuRaw({
-    id, values, className, customDropdown, hover, align,
+    values, className, customDropdown, hover, align,
     ...props
   }: SelectMenuProps) {
   const [opened, setOpened] = useState(false);
   const [value, setValue] = useState(props.value?.toString() || (values && values[0]?.value.toString()) || '');
-
+  const selectRef = useRef<HTMLSelectElement>(null);
+  
   return (
     <div
       className={getClasses({
@@ -53,8 +53,7 @@ export function SelectMenuRaw({
       {values && (
         <select
           {...props}
-          id={id}
-          className="hidden"
+          ref={selectRef}
         >
           {values.map((value, i) => {
             return (
@@ -75,7 +74,7 @@ export function SelectMenuRaw({
       >
         {customDropdown && props.dropdown}
         {!customDropdown && (
-          <span id={`lui-${id}-name`}>
+          <span>
             {values &&
               (values.find((v) => v.value.toString() === value)?.name
                 ?? values[0].name)
@@ -84,8 +83,7 @@ export function SelectMenuRaw({
           </span>
         )}
       </Dropdown>
-      <div id={`lui-${id}-opts-container`}
-        className={getClasses({
+      <div className={getClasses({
           'absolute z-[1000] pt-2 transition-all ease-out':
             true,
           'left-0': align === 'left',
@@ -98,10 +96,7 @@ export function SelectMenuRaw({
             true,
         })}
       >
-        <div
-          id={`lui-${id}-opts`}
-          className="lum-bg-lum-input-bg lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all"
-        >
+        <div className="lum-bg-lum-input-bg lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all">
           {values?.map(({ name, value }, i) => {
             return (
               <button type="button"
@@ -109,12 +104,13 @@ export function SelectMenuRaw({
                 key={i}
                 onClick={() => {
                   setOpened(false);
-                  const select = document.getElementById(
-                    id,
-                  ) as HTMLSelectElement | null;
+                  const select = selectRef.current;
                   if (select) {
                     select.value = value.toString();
-                    select.dispatchEvent(new Event('change'));
+                    select.dispatchEvent(new Event('change', {
+                      bubbles: true,
+                      cancelable: true,
+                    }));
                   }
                   setValue(value.toString());
                 }}

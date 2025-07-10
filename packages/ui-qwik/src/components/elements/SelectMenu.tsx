@@ -1,5 +1,5 @@
 import type { JSXChildren, PropsOf } from '@builder.io/qwik';
-import { component$, Slot, useStore } from '@builder.io/qwik';
+import { component$, Slot, useSignal, useStore } from '@builder.io/qwik';
 import { Dropdown } from './Dropdown';
 
 interface SelectMenuProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {
@@ -11,7 +11,6 @@ interface SelectMenuProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {
     name: JSXChildren;
     value: string | number;
   }[];
-  id: string;
 }
 
 export const SelectMenu = component$<SelectMenuProps>((props) => {
@@ -33,11 +32,12 @@ export const SelectMenu = component$<SelectMenuProps>((props) => {
 });
 
 export const SelectMenuRaw = component$<SelectMenuProps>(
-  ({ id, values, class: Class, customDropdown, hover, align, ...props }) => {
+  ({ values, class: Class, customDropdown, hover, align, ...props }) => {
     const store = useStore({
       opened: false,
       value: props.value,
     });
+    const selectRef = useSignal<HTMLSelectElement>();
 
     return (
       <div
@@ -49,7 +49,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
         {values && (
           <select
             {...props}
-            id={id}
+            ref={selectRef}
             class="hidden"
           >
             {values.map((value, i) => {
@@ -71,7 +71,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
         >
           {customDropdown && <Slot name="dropdown"/>}
           {!customDropdown && (
-            <span id={`lui-${id}-name`}>
+            <span>
               {values &&
                 (values.find((value) => value.value.toString() === store.value)?.name
                   ?? values[0].name)
@@ -80,24 +80,17 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
             </span>
           )}
         </Dropdown>
-        <div id={`lui-${id}-opts-container`}
-          class={{
-            'absolute z-[1000] pt-2 transition-all ease-out':
-              true,
-            'left-0': align === 'left',
-            'right-0': align === 'right',
-            'left-1/2 -translate-x-1/2': align === 'center',
-            'pointer-events-none scale-95 opacity-0': !store.opened,
-            'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75':
-              hover,
-            'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75':
-              true,
-          }}
+        <div class={{
+          'absolute z-[1000] pt-2 transition-all ease-out': true,
+          'left-0': align === 'left',
+          'right-0': align === 'right',
+          'left-1/2 -translate-x-1/2': align === 'center',
+          'pointer-events-none scale-95 opacity-0': !store.opened,
+          'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75': hover,
+          'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75': true,
+        }}
         >
-          <div
-            id={`lui-${id}-opts`}
-            class="lum-bg-lum-input-bg lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all"
-          >
+          <div class="lum-bg-lum-input-bg lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all">
             {values?.map(({ name, value }, i) => {
               return (
                 <button type="button"
@@ -105,9 +98,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
                   key={i}
                   onClick$={() => {
                     store.opened = false;
-                    const select = document.getElementById(
-                      id,
-                    ) as HTMLSelectElement | null;
+                    const select = selectRef.value;
                     if (select) {
                       select.value = value.toString();
                       select.dispatchEvent(new Event('change'));
