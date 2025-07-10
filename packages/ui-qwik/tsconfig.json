@@ -21,6 +21,6 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "../ui-react/src/components/logos.ts"],
   "exclude": ["tailwind.config.js"]
 }

@@ -1,3 +1,4 @@
+import { IconsLogos } from "./components/docs/IconsLogos"
 import NavDoc from "./components/docs/Nav"
 import SelectMenuDoc from "./components/docs/SelectMenu"
 import ToggleDoc from "./components/docs/Toggle"
@@ -11,6 +12,7 @@ function App() {
       <ToggleDoc />
       <SelectMenuDoc />
       <NavDoc />
+      <IconsLogos />
     </>
   )
 }

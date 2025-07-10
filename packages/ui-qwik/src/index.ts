@@ -1,3 +1,3 @@
 export * from './components/elements';
 export * from './components/functions';
-export * from './components/logos';
+export * from '../../ui-react/src/components/logos';
