@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui-qwik",
-  "version": "5.0.0-0",
+  "version": "5.0.1-0",
   "description": "Luminescent UI library - Qwik",
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
