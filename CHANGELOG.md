@@ -1,3 +1,13 @@
+## 5.0.1-1 (2025-07-10)
+
+### 🩹 Fixes
+
+- **SelectMenu:** refactor to use useSignal for select reference and remove id prop ([fde776b](https://github.com/LuminescentDev/ui/commit/fde776b))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 5.0.1-0 (2025-07-10)
 
 ### 🚀 Features
