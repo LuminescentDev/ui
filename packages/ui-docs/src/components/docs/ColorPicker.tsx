@@ -7,12 +7,12 @@ interface colorPickerOptions {
   showInput?: boolean;
 }
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const store = useStore<colorPickerOptions>({});
   return (
     <div class="lum-card">
-      <Anchor id="colorpicker">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           ColorPicker
         </h2>
       </Anchor>

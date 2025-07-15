@@ -1,14 +1,14 @@
 import { component$, useSignal } from '@builder.io/qwik';
 import { Anchor, Dropdown, Toggle } from '@luminescent/ui-qwik';
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const opened = useSignal(false);
   const hover = useSignal(false);
 
   return (
     <div class="lum-card">
-      <Anchor id="dropdown">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Dropdown
         </h2>
       </Anchor>

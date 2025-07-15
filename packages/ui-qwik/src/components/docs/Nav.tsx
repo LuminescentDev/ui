@@ -8,12 +8,12 @@ interface navOptions {
   colorClass?: string;
 }
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const store = useStore<navOptions>({});
   return (
     <div class="lum-card">
-      <Anchor id="nav">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Nav
         </h2>
       </Anchor>

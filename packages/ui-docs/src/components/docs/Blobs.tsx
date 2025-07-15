@@ -11,12 +11,12 @@ interface blobsOptions {
   blur?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const store = useStore<blobsOptions>({});
   return (
     <div class="lum-card">
-      <Anchor id="blobs">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Blobs
         </h2>
       </Anchor>

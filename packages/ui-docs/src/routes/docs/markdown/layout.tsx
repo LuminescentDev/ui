@@ -1,5 +1,4 @@
-import { component$, Slot, useStyles$ } from '@builder.io/qwik';
-import styles from './styles.css?inline';
+import { component$, Slot } from '@builder.io/qwik';
 
 type MDX = {
   title: string;
@@ -11,12 +10,11 @@ type MDX = {
 export type MarkdownItems = Record<string, MDX>;
 
 export default component$(() => {
-  useStyles$(styles);
   return (
     <div class="max-w-7xl mx-auto min-h-dvh">
       <main class="contents">
         <div class="w-full mt-48 sm:mt-30 min-w-48">
-          <article class="px-4">
+          <article class="px-4 markdown">
             <h1 class="font-bold text-center border-b border-gray-700 pb-4">
               Markdown Documentation
             </h1>

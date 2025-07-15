@@ -93,10 +93,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="lum-card border-gradient-1 before:from-luminescent-200 before:to-luminescent-800">
-      <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
-        Settings
-      </h2>
+    <>
       <NumberInput
         id="default-alpha"
         onIncrement$={() => {
@@ -215,6 +212,6 @@ export default component$(() => {
       }}>
         --color-lum-text-secondary
       </ColorInput>
-    </div>
+    </>
   );
 });

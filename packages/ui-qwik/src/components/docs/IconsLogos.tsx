@@ -14,11 +14,11 @@ import {
   LogoWaterfall,
 } from '../../index';
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
-      <Anchor id="icons">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Icons/Logos
         </h2>
       </Anchor>

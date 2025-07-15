@@ -10,12 +10,12 @@ interface toggleOptions {
   class?: string;
 }
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const store = useStore<toggleOptions>({});
   return (
     <div class="lum-card">
-      <Anchor id="toggle">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Toggle
         </h2>
       </Anchor>

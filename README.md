@@ -17,7 +17,7 @@ Once finished, you can use the classes included, shown in the documentation.
 
 ### Luminescent UI also provides default formatting for various elements
 
-This is mainly for people who would like to easily format Markdown elements, you can add it to your tailwind css file
+This is mainly for people who would like to easily format Markdown elements, you can add it to your tailwind css file. You can see the formatting in action in the [Markdown Documentation](https://ui.luminescent.dev/docs/markdown).
 
 ```css
 @import "@luminescent/ui/formatting";

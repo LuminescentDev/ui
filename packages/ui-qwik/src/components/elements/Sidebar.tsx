@@ -1,21 +1,19 @@
-import { component$, PropsOf, Slot, useSignal } from '@builder.io/qwik';
-import { Menu } from '~/svg/Menu';
+import { component$, PropsOf, Slot } from '@builder.io/qwik';
 
 interface SidebarProps extends Omit<PropsOf<'aside'>, 'class'> {
   class?: { [key: string]: boolean };
   floating?: boolean;
+  position?: 'left' | 'right';
 }
 
-export const Sidebar = component$<SidebarProps>(({ floating, ...props }) => {
-  const menu = useSignal(false);
-
+export const Sidebar = component$<SidebarProps>(({ position, ...props }) => {
   return (
     <aside
       {...props}
       class={{
-        'lg:w-100 fixed lg:sticky lum-card top-0 left-0 z-[40] px-0 lg:px-6 pb-0': true,
-        'w-full rounded-none pt-14 lg:pt-20 lg:h-dvh lg:border-y-0 border-l-0': !floating,
-        'mt-16 lg:mt-22 lg:ml-4 pt-4 mx-2 w-[calc(100%-16px)]': floating,
+        'hidden lg:flex sticky lum-card top-0 z-[40] px-6 pb-0 rounded-none pt-20 h-dvh': true,
+        'left-0 border-0 border-r-1': position === 'left' || !position,
+        'right-0 border-0 border-l-1': position === 'right',
         ...props.class,
       }}
     >
@@ -24,25 +22,10 @@ export const Sidebar = component$<SidebarProps>(({ floating, ...props }) => {
           <div class="flex-1">
             <Slot name="title" />
           </div>
-
-          <button class='lum-btn lum-bg-transparent p-2 lg:hidden' onClick$={() => {
-            menu.value = !menu.value;
-            const abortController = new AbortController();
-            document.addEventListener('click', (e) => {
-              if (!e.composedPath().includes(document.querySelector('aside')!) || e.target instanceof HTMLAnchorElement) {
-                menu.value = false;
-                abortController.abort();
-              }
-            }, { signal: abortController.signal });
-          }} aria-label="Toggle Menu">
-            <Menu size={24} />
-          </button>
         </div>
 
         <div class={{
-          'flex-col gap-3 my-4 mx-4 lg:mx-0': true,
-          'hidden lg:flex': !menu.value,
-          'flex': menu.value,
+          'flex flex-col gap-3 my-4 mx-4 lg:mx-0': true,
         }}>
           <Slot />
         </div>

@@ -5,13 +5,15 @@ import { Book, Github } from 'lucide-icons-qwik';
 
 export default component$(() => {
   return (
-    <Nav floating fixed colorClass="lum-bg-lum-input-bg/50 !text-lum-text">
-      <Link q:slot="start" href="/" class="lum-btn lum-bg-transparent">
+    <Nav floating fixed colorClass="lum-bg-lum-input-bg/50 !text-lum-text" style={{
+      '--lum-border-radius': '1rem',
+    }}>
+      <Link q:slot="start" href="/" class="lum-btn lum-bg-transparent rounded-lum-2">
         <div
           class="flex items-center gap-1 fill-[#f0ccfb] font-semibold text-[#f0ccfb]"
           style="filter: drop-shadow(0 0 1rem #CB6CE6);"
         >
-          <LogoLuminescentFull size={20} class="mt-1" />
+          <LogoLuminescentFull size={20} />
         </div>
       </Link>
 
@@ -19,7 +21,7 @@ export default component$(() => {
         q:slot="end"
         href="/docs"
         class={{
-          'lum-btn lum-bg-transparent hidden sm:flex': true,
+          'lum-btn lum-bg-transparent hidden sm:flex rounded-lum-2 text-sm': true,
         }}
       >
         <Book size={20} /> Docs
@@ -27,17 +29,15 @@ export default component$(() => {
       <a
         q:slot="end"
         href="https://luminescent.dev"
-        class="lum-btn lum-bg-transparent"
+        class="lum-btn lum-bg-transparent rounded-lum-2"
       >
-        <div class="flex items-center gap-1 font-semibold">
-          <LogoLuminescentFull size={20} class="mt-1" />
-        </div>
+        <LogoLuminescentFull size={20} />
       </a>
       <div q:slot="end" class="hidden gap-2 sm:flex">
         <SocialButtons />
       </div>
 
-      <Link q:slot="mobile" href="/docs" class="lum-btn lum-bg-transparent">
+      <Link q:slot="mobile" href="/docs" class="lum-btn lum-bg-transparent rounded-lum-2">
         <Book size={20} /> Docs
       </Link>
       <a
@@ -62,11 +62,11 @@ export const SocialButtons = component$(() => {
       <a
         href="https://github.com/LuminescentDev"
         title="GitHub"
-        class="lum-btn lum-bg-transparent p-2"
+        class="lum-btn lum-bg-transparent p-2 rounded-lum-2"
       >
         <Github size={20} />
       </a>
-      <a href="/discord" title="Discord" class="lum-btn lum-bg-transparent p-2">
+      <a href="/discord" title="Discord" class="lum-btn lum-bg-transparent p-2 rounded-lum-2">
         <LogoDiscord size={20} />
       </a>
     </>

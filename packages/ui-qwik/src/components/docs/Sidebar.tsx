@@ -8,12 +8,12 @@ interface sidebarOptions {
   dropdownOpen?: boolean;
 }
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const store = useStore<sidebarOptions>({});
   return (
     <div class="lum-card">
-      <Anchor id="sidebar">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Sidebar
         </h2>
       </Anchor>

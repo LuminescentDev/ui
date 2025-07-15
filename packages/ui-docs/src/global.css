@@ -6,15 +6,24 @@
 @config '@luminescent/ui-qwik/config';
 @source "../node_modules/@luminescent/ui-qwik";
 
-@theme {
-  --font-display: 'Satoshi', 'sans-serif';
-}
-
 @utility animation-delay-2000 {
   animation-delay: -5s;
 }
 @utility animation-delay-4000 {
   animation-delay: -10s;
+}
+
+.markdown {
+  @import '@luminescent/ui/formatting';
+}
+
+.nerfed-markdown {
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-lg font-bold my-0;
+  }
+  pre {
+    @apply lum-bg-gray-800;
+  }
 }
 
 html {

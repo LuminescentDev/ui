@@ -17,6 +17,8 @@ import Sidebar from './components/docs/Sidebar';
 import Toggle from '~/components/docs/Toggle';
 import IconsLogos from '~/components/docs/IconsLogos';
 
+import { Sidebar as SidebarElement } from './components/elements';
+
 import './global.css';
 
 export default component$(() => {
@@ -27,29 +29,99 @@ export default component$(() => {
         <title>Luminescent UI</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-24">
-        <Settings />
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
-          Luminescent UI Tailwind Components
-        </h2>
-        <LumClasses />
-        <LumBtn />
-        <LumCard />
-        <LumInput />
+      <body class="flex">
+        <SidebarElement>
+          <h3 q:slot="title" class="text-lg font-bold">
+            Luminescent UI Documentation
+          </h3>
 
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
-          Luminescent UI Qwik Components
-        </h2>
-        <Anchor />
-        <Blobs />
-        <ColorPicker />
-        <Dropdown />
-        <Nav />
-        <NumberInput />
-        <SelectMenu />
-        <Sidebar />
-        <Toggle />
-        <IconsLogos />
+          <a class="lum-btn lum-bg-transparent hidden sm:flex" href="#settings">
+            Settings
+          </a>
+
+          <h4 class="text-lg font-bold mt-4 pb-2 ml-2 border-b border-b-lum-border/10">
+            Tailwind Components
+          </h4>
+          <a class="lum-btn lum-bg-transparent" href="#classes">
+            Classes
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#button">
+            Button
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#card">
+            Card
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#input">
+            Input
+          </a>
+
+          <h4 class="text-lg font-bold mt-4 pb-2 ml-2 border-b border-b-lum-border/10">
+            Qwik Components
+          </h4>
+          <a class="lum-btn lum-bg-transparent" href="#anchor">
+            Anchor
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#blobs">
+            Blobs
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#color-picker">
+            Color Picker
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#dropdown">
+            Dropdown
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#nav">
+            Nav
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#number-input">
+            Number Input
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#select-menu">
+            Select Menu
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#sidebar">
+            Sidebar
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#toggle">
+            Toggle
+          </a>
+          <a class="lum-btn lum-bg-transparent" href="#icons-logos">
+            Icons & Logos
+          </a>
+        </SidebarElement>
+        <div class="flex flex-col gap-4 mx-auto my-24 px-4">
+          <h1 q:slot="title" class="text-5xl font-bold mb-10">
+            Luminescent UI Documentation
+          </h1>
+
+          <h2 class="text-xl font-bold sm:text-2xl mt-6 mb-2">
+            Luminescent UI Tailwind Components
+          </h2>
+          <LumClasses id="classes" />
+          <LumBtn id="button" />
+          <LumCard id="card" />
+          <LumInput id="input" />
+
+          <h2 class="text-xl font-bold sm:text-2xl mt-6 mb-2">
+            Luminescent UI Qwik Components
+          </h2>
+          <Anchor id="anchor" />
+          <Blobs id="blobs" />
+          <ColorPicker id="color-picker" />
+          <Dropdown id="dropdown" />
+          <Nav id="nav" />
+          <NumberInput id="number-input" />
+          <SelectMenu id="select-menu" />
+          <Sidebar id="sidebar" />
+          <Toggle id="toggle" />
+          <IconsLogos id="icons-logos" />
+        </div>
+        <SidebarElement position='right'>
+          <h2 q:slot='title' class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+            Settings
+          </h2>
+          <Settings />
+        </SidebarElement>
       </body>
     </>
   );

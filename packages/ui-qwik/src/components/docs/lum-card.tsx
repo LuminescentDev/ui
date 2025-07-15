@@ -1,7 +1,7 @@
 import { component$, useStore } from '@builder.io/qwik';
 import { Anchor, Blobs, Toggle, Hoverable } from '../../index';
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const store = useStore({
     class: 'lum-card lum-hoverable max-w-md',
     hoverable: false,
@@ -12,8 +12,8 @@ export default component$(() => {
 
   return (
     <div class="lum-card border-gradient-1 before:from-red-500 before:to-blue-500">
-      <Anchor id="card">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Card
         </h2>
       </Anchor>

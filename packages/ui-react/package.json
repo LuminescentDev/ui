@@ -20,6 +20,7 @@
   ],
   "main": "dist/ui-react.js",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "tsc --p ./tsconfig.app.json && vite build --mode lib",
     "build.types": "tsc --emitDeclarationOnly",

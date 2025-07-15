@@ -1,14 +1,14 @@
 import { component$, useStore } from '@builder.io/qwik';
 import { Anchor } from '@luminescent/ui-qwik';
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const store = useStore({
     class: 'lum-input',
   });
   return (
     <div class="lum-card">
-      <Anchor id="input">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Input
         </h2>
       </Anchor>

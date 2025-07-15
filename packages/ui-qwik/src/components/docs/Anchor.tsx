@@ -1,11 +1,11 @@
 import { component$ } from '@builder.io/qwik';
 import { Anchor } from '../../index';
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
-      <Anchor id="anchor">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Anchor
         </h2>
         <h3 class="text-sm text-lum-text-secondary">The element is in the title</h3>
@@ -14,7 +14,7 @@ export default component$(() => {
         class="lum-input h-32"
         value={`
 <Anchor id="anchor">
-  <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+  <h2 id="anchor" class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
     Anchor
   </h2>
 </Anchor>`}

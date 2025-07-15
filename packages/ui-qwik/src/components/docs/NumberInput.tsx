@@ -5,12 +5,12 @@ interface numberInputOptions {
   input?: boolean;
 }
 
-export default component$(() => {
+export default component$(({ id }: { id: string }) => {
   const store = useStore<numberInputOptions>({});
   return (
     <div class="lum-card">
-      <Anchor id="numberinput">
-        <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+      <Anchor id={id}>
+        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           NumberInput
         </h2>
       </Anchor>
