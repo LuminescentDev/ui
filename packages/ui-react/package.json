@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui-react",
-  "version": "5.0.1-5",
+  "version": "5.0.1-6",
   "description": "Luminescent UI library - React",
   "engines": {
     "node": ">=23.11.0",
@@ -19,7 +19,7 @@
     "dist"
   ],
   "main": "dist/ui-react.js",
-  "types": "dist/main.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "vite",
     "dev": "vite",
