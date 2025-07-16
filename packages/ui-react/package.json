@@ -19,6 +19,7 @@
     "dist"
   ],
   "main": "dist/ui-react.js",
+  "types": "dist/main.d.ts",
   "scripts": {
     "start": "vite",
     "dev": "vite",
