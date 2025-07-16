@@ -41,7 +41,7 @@ export function LogoBirdflop({ confused, fillGradient, size, ...props }: LogoBir
       <g
         id="bf_3"
         data-name="bf - 3"
-        clip-path="url(#clip-bf_3)"
+        clipPath="url(#clip-bf_3)"
         fill="currentColor"
       >
         <path
@@ -55,7 +55,7 @@ export function LogoBirdflop({ confused, fillGradient, size, ...props }: LogoBir
       {confused && (
         <g
           style={{
-            transform: "translate(595px, 460px) scale(0.375)",
+            transform: 'translate(595px, 460px) scale(0.375)',
           }}
           stroke="#1E2837"
           fill="#1E2837"
@@ -63,15 +63,15 @@ export function LogoBirdflop({ confused, fillGradient, size, ...props }: LogoBir
           <path
             d="M160 164s1.44-33 33.54-59.46C212.6 88.83 235.49 84.28 256 84c18.73-.23 35.47 2.94 45.48 7.82C318.59 100.2 352 120.6 352 164c0 45.67-29.18 66.37-62.35 89.18S248 298.36 248 324"
             fill="none"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="80"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="80"
           />
           <circle
             cx="248"
             cy="399.99"
             r="40"
-            style={{ transform: "translate(0, 30px)" }}
+            style={{ transform: 'translate(0, 30px)' }}
           />
         </g>
       )}

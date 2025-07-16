@@ -1,5 +1,5 @@
-import type React from "react";
-import { getClasses } from "../functions";
+import type React from 'react';
+import { getClasses } from '../functions';
 
 interface ToggleProps
   extends Omit<
@@ -12,12 +12,12 @@ interface ToggleProps
 }
 
 export function Toggle({
-    className,
-    checkbox,
-    round,
-    label,
-    ...props
-  }: ToggleProps) {
+  className,
+  checkbox,
+  round,
+  label,
+  ...props
+}: ToggleProps) {
   return (
     <div className="flex touch-manipulation items-center gap-3">
       <label className="relative inline-flex cursor-pointer items-center">
@@ -47,5 +47,5 @@ export function Toggle({
         </label>
       )}
     </div>
-  )
+  );
 }

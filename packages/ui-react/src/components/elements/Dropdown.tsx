@@ -1,6 +1,6 @@
-import type React from "react";
-import { getClasses } from "../functions";
-import { ChevronDownIcon } from "lucide-react";
+import type React from 'react';
+import { getClasses } from '../functions';
+import { ChevronDownIcon } from 'lucide-react';
 
 interface DropdownProps
   extends Omit<
@@ -13,12 +13,12 @@ interface DropdownProps
 }
 
 export function Dropdown({
-    className,
-    opened = false,
-    hover = false,
-    children,
-    ...props
-  }: DropdownProps) {
+  className,
+  opened = false,
+  hover = false,
+  children,
+  ...props
+}: DropdownProps) {
   return (
     <button type="button"
       className={getClasses({
@@ -42,5 +42,5 @@ export function Dropdown({
         })}
       />
     </button>
-  )
+  );
 }
