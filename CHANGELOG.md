@@ -1,3 +1,17 @@
+## 5.0.1-3 (2025-07-16)
+
+### 🚀 Features
+
+- add Luminescent UI React library with components and documentation ([28d224b](https://github.com/LuminescentDev/ui/commit/28d224b))
+
+### 🩹 Fixes
+
+- **SelectMenu:** refactor to use useSignal for select reference and remove id prop ([fde776b](https://github.com/LuminescentDev/ui/commit/fde776b))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 5.0.1-2 (2025-07-10)
 
 This was a version bump only, there were no code changes.
