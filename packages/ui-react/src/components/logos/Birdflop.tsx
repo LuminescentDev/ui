@@ -29,7 +29,7 @@ export function LogoBirdflop({ confused, fillGradient, size, ...props }: LogoBir
               <stop
                 key={i}
                 offset={i / (fillGradient.length - 1)}
-                stop-color={color}
+                stopColor={color}
               />
             ))}
           </linearGradient>
