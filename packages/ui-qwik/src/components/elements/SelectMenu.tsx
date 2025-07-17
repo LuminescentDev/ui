@@ -4,6 +4,9 @@ import { Dropdown } from './Dropdown';
 
 interface SelectMenuProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {
   class?: { [key: string]: boolean };
+  panelClass?: string;
+  btnClass?: string;
+  noblur?: boolean;
   customDropdown?: boolean;
   hover?: boolean;
   align?: 'left' | 'right' | 'center';
@@ -32,7 +35,7 @@ export const SelectMenu = component$<SelectMenuProps>((props) => {
 });
 
 export const SelectMenuRaw = component$<SelectMenuProps>(
-  ({ values, class: Class, customDropdown, hover, align, ...props }) => {
+  ({ values, class: Class, panelClass = 'lum-bg-lum-input-bg', btnClass = 'lum-bg-transparent', noblur, customDropdown, hover, align, ...props }) => {
     const store = useStore({
       opened: false,
       value: props.value,
@@ -80,38 +83,43 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
             </span>
           )}
         </Dropdown>
+        {hover && <div class="h-2 absolute w-full" />}
         <div class={{
-          'absolute z-[1000] pt-2 transition-all ease-out': true,
+          'absolute z-[1000] mt-2 transition-all ease-out': true,
+          'backdrop-blur-lg': !noblur,
+          'lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all': true,
           'left-0': align === 'left',
           'right-0': align === 'right',
           'left-1/2 -translate-x-1/2': align === 'center',
           'pointer-events-none scale-95 opacity-0': !store.opened,
           'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75': hover,
           'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75': true,
+          [panelClass]: true,
         }}
         >
-          <div class="lum-bg-lum-input-bg lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all">
-            {values?.map(({ name, value }, i) => {
-              return (
-                <button type="button"
-                  class="lum-btn lum-bg-transparent rounded-lum-1"
-                  key={i}
-                  onClick$={() => {
-                    store.opened = false;
-                    const select = selectRef.value;
-                    if (select) {
-                      select.value = value.toString();
-                      select.dispatchEvent(new Event('change'));
-                    }
-                    store.value = value.toString();
-                  }}
-                >
-                  {name}
-                </button>
-              );
-            })}
-            <Slot name="extra-buttons" />
-          </div>
+          {values?.map(({ name, value }, i) => {
+            return (
+              <button type="button"
+                class={{
+                  'lum-btn rounded-lum-1': true,
+                  [btnClass]: true,
+                }}
+                key={i}
+                onClick$={() => {
+                  store.opened = false;
+                  const select = selectRef.value;
+                  if (select) {
+                    select.value = value.toString();
+                    select.dispatchEvent(new Event('change'));
+                  }
+                  store.value = value.toString();
+                }}
+              >
+                {name}
+              </button>
+            );
+          })}
+          <Slot name="extra-buttons" />
         </div>
       </div>
     );
