@@ -11,6 +11,7 @@ interface NavProps
   class?: { [key: string]: boolean };
   fixed?: boolean;
   floating?: boolean;
+  noblur?: boolean;
   nohamburger?: boolean;
   start?: React.ReactNode;
   center?: React.ReactNode;
@@ -22,6 +23,7 @@ interface NavProps
 export function Nav({
   fixed,
   floating,
+  noblur,
   nohamburger,
   colorClass = 'lum-bg-lum-card-bg',
   start,
@@ -46,34 +48,23 @@ export function Nav({
       {!nohamburger && (
         <div
           className={getClasses({
-            'absolute top-full flex w-full flex-col items-center px-2 motion-safe:transition-all sm:hidden':
-              true,
+            'absolute top-full lum-card motion-safe:transition-all sm:hidden max-w-7xl gap-2 px-2 py-4': true,
+            'w-[calc(100%-theme(spacing.8))] mx-4': floating,
+            'w-[calc(100%-theme(spacing.4))] mx-2': !floating,
             'mt-2': menu,
-            'pointer-events-none opacity-0': !menu,
-            'before:backdrop-blur-lg': !colorClass.includes('transparent'),
-            'before:absolute before:-z-10 before:h-full before:w-full before:rounded-lum before:drop-shadow-xl before:content-[""]':
-              true,
+            'pointer-events-none opacity-0 -mt-2 scale-95': !menu,
+            'backdrop-blur-lg': !noblur,
+            [colorClass]: true,
           })}
         >
-          <div
-            className={getClasses({
-              [colorClass]: true,
-              'flex w-full max-w-7xl flex-col gap-2 rounded-lum border px-2 py-4 motion-safe:transition-all':
-                true,
-            })}
-          >
-            {mobile}
-          </div>
+          {mobile}
         </div>
       )}
       <div
         className={getClasses({
           [colorClass]: !floating,
           '!border-x-0 !border-t-0': !floating,
-          'before:backdrop-blur-lg':
-            !colorClass.includes('transparent') && !floating,
-          'before:absolute before:-z-10 before:h-full before:w-full before:drop-shadow-xl before:content-[""]':
-            !floating,
+          'backdrop-blur-lg': !noblur && !floating,
           'relative mx-2 mt-2': floating,
         })}
       >
@@ -82,10 +73,7 @@ export function Nav({
             'mx-auto flex w-full max-w-7xl justify-evenly px-2': true,
             [colorClass]: floating,
             'rounded-lum border': floating,
-            'before:backdrop-blur-lg':
-              !colorClass.includes('transparent') && floating,
-            'before:absolute before:-z-10 before:h-full before:w-full before:max-w-7xl before:rounded-lum before:drop-shadow-xl before:content-[""]':
-              floating,
+            'backdrop-blur-lg': !noblur && floating,
           })}
         >
           {start && (
