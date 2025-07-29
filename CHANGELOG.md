@@ -1,3 +1,17 @@
+## 5.1.0 (2025-07-29)
+
+### 🚀 Features
+
+- enhance SelectMenu component with additional props for customization ([435431b](https://github.com/LuminescentDev/ui/commit/435431b))
+
+### 🩹 Fixes
+
+- correct stop-color to stopColor in Birdflop logo gradient ([c959ee9](https://github.com/LuminescentDev/ui/commit/c959ee9))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 5.0.1 (2025-07-17)
 
 ### 🚀 Features
