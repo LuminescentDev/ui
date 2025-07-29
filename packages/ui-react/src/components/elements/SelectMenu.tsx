@@ -9,6 +9,7 @@ interface SelectMenuProps
   panelClass?: string;
   btnClass?: string;
   noblur?: boolean;
+  nocloseonclick?: boolean;
   hover?: boolean;
   align?: 'left' | 'right' | 'center';
   values?: {
@@ -39,7 +40,7 @@ export function SelectMenu({
 }
 
 export function SelectMenuRaw({
-  values, className, panelClass = 'lum-bg-lum-input-bg', btnClass = 'lum-bg-transparent', noblur, customDropdown, hover, align,
+  values, className, panelClass = 'lum-bg-lum-input-bg', btnClass = 'lum-bg-transparent', noblur, nocloseonclick, customDropdown, hover, align,
   ...props
 }: SelectMenuProps) {
   const [opened, setOpened] = useState(false);
@@ -72,8 +73,23 @@ export function SelectMenuRaw({
           'w-full': true,
           [className ?? '']: !!className,
         })}
-        onClick={() => {
-          if (!hover) setOpened(!opened);
+        onClick={(e) => {
+          if (hover) return; // do not toggle on click if hover is enabled
+          setOpened(!opened);
+          if (nocloseonclick) return; // do not close on click if nocloseonclick is true
+          const el = e.currentTarget;
+          // close on click
+          const listener = (e: MouseEvent) => {
+            // check if the click is outside the button
+            const path = e.composedPath();
+            if (path.includes(el)) return;
+            console.log('listener', e, el);
+
+            // close the dropdown and remove the listener
+            setOpened(false);
+            document.removeEventListener('click', listener);
+          };
+          document.addEventListener('click', listener);
         }}
       >
         {customDropdown && props.dropdown}
@@ -109,8 +125,12 @@ export function SelectMenuRaw({
                 [btnClass]: true,
               })}
               key={i}
-              onClick={() => {
+              onClick={(e) => {
+                // close the dropdown
+                e.currentTarget.blur();
                 setOpened(false);
+
+                // set the value of the select element
                 const select = selectRef.current;
                 if (select) {
                   select.value = value.toString();

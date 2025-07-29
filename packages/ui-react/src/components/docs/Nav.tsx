@@ -102,7 +102,7 @@ export default function NavDoc() {
       </div>
       <textarea
         className="lum-input h-32"
-        value={`
+        defaultValue={`
 <Nav${floating ? ' floating' : ''}${fixed ? ' fixed' : ''}${colorClass ? ` colorClass="${colorClass}"` : ''}>
 
   <button q:slot="start" className={'lum-btn lum-bg-transparent'}>

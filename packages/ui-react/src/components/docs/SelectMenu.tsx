@@ -29,7 +29,7 @@ export default function SelectMenuDoc() {
             name: preview,
             value: preview,
           }))}
-          value="left"
+          defaultValue="left"
         >
           align
         </SelectMenu>
@@ -45,7 +45,7 @@ export default function SelectMenuDoc() {
             { name: 'Option 2', value: '2' },
             { name: 'Option 3', value: '3' },
           ]}
-          value="1"
+          defaultValue="1"
           customDropdown={customDropdown}
           hover={hover}
           align={align}
@@ -66,7 +66,7 @@ export default function SelectMenuDoc() {
       </div>
       <textarea
         className="lum-input h-32"
-        value={`
+        defaultValue={`
 <SelectMenu
   id="selectmenu-input"
   values={[
@@ -77,7 +77,7 @@ export default function SelectMenuDoc() {
     { name: 'Option 2', value: '2' },
     { name: 'Option 3', value: '3' },
   ]}
-  value="1"${customDropdown ? ' customDropdown' : ''}${hover ? ' hover' : ''}${align ? ` align="${align}"` : ''}
+  defaultValue="1"${customDropdown ? ' customDropdown' : ''}${hover ? ' hover' : ''}${align ? ` align="${align}"` : ''}
 >
   Select Menu
   <p q:slot="dropdown">

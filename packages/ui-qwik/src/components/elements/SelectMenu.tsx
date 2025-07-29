@@ -7,6 +7,7 @@ interface SelectMenuProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {
   panelClass?: string;
   btnClass?: string;
   noblur?: boolean;
+  nocloseonclick?: boolean;
   customDropdown?: boolean;
   hover?: boolean;
   align?: 'left' | 'right' | 'center';
@@ -35,7 +36,7 @@ export const SelectMenu = component$<SelectMenuProps>((props) => {
 });
 
 export const SelectMenuRaw = component$<SelectMenuProps>(
-  ({ values, class: Class, panelClass = 'lum-bg-lum-input-bg', btnClass = 'lum-bg-transparent', noblur, customDropdown, hover, align, ...props }) => {
+  ({ values, class: Class, panelClass = 'lum-bg-lum-input-bg', btnClass = 'lum-bg-transparent', noblur, nocloseonclick, customDropdown, hover, align, ...props }) => {
     const store = useStore({
       opened: false,
       value: props.value,
@@ -68,8 +69,24 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
             'w-full': true,
             ...Class,
           }}
-          onClick$={() => {
-            if (!hover) store.opened = !store.opened;
+          onClick$={(e, el) => {
+            if (hover) return; // do not toggle on click if hover is enabled
+            store.opened = !store.opened;
+            if (nocloseonclick) return; // do not close on click if nocloseonclick is true
+            // close on click
+            const listener = (e: MouseEvent) => {
+              // if the dropdown is already closed, remove the listener
+              if (!store.opened) return document.removeEventListener('click', listener);
+
+              // check if the click is outside the button
+              const path = e.composedPath();
+              if (path.includes(el)) return;
+
+              // close the dropdown and remove the listener
+              store.opened = false;
+              document.removeEventListener('click', listener);
+            };
+            document.addEventListener('click', listener);
           }}
         >
           {customDropdown && <Slot name="dropdown"/>}
@@ -105,8 +122,12 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
                   [btnClass]: true,
                 }}
                 key={i}
-                onClick$={() => {
+                onClick$={(e, el) => {
+                  // close the dropdown
+                  el.blur();
                   store.opened = false;
+
+                  // set the value of the select element
                   const select = selectRef.value;
                   if (select) {
                     select.value = value.toString();

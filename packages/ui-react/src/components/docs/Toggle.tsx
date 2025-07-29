@@ -47,7 +47,7 @@ export default function ToggleDoc() {
       </div>
       <textarea
         className="lum-input h-32"
-        value={`<Toggle id="toggle-input" label="Toggle"${round ? ' round' : ''}${checkbox ? ' checkbox' : ''}${className ? ` className="${className}"` : ''} />`}
+        defaultValue={`<Toggle id="toggle-input" label="Toggle"${round ? ' round' : ''}${checkbox ? ' checkbox' : ''}${className ? ` className="${className}"` : ''} />`}
       />
     </div>
   );
