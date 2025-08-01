@@ -160,8 +160,8 @@ importers:
         specifier: workspace:*
         version: link:../ui
       lucide-react:
-        specifier: ^0.533.0
-        version: 0.533.0(react@19.1.1)
+        specifier: ^0.536.0
+        version: 0.536.0(react@19.1.1)
       react:
         specifier: ^19.1.1
         version: 19.1.1
@@ -3059,8 +3059,8 @@ packages:
     resolution: {integrity: sha512-ANWrMz0+Mxg0ENfUUwJwortY4kzTpsvrQXXPND39mhHpayyQ6up2xRJ34kn5vIYBqn4QBjlD019FvDQBGFRHtQ==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11', npm: please-use-pnpm, pnpm: '>=8.6.12', yarn: please-use-pnpm}
 
-  lucide-react@0.533.0:
-    resolution: {integrity: sha512-XwRo6CQowPRe1cfBJITmHytjR3XS4AZpV6rrBFEzoghARgyU2RK3yNRSnRkSFFSQJWFdQ8f4Wk1awgLLSy1NCQ==}
+  lucide-react@0.536.0:
+    resolution: {integrity: sha512-2PgvNa9v+qz4Jt/ni8vPLt4jwoFybXHuubQT8fv4iCW5TjDxkbZjNZZHa485ad73NSEn/jdsEtU57eE1g+ma8A==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -7190,7 +7190,7 @@ snapshots:
 
   lucide-icons-qwik@0.525.0: {}
 
-  lucide-react@0.533.0(react@19.1.1):
+  lucide-react@0.536.0(react@19.1.1):
     dependencies:
       react: 19.1.1
 
