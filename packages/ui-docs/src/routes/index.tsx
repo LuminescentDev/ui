@@ -75,11 +75,11 @@ export default component$(() => {
                 '[&>*]:h-full [&>*]:w-full [&>*]:lum-btn [&>*]:lum-bg-transparent [&>*]:hover:lum-bg-cyan-900/20 [&>*]:flex [&>*]:flex-col [&>*]:justify-center [&>*]:transition-all [&>*]:items-center [&>*]:gap-2': true,
                 '[&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg': true,
               }}>
-                <a href={'https://mineplace.me'}>
+                <a href={'https://birdflop.com'}>
                   <Globe size={24} />
                   Visit page
                 </a>
-                <a href={'https://github.com/LuminescentDev/mineplace'}>
+                <a href={'https://github.com/birdflop/web'}>
                   <Github size={24} />
                   Github
                 </a>
@@ -106,11 +106,11 @@ export default component$(() => {
                 '[&>*]:h-full [&>*]:w-full [&>*]:lum-btn [&>*]:lum-bg-transparent [&>*]:hover:lum-bg-cyan-900/20 [&>*]:flex [&>*]:flex-col [&>*]:justify-center [&>*]:transition-all [&>*]:items-center [&>*]:gap-2': true,
                 '[&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg': true,
               }}>
-                <a href={'https://birdflop.com'}>
+                <a href={'https://mineplace.me'}>
                   <Globe size={24} />
                   Visit page
                 </a>
-                <a href={'https://github.com/birdflop/web'}>
+                <a href={'https://github.com/LuminescentDev/mineplace'}>
                   <Github size={24} />
                   Github
                 </a>
