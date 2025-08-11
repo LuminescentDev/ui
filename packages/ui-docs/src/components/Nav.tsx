@@ -56,19 +56,29 @@ export default component$(() => {
   );
 });
 
-export const SocialButtons = component$(() => {
-  return (
-    <>
-      <a
-        href="https://github.com/LuminescentDev"
-        title="GitHub"
-        class="lum-btn lum-bg-transparent p-2 rounded-lum-2"
-      >
-        <Github size={20} />
-      </a>
-      <a href="/discord" title="Discord" class="lum-btn lum-bg-transparent p-2 rounded-lum-2">
-        <LogoDiscord size={20} />
-      </a>
-    </>
-  );
+export const SocialButtons = component$(({ large }: { large?: boolean }) => {
+  return <>
+    <a
+      href="https://github.com/LuminescentDev"
+      title="GitHub"
+      class={{
+        'lum-btn lum-bg-transparent': true,
+        'p-3': large,
+        'rounded-lum-2 p-2': !large,
+      }}
+    >
+      <Github size={large ? 32 : 20} />
+    </a>
+    <a
+      href="/discord"
+      title="Discord"
+      class={{
+        'lum-btn lum-bg-transparent': true,
+        'p-3': large,
+        'rounded-lum-2 p-2': !large,
+      }}
+    >
+      <LogoDiscord size={large ? 32 : 20} />
+    </a>
+  </>;
 });
