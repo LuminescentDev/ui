@@ -266,6 +266,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             return (
               <button type="button"
                 key={i}
+                name={color}
                 class={{
                   'lum-btn rounded-sm h-[1.6rem] w-[1.6rem] border-2 border-white/30 p-0 hover:border-white':
                     true,
@@ -282,6 +283,7 @@ export const ColorPicker = component$<ColorPickerProps>(
           })}
           <button type="button"
             class="lum-btn rounded-sm h-[1.6rem] w-[1.6rem] p-0.5"
+            name="Randomize"
             onClick$={async () => {
               const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
               await setColor(color);
