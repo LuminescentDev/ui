@@ -6,6 +6,7 @@ import { Book, Github, Globe } from 'lucide-icons-qwik';
 import { SocialButtons } from '~/components/Nav';
 
 import Luminara from '../components/images/Luminara.png?jsx';
+const Mineplace = '/mineplace.png';
 
 export const QwikTag = component$(() => {
   return (
@@ -90,7 +91,7 @@ export default component$(() => {
               </div>
             </div>
             <div class="lum-card lum-bg-gray-800/30 relative min-w-64 max-w-64">
-              <img src="/mineplace.svg" alt="Mineplace Logo" width={200} height={200} class="mx-auto mb-5" />
+              <img src={Mineplace} alt="Mineplace Logo" width={200} height={200} class="mx-auto mb-5" />
               <h3 class="text-gray-100 text-xl font-bold">
                 Mineplace
               </h3>
