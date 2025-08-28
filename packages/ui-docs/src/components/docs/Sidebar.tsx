@@ -20,8 +20,9 @@ export default component$(({ id }: { id: string }) => {
       <Toggle
         id="sidebar-floating"
         onChange$={(e, element) => (store.floating = element.checked)}
-        label="floating"
-      />
+      >
+        floating
+      </Toggle>
       <div class="lum-card h-150 p-0">
         <Sidebar
           floating={store.floating}

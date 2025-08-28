@@ -17,8 +17,9 @@ export default component$(({ id }: { id: string }) => {
       <Toggle
         id="numberinput-input"
         onChange$={(e, element) => (store.input = element.checked)}
-        label="input"
-      />
+      >
+        input
+      </Toggle>
       <div>
         <NumberInput
           id="number-input"

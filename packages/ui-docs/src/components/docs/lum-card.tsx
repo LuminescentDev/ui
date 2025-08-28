@@ -35,30 +35,34 @@ export default component$(({ id }: { id: string }) => {
           store.blur = element.checked;
           if (element.checked) store.hoverable = false;
         }}
-        label="blur"
         checked={store.blur}
-      />
+      >
+        blur
+      </Toggle>
       <Toggle
         id="card-blobs"
         onChange$={(e, element) => (store.blobs = element.checked)}
-        label="blobs"
         checked={store.blobs}
-      />
+      >
+        blobs
+      </Toggle>
       <Toggle
         id="card-loading"
         onChange$={(e, element) => (store.loading = element.checked)}
-        label="loading"
         checked={store.loading}
-      />
+      >
+        loading
+      </Toggle>
       <Toggle
         id="card-hoverable"
         onChange$={(e, element) => {
           store.hoverable = element.checked;
           if (element.checked) store.blur = false;
         }}
-        label="hoverable (qwik only)"
         checked={store.hoverable}
-      />
+      >
+        hoverable (qwik only)
+      </Toggle>
       <div class="lum-card">
         <div
           class={{

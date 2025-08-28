@@ -91,7 +91,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(
           }}
         >
           {customDropdown && <Slot name="dropdown"/>}
-          {!customDropdown && selected?.name ?? values?.[0]?.name ?? <Slot name="dropdown" />}
+          {!customDropdown && (selected?.name ?? values?.[0]?.name ?? <Slot name="dropdown" />)}
         </Dropdown>
         {hover && <div class="h-2 absolute w-full" />}
         <div class={{

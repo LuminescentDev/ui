@@ -14,15 +14,17 @@ export default component$(({ id }: { id: string }) => {
       </Anchor>
       <Toggle
         id="dropdown-hover"
-        label="hover"
         onInput$={(e, el) => (hover.value = el.checked)}
-      />
+      >
+        hover
+      </Toggle>
       <Toggle
         id="dropdown-opened"
-        label="opened"
         onInput$={(e, el) => (opened.value = el.checked)}
         checked={opened.value}
-      />
+      >
+        opened
+      </Toggle>
       <div>
         <Dropdown
           opened={opened.value}

@@ -20,18 +20,21 @@ export default component$(({ id }: { id: string }) => {
       <Toggle
         id="nav-fixed"
         onChange$={(e, element) => (store.fixed = element.checked)}
-        label="fixed"
-      />
+      >
+        fixed
+      </Toggle>
       <Toggle
         id="nav-floating"
         onChange$={(e, element) => (store.floating = element.checked)}
-        label="floating"
-      />
+      >
+        floating
+      </Toggle>
       <Toggle
         id="nav-nohamburger"
         onChange$={(e, element) => (store.nohamburger = element.checked)}
-        label="nohamburger"
-      />
+      >
+        nohamburger
+      </Toggle>
       <label for="nav-colorclass">colorClass</label>
       <input
         id="nav-colorclass"

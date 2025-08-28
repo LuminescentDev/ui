@@ -38,14 +38,16 @@ export default component$(({ id }: { id: string }) => {
       </div>
       <Toggle
         id="colorpicker-horizontal"
-        label="horizontal"
         onInput$={(e, element) => (store.horizontal = element.checked)}
-      />
+      >
+        horizontal
+      </Toggle>
       <Toggle
         id="colorpicker-showinput"
-        label="showInput"
         onInput$={(e, element) => (store.showInput = element.checked)}
-      />
+      >
+        showInput
+      </Toggle>
       <div class="flex">
         <ColorPicker
           id="color-picker"
