@@ -13,14 +13,16 @@ export default function SelectMenuDoc() {
       </h2>
       <Toggle
         id="selectmenu-customDropdown"
-        label="customDropdown"
         onInput={(e) => (setCustomDropdown(e.currentTarget.checked))}
-      />
+      >
+        customDropdown
+      </Toggle>
       <Toggle
         id="selectmenu-hover"
-        label="hover"
         onInput={(e) => (setHover(e.currentTarget.checked))}
-      />
+      >
+        hover
+      </Toggle>
       <div className="flex">
         <SelectMenu
           id="selectmenu-align"

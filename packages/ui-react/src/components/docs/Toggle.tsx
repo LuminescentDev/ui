@@ -29,25 +29,31 @@ export default function ToggleDoc() {
       <Toggle
         id="toggle-checkbox"
         onChange={(e) => (setCheckbox(e.currentTarget.checked))}
-        label="checkbox"
-      />
+      >
+        checkbox
+      </Toggle>
       <Toggle
         id="toggle-round"
         onChange={(e) => (setRound(e.currentTarget.checked))}
-        label="round"
-      />
+      >
+        round
+      </Toggle>
       <div>
         <Toggle
           id="toggle-input"
-          label="Toggle"
           round={round}
           checkbox={checkbox}
           className={className}
-        />
+        >
+          Toggle
+        </Toggle>
       </div>
       <textarea
         className="lum-input h-32"
-        defaultValue={`<Toggle id="toggle-input" label="Toggle"${round ? ' round' : ''}${checkbox ? ' checkbox' : ''}${className ? ` className="${className}"` : ''} />`}
+        defaultValue={`
+<Toggle id="toggle-input"${round ? ' round' : ''}${checkbox ? ' checkbox' : ''}${className ? ` className="${className}"` : ''}>
+  Toggle
+</Toggle>`}
       />
     </div>
   );

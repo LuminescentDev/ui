@@ -1,3 +1,18 @@
+## 5.2.0 (2025-07-29)
+
+Breaking Changes:
+- the Toggle component's label is now passed as children instead of a label prop.
+  Migration Guide:
+
+```jsx
+<Toggle id="toggle-input" label="Toggle" />
+```
+```jsx
+<Toggle id="toggle-input">
+  Toggle
+</Toggle>
+```
+
 ## 5.1.0 (2025-07-29)
 
 ### 🚀 Features

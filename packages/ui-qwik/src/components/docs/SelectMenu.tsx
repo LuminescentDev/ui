@@ -18,14 +18,16 @@ export default component$(({ id }: { id: string }) => {
       </Anchor>
       <Toggle
         id="selectmenu-customDropdown"
-        label="customDropdown"
         onInput$={(e, el) => (store.customDropdown = el.checked)}
-      />
+      >
+        customDropdown
+      </Toggle>
       <Toggle
         id="selectmenu-hover"
-        label="hover"
         onInput$={(e, el) => (store.hover = el.checked)}
-      />
+      >
+        hover
+      </Toggle>
       <div class="flex">
         <SelectMenu
           id="selectmenu-align"
@@ -49,7 +51,7 @@ export default component$(({ id }: { id: string }) => {
           id="selectmenu-input"
           values={[
             {
-              name: <div class="lum-bg-red-500">Any element you want</div>,
+              name: <div class="lum-bg-red-500 p-1 rounded">Any element you want</div>,
               value: '1',
             },
             { name: 'Option 2', value: '2' },

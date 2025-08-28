@@ -15,18 +15,21 @@ export default function NavDoc() {
       <Toggle
         id="nav-fixed"
         onChange={(e) => (setFixed(e.target.checked))}
-        label="fixed"
-      />
+      >
+        fixed
+      </Toggle>
       <Toggle
         id="nav-floating"
         onChange={(e) => (setFloating(e.target.checked))}
-        label="floating"
-      />
+      >
+        floating
+      </Toggle>
       <Toggle
         id="nav-nohamburger"
         onChange={(e) => (setNoHamburger(e.target.checked))}
-        label="nohamburger"
-      />
+      >
+        nohamburger
+      </Toggle>
       <label htmlFor="nav-colorclass">colorClass</label>
       <input
         id="nav-colorclass"

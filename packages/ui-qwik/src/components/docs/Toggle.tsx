@@ -35,25 +35,31 @@ export default component$(({ id }: { id: string }) => {
       <Toggle
         id="toggle-checkbox"
         onChange$={(e, element) => (store.checkbox = element.checked)}
-        label="checkbox"
-      />
+      >
+        checkbox
+      </Toggle>
       <Toggle
         id="toggle-round"
         onChange$={(e, element) => (store.round = element.checked)}
-        label="round"
-      />
+      >
+        round
+      </Toggle>
       <div>
         <Toggle
           id="toggle-input"
-          label="Toggle"
           round={store.round}
           checkbox={store.checkbox}
           class={store.class}
-        />
+        >
+          Toggle
+        </Toggle>
       </div>
       <textarea
         class="lum-input h-32"
-        value={`<Toggle id="toggle-input" label="Toggle"${store.round ? ' round' : ''}${store.checkbox ? ' checkbox' : ''}${store.class ? ` class="${store.class}"` : ''} />`}
+        value={`
+<Toggle id="toggle-input"${store.round ? ' round' : ''}${store.checkbox ? ' checkbox' : ''}${store.class ? ` class="${store.class}"` : ''}>
+  Toggle
+</Toggle>`}
       />
     </div>
   );

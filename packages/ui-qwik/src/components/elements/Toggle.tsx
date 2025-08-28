@@ -1,5 +1,5 @@
-import type { JSXOutput, PropsOf } from '@builder.io/qwik';
-import { component$ } from '@builder.io/qwik';
+import type { PropsOf } from '@builder.io/qwik';
+import { component$, Slot } from '@builder.io/qwik';
 
 interface ToggleProps
   extends Omit<
@@ -9,14 +9,12 @@ interface ToggleProps
   class?: string;
   checkbox?: boolean;
   round?: boolean;
-  label?: string | JSXOutput;
 }
 
 export const Toggle = component$<ToggleProps>(
   ({
     checkbox,
     round,
-    label,
     ...props
   }) => {
     return (
@@ -42,11 +40,9 @@ export const Toggle = component$<ToggleProps>(
             }}
           />
         </label>
-        {label && (
-          <label for={props.id} class="flex gap-2 text-lum-text select-none">
-            {label}
-          </label>
-        )}
+        <label for={props.id} class="flex gap-2 text-lum-text select-none empty:hidden">
+          <Slot />
+        </label>
       </div>
     );
   },

@@ -6,16 +6,16 @@ interface ToggleProps
     React.InputHTMLAttributes<HTMLInputElement> & { type: 'checkbox' },
     'bind:checked' | 'type' | 'children'
   > {
+  children?: React.ReactNode;
   checkbox?: boolean;
   round?: boolean;
-  label?: string | React.ReactNode;
 }
 
 export function Toggle({
   className,
   checkbox,
   round,
-  label,
+  children,
   ...props
 }: ToggleProps) {
   return (
@@ -41,9 +41,9 @@ export function Toggle({
           })}
         />
       </label>
-      {label && (
-        <label htmlFor={props.id} className="flex gap-2 text-lum-text select-none">
-          {label}
+      {children && (
+        <label htmlFor={props.id} className="flex gap-2 text-lum-text select-none empty:hidden">
+          {children}
         </label>
       )}
     </div>
