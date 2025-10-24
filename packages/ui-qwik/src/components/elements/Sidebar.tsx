@@ -11,9 +11,9 @@ export const Sidebar = component$<SidebarProps>(({ position, ...props }) => {
     <aside
       {...props}
       class={{
-        'hidden lg:flex sticky lum-card top-0 z-[40] px-6 pb-0 rounded-none pt-20 h-dvh': true,
-        'left-0 border-0 border-r-1': position === 'left' || !position,
-        'right-0 border-0 border-l-1': position === 'right',
+        'hidden lg:flex sticky lum-card top-0 z-40 px-6 pb-0 rounded-none pt-20 h-dvh': true,
+        'left-0 border-0 border-r': position === 'left' || !position,
+        'right-0 border-0 border-l': position === 'right',
         ...props.class,
       }}
     >

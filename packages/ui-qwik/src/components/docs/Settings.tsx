@@ -41,7 +41,7 @@ const ColorInput = component$(({ onInput$, color, id }: {
           }}
         />
         <div id={`${id}-popup`} stoppropagation:mousedown class={{
-          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-[1000] mt-2 left-0': true,
+          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-1000 mt-2 left-0': true,
           'opacity-0 scale-95 pointer-events-none': !open.value,
         }}>
           <ColorPicker
@@ -63,6 +63,7 @@ export default component$(() => {
     '--lum-border-mix': 20,
     '--lum-btn-p-x': 2,
     '--lum-input-p-x': 1.5,
+    '--lum-depth': 0,
     '--color-lum-border': 'var(--color-gray-300)',
     '--color-lum-card-bg': 'var(--color-gray-900)',
     '--color-lum-input-bg': 'var(--color-gray-800)',
@@ -175,6 +176,22 @@ export default component$(() => {
         value={store['--lum-input-p-x']}
       >
         --lum-input-p-x: {store['--lum-input-p-x']}
+      </NumberInput>
+      <NumberInput
+        id="lum-depth"
+        onIncrement$={() => {
+          store['--lum-depth'] += 0.5;
+        }}
+        onDecrement$={() => {
+          store['--lum-depth'] -= 0.5;
+        }}
+        onInput$={(e, el) => {
+          store['--lum-depth'] = Number(el.value);
+        }}
+        input
+        value={store['--lum-depth']}
+      >
+        --lum-depth: {store['--lum-depth']}
       </NumberInput>
 
       <ColorInput color={store['--color-lum-border']} id="border-color" onInput$={(newColor) => {

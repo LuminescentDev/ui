@@ -37,8 +37,8 @@ export const Nav = component$<NavProps>(
           <div
             class={{
               'absolute top-full lum-card motion-safe:transition-all sm:hidden max-w-7xl gap-2 px-2 py-4': true,
-              'w-[calc(100%-theme(spacing.8))] mx-4': floating,
-              'w-[calc(100%-theme(spacing.4))] mx-2': !floating,
+              'w-[calc(100%-(--spacing(8)))] mx-4': floating,
+              'w-[calc(100%-(--spacing(4)))] mx-2': !floating,
               'mt-2': menu.value,
               'pointer-events-none opacity-0 -mt-2 scale-95': !menu.value,
               'backdrop-blur-lg': !noblur,
@@ -51,7 +51,7 @@ export const Nav = component$<NavProps>(
         <div
           class={{
             [colorClass]: !floating,
-            '!border-x-0 !border-t-0': !floating,
+            'border-x-0! border-t-0!': !floating,
             'backdrop-blur-lg': !noblur && !floating,
             'relative mx-2 mt-2': floating,
           }}
@@ -75,7 +75,7 @@ export const Nav = component$<NavProps>(
               {!nohamburger && (
                 <button
                   name="Navigation Menu"
-                  class={'lum-btn lum-bg-transparent p-2 sm:hidden'}
+                  class={'lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2'}
                   onClick$={() => (menu.value = !menu.value)}
                 >
                   <Menu size={24} />

@@ -170,7 +170,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             preventdefault:mousedown
             preventdefault:touchstart
           >
-            <div class="h-[150px] w-[125px] rounded-md border border-gray-700 bg-gradient-to-b from-transparent to-black" />
+            <div class="h-[150px] w-[125px] rounded-md border border-gray-700 bg-linear-to-b from-transparent to-black" />
             <div
               class={{
                 'absolute -top-2 -left-2 h-4 w-4 rounded-md border bg-white':

@@ -105,7 +105,7 @@ export function SelectMenuRaw({
       </Dropdown>
       {hover && <div className="h-2 absolute w-full" />}
       <div className={getClasses({
-        'absolute z-[1000] mt-2 transition-all ease-out': true,
+        'absolute z-1000 mt-2 transition-all ease-out': true,
         'backdrop-blur-lg': !noblur,
         'lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all': true,
         'left-0': align === 'left',
