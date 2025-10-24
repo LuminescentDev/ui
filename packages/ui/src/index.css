@@ -57,6 +57,9 @@
   /* Allow standard color keywords */
   background-color: --value('inherit', 'transparent', 'currentColor');
   border-color: --value('inherit', 'transparent', 'currentColor');
+  box-shadow: inset 0 calc(1px * var(--depth)) calc(2px * var(--depth)) --value('inherit', 'transparent', 'currentColor'),
+    0 calc(1px * var(--depth)) calc(2px * var(--depth)) --value('inherit', 'transparent', 'currentColor'),
+    0 calc(1px * var(--depth)) calc(3px * var(--depth)) --value('inherit', 'transparent', 'currentColor');
 }
 
 @utility lum-toggle-bg-* {
