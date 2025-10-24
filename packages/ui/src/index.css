@@ -22,26 +22,41 @@
   --color-lum-accent: var(--color-blue-500);
   --color-lum-text: var(--color-gray-50);
   --color-lum-text-secondary: var(--color-gray-400);
+  --depth: 0;
 }
 
 
 @utility lum-bg-* {
-  @apply border border-transparent outline-none;
+  /* Base color logic */
   --alpha: var(--lum-default-alpha);
   --alpha: --modifier(integer);
-
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
   --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
 
-  background-color: var(--bg-color);
-  border-color: var(--border-color);
-
-  background-color: --value('inherit', 'transparent', 'currentColor');
-  border-color: --value('inherit', 'transparent', 'currentColor');
+  @apply border border-transparent outline-none;
 
   &:focus {
     @apply border-lum-accent;
   }
+
+  /* Border fades out when depth is active */
+  border-color: color-mix(
+    in oklab,
+    var(--border-color),
+    transparent calc(var(--depth) * 100%)
+  );
+
+  /* Shadow fades in when depth is active */
+  box-shadow:
+    inset 0 calc(1px * var(--depth)) calc(2px * var(--depth)) var(--border-color),
+    0 calc(1px * var(--depth)) calc(2px * var(--depth)) rgba(0, 0, 0, 0.05),
+    0 calc(1px * var(--depth)) calc(3px * var(--depth)) rgba(0, 0, 0, 0.1);
+
+  background-color: var(--bg-color);
+
+  /* Allow standard color keywords */
+  background-color: --value('inherit', 'transparent', 'currentColor');
+  border-color: --value('inherit', 'transparent', 'currentColor');
 }
 
 @utility lum-toggle-bg-* {
