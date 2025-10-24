@@ -1,3 +1,7 @@
+# 6.0.0 (2025-10-24)
+
+This was a version bump only, there were no code changes.
+
 ## 5.2.0 (2025-07-29)
 
 Breaking Changes:
