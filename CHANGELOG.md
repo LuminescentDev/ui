@@ -1,6 +1,19 @@
 # 6.0.0 (2025-10-24)
 
-This was a version bump only, there were no code changes.
+Added depth-based border fade and shadow to lum-bg-* classes. The depth variable can be adjusted globally to change the intensity of the effect.
+
+example:
+
+```css
+@theme {
+  --depth: 0; /* default */
+}
+```
+```css
+@theme {
+  --depth: 1; /* depth enabled */
+}
+```
 
 ## 5.2.0 (2025-07-29)
 
