@@ -1,3 +1,13 @@
+## 6.1.2 (2025-10-25)
+
+### 🚀 Features
+
+- add active for mobile click events ([52085c9](https://github.com/LuminescentDev/ui/commit/52085c9))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.1.1 (2025-10-25)
 
 ### 🚀 Features
