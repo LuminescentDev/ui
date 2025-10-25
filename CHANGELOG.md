@@ -1,3 +1,14 @@
+## 6.1.1 (2025-10-25)
+
+### 🚀 Features
+
+- add --lum-depth variable and integrate depth-based styling across components ([a2948b9](https://github.com/LuminescentDev/ui/commit/a2948b9))
+- enhance lum-toggle-bg utility with depth-based border and shadow effects ([d43c716](https://github.com/LuminescentDev/ui/commit/d43c716))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.1.0 (2025-10-24)
 
 ### 🚀 Features
