@@ -38,7 +38,7 @@ export function Nav({
     <nav
       {...props}
       className={getClasses({
-        'top-0 left-0 z-50 flex w-full flex-col duration-200 motion-safe:transition-all':
+        'top-0 left-0 z-50 flex w-full flex-col duration-200':
           true,
         fixed: fixed,
         absolute: !fixed,

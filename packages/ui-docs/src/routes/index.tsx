@@ -72,8 +72,8 @@ export default component$(() => {
               </p>
               <Blobs color='cyan' class={{ 'absolute overflow-clip rounded-lg -z-10': true }} style={{ transform: 'translateZ(-10px)' }}/>
               <div class={{
-                'lum-card lum-bg-gray-900/50 absolute inset-0 !p-2 !gap-2 !border-0 !text-white w-full h-full z-10 backdrop-blur-xl transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
-                '[&>*]:h-full [&>*]:w-full [&>*]:lum-btn [&>*]:lum-bg-transparent [&>*]:hover:lum-bg-cyan-900/20 [&>*]:flex [&>*]:flex-col [&>*]:justify-center [&>*]:transition-all [&>*]:items-center [&>*]:gap-2': true,
+                'lum-card lum-bg-gray-900/50 absolute inset-0 p-2! gap-2! border-0! text-white! w-full h-full z-10 backdrop-blur-xl transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
+                '*:h-full *:w-full *:lum-btn *:lum-bg-transparent *:hover:lum-bg-cyan-900/20 *:flex *:flex-col *:justify-center *:transition-all *:items-center *:gap-2': true,
                 '[&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg': true,
               }}>
                 <a href={'https://birdflop.com'}>
@@ -103,8 +103,8 @@ export default component$(() => {
               </p>
               <Blobs color='orange' class={{ 'absolute overflow-clip rounded-lg -z-10': true }} style={{ transform: 'translateZ(-10px)' }}/>
               <div class={{
-                'lum-card lum-bg-gray-900/50 absolute inset-0 !p-2 !gap-2 !border-0 !text-white w-full h-full z-10 backdrop-blur-xl transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
-                '[&>*]:h-full [&>*]:w-full [&>*]:lum-btn [&>*]:lum-bg-transparent [&>*]:hover:lum-bg-cyan-900/20 [&>*]:flex [&>*]:flex-col [&>*]:justify-center [&>*]:transition-all [&>*]:items-center [&>*]:gap-2': true,
+                'lum-card lum-bg-gray-900/50 absolute inset-0 p-2! gap-2! border-0! text-white! w-full h-full z-10 backdrop-blur-xl transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
+                '*:h-full *:w-full *:lum-btn *:lum-bg-transparent *:hover:lum-bg-cyan-900/20 *:flex *:flex-col *:justify-center *:transition-all *:items-center *:gap-2': true,
                 '[&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg': true,
               }}>
                 <a href={'https://mineplace.me'}>
@@ -134,8 +134,8 @@ export default component$(() => {
                 A Friendly Semi-Vanilla Minecraft Server also known as Nether Depths!
               </p>
               <div class={{
-                'lum-card lum-bg-gray-900/50 absolute inset-0 !p-2 !gap-2 !border-0 !text-white w-full h-full z-10 backdrop-blur-xl transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
-                '[&>*]:h-full [&>*]:w-full [&>*]:lum-btn [&>*]:lum-bg-transparent [&>*]:hover:lum-bg-pink-900/20 [&>*]:flex [&>*]:flex-col [&>*]:justify-center [&>*]:transition-all [&>*]:items-center [&>*]:gap-2': true,
+                'lum-card lum-bg-gray-900/50 absolute inset-0 p-2! gap-2! border-0! text-white! w-full h-full z-10 backdrop-blur-xl transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
+                '*:h-full *:w-full *:lum-btn *:lum-bg-transparent *:hover:lum-bg-pink-900/20 *:flex *:flex-col *:justify-center *:transition-all *:items-center *:gap-2': true,
                 '[&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg': true,
               }}>
                 <a href={'https://mc.luminescent.dev'}>
@@ -161,8 +161,8 @@ export default component$(() => {
                 The burgers you are craving.™ Premium Quality Gourmet Burgers, Steak Sandwiches, Fries, and more. est. 2019
               </p>
               <div class={{
-                'lum-card lum-bg-gray-900/50 absolute inset-0 !p-2 !gap-2 !border-0 !text-white w-full h-full z-10 backdrop-blur-xl transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
-                '[&>*]:h-full [&>*]:w-full [&>*]:lum-btn [&>*]:lum-bg-transparent [&>*]:hover:lum-bg-orange-900/20 [&>*]:flex [&>*]:flex-col [&>*]:justify-center [&>*]:transition-all [&>*]:items-center [&>*]:gap-2': true,
+                'lum-card lum-bg-gray-900/50 absolute inset-0 p-2! gap-2! border-0! text-white! w-full h-full z-10 backdrop-blur-xl transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
+                '*:h-full *:w-full *:lum-btn *:lum-bg-transparent *:hover:lum-bg-orange-900/20 *:flex *:flex-col *:justify-center *:transition-all *:items-center *:gap-2': true,
                 '[&>*:first-child]:rounded-t-lg [&>*:last-child]:rounded-b-lg': true,
               }}>
                 <a href={'https://burgersonfleek.ca'}>

@@ -26,8 +26,7 @@ export const Nav = component$<NavProps>(
       <nav
         {...props}
         class={{
-          'top-0 left-0 z-50 flex w-full flex-col duration-200 motion-safe:transition-all':
-            true,
+          'top-0 left-0 z-50 flex w-full flex-col': true,
           fixed: fixed,
           absolute: !fixed,
           ...props.class,
