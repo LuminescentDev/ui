@@ -155,12 +155,12 @@
 }
 
 @utility lum-input {
-  @apply flex motion-safe:transition duration-300 hover:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg whitespace-nowrap touch-manipulation select-none lum-input-p-2 lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg;
+  @apply flex motion-safe:transition duration-300 hover:duration-75 active:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg active:drop-shadow-lg whitespace-nowrap touch-manipulation select-none lum-input-p-2 lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg;
   border-radius: var(--lum-border-radius);
 }
 
 @utility lum-btn {
-  @apply flex items-center gap-3 motion-safe:transition duration-300 hover:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg motion-safe:active:scale-95 whitespace-nowrap touch-manipulation select-none lum-btn-p-2 text-base lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg;
+  @apply flex items-center gap-3 motion-safe:transition duration-300 hover:duration-75 active:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg active:drop-shadow-lg motion-safe:active:scale-95 whitespace-nowrap touch-manipulation select-none lum-btn-p-2 text-base lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg;
   border-radius: var(--lum-border-radius);
 }
 
@@ -170,7 +170,7 @@
 }
 
 @utility lum-hoverable {
-  @apply transition hover:scale-102 hover:drop-shadow-lg hover:duration-75 ease-out;
+  @apply transition hover:scale-102 active:scale-102 hover:drop-shadow-lg active:drop-shadow-lg hover:duration-75 active:duration-75 ease-out;
 }
 
 @utility lum-loading {
