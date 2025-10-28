@@ -1,3 +1,17 @@
+## 6.2.0 (2025-10-28)
+
+### 🚀 Features
+
+- **nav:** auto-dismiss mobile menu on outside clicks; add nodismiss opt-out ([49b8ba1](https://github.com/LuminescentDev/ui/commit/49b8ba1))
+
+### 🩹 Fixes
+
+- **lum-bg:** make focus state depth-aware with fading border and shadow ([87a97dc](https://github.com/LuminescentDev/ui/commit/87a97dc))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.1.2 (2025-10-25)
 
 ### 🚀 Features
