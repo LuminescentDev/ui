@@ -1,5 +1,5 @@
 import type { PropsOf } from '@builder.io/qwik';
-import { Slot, component$, useSignal } from '@builder.io/qwik';
+import { Slot, component$, useSignal, useTask$ } from '@builder.io/qwik';
 import { Menu } from '~/svg/Menu';
 
 interface NavProps extends Omit<PropsOf<'nav'>, 'class'> {
@@ -8,6 +8,7 @@ interface NavProps extends Omit<PropsOf<'nav'>, 'class'> {
   floating?: boolean;
   noblur?: boolean;
   nohamburger?: boolean;
+  nodismiss?: boolean;
   colorClass?: string;
 }
 
@@ -17,10 +18,22 @@ export const Nav = component$<NavProps>(
     floating,
     noblur,
     nohamburger,
+    nodismiss,
     colorClass = 'lum-bg-lum-card-bg',
     ...props
   }) => {
     const menu = useSignal(false);
+
+    useTask$(({ track }) => {
+      track(() => menu.value);
+      if (menu.value && !nodismiss) {
+        const onClick = () => {
+          menu.value = false;
+          window.removeEventListener('click', onClick);
+        };
+        window.addEventListener('click', onClick);
+      }
+    });
 
     return (
       <nav
