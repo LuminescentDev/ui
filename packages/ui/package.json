@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui",
-  "version": "6.2.1",
+  "version": "6.2.2",
   "description": "Luminescent UI library",
   "exports": {
     ".": "./src/index.css",
@@ -16,7 +16,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.20.0",
   "license": "AGPL-3.0-or-later",
   "private": false,
   "type": "module",

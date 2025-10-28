@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui-react",
-  "version": "6.2.1",
+  "version": "6.2.2",
   "description": "Luminescent UI library - React",
   "engines": {
     "node": ">=23.11.0",
@@ -8,7 +8,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.20.0",
   "license": "AGPL-3.0-or-later",
   "private": false,
   "type": "module",
@@ -29,7 +29,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lucide-react": "^0.546.0",
+    "lucide-react": "^0.548.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -38,9 +38,9 @@
     "@tailwindcss/vite": "^4.1.16",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "@vitejs/plugin-react": "^5.0.4",
+    "@vitejs/plugin-react": "^5.1.0",
     "eslint": "^9.38.0",
-    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.4.0",
     "tailwindcss": "^4.1.16",
