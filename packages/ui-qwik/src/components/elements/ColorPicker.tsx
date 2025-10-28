@@ -149,7 +149,7 @@ export const ColorPicker = component$<ColorPickerProps>(
     return (
       <div
         class={{
-          'lum-card touch-none p-4 motion-safe:transition-all': true,
+          'lum-card touch-none p-4': true,
           'flex-col': !horizontal,
           ...props.class,
         }}

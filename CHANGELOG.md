@@ -1,3 +1,52 @@
+## 6.2.1 (2025-10-28)
+
+### 🚀 Features
+
+- **nav:** close mobile menu on outside click; add nodismiss prop ([1801ac6](https://github.com/LuminescentDev/ui/commit/1801ac6))
+
+### 🩹 Fixes
+
+- **hoverable:** use bounding rect for mouse coords, correct rotation math, and add smooth enter/leave transitions ([137de44](https://github.com/LuminescentDev/ui/commit/137de44))
+
+### ❤️ Thank You
+
+- saboooor
+
+## 6.2.0 (2025-10-28)
+
+### 🚀 Features
+
+- **nav:** auto-dismiss mobile menu on outside clicks; add nodismiss opt-out ([49b8ba1](https://github.com/LuminescentDev/ui/commit/49b8ba1))
+
+### 🩹 Fixes
+
+- **lum-bg:** make focus state depth-aware with fading border and shadow ([87a97dc](https://github.com/LuminescentDev/ui/commit/87a97dc))
+
+### ❤️ Thank You
+
+- saboooor
+
+## 6.1.2 (2025-10-25)
+
+### 🚀 Features
+
+- add active for mobile click events ([52085c9](https://github.com/LuminescentDev/ui/commit/52085c9))
+
+### ❤️ Thank You
+
+- saboooor
+
+## 6.1.1 (2025-10-25)
+
+### 🚀 Features
+
+- add --lum-depth variable and integrate depth-based styling across components ([a2948b9](https://github.com/LuminescentDev/ui/commit/a2948b9))
+- enhance lum-toggle-bg utility with depth-based border and shadow effects ([d43c716](https://github.com/LuminescentDev/ui/commit/d43c716))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.1.0 (2025-10-24)
 
 ### 🚀 Features

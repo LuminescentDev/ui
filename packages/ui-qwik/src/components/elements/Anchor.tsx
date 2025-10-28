@@ -24,7 +24,7 @@ export const Anchor = component$<AnchorProps>(({ id, ...props }) => (
         }}
       >
         <Link
-          class="opacity-10 transition-all duration-300 group-hover:opacity-100 group-hover:duration-75"
+          class="opacity-10 transition-opacity duration-300 group-hover:opacity-100 group-hover:duration-75"
           size={20}
         />
       </a>

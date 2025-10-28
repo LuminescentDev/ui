@@ -33,7 +33,7 @@ export function Dropdown({
       <ChevronDownIcon
         size={16}
         className={getClasses({
-          'ease-out motion-safe:transition-all': true,
+          'ease-out motion-safe:transition-transform': true,
           'rotate-180 transform': opened,
           'duration-300 group-hover:rotate-180 group-hover:transform group-hover:duration-75':
             hover,
