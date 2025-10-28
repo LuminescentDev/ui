@@ -145,6 +145,7 @@
     calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x))
     calc(var(--spacing) * --value(integer))
     calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x));
+  gap: calc(var(--spacing) * --value(integer));
 }
 
 @utility lum-input-p-* {
