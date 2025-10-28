@@ -8,7 +8,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.20.0",
   "trustedDependencies": [
     "sharp"
   ],
@@ -30,17 +30,17 @@
   },
   "devDependencies": {
     "@anuragroy/tailwindcss-animate": "^1.0.6",
-    "@builder.io/qwik": "1.17.0",
-    "@builder.io/qwik-city": "1.17.0",
+    "@builder.io/qwik": "1.17.1",
+    "@builder.io/qwik-city": "1.17.1",
     "@cloudflare/workers-types": "^4.20251014.0",
     "@eslint/js": "^9.38.0",
     "@luminescent/ui": "workspace:*",
     "@luminescent/ui-qwik": "workspace:*",
     "@tailwindcss/vite": "^4.1.16",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^24.9.1",
+    "@types/node": "^24.9.2",
     "eslint": "^9.38.0",
-    "eslint-plugin-qwik": "1.17.0",
+    "eslint-plugin-qwik": "1.17.1",
     "globals": "^16.4.0",
     "lucide-icons-qwik": "^0.540.0",
     "prettier": "^3.6.2",
