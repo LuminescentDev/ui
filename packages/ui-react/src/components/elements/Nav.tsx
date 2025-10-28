@@ -1,7 +1,7 @@
 import { MenuIcon } from 'lucide-react';
 import { getClasses } from '../functions';
 import type React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface NavProps
   extends Omit<
@@ -13,6 +13,7 @@ interface NavProps
   floating?: boolean;
   noblur?: boolean;
   nohamburger?: boolean;
+  nodismiss?: boolean;
   start?: React.ReactNode;
   center?: React.ReactNode;
   end?: React.ReactNode;
@@ -25,6 +26,7 @@ export function Nav({
   floating,
   noblur,
   nohamburger,
+  nodismiss,
   colorClass = 'lum-bg-lum-card-bg',
   start,
   center,
@@ -33,6 +35,16 @@ export function Nav({
   ...props
 }: NavProps) {
   const [menu, setMenu] = useState(false);
+
+  useEffect(() => {
+    if (menu && !nodismiss) {
+      const onClick = () => {
+        setMenu(false);
+        window.removeEventListener('click', onClick);
+      };
+      window.addEventListener('click', onClick);
+    }
+  }, [menu, nodismiss]);
 
   return (
     <nav
