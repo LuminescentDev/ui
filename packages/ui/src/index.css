@@ -155,10 +155,11 @@
 
 @utility lum-btn-p-* {
   padding: calc(var(--spacing) * --value(integer))
-    calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x))
-    calc(var(--spacing) * --value(integer))
-    calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x));
-  gap: calc(var(--spacing) * --value(integer));
+           calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x))
+           calc(var(--spacing) * --value(integer))
+           calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x));
+
+  gap: calc(var(--spacing) * --value(integer) * var(--lum-btn-gap-scale, 0.5));
 }
 
 @utility lum-input-p-* {
@@ -174,7 +175,7 @@
 }
 
 @utility lum-btn {
-  @apply flex items-center gap-3 motion-safe:transition duration-300 hover:duration-75 active:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg active:drop-shadow-lg motion-safe:active:scale-95 whitespace-nowrap touch-manipulation select-none lum-btn-p-2 text-base lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg;
+  @apply flex items-center motion-safe:transition duration-300 hover:duration-75 active:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg active:drop-shadow-lg motion-safe:active:scale-95 whitespace-nowrap touch-manipulation select-none lum-btn-p-2 text-base lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg;
   border-radius: var(--lum-border-radius);
 }
 
