@@ -1,3 +1,13 @@
+## 6.2.3 (2025-10-28)
+
+### 🩹 Fixes
+
+- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.2.2 (2025-10-28)
 
 ### 🚀 Features
