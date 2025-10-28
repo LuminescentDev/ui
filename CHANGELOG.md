@@ -1,3 +1,17 @@
+## 6.2.1 (2025-10-28)
+
+### 🚀 Features
+
+- **nav:** close mobile menu on outside click; add nodismiss prop ([1801ac6](https://github.com/LuminescentDev/ui/commit/1801ac6))
+
+### 🩹 Fixes
+
+- **hoverable:** use bounding rect for mouse coords, correct rotation math, and add smooth enter/leave transitions ([137de44](https://github.com/LuminescentDev/ui/commit/137de44))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.2.0 (2025-10-28)
 
 ### 🚀 Features
