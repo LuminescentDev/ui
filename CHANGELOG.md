@@ -1,3 +1,13 @@
+## 6.2.4 (2025-11-06)
+
+### 🩹 Fixes
+
+- **nav:** add title attribute to hamburger button for accessibility ([63647dd](https://github.com/LuminescentDev/ui/commit/63647dd))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.2.3 (2025-10-28)
 
 ### 🩹 Fixes

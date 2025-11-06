@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui-react",
-  "version": "6.2.3",
+  "version": "6.2.4",
   "description": "Luminescent UI library - React",
   "engines": {
     "node": ">=23.11.0",
