@@ -106,6 +106,7 @@ export function Nav({
           {!nohamburger && (
             <button
               name="Navigation Menu"
+              title="Navigation Menu"
               className="lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2"
               onClick={() => setMenu(!menu)}
             >

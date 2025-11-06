@@ -87,6 +87,7 @@ export const Nav = component$<NavProps>(
               {!nohamburger && (
                 <button
                   name="Navigation Menu"
+                  title="Navigation Menu"
                   class={'lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2'}
                   onClick$={() => (menu.value = !menu.value)}
                 >
