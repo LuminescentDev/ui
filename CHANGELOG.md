@@ -1,3 +1,14 @@
+## 6.2.5 (2025-11-10)
+
+### 🩹 Fixes
+
+- **styles:** update focus styles for improved visibility and consistency ([9fe48cb](https://github.com/LuminescentDev/ui/commit/9fe48cb))
+- **toggle): enhance focus styles for improved accessibility fix(styles:** update box-shadow to use border color for consistency ([98cf6e2](https://github.com/LuminescentDev/ui/commit/98cf6e2))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.2.4 (2025-11-06)
 
 ### 🩹 Fixes
