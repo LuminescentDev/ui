@@ -27,7 +27,7 @@ export const Toggle = component$<ToggleProps>(
           />
           <div
             class={{
-              'peer h-7 duration-300 ease-out hover:duration-75':
+              'peer h-7 duration-300 ease-out hover:duration-75 peer-focus:border-blue-500':
                 true,
               'after:absolute after:top-1 after:left-1 after:h-5 after:w-5 after:border after:duration-300 after:ease-out after:content-[\'\'] after:hover:duration-75 after:motion-safe:transition-transform':
                 true,

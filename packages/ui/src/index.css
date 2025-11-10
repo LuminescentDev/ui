@@ -116,7 +116,7 @@
 
     /* Shadow fades in when depth is active */
     box-shadow:
-      inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--color-lum-accent),
+      inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--border-color),
       0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
       0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
 
