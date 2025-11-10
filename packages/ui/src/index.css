@@ -37,17 +37,7 @@
 
   &:focus {
     /* Border fades out when depth is active */
-    border-color: color-mix(
-      in oklab,
-      var(--color-lum-accent),
-      transparent calc(var(--lum-depth) * 100%)
-    );
-
-    /* Shadow fades in when depth is active */
-    box-shadow:
-      inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--color-lum-accent),
-      0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
-      0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
+    border-color: var(--color-lum-accent);
   }
 
   /* Border fades out when depth is active */
