@@ -60,6 +60,7 @@ export default component$(() => {
   const store = useStore({
     '--lum-default-alpha': 100,
     '--lum-border-radius': 0.375,
+    '--lum-border-superellipse': 1,
     '--lum-border-mix': 20,
     '--lum-btn-p-x': 2,
     '--lum-input-p-x': 1.5,
@@ -127,6 +128,22 @@ export default component$(() => {
         value={store['--lum-border-radius']}
       >
         --lum-border-radius: {store['--lum-border-radius']}rem
+      </NumberInput>
+      <NumberInput
+        id="lum-border-superellipse"
+        onIncrement$={() => {
+          store['--lum-border-superellipse'] += 0.5;
+        }}
+        onDecrement$={() => {
+          store['--lum-border-superellipse'] -= 0.5;
+        }}
+        onInput$={(e, el) => {
+          store['--lum-border-superellipse'] = Number(el.value);
+        }}
+        input
+        value={store['--lum-border-superellipse']}
+      >
+        --lum-border-superellipse: {store['--lum-border-superellipse']}
       </NumberInput>
 
       <NumberInput

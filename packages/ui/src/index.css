@@ -13,7 +13,8 @@
   --lum-default-alpha: 100;
   --lum-btn-p-x: 2;
   --lum-input-p-x: 1.5;
-  --lum-border-radius: var(--radius-md);
+  --lum-border-radius: var(--radius-lg);
+  --lum-border-superellipse: 1;
   --lum-border-mix: 20%;
   --lum-depth: 0;
   --color-lum-border: var(--color-gray-300);
@@ -124,10 +125,12 @@
 
 @utility rounded-lum {
   border-radius: var(--lum-border-radius);
+  corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
 @utility rounded-lum-* {
   border-radius: calc(var(--lum-border-radius) - calc(var(--spacing) * --value(integer)));
+  corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
 @utility border-gradient-* {
@@ -162,16 +165,19 @@
 @utility lum-input {
   @apply flex motion-safe:transition duration-300 hover:duration-75 active:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg active:drop-shadow-lg whitespace-nowrap touch-manipulation select-none lum-input-p-2 lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg;
   border-radius: var(--lum-border-radius);
+  corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
 @utility lum-btn {
   @apply flex items-center motion-safe:transition duration-300 hover:duration-75 active:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg active:drop-shadow-lg motion-safe:active:scale-95 whitespace-nowrap touch-manipulation select-none lum-btn-p-2 text-base lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg;
   border-radius: var(--lum-border-radius);
+  corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
 @utility lum-card {
   @apply flex flex-col gap-3 whitespace-pre-wrap lum-bg-lum-card-bg p-7;
   border-radius: var(--lum-border-radius);
+  corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
 @utility lum-hoverable {
