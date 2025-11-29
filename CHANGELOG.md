@@ -1,3 +1,20 @@
+## 6.3.0 (2025-11-29)
+
+### 🩹 Fixes
+
+- **lum-btn:** add gap to lum-btn-p-* utility for consistent button spacing ([6d022a4](https://github.com/LuminescentDev/ui/commit/6d022a4))
+- **lum-btn:** make button gap scalable via --lum-btn-gap-scale and remove hardcoded gap ([15f68d0](https://github.com/LuminescentDev/ui/commit/15f68d0))
+- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
+- **nav:** add title attribute to hamburger button for accessibility ([63647dd](https://github.com/LuminescentDev/ui/commit/63647dd))
+- **styles:** update focus styles for improved visibility and consistency ([9fe48cb](https://github.com/LuminescentDev/ui/commit/9fe48cb))
+- **styles:** simplify focus border color for consistency ([a6d3fec](https://github.com/LuminescentDev/ui/commit/a6d3fec))
+- **styles:** add support for superellipse border shape in settings ([97794ad](https://github.com/LuminescentDev/ui/commit/97794ad))
+- **toggle): enhance focus styles for improved accessibility fix(styles:** update box-shadow to use border color for consistency ([98cf6e2](https://github.com/LuminescentDev/ui/commit/98cf6e2))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.2.5 (2025-11-10)
 
 ### 🩹 Fixes
