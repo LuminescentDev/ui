@@ -17,7 +17,7 @@
   "type": "module",
   "devDependencies": {
     "@nx/js": "^22.0.1",
-    "nx": "22.0.1",
+    "nx": "22.3.3",
     "tsx": "^4.20.6",
     "yargs": "^18.0.0"
   },
