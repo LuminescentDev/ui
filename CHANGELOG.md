@@ -1,3 +1,39 @@
+## 6.4.1 (2025-12-23)
+
+### 🚀 Features
+
+- update a bunch of stuff ([3e7ed79](https://github.com/LuminescentDev/ui/commit/3e7ed79))
+- update Toggle component for new lum-bg classes and enhance customization options ([d965fb6](https://github.com/LuminescentDev/ui/commit/d965fb6))
+- add more color variables   --color-lum-card-bg: var(--color-gray-900);   --color-lum-input-bg: var(--color-gray-800);   --color-lum-input-hover-bg: var(--color-gray-700);   --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
+- update text color variables to use lum-text and lum-text-secondary ([7934342](https://github.com/LuminescentDev/ui/commit/7934342))
+- add Sidebar component and update imports in elements and root ([6301903](https://github.com/LuminescentDev/ui/commit/6301903))
+- add Luminescent UI React library with components and documentation ([28d224b](https://github.com/LuminescentDev/ui/commit/28d224b))
+- enhance SelectMenu component with additional props for customization ([435431b](https://github.com/LuminescentDev/ui/commit/435431b))
+- add --lum-depth variable and integrate depth-based styling across components ([a2948b9](https://github.com/LuminescentDev/ui/commit/a2948b9))
+- enhance lum-toggle-bg utility with depth-based border and shadow effects ([d43c716](https://github.com/LuminescentDev/ui/commit/d43c716))
+- add active for mobile click events ([52085c9](https://github.com/LuminescentDev/ui/commit/52085c9))
+- **nav:** auto-dismiss mobile menu on outside clicks; add nodismiss opt-out ([49b8ba1](https://github.com/LuminescentDev/ui/commit/49b8ba1))
+- **nav:** close mobile menu on outside click; add nodismiss prop ([1801ac6](https://github.com/LuminescentDev/ui/commit/1801ac6))
+
+### 🩹 Fixes
+
+- correct stop-color to stopColor in Birdflop logo gradient ([c959ee9](https://github.com/LuminescentDev/ui/commit/c959ee9))
+- **SelectMenu:** refactor to use useSignal for select reference and remove id prop ([fde776b](https://github.com/LuminescentDev/ui/commit/fde776b))
+- **hoverable:** use bounding rect for mouse coords, correct rotation math, and add smooth enter/leave transitions ([137de44](https://github.com/LuminescentDev/ui/commit/137de44))
+- **lum-bg:** make focus state depth-aware with fading border and shadow ([87a97dc](https://github.com/LuminescentDev/ui/commit/87a97dc))
+- **lum-btn:** add gap to lum-btn-p-* utility for consistent button spacing ([6d022a4](https://github.com/LuminescentDev/ui/commit/6d022a4))
+- **lum-btn:** make button gap scalable via --lum-btn-gap-scale and remove hardcoded gap ([15f68d0](https://github.com/LuminescentDev/ui/commit/15f68d0))
+- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
+- **nav:** add title attribute to hamburger button for accessibility ([63647dd](https://github.com/LuminescentDev/ui/commit/63647dd))
+- **styles:** update focus styles for improved visibility and consistency ([9fe48cb](https://github.com/LuminescentDev/ui/commit/9fe48cb))
+- **styles:** simplify focus border color for consistency ([a6d3fec](https://github.com/LuminescentDev/ui/commit/a6d3fec))
+- **styles:** add support for superellipse border shape in settings ([97794ad](https://github.com/LuminescentDev/ui/commit/97794ad))
+- **toggle): enhance focus styles for improved accessibility fix(styles:** update box-shadow to use border color for consistency ([98cf6e2](https://github.com/LuminescentDev/ui/commit/98cf6e2))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.3.0 (2025-11-29)
 
 ### 🩹 Fixes
