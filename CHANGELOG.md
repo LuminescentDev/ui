@@ -1,3 +1,13 @@
+## 6.4.20 (2025-12-23)
+
+### 🚀 Features
+
+- add lum-bg utility for enhanced background and border styling ([06e56fa](https://github.com/LuminescentDev/ui/commit/06e56fa))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.4.19 (2025-12-23)
 
 ### 🚀 Features
