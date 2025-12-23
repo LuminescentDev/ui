@@ -16,7 +16,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "pnpm@10.26.1",
   "license": "AGPL-3.0-or-later",
   "private": false,
   "type": "module",
@@ -30,6 +30,6 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "devDependencies": {
-    "tailwindcss": "4.1.16"
+    "tailwindcss": "4.1.18"
   }
 }

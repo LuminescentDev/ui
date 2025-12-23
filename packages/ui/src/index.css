@@ -31,6 +31,7 @@
   /* Base color logic */
   --alpha: var(--lum-default-alpha);
   --alpha: --modifier(integer);
+  --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
   --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
 
@@ -68,6 +69,7 @@
   /* Base color logic */
   --alpha: var(--lum-default-alpha);
   --alpha: --modifier(integer);
+  --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
   --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
 
