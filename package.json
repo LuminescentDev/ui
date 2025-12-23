@@ -2,7 +2,7 @@
   "name": "@luminescent/ui-monorepo",
   "private": true,
   "engines": {
-    "node": ">=23.11.0",
+    "node": "24",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
@@ -17,6 +17,9 @@
   "type": "module",
   "devDependencies": {
     "@nx/js": "^22.3.3",
+    "@types/node": "^25.0.3",
+    "@types/yargs": "^17.0.35",
+    "dotenv": "^17.2.3",
     "nx": "22.3.3",
     "tsx": "^4.21.0",
     "yargs": "^18.0.0"
