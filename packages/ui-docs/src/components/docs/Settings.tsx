@@ -59,9 +59,11 @@ const ColorInput = component$(({ onInput$, color, id }: {
 export default component$(() => {
   const store = useStore({
     '--lum-border-radius': 0.375,
+    '--lum-border-superellipse': 1,
     '--lum-border-mix': 20,
     '--lum-btn-p-x': 2,
     '--lum-input-p-x': 1.5,
+    '--lum-depth': 0,
     '--color-lum-border': 'var(--color-gray-300)',
     '--color-lum-card-bg': 'var(--color-gray-900)',
     '--color-lum-input-bg': 'var(--color-gray-800)',
@@ -108,6 +110,22 @@ export default component$(() => {
         value={store['--lum-border-radius']}
       >
         --lum-border-radius: {store['--lum-border-radius']}rem
+      </NumberInput>
+      <NumberInput
+        id="lum-border-superellipse"
+        onIncrement$={() => {
+          store['--lum-border-superellipse'] += 0.5;
+        }}
+        onDecrement$={() => {
+          store['--lum-border-superellipse'] -= 0.5;
+        }}
+        onInput$={(e, el) => {
+          store['--lum-border-superellipse'] = Number(el.value);
+        }}
+        input
+        value={store['--lum-border-superellipse']}
+      >
+        --lum-border-superellipse: {store['--lum-border-superellipse']}
       </NumberInput>
 
       <NumberInput
@@ -157,6 +175,22 @@ export default component$(() => {
         value={store['--lum-input-p-x']}
       >
         --lum-input-p-x: {store['--lum-input-p-x']}
+      </NumberInput>
+      <NumberInput
+        id="lum-depth"
+        onIncrement$={() => {
+          store['--lum-depth'] += 0.5;
+        }}
+        onDecrement$={() => {
+          store['--lum-depth'] -= 0.5;
+        }}
+        onInput$={(e, el) => {
+          store['--lum-depth'] = Number(el.value);
+        }}
+        input
+        value={store['--lum-depth']}
+      >
+        --lum-depth: {store['--lum-depth']}
       </NumberInput>
 
       <ColorInput color={store['--color-lum-border']} id="border-color" onInput$={(newColor) => {
