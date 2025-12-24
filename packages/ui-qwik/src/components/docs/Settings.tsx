@@ -58,7 +58,6 @@ const ColorInput = component$(({ onInput$, color, id }: {
 
 export default component$(() => {
   const store = useStore({
-    '--lum-default-alpha': 100,
     '--lum-border-radius': 0.375,
     '--lum-border-superellipse': 1,
     '--lum-border-mix': 20,
@@ -96,23 +95,6 @@ export default component$(() => {
 
   return (
     <>
-      <NumberInput
-        id="default-alpha"
-        onIncrement$={() => {
-          store['--lum-default-alpha'] += 1;
-        }}
-        onDecrement$={() => {
-          store['--lum-default-alpha'] -= 1;
-        }}
-        onInput$={(e, el) => {
-          store['--lum-default-alpha'] = Number(el.value);
-        }}
-        input
-        value={store['--lum-default-alpha']}
-      >
-        --lum-default-alpha: {store['--lum-default-alpha']}
-      </NumberInput>
-
       <NumberInput
         id="border-radius"
         onIncrement$={() => {

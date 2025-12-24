@@ -10,7 +10,6 @@
   --color-luminescent-800: oklch(45.9% 0.187 327.815);
   --color-luminescent-900: oklch(40.8% 0.153 326.432);
   --color-luminescent-950: oklch(28.4% 0.109 327.907);
-  --lum-default-alpha: 100;
   --lum-btn-p-x: 2;
   --lum-input-p-x: 1.5;
   --lum-border-radius: var(--radius-lg);
@@ -29,7 +28,6 @@
 
 @utility lum-bg-* {
   /* Base color logic */
-  --alpha: var(--lum-default-alpha);
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
@@ -67,7 +65,6 @@
 
 @utility lum-bg {
   /* Base color logic */
-  --alpha: var(--lum-default-alpha);
   --alpha: --modifier(integer);
   --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
 
@@ -96,7 +93,6 @@
 
 @utility lum-toggle-bg-* {
   /* Base color logic */
-  --alpha: var(--lum-default-alpha);
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
