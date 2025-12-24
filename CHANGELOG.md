@@ -1,6 +1,6 @@
 ## 6.4.21 (2025-12-24)
 
-This was a version bump only, there were no code changes.
+- Removed --lum-default-alpha variable in favor of using direct css color variables such as --color-lum-card-bg with alpha values set directly in the color variable, you can add alpha values using the tailwind helper --alpha(color / opacity%)
 
 ## 6.4.20 (2025-12-23)
 
