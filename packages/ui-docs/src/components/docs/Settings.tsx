@@ -14,8 +14,8 @@ const ColorInput = component$(({ onInput$, color, id }: {
         <Slot />
       </label>
       <div class="flex gap-1 relative">
-        <div class="rounded-lum rounded-r-sm p-4 lum-bg-gray-900" style={{
-          background: color,
+        <div class="rounded-lum rounded-r-sm p-4 lum-bg" style={{
+          '--bg-color': color,
         }}/>
         <input id={id}
           class={{
@@ -41,7 +41,7 @@ const ColorInput = component$(({ onInput$, color, id }: {
           }}
         />
         <div id={`${id}-popup`} stoppropagation:mousedown class={{
-          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-[1000] mt-2 left-0': true,
+          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-1000 mt-2 left-0': true,
           'opacity-0 scale-95 pointer-events-none': !open.value,
         }}>
           <ColorPicker

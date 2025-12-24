@@ -14,8 +14,8 @@ const ColorInput = component$(({ onInput$, color, id }: {
         <Slot />
       </label>
       <div class="flex gap-1 relative">
-        <div class="rounded-lum rounded-r-sm p-4 lum-bg-gray-900" style={{
-          background: color,
+        <div class="rounded-lum rounded-r-sm p-4 lum-bg" style={{
+          '--bg-color': color,
         }}/>
         <input id={id}
           class={{

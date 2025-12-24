@@ -161,7 +161,7 @@ export const ColorPicker = component$<ColorPickerProps>(
       >
         <div class="flex gap-4">
           <div
-            class="relative h-[150px] w-[125px] rounded-md"
+            class="relative h-37.5 w-31.25 rounded-md"
             style={{
               background: `linear-gradient(to right, #FFFFFF, ${store.hue.color})`,
             }}
@@ -170,28 +170,20 @@ export const ColorPicker = component$<ColorPickerProps>(
             preventdefault:mousedown
             preventdefault:touchstart
           >
-            <div class="h-[150px] w-[125px] rounded-md border border-gray-700 bg-linear-to-b from-transparent to-black" />
+            <div class="h-37.5 w-31.25 rounded-md border border-gray-700 bg-linear-to-b from-transparent to-black" />
             <div
               class={{
-                'absolute -top-2 -left-2 h-4 w-4 rounded-md border bg-white':
+                'absolute -top-2 -left-2 h-4 w-4 rounded-md border lum-bg drop-shadow-lg':
                   true,
-                'border-white':
-                  getBrightness(
-                    hexNumberToRgb(hexStringToNumber(store.value)),
-                  ) < 0.5,
-                'border-black':
-                  getBrightness(
-                    hexNumberToRgb(hexStringToNumber(store.value)),
-                  ) > 0.5,
               }}
               style={{
-                background: store.value,
+                '--bg-color': store.value,
                 transform: `translate(${store.sPosition}px, ${store.bPosition}px)`,
               }}
             />
           </div>
           <div
-            class="relative h-[150px] w-2 rounded-md border border-gray-700"
+            class="relative h-37.5 w-2 rounded-md border border-gray-700"
             style={{
               background:
                 'linear-gradient(to bottom, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000)',
@@ -202,19 +194,19 @@ export const ColorPicker = component$<ColorPickerProps>(
             preventdefault:touchstart
           >
             <div
-              class="absolute -bottom-2 -left-[5px] h-4 w-4 rounded-md border border-white bg-[#ff0000]"
+              class="absolute -bottom-2 -left-1.25 h-4 w-4 rounded-md lum-bg! bg-[#ff0000] "
               style={{
                 transform: `translateY(${-store.hue.position}px)`,
-                background: store.hue.color,
+                '--bg-color': store.hue.color,
               }}
             />
           </div>
         </div>
-        <div class="flex w-[150px] flex-wrap justify-between gap-1">
+        <div class="flex w-37.5 flex-wrap justify-between gap-1">
           {showInput && (
             <div
               class={{
-                'mb-2 flex w-[150px] border-b border-b-gray-700 pb-3': true,
+                'mb-2 flex w-37.5 border-b border-b-gray-700 pb-3': true,
                 'flex-row gap-1': preview == 'left',
                 'flex-row-reverse gap-1': preview == 'right',
                 'flex-col': preview == 'top',
@@ -268,12 +260,11 @@ export const ColorPicker = component$<ColorPickerProps>(
                 key={i}
                 name={color}
                 class={{
-                  'lum-btn rounded-sm h-[1.6rem] w-[1.6rem] border-2 border-white/30 p-0 hover:border-white':
-                    true,
+                  'lum-btn rounded-sm h-[1.6rem] w-[1.6rem] p-0 lum-bg hover:brightness-150': true,
+                  'border-lum-accent': color === store.value,
                 }}
                 style={{
-                  background: color,
-                  borderColor: color === store.value ? '#ffffff' : undefined,
+                  '--bg-color': color,
                 }}
                 onClick$={async () => {
                   await setColor(color);
