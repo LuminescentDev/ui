@@ -1,3 +1,17 @@
+## 6.4.22 (2025-12-24)
+
+### 🚀 Features
+
+- add controls for --lum-border-superellipse and --lum-depth in Settings component ([a46244a](https://github.com/LuminescentDev/ui/commit/a46244a))
+
+### 🩹 Fixes
+
+- update changelog to reflect removal of --lum-default-alpha variable and usage of CSS color variables ([4b3951b](https://github.com/LuminescentDev/ui/commit/4b3951b))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.4.21 (2025-12-24)
 
 - Removed --lum-default-alpha variable in favor of using direct css color variables such as --color-lum-card-bg with alpha values set directly in the color variable, you can add alpha values using the tailwind helper --alpha(color / opacity%)
