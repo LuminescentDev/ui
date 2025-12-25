@@ -1,3 +1,13 @@
+## 6.4.23 (2025-12-25)
+
+### 🩹 Fixes
+
+- update SelectMenu component to correctly set dropdown ID and improve accessibility ([0f63bef](https://github.com/LuminescentDev/ui/commit/0f63bef))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.4.22 (2025-12-24)
 
 ### 🚀 Features
