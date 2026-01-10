@@ -1,3 +1,13 @@
+## 6.4.24 (2026-01-10)
+
+### 🩹 Fixes
+
+- prevent menu dismissal when clicking on elements with noNavDismiss attribute ([6ce45c2](https://github.com/LuminescentDev/ui/commit/6ce45c2))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.4.23 (2025-12-25)
 
 ### 🩹 Fixes
