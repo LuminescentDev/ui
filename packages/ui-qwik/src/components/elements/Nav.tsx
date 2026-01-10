@@ -28,9 +28,14 @@ export const Nav = component$<NavProps>(
       track(() => menu.value);
       if (menu.value && !nodismiss) {
         const onClick = (e: PointerEvent) => {
-          // check if the element targeted has a property called noNavDismiss
-          const target = e.target as HTMLElement | null;
-          if (target?.hasAttribute('noNavDismiss')) return;
+        // check if near any element that has class 'nav-ignore-dismiss'
+          let el = e.target as HTMLElement | null;
+          while (el) {
+            if (el.classList && el.classList.contains('nav-ignore-dismiss')) {
+              return;
+            }
+            el = el.parentElement;
+          }
 
           menu.value = false;
           window.removeEventListener('click', onClick);
