@@ -1,3 +1,13 @@
+## 6.4.26 (2026-01-10)
+
+### 🩹 Fixes
+
+- improve menu dismissal logic to ignore clicks on elements with 'nav-ignore-dismiss' class ([fed1049](https://github.com/LuminescentDev/ui/commit/fed1049))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.4.25 (2026-01-10)
 
 This was a version bump only, there were no code changes.
