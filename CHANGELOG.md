@@ -1,3 +1,7 @@
+## 6.4.25 (2026-01-10)
+
+This was a version bump only, there were no code changes.
+
 ## 6.4.24 (2026-01-10)
 
 ### 🩹 Fixes
