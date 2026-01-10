@@ -38,7 +38,11 @@ export function Nav({
 
   useEffect(() => {
     if (menu && !nodismiss) {
-      const onClick = () => {
+      const onClick = (e: PointerEvent) => {
+        // check if the element targeted has a property called noNavDismiss
+        const target = e.target as HTMLElement | null;
+        if (target?.hasAttribute('noNavDismiss')) return;
+
         setMenu(false);
         window.removeEventListener('click', onClick);
       };

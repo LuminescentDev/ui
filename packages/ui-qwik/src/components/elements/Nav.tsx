@@ -27,7 +27,11 @@ export const Nav = component$<NavProps>(
     useTask$(({ track }) => {
       track(() => menu.value);
       if (menu.value && !nodismiss) {
-        const onClick = () => {
+        const onClick = (e: PointerEvent) => {
+          // check if the element targeted has a property called noNavDismiss
+          const target = e.target as HTMLElement | null;
+          if (target?.hasAttribute('noNavDismiss')) return;
+
           menu.value = false;
           window.removeEventListener('click', onClick);
         };
