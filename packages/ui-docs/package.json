@@ -8,7 +8,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.26.1",
+  "packageManager": "pnpm@10.28.0",
   "trustedDependencies": [
     "sharp"
   ],
@@ -49,7 +49,7 @@
     "typescript": "5.9.3",
     "typescript-eslint": "^8.50.1",
     "undici": "^7.16.0",
-    "vite": "5.4.14",
-    "vite-tsconfig-paths": "6.0.3"
+    "vite": "5.4.21",
+    "vite-tsconfig-paths": "6.0.4"
   }
 }
