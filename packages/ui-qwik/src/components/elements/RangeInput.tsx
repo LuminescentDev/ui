@@ -31,18 +31,17 @@ export const RangeInput = component$<RangeInputProps>((props) => {
 });
 
 export const RangeInputRaw = component$<RangeInputRawProps>(
-  ({ value, min = 5, max = 100, onInput$, ...props }) => {
+  ({ value, min = 0, max = 10, onInput$, ...props }) => {
     const valueSignal = useSignal<number>(value ?? min);
     const filledPercentage = useComputed$(() => ((valueSignal.value - min) / (max - min)) * 100);
+    const tickCount = max - min - 1;
 
     return (
       <div class={{
         'group relative flex touch-manipulation gap-1 text-lum-text lum-input p-0': true,
       }}>
         <div class="absolute w-full flex justify-evenly">
-          {[...Array(max - min + 1)].map((_, i) => {
-            if (i === 0 || i === max - min) return null;
-
+          {tickCount > 0 && [...Array(tickCount)].map((_, i) => {
             return <div key={i}
               class="border-l border-l-lum-border/20 h-1 my-0.5"
             />;
