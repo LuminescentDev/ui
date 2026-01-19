@@ -1,3 +1,13 @@
+## 6.5.0-0 (2026-01-19)
+
+### 🚀 Features
+
+- add RangeInput component ([55bf12d](https://github.com/LuminescentDev/ui/commit/55bf12d))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.4.26 (2026-01-10)
 
 ### 🩹 Fixes
