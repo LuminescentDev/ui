@@ -64,7 +64,7 @@ export const RangeInputRaw = component$<RangeInputRawProps>(
           value={valueSignal.value}
           class="absolute top-0 h-2 w-full opacity-0 cursor-pointer"
           onInput$={async (event, element) => {
-            valueSignal.value = parseInt(element.value);
+            valueSignal.value = parseFloat(element.value);
             if (onInput$) await onInput$(event, element);
           }}
         />
