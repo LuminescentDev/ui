@@ -12,6 +12,7 @@ import ColorPicker from '~/components/docs/ColorPicker';
 import Dropdown from '~/components/docs/Dropdown';
 import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
+import RangeInput from './components/docs/RangeInput';
 import SelectMenu from './components/docs/SelectMenu';
 import Sidebar from './components/docs/Sidebar';
 import Toggle from '~/components/docs/Toggle';
@@ -111,6 +112,7 @@ export default component$(() => {
           <Dropdown id="dropdown" />
           <Nav id="nav" />
           <NumberInput id="number-input" />
+          <RangeInput id="range-input" />
           <SelectMenu id="select-menu" />
           <Sidebar id="sidebar" />
           <Toggle id="toggle" />

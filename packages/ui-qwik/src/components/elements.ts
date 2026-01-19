@@ -4,6 +4,7 @@ export * from './elements/ColorPicker';
 export * from './elements/Dropdown';
 export * from './elements/Nav';
 export * from './elements/NumberInput';
+export * from './elements/RangeInput';
 export * from './elements/SelectMenu';
 export * from './elements/Sidebar';
 export * from './elements/Toggle';
