@@ -1,3 +1,17 @@
+## 6.6.0-0 (2026-01-19)
+
+### 🚀 Features
+
+- add RangeInput component ([55bf12d](https://github.com/LuminescentDev/ui/commit/55bf12d))
+
+### 🩹 Fixes
+
+- adjust RangeInput layout to use 'justify-evenly' and add min support ([762d2ac](https://github.com/LuminescentDev/ui/commit/762d2ac))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.5.0-0 (2026-01-19)
 
 ### 🚀 Features
