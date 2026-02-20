@@ -1,6 +1,6 @@
 import { releaseChangelog, releasePublish, releaseVersion } from 'nx/release';
 import yargs from 'yargs';
-
+//deprecated: this file is no longer used as the release process has been moved to GitHub Actions, but it is being left in place for now in case we want to use it for local releases in the future
 const options = await yargs(process.argv.slice(2))
   .version(false)
   .option('version', {

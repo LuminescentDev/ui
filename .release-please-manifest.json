@@ -1,0 +1,5 @@
+{
+  "packages/ui": "6.6.3",
+  "packages/ui-react": "6.6.3",
+  "packages/ui-qwik": "6.6.3"
+}
