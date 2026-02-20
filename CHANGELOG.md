@@ -1,3 +1,7 @@
+## 6.6.2 (2026-02-20)
+
+This was a version bump only, there were no code changes.
+
 ## 6.6.1 (2026-02-20)
 
 This was a version bump only, there were no code changes.
