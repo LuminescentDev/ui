@@ -39,7 +39,6 @@
   @apply border border-transparent outline-none;
 
   &:focus {
-    /* Border fades out when depth is active */
     border-color: var(--color-lum-accent);
   }
 
