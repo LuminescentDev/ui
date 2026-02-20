@@ -1,3 +1,19 @@
+## 6.6.0 (2026-02-20)
+
+### 🚀 Features
+
+- add RangeInput component ([55bf12d](https://github.com/LuminescentDev/ui/commit/55bf12d))
+
+### 🩹 Fixes
+
+- adjust RangeInput layout to use 'justify-evenly' and add min support ([762d2ac](https://github.com/LuminescentDev/ui/commit/762d2ac))
+- update default min and max values in RangeInputRaw and adjust tick rendering logic ([0f8f872](https://github.com/LuminescentDev/ui/commit/0f8f872))
+- change value parsing from parseInt to parseFloat in RangeInputRaw ([e2e6ada](https://github.com/LuminescentDev/ui/commit/e2e6ada))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.6.0-2 (2026-01-19)
 
 ### 🚀 Features
