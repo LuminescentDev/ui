@@ -5,6 +5,7 @@ interface colorPickerOptions {
   preview?: 'left' | 'right' | 'top' | 'bottom' | 'full';
   horizontal?: boolean;
   showInput?: boolean;
+  opacity?: boolean;
 }
 
 export default component$(({ id }: { id: string }) => {
@@ -48,18 +49,25 @@ export default component$(({ id }: { id: string }) => {
       >
         showInput
       </Toggle>
+      <Toggle
+        id="colorpicker-opacity"
+        onInput$={(e, element) => (store.opacity = element.checked)}
+      >
+        opacity
+      </Toggle>
       <div class="flex">
         <ColorPicker
           id="color-picker"
           preview={store.preview}
           horizontal={store.horizontal}
           showInput={store.showInput}
+          opacity={store.opacity}
           onInput$={() => {}}
         />
       </div>
       <textarea
         class="lum-input h-32"
-        value={`<ColorPicker id="color-picker"${store.preview ? ` preview="${store.preview}"` : ''}${store.horizontal ? ' horizontal' : ''}${store.showInput == false ? ' showInput="false"' : ''}/>`}
+        value={`<ColorPicker id="color-picker"${store.preview ? ` preview="${store.preview}"` : ''}${store.horizontal ? ' horizontal' : ''}${store.showInput == false ? ' showInput="false"' : ''}${store.opacity ? ' opacity' : ''}/>`}
       />
     </div>
   );

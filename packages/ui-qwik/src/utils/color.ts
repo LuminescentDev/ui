@@ -33,31 +33,45 @@ export function getBrightness(color: RGBAColor) {
   return (r * 299 + g * 587 + b * 114) / 1000;
 }
 
-export function hexNumberToRgb(color: number) {
-  const r = ((color >> 16) & 255) / 255;
-  const g = ((color >> 8) & 255) / 255;
-  const b = (color & 255) / 255;
-  return { r, g, b };
+export function hexToRgba(hex: string): RGBAColor {
+  const num = parseInt(hex.replace('#', ''), 16);
+
+  if (num <= 0xffffff) {
+    const r = ((num >> 16) & 255) / 255;
+    const g = ((num >> 8) & 255) / 255;
+    const b = (num & 255) / 255;
+    return { r, g, b };
+  }
+
+  const r = ((num >> 24) & 255) / 255;
+  const g = ((num >> 16) & 255) / 255;
+  const b = ((num >> 8) & 255) / 255;
+  const a = (num & 255) / 255;
+
+  return { r, g, b, a };
+}
+
+export function hexToRgbaD(hex: string): RGBAColor {
+  console.log(hex);
+  return hexToRgba(hex);
 }
 
 export function rgbToHex(color: RGBAColor) {
-  const { r, g, b } = color;
+  const { r, g, b, a } = color;
   const hex = [
     '#',
     pad2(Math.round(r * 255).toString(16)),
     pad2(Math.round(g * 255).toString(16)),
     pad2(Math.round(b * 255).toString(16)),
+    a !== undefined && a !== 1 ? pad2(Math.round(a * 255).toString(16)) : '',
   ];
 
   return hex.join('').toUpperCase();
 }
 
-export const hexStringToNumber = (color: string) =>
-  parseInt(color.replace('#', ''), 16);
-
-export function hsvToRgb(color: HSVAColor) {
+export function hsvToRgb(color: HSVAColor): RGBAColor {
   let { h } = color;
-  const { s, v } = color;
+  const { s, v, a } = color;
 
   h *= 6;
 
@@ -71,11 +85,11 @@ export function hsvToRgb(color: HSVAColor) {
   const g = [t, v, v, q, p, p][mod];
   const b = [p, p, t, v, v, q][mod];
 
-  return { r, g, b };
+  return { r, g, b, a };
 }
 
-export function rgbToHsv(color: RGBAColor) {
-  const { r, g, b } = color;
+export function rgbToHsv(color: RGBAColor): HSVAColor {
+  const { r, g, b, a } = color;
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   const d = max - min;
@@ -98,5 +112,5 @@ export function rgbToHsv(color: RGBAColor) {
     }
     h /= 6;
   }
-  return { h, s, v };
+  return { h, s, v, a };
 }

@@ -2,8 +2,7 @@ import type { PropsOf, QRL } from '@builder.io/qwik';
 import { $, component$, useStore } from '@builder.io/qwik';
 import {
   getBrightness,
-  hexNumberToRgb,
-  hexStringToNumber,
+  hexToRgba,
   hsvToRgb,
   rgbToHex,
   rgbToHsv,
@@ -23,6 +22,7 @@ export interface ColorPickerProps
   preview?: 'left' | 'right' | 'top' | 'bottom' | 'full';
   horizontal?: boolean;
   showInput?: boolean;
+  opacity?: boolean;
 }
 
 export const ColorPicker = component$<ColorPickerProps>(
@@ -49,17 +49,21 @@ export const ColorPicker = component$<ColorPickerProps>(
     preview = 'left',
     horizontal,
     showInput = true,
+    opacity,
     ...props
   }) => {
     const height = 150;
     const width = height - 25;
     const maxHue = height - 2;
 
-    const hsvColor = rgbToHsv(hexNumberToRgb(hexStringToNumber(value)));
+    const hsvColor = rgbToHsv(hexToRgba(value));
     const store = useStore({
       hue: {
         position: hsvColor.h * maxHue,
         color: rgbToHex(hsvToRgb({ h: hsvColor.h, s: 1, v: 1 })),
+      },
+      opacity: {
+        position: hsvColor.a !== undefined ? (1 - hsvColor.a) * maxHue : 0,
       },
       bPosition: (1 - hsvColor.v) * maxHue,
       sPosition: hsvColor.s * width,
@@ -68,10 +72,9 @@ export const ColorPicker = component$<ColorPickerProps>(
 
     const setColor = $(async (color: string) => {
       if (!color.match(/^#[0-9A-F]{6}$/i)) return;
-      const number = hexStringToNumber(color);
-      const hsv = rgbToHsv(hexNumberToRgb(number));
+      const hsv = rgbToHsv(hexToRgba(color));
       store.hue.position = hsv.h * maxHue;
-      store.hue.color = rgbToHex(hsvToRgb({ h: hsv.h, s: 1, v: 1 }));
+      store.hue.color = rgbToHex(hsvToRgb({ h: hsv.h, s: 1, v: 1, a: hsv.a }));
       store.sPosition = hsv.s * width;
       store.bPosition = (1 - hsv.v) * maxHue;
 
@@ -82,10 +85,10 @@ export const ColorPicker = component$<ColorPickerProps>(
     const hueChange = $(async (e: MouseEvent | TouchEvent, hOffset: number) => {
       const { y } = getMousePosition(e);
       store.hue.position = clamp(maxHue - (y - hOffset), 0, maxHue);
-      const hsvColor = rgbToHsv(hexNumberToRgb(hexStringToNumber(store.value)));
+      const hsvColor = rgbToHsv(hexToRgba((store.value)));
       const h = store.hue.position / maxHue;
       hsvColor.h = h;
-      store.hue.color = rgbToHex(hsvToRgb({ h, s: 1, v: 1 }));
+      store.hue.color = rgbToHex(hsvToRgb({ h, s: 1, v: 1, a: hsvColor.a }));
 
       store.value = rgbToHex(hsvToRgb(hsvColor));
       await onInput$?.(store.value);
@@ -122,6 +125,7 @@ export const ColorPicker = component$<ColorPickerProps>(
           h: store.hue.position / maxHue,
           s,
           v,
+          a: store.opacity.position !== undefined ? 1 - store.opacity.position / maxHue : 1,
         }),
       );
       await onInput$?.(store.value);
@@ -133,6 +137,36 @@ export const ColorPicker = component$<ColorPickerProps>(
         await sbChange(e, offset);
         const eventListener = (e: MouseEvent | TouchEvent) =>
           void sbChange(e, offset);
+        window.addEventListener('mousemove', eventListener);
+        window.addEventListener('touchmove', eventListener);
+        const mouseUpListener = () => {
+          window.removeEventListener('mousemove', eventListener);
+          window.removeEventListener('touchmove', eventListener);
+          window.removeEventListener('mouseup', mouseUpListener);
+          window.removeEventListener('touchend', mouseUpListener);
+        };
+        window.addEventListener('mouseup', mouseUpListener);
+        window.addEventListener('touchend', mouseUpListener);
+      },
+    );
+
+    const opacityChange = $(
+      async (e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
+        const { x } = getMousePosition(e);
+        store.opacity.position = clamp(x - hOffset.left, 0, maxHue);
+        const a = 1 - (store.opacity.position / maxHue);
+        const hsvColor = rgbToHsv(hexToRgba((store.value)));
+        hsvColor.a = a;
+        store.value = rgbToHex(hsvToRgb(hsvColor));
+        await onInput$?.(store.value);
+      },
+    );
+    const opacityMouseDown = $(
+      async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
+        const offset = el.getBoundingClientRect();
+        await opacityChange(e, offset);
+        const eventListener = (e: MouseEvent | TouchEvent) =>
+          void opacityChange(e, offset);
         window.addEventListener('mousemove', eventListener);
         window.addEventListener('touchmove', eventListener);
         const mouseUpListener = () => {
@@ -183,7 +217,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             />
           </div>
           <div
-            class="relative h-37.5 w-2 rounded-md border border-gray-700"
+            class="relative h-full w-2 rounded-md border border-gray-700"
             style={{
               background:
                 'linear-gradient(to bottom, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000)',
@@ -202,6 +236,48 @@ export const ColorPicker = component$<ColorPickerProps>(
             />
           </div>
         </div>
+        {opacity && (
+          <div
+            class="relative h-2 w-full rounded-md"
+            onMouseDown$={opacityMouseDown}
+            onTouchStart$={opacityMouseDown}
+            preventdefault:mousedown
+            preventdefault:touchstart
+            style={{
+              backgroundColor: 'white',
+              backgroundImage: `
+                linear-gradient(45deg, #ccc 25%, transparent 25%), 
+                linear-gradient(135deg, #ccc 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #ccc 75%),
+                linear-gradient(135deg, transparent 75%, #ccc 75%);
+              `,
+              backgroundSize: '8px 8px',
+              backgroundPosition: '0 0, 4px 0, 4px -4px, 0 4px',
+            }}
+          >
+            <div
+              class="alsolute inset-0 h-2 w-full rounded-md border border-gray-700"
+              style={{
+                background: `linear-gradient(to right, ${store.value}, transparent)`,
+              }}
+            />
+            <div
+              class="absolute -bottom-1.25 -left-1.25 h-4 w-4 rounded-md"
+              style={{
+                transform: `translateX(${store.opacity.position ?? 1}px)`,
+                backgroundColor: store.value,
+                backgroundImage: `
+                  linear-gradient(45deg, #ccc4 25%, transparent 25%), 
+                  linear-gradient(135deg, #ccc4 25%, transparent 25%),
+                  linear-gradient(45deg, transparent 75%, #ccc4 75%),
+                  linear-gradient(135deg, transparent 75%, #ccc4 75%);
+                `,
+                backgroundSize: '8px 8px',
+                backgroundPosition: '0 0, 4px 0, 4px -4px, 0 4px',
+              }}
+            />
+          </div>
+        )}
         <div class="flex w-37.5 flex-wrap justify-between gap-1">
           {showInput && (
             <div
@@ -241,7 +317,7 @@ export const ColorPicker = component$<ColorPickerProps>(
                       backgroundColor: `${store.value}`,
                       color:
                           getBrightness(
-                            hexNumberToRgb(hexStringToNumber(store.value)),
+                            hexToRgba((store.value)),
                           ) > 0.5
                             ? 'black'
                             : 'white',
