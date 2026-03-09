@@ -71,7 +71,7 @@ export const ColorPicker = component$<ColorPickerProps>(
     });
 
     const setColor = $(async (color: string) => {
-      if (!color.match(/^#[0-9A-F]{6}$/i)) return;
+      if (!/^#[0-9a-f]{0,8}$/i.test(color)) return;
       const hsv = rgbToHsv(hexToRgba(color));
       store.hue.position = hsv.h * maxHue;
       store.hue.color = rgbToHex(hsvToRgb({ h: hsv.h, s: 1, v: 1, a: hsv.a }));
