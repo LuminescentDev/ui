@@ -1,3 +1,13 @@
+## 6.8.1 (2026-03-09)
+
+### 🩹 Fixes
+
+- adjust height of color gradient bar in ColorPicker component ([25f613f](https://github.com/LuminescentDev/ui/commit/25f613f))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.8.0 (2026-03-09)
 
 ### 🚀 Features
