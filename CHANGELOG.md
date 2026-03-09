@@ -1,3 +1,13 @@
+## 6.8.2 (2026-03-09)
+
+### 🩹 Fixes
+
+- update color validation regex in ColorPicker component ([8d98476](https://github.com/LuminescentDev/ui/commit/8d98476))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.8.1 (2026-03-09)
 
 ### 🩹 Fixes
