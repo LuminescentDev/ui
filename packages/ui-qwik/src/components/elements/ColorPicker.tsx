@@ -217,7 +217,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             />
           </div>
           <div
-            class="relative h-full w-2 rounded-md border border-gray-700"
+            class="relative h-37.5 w-2 rounded-md border border-gray-700"
             style={{
               background:
                 'linear-gradient(to bottom, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000)',
