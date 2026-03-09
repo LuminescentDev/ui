@@ -1,3 +1,13 @@
+## 6.7.0 (2026-03-09)
+
+### 🚀 Features
+
+- opacity support in color picker ([b14de4b](https://github.com/LuminescentDev/ui/commit/b14de4b))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.6.3 (2026-02-20)
 
 This was a version bump only, there were no code changes.
