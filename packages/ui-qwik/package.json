@@ -47,6 +47,8 @@
   "devDependencies": {
     "@anuragroy/tailwindcss-animate": "^1.0.6",
     "@eslint/js": "^9.39.2",
+    "@qwik.dev/core": "2.0.0-beta.27",
+    "@qwik.dev/router": "2.0.0-beta.27",
     "@tailwindcss/vite": "^4.1.18",
     "@types/eslint": "^9.6.1",
     "@types/node": "^25.0.3",
@@ -55,13 +57,12 @@
     "globals": "^16.5.0",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "semver": "^7.7.4",
     "tailwindcss": "4.1.18",
     "typescript": "5.9.3",
     "typescript-eslint": "^8.50.1",
     "vite": "5.4.14",
-    "vite-tsconfig-paths": "^6.0.3",
-    "@qwik.dev/router": "2.0.0-beta.27",
-    "@qwik.dev/core": "2.0.0-beta.27"
+    "vite-tsconfig-paths": "^6.0.3"
   },
   "peerDependencies": {
     "@luminescent/ui": "workspace:*"

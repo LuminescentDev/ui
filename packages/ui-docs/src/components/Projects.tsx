@@ -1,7 +1,6 @@
-import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
+import { component$, useSignal, useVisibleTask$ } from '@qwik.dev/core';
 
 import { Blobs } from '@luminescent/ui-qwik';
-import { ChevronLeft, ChevronRight } from 'lucide-icons-qwik';
 
 import { Projects } from './ProjectList';
 
@@ -61,9 +60,8 @@ export default component$(() => {
           class="absolute left-0 z-20 h-full group cursor-pointer"
           onClick$={() => targetX.value -= 300}
         >
-          <div class="lum-btn p-2 pl-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl rounded-lum-1">
-            <ChevronLeft size={48} />
-          </div>
+          <span class="lum-btn p-2 pl-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl rounded-lum-1">
+          </span>
         </button>
 
         {/* RIGHT BUTTON */}
@@ -71,9 +69,8 @@ export default component$(() => {
           class="absolute right-0 z-20 h-full group cursor-pointer"
           onClick$={() => targetX.value += 300}
         >
-          <div class="lum-btn p-2 pr-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl">
-            <ChevronRight size={48} />
-          </div>
+          <span class="lum-btn p-2 pr-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl">
+          </span>
         </button>
 
         {/* Fade edges */}

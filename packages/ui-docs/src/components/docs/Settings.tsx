@@ -1,4 +1,4 @@
-import { component$, isBrowser, QRL, Slot, useSignal, useStore, useTask$ } from '@builder.io/qwik';
+import { component$, isBrowser, QRL, Slot, useSignal, useStore, useTask$ } from '@qwik.dev/core';
 import { ColorPicker, NumberInput } from '@luminescent/ui-qwik';
 
 const ColorInput = component$(({ onInput$, color, id }: {

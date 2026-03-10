@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
-import { qwikVite } from '@builder.io/qwik/optimizer';
-import { qwikCity } from '@builder.io/qwik-city/vite';
+import { qwikVite } from '@qwik.dev/core/optimizer';
+import { qwikCity } from '@qwik.dev/router/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
 

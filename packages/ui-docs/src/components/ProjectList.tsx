@@ -1,8 +1,7 @@
-import { JSX } from '@builder.io/qwik/jsx-runtime';
+import { JSX } from '@qwik.dev/core';
 import { LogoBirdflop, LogoDiscord } from '@luminescent/ui-qwik';
 import { OliTag, PurpurTag, QarthTag, SabTag } from './Tags';
-import { Component } from '@builder.io/qwik';
-import { Github, Globe } from 'lucide-icons-qwik';
+import { Component } from '@qwik.dev/core';
 const Mineplace = '/mineplace.svg';
 import Luminara from '../components/images/Luminara.png?jsx';
 
@@ -32,16 +31,6 @@ export const Projects: Project[] = [
     btnClass: 'hover:lum-bg-cyan-500/20',
     buttons: [
       {
-        icon: <Globe size={24} />,
-        title: 'Visit page',
-        href: 'https://birdflop.com',
-      },
-      {
-        icon: <Github size={24} />,
-        title: 'Github',
-        href: 'https://github.com/birdflop/web',
-      },
-      {
         icon: <LogoDiscord size={24} />,
         title: 'Discord',
         href: 'https://discord.gg/nmgtX5z',
@@ -56,16 +45,6 @@ export const Projects: Project[] = [
     color: 'lum-bg-orange-500',
     btnClass: 'hover:lum-bg-orange-500/20',
     buttons: [
-      {
-        icon: <Globe size={24} />,
-        title: 'Visit page',
-        href: 'https://mineplace.me',
-      },
-      {
-        icon: <Github size={24} />,
-        title: 'Github',
-        href: 'https://github.com/LuminescentDev/mineplace',
-      },
       {
         icon: <LogoDiscord size={24} />,
         title: 'Discord',
@@ -82,16 +61,6 @@ export const Projects: Project[] = [
     btnClass: 'hover:lum-bg-pink-500/20',
     buttons: [
       {
-        icon: <Globe size={24} />,
-        title: 'Visit page',
-        href: 'https://luminaramc.org',
-      },
-      {
-        icon: <Github size={24} />,
-        title: 'Github',
-        href: 'https://github.com/saboooor/Luminara',
-      },
-      {
         icon: <LogoDiscord size={24} />,
         title: 'Discord',
         href: 'https://discord.gg/Mw7fNpdg5N',
@@ -106,16 +75,6 @@ export const Projects: Project[] = [
     color: 'lum-bg-orange-500',
     btnClass: 'hover:lum-bg-orange-500/20',
     buttons: [
-      {
-        icon: <Globe size={24} />,
-        title: 'Visit page',
-        href: 'https://burgersonfleek.ca',
-      },
-      {
-        icon: <Github size={24} />,
-        title: 'Github',
-        href: 'https://github.com/saboooor/burgersonfleek',
-      },
     ],
   },
 ];

@@ -1,8 +1,7 @@
-import { component$ } from '@builder.io/qwik';
-import { Link, type DocumentHead } from '@builder.io/qwik-city';
+import { component$ } from '@qwik.dev/core';
+import { Link, type DocumentHead } from '@qwik.dev/router';
 
 import { LogoLuminescentFull } from '@luminescent/ui-qwik';
-import { Book } from 'lucide-icons-qwik';
 import { SocialButtons } from '~/components/Nav';
 
 import Projects from '~/components/Projects';
@@ -55,7 +54,6 @@ export default component$(() => {
           class="lum-btn lum-btn-p-4 lum-bg-blue-900/60 hover:lum-bg-blue-900 mt-10"
           href="/docs"
         >
-          <Book size={30} /> Documentation
         </Link>
       </section>
     </>
