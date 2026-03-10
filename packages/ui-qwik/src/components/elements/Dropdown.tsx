@@ -1,5 +1,5 @@
-import type { PropsOf } from '@builder.io/qwik';
-import { component$, Slot } from '@builder.io/qwik';
+import type { PropsOf } from '@qwik.dev/core';
+import { component$, Slot } from '@qwik.dev/core';
 import { ChevronDown } from '../../svg/ChevronDown';
 
 interface DropdownProps extends Omit<PropsOf<'button'>, 'class'> {

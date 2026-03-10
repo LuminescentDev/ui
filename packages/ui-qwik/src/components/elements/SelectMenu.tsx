@@ -1,5 +1,5 @@
-import type { JSXChildren, PropsOf } from '@builder.io/qwik';
-import { component$, Slot, useSignal, useStore } from '@builder.io/qwik';
+import type { JSXChildren, PropsOf } from '@qwik.dev/core';
+import { component$, Slot, useSignal, useStore } from '@qwik.dev/core';
 import { Dropdown } from './Dropdown';
 
 interface SelectMenuProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {

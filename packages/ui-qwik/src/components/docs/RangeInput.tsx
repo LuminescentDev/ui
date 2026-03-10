@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import { component$ } from '@qwik.dev/core';
 import { Anchor } from '../../index';
 import { RangeInput } from '../elements/RangeInput';
 

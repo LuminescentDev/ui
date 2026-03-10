@@ -1,5 +1,5 @@
-import type { PropsOf, QRL } from '@builder.io/qwik';
-import { $, component$, useStore } from '@builder.io/qwik';
+import type { PropsOf, QRL } from '@qwik.dev/core';
+import { $, component$, useStore } from '@qwik.dev/core';
 import {
   getBrightness,
   hexToRgba,

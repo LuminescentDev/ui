@@ -1,4 +1,4 @@
-import { component$, PropsOf, Slot } from '@builder.io/qwik';
+import { component$, PropsOf, Slot } from '@qwik.dev/core';
 
 interface SidebarProps extends Omit<PropsOf<'aside'>, 'class'> {
   class?: { [key: string]: boolean };

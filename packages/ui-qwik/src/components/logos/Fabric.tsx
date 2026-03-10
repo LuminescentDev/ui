@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import { component$ } from '@qwik.dev/core';
 import type { IconProps } from './IconProps';
 
 export const LogoFabric = component$<IconProps>(({ size, ...props }) => {

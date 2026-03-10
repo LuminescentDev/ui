@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import { component$ } from '@qwik.dev/core';
 import Settings from './components/docs/Settings';
 
 import LumClasses from '~/components/docs/lum-classes';

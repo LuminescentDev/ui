@@ -1,4 +1,4 @@
-import { component$, useStore } from '@builder.io/qwik';
+import { component$, useStore } from '@qwik.dev/core';
 import { Anchor, Blobs, Toggle, Hoverable } from '../../index';
 
 export default component$(({ id }: { id: string }) => {

@@ -1,5 +1,5 @@
-import type { PropsOf } from '@builder.io/qwik';
-import { Slot, component$, useSignal, useTask$ } from '@builder.io/qwik';
+import type { PropsOf } from '@qwik.dev/core';
+import { Slot, component$, useSignal, useTask$ } from '@qwik.dev/core';
 import { Menu } from '~/svg/Menu';
 
 interface NavProps extends Omit<PropsOf<'nav'>, 'class'> {

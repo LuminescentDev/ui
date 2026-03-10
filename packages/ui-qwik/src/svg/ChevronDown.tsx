@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik';
+import { component$ } from '@qwik.dev/core';
 import type { IconProps } from '../components/logos/IconProps';
 
 export const ChevronDown = component$<IconProps>(({ size, ...props }) => {

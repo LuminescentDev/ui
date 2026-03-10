@@ -1,5 +1,5 @@
-import type { PropsOf, QRL } from '@builder.io/qwik';
-import { $, Slot, component$, useStyles$ } from '@builder.io/qwik';
+import type { PropsOf, QRL } from '@qwik.dev/core';
+import { $, Slot, component$, useStyles$ } from '@qwik.dev/core';
 import { Plus } from '../../svg/Plus';
 import { Minus } from '../../svg/Minus';
 

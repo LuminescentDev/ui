@@ -1,4 +1,4 @@
-import { component$, useStore } from '@builder.io/qwik';
+import { component$, useStore } from '@qwik.dev/core';
 import { SelectMenu, Toggle, Anchor } from '../../index';
 
 interface SelectMenuOptions {
