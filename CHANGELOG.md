@@ -1,3 +1,23 @@
+## 6.8.3-0 (2026-03-11)
+
+### 🚀 Features
+
+- opacity support in color picker ([b14de4b](https://github.com/LuminescentDev/ui/commit/b14de4b))
+- add project showcase component with project details and tags ([6e6b40f](https://github.com/LuminescentDev/ui/commit/6e6b40f))
+- working qwik v2 (kinda) and switch to bun ([9b16118](https://github.com/LuminescentDev/ui/commit/9b16118))
+
+### 🩹 Fixes
+
+- adjust height of color gradient bar in ColorPicker component ([25f613f](https://github.com/LuminescentDev/ui/commit/25f613f))
+- update color validation regex in ColorPicker component ([8d98476](https://github.com/LuminescentDev/ui/commit/8d98476))
+- change div to span for consistent element usage in SelectMenu options ([62d9092](https://github.com/LuminescentDev/ui/commit/62d9092))
+- add flex class to body ([87b0381](https://github.com/LuminescentDev/ui/commit/87b0381))
+- add type import to suppress TypeScript warnings ([359265a](https://github.com/LuminescentDev/ui/commit/359265a))
+
+### ❤️ Thank You
+
+- saboooor
+
 ## 6.8.2 (2026-03-09)
 
 ### 🩹 Fixes
