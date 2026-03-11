@@ -5,10 +5,10 @@
     "node": "24"
   },
   "scripts": {
-    "build:release": "bun build && bun release",
+    "build:release": "bun run build && bun run release",
     "build": "bun nx run-many -t build --output-style=stream --parallel=false",
     "release": "tsx tools/release.ts",
-    "start:docs": "bun build && cd packages/ui-docs && bun run start"
+    "start:docs": "bun run build && cd packages/ui-docs && bun run start"
   },
   "type": "module",
   "devDependencies": {
