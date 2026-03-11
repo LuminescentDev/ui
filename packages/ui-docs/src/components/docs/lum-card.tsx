@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Blobs, Toggle, Hoverable } from '../../../../ui-qwik-old/lib-types';
+import { Anchor, Blobs, Toggle, Hoverable } from '../@luminescent/ui-qwik';
 
 export default component$(({ id }: { id: string }) => {
   const store = useStore({

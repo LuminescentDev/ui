@@ -16,7 +16,7 @@ import LumBtn from '~/components/docs/lum-btn';
 import LumCard from '~/components/docs/lum-card';
 import LumInput from '~/components/docs/lum-input';
 import Settings from '~/components/docs/Settings';
-import { Sidebar as SidebarElement } from '../../../../ui-qwik-old/lib-types';
+import { Sidebar as SidebarElement } from '../@luminescent/ui-qwik';
 import Sidebar from '~/components/docs/Sidebar';
 
 export default component$(() => {

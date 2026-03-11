@@ -1,6 +1,6 @@
 import { component$, useSignal, useVisibleTask$ } from '@qwik.dev/core';
 
-import { Blobs } from '../../../ui-qwik-old/lib-types';
+import { Blobs } from '@luminescent/ui-qwik';
 
 import { Projects } from './ProjectList';
 

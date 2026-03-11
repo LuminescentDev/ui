@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, NumberInput, Toggle } from '../../../../ui-qwik-old/lib-types';
+import { Anchor, NumberInput, Toggle } from '../@luminescent/ui-qwik';
 
 interface numberInputOptions {
   input?: boolean;

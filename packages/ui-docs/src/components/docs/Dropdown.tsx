@@ -1,5 +1,5 @@
 import { component$, useSignal } from '@qwik.dev/core';
-import { Anchor, Dropdown, Toggle } from '../../../../ui-qwik-old/lib-types';
+import { Anchor, Dropdown, Toggle } from '../@luminescent/ui-qwik';
 
 export default component$(({ id }: { id: string }) => {
   const opened = useSignal(false);

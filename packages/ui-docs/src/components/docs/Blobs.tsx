@@ -4,7 +4,7 @@ import {
   Blobs,
   SelectMenu,
   blobColorClasses,
-} from '../../../../ui-qwik-old/lib-types';
+} from '../@luminescent/ui-qwik';
 
 interface blobsOptions {
   color?: keyof typeof blobColorClasses;

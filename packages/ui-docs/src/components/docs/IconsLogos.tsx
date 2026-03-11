@@ -12,7 +12,7 @@ import {
   LogoPurpur,
   LogoVelocity,
   LogoWaterfall,
-} from '../../../../ui-qwik-old/lib-types';
+} from '../@luminescent/ui-qwik';
 
 export default component$(({ id }: { id: string }) => {
   return (

@@ -15,7 +15,7 @@
     },
     "packages/ui": {
       "name": "@luminescent/ui",
-      "version": "6.8.3-0",
+      "version": "6.8.3-1",
       "devDependencies": {
         "tailwindcss": "4.2.1",
       },
@@ -48,7 +48,7 @@
     },
     "packages/ui-qwik": {
       "name": "@luminescent/ui-qwik",
-      "version": "6.8.3-0",
+      "version": "6.8.3-1",
       "devDependencies": {
         "@anuragroy/tailwindcss-animate": "^1.0.6",
         "@eslint/js": "latest",
@@ -74,7 +74,7 @@
     },
     "packages/ui-react": {
       "name": "@luminescent/ui-react",
-      "version": "6.8.3-0",
+      "version": "6.8.3-1",
       "dependencies": {
         "lucide-react": "^0.562.0",
         "react": "^19.2.3",
