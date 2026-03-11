@@ -16,7 +16,7 @@ import LumBtn from '~/components/docs/lum-btn';
 import LumCard from '~/components/docs/lum-card';
 import LumInput from '~/components/docs/lum-input';
 import Settings from '~/components/docs/Settings';
-import { Sidebar as SidebarElement } from '../@luminescent/ui-qwik';
+import { Sidebar as SidebarElement } from '@luminescent/ui-qwik';
 import Sidebar from '~/components/docs/Sidebar';
 
 export default component$(() => {
@@ -111,7 +111,7 @@ export default component$(() => {
       <IconsLogos id="icons-logos" />
     </section>
     <SidebarElement class={{
-      'border-l-1 border-r-0': true,
+      'border-l border-r-0': true,
     }}>
       <h2 q:slot='title' class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
         Settings
