@@ -51,7 +51,7 @@ export default component$(({ id }: { id: string }) => {
           id="selectmenu-input"
           values={[
             {
-              name: <div class="lum-bg-red-500 p-1 rounded">Any element you want</div>,
+              name: <span class="lum-bg-red-500 p-1 rounded">Any element you want</span>,
               value: '1',
             },
             { name: 'Option 2', value: '2' },
@@ -79,7 +79,7 @@ export default component$(({ id }: { id: string }) => {
   id="selectmenu-input"
   values={[
     {
-      name: <div class="lum-bg-red-500">Any element you want</div>,
+      name: <span class="lum-bg-red-500">Any element you want</span>,
       value: '1',
     },
     { name: 'Option 2', value: '2' },
