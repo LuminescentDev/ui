@@ -7,6 +7,10 @@
  * On the client, containers resume and do not call render.
  */
 import { createRenderer } from "@qwik.dev/router";
+
+// make typescript shut up
+import type { } from "@qwik.dev/core/server";
+
 import Root from "./root";
 
 export default createRenderer((opts) => {
