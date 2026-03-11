@@ -1,7 +1,7 @@
 import { component$ } from '@qwik.dev/core';
 import { Link, type DocumentHead } from '@qwik.dev/router';
 
-import { LogoLuminescentFull } from '@luminescent/ui-qwik';
+import { LogoLuminescentFull } from '../../../ui-qwik-old/lib-types';
 import { SocialButtons } from '~/components/Nav';
 
 import Projects from '~/components/Projects';

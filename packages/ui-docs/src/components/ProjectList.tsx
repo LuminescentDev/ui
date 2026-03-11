@@ -1,5 +1,5 @@
 import { JSX } from '@qwik.dev/core';
-import { LogoBirdflop, LogoDiscord } from '@luminescent/ui-qwik';
+import { LogoBirdflop, LogoDiscord } from '../../../ui-qwik-old/lib-types';
 import { OliTag, PurpurTag, QarthTag, SabTag } from './Tags';
 import { Component } from '@qwik.dev/core';
 const Mineplace = '/mineplace.svg';

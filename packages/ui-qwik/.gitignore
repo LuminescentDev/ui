@@ -6,11 +6,11 @@
 
 # Development
 node_modules
-*.local
 
 # Cache
 .cache
 .mf
+.vscode
 .rollup.cache
 tsconfig.tsbuildinfo
 
@@ -24,11 +24,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Editor
-.vscode/*
 !.vscode/extensions.json
-!.vscode/launch.json
-!.vscode/qwik-city.code-snippets
-!.vscode/qwik.code-snippets
 .idea
 .DS_Store
 *.suo
@@ -40,9 +36,3 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
-
-# Secrets
-.env
-
-# Cloudflare
-functions/**/*.js

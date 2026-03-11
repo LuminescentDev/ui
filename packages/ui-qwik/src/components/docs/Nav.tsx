@@ -76,9 +76,9 @@ export default component$(({ id }: { id: string }) => {
             <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
               Option 3
             </button>
-            <p q:slot="dropdown">
+            <span q:slot="dropdown">
               Dropdown
-            </p>
+            </span>
           </SelectMenuRaw>
 
           <button q:slot="mobile" class="lum-btn lum-bg-transparent">

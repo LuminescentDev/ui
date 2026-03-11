@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Dropdown, Sidebar, Toggle } from '@luminescent/ui-qwik';
+import { Anchor, Dropdown, Sidebar, Toggle } from '../../../../ui-qwik-old/lib-types';
 
 interface sidebarOptions {
   fixed?: boolean;

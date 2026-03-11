@@ -1,5 +1,5 @@
 import { component$, isBrowser, QRL, Slot, useSignal, useStore, useTask$ } from '@qwik.dev/core';
-import { ColorPicker, NumberInput } from '@luminescent/ui-qwik';
+import { ColorPicker, NumberInput } from '../../../../ui-qwik-old/lib-types';
 
 const ColorInput = component$(({ onInput$, color, id }: {
   onInput$?: QRL<(newColor: string) => void>;

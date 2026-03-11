@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "target": "ES2017",
+    "target": "ES2020",
     "module": "ES2020",
     "lib": ["es2020", "DOM"],
     "jsx": "react-jsx",
@@ -9,9 +9,9 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "lib-types",
+    "declarationDir": "lib",
     "resolveJsonModule": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "incremental": true,
@@ -21,6 +21,5 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["tailwind.config.js"]
+  "include": ["src", "tailwind.config.ts"]
 }

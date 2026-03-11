@@ -1,6 +1,6 @@
 import { component$ } from '@qwik.dev/core';
 import { Link } from '@qwik.dev/router';
-import { LogoDiscord, LogoLuminescentFull, Nav } from '@luminescent/ui-qwik';
+import { LogoDiscord, LogoLuminescentFull, Nav } from '../../../ui-qwik-old/lib-types';
 
 export default component$(() => {
   return (

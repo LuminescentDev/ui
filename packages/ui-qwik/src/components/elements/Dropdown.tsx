@@ -17,9 +17,9 @@ export const Dropdown = component$<DropdownProps>(({ class: Class, hover, opened
       }}
       {...props}
     >
-      <div class="flex-1 text-left">
+      <span class="flex-1 text-left">
         <Slot />
-      </div>
+      </span>
       <ChevronDown
         size={16}
         class={{

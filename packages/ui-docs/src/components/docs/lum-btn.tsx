@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor } from '@luminescent/ui-qwik';
+import { Anchor } from '../../../../ui-qwik-old/lib-types';
 
 export default component$(({ id }: { id: string }) => {
   const store = useStore({
