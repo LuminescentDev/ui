@@ -1,6 +1,9 @@
 import { component$ } from '@qwik.dev/core';
 import type { IconProps } from './IconProps';
 
+/**
+ * @deprecated Icons are going to be moved to a separate package @luminescent/icons-qwik.
+ */
 export const LogoForge = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg

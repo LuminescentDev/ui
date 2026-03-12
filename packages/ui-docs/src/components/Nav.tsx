@@ -1,6 +1,7 @@
 import { component$ } from '@qwik.dev/core';
 import { Link } from '@qwik.dev/router';
-import { LogoDiscord, LogoLuminescentFull, Nav } from '@luminescent/ui-qwik';
+import { LogoLuminescentFull, Nav } from '@luminescent/ui-qwik';
+import { SiGithub, SiDiscord } from 'simple-icons-qwik';
 
 export default component$(() => {
   return (
@@ -64,6 +65,7 @@ export const SocialButtons = component$(({ large }: { large?: boolean }) => {
         'rounded-lum-2 p-2': !large,
       }}
     >
+      <SiGithub size={large ? 32 : 20} />
     </a>
     <a
       href="/discord"
@@ -74,7 +76,7 @@ export const SocialButtons = component$(({ large }: { large?: boolean }) => {
         'rounded-lum-2 p-2': !large,
       }}
     >
-      <LogoDiscord size={large ? 32 : 20} />
+      <SiDiscord size={large ? 32 : 20} />
     </a>
   </>;
 });

@@ -1,4 +1,4 @@
-import { component$, useStore } from '@qwik.dev/core';
+import { $, component$, useStore } from '@qwik.dev/core';
 import { SelectMenu, Toggle, Anchor } from '@luminescent/ui-qwik';
 
 interface SelectMenuOptions {
@@ -31,12 +31,12 @@ export default component$(({ id }: { id: string }) => {
       <div class="flex">
         <SelectMenu
           id="selectmenu-align"
-          onChange$={(e, element) =>
+          onChange$={$( (e, element) =>
             (store.align = element.value as
               | 'left'
               | 'right'
-              | 'center')
-          }
+              | 'center'),
+          )}
           values={['left', 'right', 'center'].map((preview) => ({
             name: preview,
             value: preview,

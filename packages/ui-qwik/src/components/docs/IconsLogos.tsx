@@ -2,15 +2,12 @@ import { component$ } from '@qwik.dev/core';
 import {
   Anchor,
   LogoBirdflop,
-  LogoDiscord,
   LogoFabric,
   LogoForge,
   LogoLuminescent,
   LogoLuminescentFull,
   LogoPaper,
-  LogoPterodactyl,
   LogoPurpur,
-  LogoVelocity,
   LogoWaterfall,
 } from '../../index';
 
@@ -19,21 +16,21 @@ export default component$(({ id }: { id: string }) => {
     <div class="lum-card">
       <Anchor id={id}>
         <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
-          Icons/Logos
+          Icons/Logos DEPRECATED
         </h2>
       </Anchor>
+      <p>
+        The icons and logos in this package are going to be moved to a separate package called @luminescent/icons-qwik.
+      </p>
       <div class="lum-card">
         <div class="flex flex-wrap justify-evenly gap-10">
           <LogoBirdflop size={40} />
-          <LogoDiscord size={40} />
           <LogoFabric size={40} />
           <LogoForge size={40} />
           <LogoLuminescent size={40} />
           <LogoLuminescentFull size={40} />
           <LogoPaper size={40} />
-          <LogoPterodactyl size={40} />
           <LogoPurpur size={40} />
-          <LogoVelocity size={40} />
           <LogoWaterfall size={40} />
         </div>
       </div>

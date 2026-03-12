@@ -2,7 +2,7 @@ import { component$, useSignal, useVisibleTask$ } from '@qwik.dev/core';
 
 import { Blobs } from '@luminescent/ui-qwik';
 import { Projects } from './ProjectList';
-import { ChefHat } from 'lucide-icons-qwik';
+import { ChevronLeft, ChevronRight } from 'lucide-icons-qwik';
 
 export default component$(() => {
   const translateX = useSignal(0);
@@ -61,7 +61,7 @@ export default component$(() => {
           onClick$={() => targetX.value -= 300}
         >
           <span class="lum-btn p-2 pl-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl">
-            <ChefHat size={24} />
+            <ChevronLeft size={48} />
           </span>
         </button>
 
@@ -71,6 +71,7 @@ export default component$(() => {
           onClick$={() => targetX.value += 300}
         >
           <span class="lum-btn p-2 pr-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl">
+            <ChevronRight size={48} />
           </span>
         </button>
 
@@ -92,7 +93,7 @@ export default component$(() => {
             {[...Projects, ...Projects].map((project) => (
               <div key={project.title} class="lum-card lum-bg-gray-900/50 relative min-w-48 max-w-48 md:min-w-64 md:max-w-64">
                 {typeof project.image === 'string' ?
-                  <img src={project.image} alt={`${project.title} Logo`} class="mx-auto mb-5 w-25 h-25 md:w-50 md:h-50" />
+                  <img src={project.image} alt={`${project.title} Logo`} class="mx-auto mb-5 w-25 h-25 md:w-50 md:h-50" width={200} height={200} />
                   : project.image}
                 <h3 class="text-gray-100 text-base md:text-xl font-bold">
                   {project.title}

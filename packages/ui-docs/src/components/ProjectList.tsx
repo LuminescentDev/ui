@@ -1,9 +1,11 @@
 import { component$, JSXOutput } from '@qwik.dev/core';
-import { LogoBirdflop, LogoDiscord } from '@luminescent/ui-qwik';
+import { LogoBirdflop } from '@luminescent/ui-qwik';
 import { OliTag, PurpurTag, QarthTag, SabTag } from './Tags';
 import { Component } from '@qwik.dev/core';
 
 import Luminara from '~/components/images/Luminara.png?jsx';
+import { IconProps, SiDiscord, SiGithub } from 'simple-icons-qwik';
+import { Globe } from 'lucide-icons-qwik';
 export const LuminaraIcon = component$(() => {
   return <Luminara class="mx-auto mb-5 w-25 h-25 md:w-50 md:h-50" />;
 });
@@ -19,7 +21,7 @@ export type Project = {
 }
 
 type Button = {
-  icon: typeof LogoDiscord;
+  icon: Component<IconProps>;
   title: string;
   href: string;
 }
@@ -34,7 +36,17 @@ export const Projects: Project[] = [
     btnClass: 'hover:lum-bg-cyan-500/20',
     buttons: [
       {
-        icon: LogoDiscord,
+        icon: Globe,
+        title: 'Visit page',
+        href: 'https://birdflop.com',
+      },
+      {
+        icon: SiGithub,
+        title: 'Github',
+        href: 'https://github.com/birdflop/web',
+      },
+      {
+        icon: SiDiscord,
         title: 'Discord',
         href: 'https://discord.gg/nmgtX5z',
       },
@@ -49,7 +61,7 @@ export const Projects: Project[] = [
     btnClass: 'hover:lum-bg-orange-500/20',
     buttons: [
       {
-        icon: LogoDiscord,
+        icon: SiDiscord,
         title: 'Discord',
         href: 'https://discord.gg/qNj5kMwE',
       },
@@ -64,7 +76,7 @@ export const Projects: Project[] = [
     btnClass: 'hover:lum-bg-pink-500/20',
     buttons: [
       {
-        icon: LogoDiscord,
+        icon: SiDiscord,
         title: 'Discord',
         href: 'https://discord.gg/Mw7fNpdg5N',
       },
@@ -73,7 +85,7 @@ export const Projects: Project[] = [
   {
     title: 'Burgers on Fleek',
     description: 'The burgers you are craving.™ Premium Quality Gourmet Burgers, Steak Sandwiches, Fries, and more. est. 2019.',
-    image: 'https://burgersonfleek.ca/branding/svg/icon.svg',
+    image: '/burgersonfleek.svg',
     tags: [SabTag],
     color: 'lum-bg-orange-500',
     btnClass: 'hover:lum-bg-orange-500/20',

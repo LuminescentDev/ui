@@ -6,6 +6,9 @@ interface LogoBirdflopProps extends IconProps {
   fillGradient?: string[];
 }
 
+/**
+ * @deprecated Icons are going to be moved to a separate package @luminescent/icons-qwik.
+ */
 export const LogoBirdflop = component$<LogoBirdflopProps>(
   ({ confused, fillGradient, size, ...props }) => {
     const gradientId = fillGradient?.join('-').replace('#', '');
