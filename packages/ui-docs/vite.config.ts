@@ -30,6 +30,14 @@ export default defineConfig(({ command, mode }): UserConfig => {
       exclude: [],
     },
 
+    ssr: {
+      noExternal: [
+        // Put any packages here that need to be bundled in the server build, such as those with ESM exports or binary deps.
+        // For example, if you use `better-sqlite3` in server functions, add it here.
+        // 'better-sqlite3',
+        'lucide-icons-qwik',
+      ],
+    },
     /**
      * This is an advanced setting. It improves the bundling of your server code. To use it, make sure you understand when your consumed packages are dependencies or dev dependencies. (otherwise things will break in production)
      */

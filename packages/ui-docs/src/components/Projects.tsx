@@ -1,8 +1,8 @@
 import { component$, useSignal, useVisibleTask$ } from '@qwik.dev/core';
 
 import { Blobs } from '@luminescent/ui-qwik';
-import { ChevronLeft, ChevronRight } from 'lucide-icons-qwik';
 import { Projects } from './ProjectList';
+import { ChefHat } from 'lucide-icons-qwik';
 
 export default component$(() => {
   const translateX = useSignal(0);
@@ -61,10 +61,7 @@ export default component$(() => {
           onClick$={() => targetX.value -= 300}
         >
           <span class="lum-btn p-2 pl-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl">
-            <ChevronRight size={24} />
-            <ChevronRight size={24} />
-            <ChevronRight size={24} />
-            <ChevronRight size={24} />
+            <ChefHat size={24} />
           </span>
         </button>
 

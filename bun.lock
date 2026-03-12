@@ -1,6 +1,5 @@
 {
   "lockfileVersion": 1,
-  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "@luminescent/ui-monorepo",
@@ -23,9 +22,6 @@
     },
     "packages/ui-docs": {
       "name": "@luminescent/ui-docs",
-      "dependencies": {
-        "lucide-icons-qwik": "^0.577.2-2",
-      },
       "devDependencies": {
         "@anuragroy/tailwindcss-animate": "^1.0.6",
         "@cloudflare/workers-types": "^4.20260312.1",
@@ -38,6 +34,7 @@
         "eslint": "^10.0.3",
         "eslint-plugin-qwik": "2.0.0-beta.27",
         "globals": "^17.4.0",
+        "lucide-icons-qwik": "^0.577.2-5",
         "prettier": "^3.8.1",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "tailwindcss": "^4.2.1",
@@ -1569,7 +1566,7 @@
 
     "lru-cache": ["lru-cache@7.18.3", "", {}, "sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA=="],
 
-    "lucide-icons-qwik": ["lucide-icons-qwik@0.577.2-2", "", {}, "sha512-+ty2/DE9+Gpra3pHQgXytmhtdDZDTHA/sjLDg8Zfx9UuTE59pfhSjEJcItDvfpUJYjbOOW9Hzt1ZZSVeZTfImg=="],
+    "lucide-icons-qwik": ["lucide-icons-qwik@0.577.2-5", "", {}, "sha512-LcdfKo9lXsA5yGs08DWshPWWXjOsoXnSbbTqrLhX3puG6thQclf6wlLHx376LCmfcNXWkUYTpMbOv5GVwPZ1YQ=="],
 
     "lucide-react": ["lucide-react@0.562.0", "", { "peerDependencies": { "react": "19.2.3" } }, "sha512-82hOAu7y0dbVuFfmO4bYF1XEwYk/mEbM5E+b1jgci/udUBEE/R7LF5Ip0CCEmXe8AybRM8L+04eP+LGZeDvkiw=="],
 
