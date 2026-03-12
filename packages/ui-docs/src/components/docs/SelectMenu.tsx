@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { SelectMenu, Toggle, Anchor } from '../@luminescent/ui-qwik';
+import { SelectMenu, Toggle, Anchor } from '@luminescent/ui-qwik';
 
 interface SelectMenuOptions {
   customDropdown?: boolean;

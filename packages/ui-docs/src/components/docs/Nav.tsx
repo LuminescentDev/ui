@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Nav, SelectMenuRaw, Toggle } from '../@luminescent/ui-qwik';
+import { Anchor, Nav, SelectMenuRaw, Toggle } from '@luminescent/ui-qwik';
 
 interface navOptions {
   fixed?: boolean;

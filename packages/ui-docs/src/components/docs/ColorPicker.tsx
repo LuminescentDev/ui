@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, SelectMenu, Toggle, ColorPicker } from '../@luminescent/ui-qwik';
+import { Anchor, SelectMenu, Toggle, ColorPicker } from '@luminescent/ui-qwik';
 
 interface colorPickerOptions {
   preview?: 'left' | 'right' | 'top' | 'bottom' | 'full';

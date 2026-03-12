@@ -2,7 +2,7 @@ import { component$, useStore } from '@qwik.dev/core';
 import {
   Anchor,
   Toggle,
-} from '../@luminescent/ui-qwik';
+} from '@luminescent/ui-qwik';
 
 interface toggleOptions {
   checkbox?: boolean;
