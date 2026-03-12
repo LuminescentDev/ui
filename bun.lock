@@ -23,14 +23,15 @@
     },
     "packages/ui-docs": {
       "name": "@luminescent/ui-docs",
+      "dependencies": {
+        "lucide-icons-qwik": "^0.577.2-2",
+      },
       "devDependencies": {
         "@anuragroy/tailwindcss-animate": "^1.0.6",
-        "@cloudflare/workers-types": "^4.20260310.1",
+        "@cloudflare/workers-types": "^4.20260312.1",
         "@eslint/js": "^10.0.1",
         "@luminescent/ui": "workspace:*",
         "@luminescent/ui-qwik": "workspace:*",
-        "@qwik.dev/core": "2.0.0-beta.27",
-        "@qwik.dev/router": "2.0.0-beta.27",
         "@tailwindcss/vite": "^4.2.1",
         "@types/eslint": "^9.6.1",
         "@types/node": "^25.4.0",
@@ -346,7 +347,7 @@
 
     "@bconnorwhite/module": ["@bconnorwhite/module@2.0.2", "", { "dependencies": { "find-up": "^5.0.0", "read-json-safe": "^1.0.5", "types-pkg-json": "^1.1.0" } }, "sha512-ck1me5WMgZKp06gnJrVKEkytpehTTQbvsAMbF1nGPeHri/AZNhj87++PSE2LOxmZqM0EtGMaqeLdx7Lw7SUnTA=="],
 
-    "@cloudflare/workers-types": ["@cloudflare/workers-types@4.20260310.1", "", {}, "sha512-Cg4gyGDtfimNMgBr2h06aGR5Bt8puUbblyzPNZN55mBfVYCTWwQiUd9PrbkcoddKrWHlsy0ACH/16dAeGf5BQg=="],
+    "@cloudflare/workers-types": ["@cloudflare/workers-types@4.20260312.1", "", {}, "sha512-ySoTKc2ZKpwHll4H6byPWkxI/vmCc86B4h+hKo077zSTmBqIcxvbFozmOcEY7dhudMMDBnCgwZ9FknRrJxyqiQ=="],
 
     "@emnapi/core": ["@emnapi/core@1.2.0", "", { "dependencies": { "@emnapi/wasi-threads": "1.0.1", "tslib": "2.6.2" } }, "sha512-E7Vgw78I93we4ZWdYCb4DGAwRROGkMIXk7/y87UmANR+J6qsWusmC3gLt0H+O0KOt5e6O38U8oJamgbudrES/w=="],
 
@@ -1567,6 +1568,8 @@
     "lowercase-keys": ["lowercase-keys@2.0.0", "", {}, "sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA=="],
 
     "lru-cache": ["lru-cache@7.18.3", "", {}, "sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA=="],
+
+    "lucide-icons-qwik": ["lucide-icons-qwik@0.577.2-2", "", {}, "sha512-+ty2/DE9+Gpra3pHQgXytmhtdDZDTHA/sjLDg8Zfx9UuTE59pfhSjEJcItDvfpUJYjbOOW9Hzt1ZZSVeZTfImg=="],
 
     "lucide-react": ["lucide-react@0.562.0", "", { "peerDependencies": { "react": "19.2.3" } }, "sha512-82hOAu7y0dbVuFfmO4bYF1XEwYk/mEbM5E+b1jgci/udUBEE/R7LF5Ip0CCEmXe8AybRM8L+04eP+LGZeDvkiw=="],
 

@@ -1,7 +1,7 @@
 import { component$, useSignal, useVisibleTask$ } from '@qwik.dev/core';
 
 import { Blobs } from '@luminescent/ui-qwik';
-
+import { ChevronLeft, ChevronRight } from 'lucide-icons-qwik';
 import { Projects } from './ProjectList';
 
 export default component$(() => {
@@ -60,7 +60,11 @@ export default component$(() => {
           class="absolute left-0 z-20 h-full group cursor-pointer"
           onClick$={() => targetX.value -= 300}
         >
-          <span class="lum-btn p-2 pl-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl rounded-lum-1">
+          <span class="lum-btn p-2 pl-1 py-8 backdrop-blur-sm lum-bg-gray-900 group-hover:lum-bg-gray-800 drop-shadow-2xl">
+            <ChevronRight size={24} />
+            <ChevronRight size={24} />
+            <ChevronRight size={24} />
+            <ChevronRight size={24} />
           </span>
         </button>
 
@@ -90,7 +94,9 @@ export default component$(() => {
           >
             {[...Projects, ...Projects].map((project) => (
               <div key={project.title} class="lum-card lum-bg-gray-900/50 relative min-w-48 max-w-48 md:min-w-64 md:max-w-64">
-                {project.image}
+                {typeof project.image === 'string' ?
+                  <img src={project.image} alt={`${project.title} Logo`} class="mx-auto mb-5 w-25 h-25 md:w-50 md:h-50" />
+                  : project.image}
                 <h3 class="text-gray-100 text-base md:text-xl font-bold">
                   {project.title}
                 </h3>
@@ -113,7 +119,7 @@ export default component$(() => {
                       'lum-btn pointer-events-none group-hover:pointer-events-auto h-full w-full rounded-lum-2 lum-bg-transparent flex flex-col justify-center transition-all items-center gap-2': true,
                       [project.btnClass]: project.btnClass,
                     }}>
-                      {button.icon}
+                      <button.icon size={24} />
                       {button.title}
                     </a>
                   ))}
