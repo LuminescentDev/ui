@@ -10,8 +10,7 @@
       "types": "./lib/index.d.ts",
       "import": "./lib/index.qwik.mjs",
       "require": "./lib/index.qwik.cjs"
-    },
-    "./config": "./tailwind.config.js"
+    }
   },
   "files": [
     "lib"
