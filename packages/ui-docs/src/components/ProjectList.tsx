@@ -1,5 +1,5 @@
 import { component$, JSXOutput } from '@qwik.dev/core';
-import { LogoBirdflop } from '@luminescent/ui-qwik';
+import { Birdflop } from '@luminescent/icons-qwik';
 import { OliTag, PurpurTag, QarthTag, SabTag } from './Tags';
 import { Component } from '@qwik.dev/core';
 
@@ -30,7 +30,7 @@ export const Projects: Project[] = [
   {
     title: 'Birdflop',
     description: 'A registered 501(c)(3) nonprofit server host aiming to provide affordable and accessible hosting and resources.',
-    image: <LogoBirdflop size={200} class="mx-auto mb-5 w-25 h-25 md:w-50 md:h-50" fillGradient={['#54daf4', '#545eb6']}/>,
+    image: <Birdflop size={200} class="mx-auto mb-5 w-25 h-25 md:w-50 md:h-50" fillGradient={['#54daf4', '#545eb6']}/>,
     tags: [SabTag, OliTag, PurpurTag],
     color: 'lum-bg-cyan-500',
     btnClass: 'hover:lum-bg-cyan-500/20',

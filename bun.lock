@@ -1638,7 +1638,7 @@
 
     "lru-cache": ["lru-cache@11.2.7", "", {}, "sha512-aY/R+aEsRelme17KGQa/1ZSIpLpNYYrhcrepKTZgE+W3WM16YMCaPwOHLHsmopZHELU0Ojin1lPVxKR0MihncA=="],
 
-    "lucide-icons-qwik": ["lucide-icons-qwik@0.577.2", "", {}, "sha512-ZhMqp84v8GeDo8xINi+sOfHwaqOlzsybYcOpRSMfzTkk+0gU9MudCZgTIG4ygKMEefVIVgYyavsp2sCg5I7n/w=="],
+    "lucide-icons-qwik": ["lucide-icons-qwik@0.577.0-qwikv2", "", {}, "sha512-4/AusLoYZ1JYvVUc5JsqgihJIrZMNih7k9e6J4ZZuBlrzytBZEImAWJLX9gXL0X7qffR/Eb1zOD77kUXI7RF7A=="],
 
     "lucide-react": ["lucide-react@0.562.0", "", { "peerDependencies": { "react": "^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-82hOAu7y0dbVuFfmO4bYF1XEwYk/mEbM5E+b1jgci/udUBEE/R7LF5Ip0CCEmXe8AybRM8L+04eP+LGZeDvkiw=="],
 
@@ -2074,7 +2074,7 @@
 
     "signal-exit": ["signal-exit@4.1.0", "", {}, "sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw=="],
 
-    "simple-icons-qwik": ["simple-icons-qwik@16.11.0-qwikv2", "", {}, "sha512-M0rS26Ir3Rq+TE1gf5nCpYBHyZbL9fMegz6O+wKq4XcfCDJQ3cIxt4MP9GjkoosuSKj8xOa4DiWUkD4YLuCbRQ=="],
+    "simple-icons-qwik": ["simple-icons-qwik@16.11.0-qwik-v2", "", {}, "sha512-KyWjUys9A4P5f8p4bXtaHSFQlmnf7hvfzZY+d+X4qUld6MhNfTWtlKi7VrfAQyaRZ/wnMc4g1vxdPfU9iZO6OA=="],
 
     "slash": ["slash@5.1.0", "", {}, "sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg=="],
 
