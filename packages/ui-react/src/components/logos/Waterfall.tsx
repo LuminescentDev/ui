@@ -1,5 +1,8 @@
 import type { IconProps } from './IconProps';
 
+/**
+ * @deprecated Icons are going to be moved to a separate package @luminescent/icons-react.
+ */
 export function LogoWaterfall({ size, ...props }: IconProps) {
   return (
     <svg

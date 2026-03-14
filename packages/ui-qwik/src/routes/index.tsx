@@ -16,7 +16,6 @@ import RangeInput from '~/components/docs/RangeInput';
 import SelectMenu from '~/components/docs/SelectMenu';
 import Sidebar from '~/components/docs/Sidebar';
 import Toggle from '~/components/docs/Toggle';
-import IconsLogos from '~/components/docs/IconsLogos';
 
 import { Sidebar as SidebarElement } from '~/components/elements';
 
@@ -108,7 +107,6 @@ export default component$(() => {
         <SelectMenu id="select-menu" />
         <Sidebar id="sidebar" />
         <Toggle id="toggle" />
-        <IconsLogos id="icons-logos" />
       </div>
       <SidebarElement position='right'>
         <h2 q:slot='title' class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">

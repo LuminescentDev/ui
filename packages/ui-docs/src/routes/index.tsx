@@ -1,7 +1,7 @@
 import { component$ } from '@qwik.dev/core';
 import { Link, type DocumentHead } from '@qwik.dev/router';
 
-import { LogoLuminescentFull } from '@luminescent/ui-qwik';
+import { LuminescentFull } from '@luminescent/icons-qwik';
 import { SocialButtons } from '~/components/Nav';
 
 import Projects from '~/components/Projects';
@@ -37,8 +37,8 @@ export default component$(() => {
             class="flex items-center gap-2 fill-[#f0ccfb] font-semibold text-[#f0ccfb] select-none sm:gap-5"
             style="filter: drop-shadow(0 0 3rem #CB6CE6);"
           >
-            <LogoLuminescentFull size={70} class="mt-2 hidden sm:flex" />
-            <LogoLuminescentFull size={45} class="mt-1 flex sm:hidden" /> / ui
+            <LuminescentFull size={70} class="mt-2 hidden sm:flex" />
+            <LuminescentFull size={45} class="mt-1 flex sm:hidden" /> / ui
           </div>
         </h1>
         <h2 class="animate-in fade-in slide-in-from-top-16 anim-duration-1000 my-6 text-lg text-lum-text sm:text-2xl">

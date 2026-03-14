@@ -27,6 +27,7 @@
     "@eslint/js": "^10.0.1",
     "@luminescent/ui": "workspace:*",
     "@luminescent/ui-qwik": "workspace:*",
+    "@luminescent/icons-qwik": "workspace:*",
     "@qwik.dev/core": "2.0.0-beta.28",
     "@qwik.dev/router": "2.0.0-beta.28",
     "@tailwindcss/vite": "^4.2.1",

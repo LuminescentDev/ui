@@ -10,7 +10,6 @@ import Dropdown from '~/components/docs/Dropdown';
 import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
 import Toggle from '~/components/docs/Toggle';
-import IconsLogos from '~/components/docs/IconsLogos';
 import LumClasses from '~/components/docs/lum-classes';
 import LumBtn from '~/components/docs/lum-btn';
 import LumCard from '~/components/docs/lum-card';
@@ -108,7 +107,6 @@ export default component$(() => {
       <SelectMenu id="select-menu" />
       <Sidebar id="sidebar" />
       <Toggle id="toggle" />
-      <IconsLogos id="icons-logos" />
     </section>
     <SidebarElement class={{
       'border-l border-r-0': true,

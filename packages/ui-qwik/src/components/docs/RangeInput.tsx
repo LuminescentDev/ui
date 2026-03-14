@@ -1,6 +1,5 @@
 import { component$ } from '@qwik.dev/core';
-import { Anchor } from '../../index';
-import { RangeInput } from '../elements/RangeInput';
+import { Anchor, RangeInput } from '../../index';
 
 export default component$(({ id }: { id: string }) => {
   return (

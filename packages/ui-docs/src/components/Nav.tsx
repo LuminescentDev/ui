@@ -1,6 +1,7 @@
 import { component$ } from '@qwik.dev/core';
 import { Link } from '@qwik.dev/router';
-import { LogoLuminescentFull, Nav } from '@luminescent/ui-qwik';
+import { Nav } from '@luminescent/ui-qwik';
+import { LuminescentFull } from '@luminescent/icons-qwik';
 import { SiGithub, SiDiscord } from 'simple-icons-qwik';
 import { Book } from 'lucide-icons-qwik';
 
@@ -14,7 +15,7 @@ export default component$(() => {
           class="flex items-center gap-1 fill-[#f0ccfb] font-semibold text-[#f0ccfb]"
           style="filter: drop-shadow(0 0 1rem #CB6CE6);"
         >
-          <LogoLuminescentFull size={20} />
+          <LuminescentFull size={20} />
         </div>
       </Link>
 
@@ -33,7 +34,7 @@ export default component$(() => {
         href="https://luminescent.dev"
         class="lum-btn lum-bg-transparent rounded-lum-2"
       >
-        <LogoLuminescentFull size={20} />
+        <LuminescentFull size={20} />
       </a>
       <div q:slot="end" class="hidden gap-2 sm:flex">
         <SocialButtons />
@@ -49,7 +50,7 @@ export default component$(() => {
         class="lum-btn lum-bg-transparent"
       >
         <div class="flex items-center gap-1 font-semibold">
-          <LogoLuminescentFull size={20} class="mt-1" />
+          <LuminescentFull size={20} class="mt-1" />
         </div>
       </a>
       <div q:slot="mobile" class="flex justify-evenly">

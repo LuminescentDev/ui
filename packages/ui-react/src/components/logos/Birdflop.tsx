@@ -5,6 +5,9 @@ interface LogoBirdflopProps extends IconProps {
   fillGradient?: string[];
 }
 
+/**
+ * @deprecated Icons are going to be moved to a separate package @luminescent/icons-react.
+ */
 export function LogoBirdflop({ confused, fillGradient, size, ...props }: LogoBirdflopProps) {
   const gradientId = fillGradient?.join('-').replace('#', '');
   return (

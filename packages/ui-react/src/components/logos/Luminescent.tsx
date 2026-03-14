@@ -1,5 +1,8 @@
 import type { IconProps } from './IconProps';
 
+/**
+ * @deprecated Icons are going to be moved to a separate package @luminescent/icons-react.
+ */
 export function LogoLuminescent({ size, ...props }: IconProps) {
   return (
     <svg
@@ -23,6 +26,9 @@ export function LogoLuminescent({ size, ...props }: IconProps) {
   );
 };
 
+/**
+ * @deprecated Icons are going to be moved to a separate package @luminescent/icons-react.
+ */
 export function LogoLuminescentFull({ size, ...props }: IconProps) {
   return (
     <svg

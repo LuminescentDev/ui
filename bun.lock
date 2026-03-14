@@ -46,6 +46,7 @@
         "@anuragroy/tailwindcss-animate": "^1.0.6",
         "@cloudflare/workers-types": "^4.20260312.1",
         "@eslint/js": "^10.0.1",
+        "@luminescent/icons-qwik": "workspace:*",
         "@luminescent/ui": "workspace:*",
         "@luminescent/ui-qwik": "workspace:*",
         "@qwik.dev/core": "2.0.0-beta.28",
