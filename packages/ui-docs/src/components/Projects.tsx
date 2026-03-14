@@ -114,7 +114,7 @@ export default component$(() => {
                 }}>
                   {project.buttons.map((button, i) => (
                     <a key={i} href={button.href} draggable={false} class={{
-                      'lum-btn pointer-events-none group-hover:pointer-events-auto h-full w-full rounded-lum-2 lum-bg-transparent flex flex-col justify-center transition-all items-center gap-2': true,
+                      'lum-btn pointer-events-none group-hover:pointer-events-auto h-full w-full rounded-lum-2 lum-bg-transparent flex flex-col justify-center transition-all items-center gap-2 fill-current': true,
                       [project.btnClass]: project.btnClass,
                     }}>
                       <button.icon size={24} />

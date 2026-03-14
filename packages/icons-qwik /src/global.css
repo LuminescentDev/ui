@@ -1,9 +1,23 @@
-html {
+body {
   overflow: overlay;
-  background: radial-gradient(
-    var(--color-gray-900) 0%,
-    var(--color-gray-950) 100%
-  );
+  background: #000000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+div {
+  background-color: #00000088;
+  padding: 20px;
+  border-radius: 1rem;
+  border: #ffffff20 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 * {

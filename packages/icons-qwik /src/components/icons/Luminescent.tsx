@@ -1,9 +1,6 @@
 import { component$ } from '@qwik.dev/core';
 import type { IconProps } from './IconProps';
 
-/**
- * @deprecated Icons are going to be moved to a separate package @luminescent/icons-qwik.
- */
 export const Luminescent = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg
@@ -27,9 +24,6 @@ export const Luminescent = component$<IconProps>(({ size, ...props }) => {
   );
 });
 
-/**
- * @deprecated Icons are going to be moved to a separate package @luminescent/icons-qwik.
- */
 export const LuminescentFull = component$<IconProps>(({ size, ...props }) => {
   return (
     <svg

@@ -1,5 +1,5 @@
 import { component$ } from '@qwik.dev/core';
-import type { IconProps } from '../components/logos/IconProps';
+import type { IconProps } from './IconProps';
 
 export const Link = component$<IconProps>(({ size, ...props }) => {
   return (

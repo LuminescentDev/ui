@@ -3,12 +3,8 @@
   "version": "6.8.3-1",
   "description": "Luminescent UI library - React",
   "engines": {
-    "node": ">=23.11.0",
-    "npm": "please-use-pnpm",
-    "yarn": "please-use-pnpm",
-    "pnpm": ">=10.10.0"
+    "node": ">=23.11.0"
   },
-  "packageManager": "pnpm@10.26.1",
   "license": "AGPL-3.0-or-later",
   "private": false,
   "type": "module",

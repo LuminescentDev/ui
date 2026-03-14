@@ -1,5 +1,5 @@
 import { component$ } from '@qwik.dev/core';
-import type { IconProps } from '../components/logos/IconProps';
+import type { IconProps } from './IconProps';
 
 export const Minus = component$<IconProps>(({ size, ...props }) => {
   return (

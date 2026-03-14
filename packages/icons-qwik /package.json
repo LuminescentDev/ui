@@ -1,7 +1,7 @@
 {
-  "name": "@luminescent/ui-qwik",
-  "version": "6.8.3-qwikv2",
-  "description": "Luminescent UI library - Qwik",
+  "name": "@luminescent/icons-qwik",
+  "version": "0.1.0",
+  "description": "a small icon library",
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
   "types": "./lib/index.d.ts",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@eslint/js": "latest",
     "@qwik.dev/core": "^2.0.0-beta.28",
-    "@qwik.dev/router": "latest",
+    "@qwik.dev/router": "^2.0.0-beta.28",
     "@types/node": "25.5.0",
     "eslint": "10.0.3",
     "eslint-plugin-qwik": "^2.0.0-beta.28",
