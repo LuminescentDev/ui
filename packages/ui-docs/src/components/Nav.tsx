@@ -2,6 +2,7 @@ import { component$ } from '@qwik.dev/core';
 import { Link } from '@qwik.dev/router';
 import { LogoLuminescentFull, Nav } from '@luminescent/ui-qwik';
 import { SiGithub, SiDiscord } from 'simple-icons-qwik';
+import { Book } from 'lucide-icons-qwik';
 
 export default component$(() => {
   return (
@@ -24,6 +25,8 @@ export default component$(() => {
           'lum-btn lum-bg-transparent hidden sm:flex rounded-lum-2 text-sm': true,
         }}
       >
+        <Book size={20} />
+        Docs
       </Link>
       <a
         q:slot="end"
@@ -37,6 +40,8 @@ export default component$(() => {
       </div>
 
       <Link q:slot="mobile" href="/docs" class="lum-btn lum-bg-transparent rounded-lum-2">
+        <Book size={20} />
+        Docs
       </Link>
       <a
         q:slot="mobile"
@@ -60,7 +65,7 @@ export const SocialButtons = component$(({ large }: { large?: boolean }) => {
       href="https://github.com/LuminescentDev"
       title="GitHub"
       class={{
-        'lum-btn lum-bg-transparent': true,
+        'lum-btn lum-bg-transparent fill-current': true,
         'p-3': large,
         'rounded-lum-2 p-2': !large,
       }}
@@ -71,7 +76,7 @@ export const SocialButtons = component$(({ large }: { large?: boolean }) => {
       href="/discord"
       title="Discord"
       class={{
-        'lum-btn lum-bg-transparent': true,
+        'lum-btn lum-bg-transparent fill-current': true,
         'p-3': large,
         'rounded-lum-2 p-2': !large,
       }}

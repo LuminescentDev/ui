@@ -5,6 +5,7 @@ import { LogoLuminescentFull } from '@luminescent/ui-qwik';
 import { SocialButtons } from '~/components/Nav';
 
 import Projects from '~/components/Projects';
+import { Book } from 'lucide-icons-qwik';
 
 export const QwikTag = component$(() => {
   return (
@@ -51,9 +52,11 @@ export default component$(() => {
         <Projects />
 
         <Link
-          class="lum-btn lum-btn-p-4 lum-bg-blue-900/60 hover:lum-bg-blue-900 mt-10"
+          class="lum-btn lum-btn-p-4 lum-bg-blue-900 hover:lum-bg-blue-800 mt-10"
           href="/docs"
         >
+          <Book />
+          View Documentation
         </Link>
       </section>
     </>

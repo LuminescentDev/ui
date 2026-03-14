@@ -61,6 +61,16 @@ export const Projects: Project[] = [
     btnClass: 'hover:lum-bg-orange-500/20',
     buttons: [
       {
+        icon: Globe,
+        title: 'Visit page',
+        href: 'https://mineplace.me',
+      },
+      {
+        icon: SiGithub,
+        title: 'Github',
+        href: 'https://github.com/LuminescentDev/mineplace',
+      },
+      {
         icon: SiDiscord,
         title: 'Discord',
         href: 'https://discord.gg/qNj5kMwE',
@@ -76,6 +86,16 @@ export const Projects: Project[] = [
     btnClass: 'hover:lum-bg-pink-500/20',
     buttons: [
       {
+        icon: Globe,
+        title: 'Visit page',
+        href: 'https://luminaramc.org',
+      },
+      {
+        icon: SiGithub,
+        title: 'Github',
+        href: 'https://github.com/saboooor/Luminara',
+      },
+      {
         icon: SiDiscord,
         title: 'Discord',
         href: 'https://discord.gg/Mw7fNpdg5N',
@@ -90,6 +110,16 @@ export const Projects: Project[] = [
     color: 'lum-bg-orange-500',
     btnClass: 'hover:lum-bg-orange-500/20',
     buttons: [
+      {
+        icon: Globe,
+        title: 'Visit page',
+        href: 'https://burgersonfleek.ca',
+      },
+      {
+        icon: SiGithub,
+        title: 'Github',
+        href: 'https://github.com/saboooor/burgersonfleek',
+      },
     ],
   },
 ];

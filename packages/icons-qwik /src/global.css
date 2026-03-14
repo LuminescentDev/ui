@@ -1,0 +1,30 @@
+html {
+  overflow: overlay;
+  background: radial-gradient(
+    var(--color-gray-900) 0%,
+    var(--color-gray-950) 100%
+  );
+}
+
+* {
+  scroll-behavior: smooth;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+*::-webkit-scrollbar {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background-color: #00000022;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #ffffff20;
+  border: 1px solid #ffffff20;
+  border-radius: 3px;
+}
+*::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
