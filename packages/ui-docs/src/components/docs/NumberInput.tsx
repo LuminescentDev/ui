@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, NumberInput, Toggle } from '@luminescent/ui-qwik';
+import { Anchor, Label, NumberInput, Toggle } from '@luminescent/ui-qwik';
 
 interface numberInputOptions {
   input?: boolean;
@@ -21,21 +21,16 @@ export default component$(({ id }: { id: string }) => {
         input
       </Toggle>
       <div>
-        <NumberInput
-          id="number-input"
-          onDecrement$={() => {}}
-          onIncrement$={() => {}}
-          input={store.input}
-        >
-          Number Input
-        </NumberInput>
+        <Label for="number-input" label="Number Input">
+          <NumberInput id="number-input" input={store.input} />
+        </Label>
       </div>
       <textarea
         class="lum-input h-32"
         value={`
-<NumberInput id="number-input"${store.input ? ' input' : ''}>
-  Number Input
-</NumberInput`}
+<Label for="number-input" label="Number Input">
+  <NumberInput id="number-input"${store.input ? ' input' : ''} />
+</Label>`}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import type { PropsOf, QRL } from '@qwik.dev/core';
-import { Slot, component$, useComputed$, useSignal } from '@qwik.dev/core';
+import { component$, useComputed$, useSignal } from '@qwik.dev/core';
 
-interface RangeInputRawProps
+interface RangeInputProps
   extends Omit<PropsOf<'input'> & { type: 'number' }, 'type'> {
   onInput$?: QRL<
     (
@@ -14,22 +14,7 @@ interface RangeInputRawProps
   max?: number;
 }
 
-interface RangeInputProps extends Omit<RangeInputRawProps, 'children'> {
-  id: string;
-}
-
-export const RangeInput = component$<RangeInputProps>((props) => {
-  return (
-    <div class="flex flex-col">
-      <label for={props.id} class="pb-1 text-lum-text select-none">
-        <Slot />
-      </label>
-      <RangeInputRaw {...{ ...props, children: undefined }} />
-    </div>
-  );
-});
-
-export const RangeInputRaw = component$<RangeInputRawProps>(
+export const RangeInput = component$<RangeInputProps>(
   ({ value, min = 0, max = 10, onInput$, ...props }) => {
     const valueSignal = useSignal<number>(value ?? min);
     const filledPercentage = useComputed$(() => ((valueSignal.value - min) / (max - min)) * 100);

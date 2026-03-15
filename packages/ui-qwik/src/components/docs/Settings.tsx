@@ -1,56 +1,53 @@
-import { component$, isBrowser, QRL, Slot, useSignal, useStore, useTask$ } from '@qwik.dev/core';
-import { ColorPicker, NumberInput } from '../../index';
+import { component$, isBrowser, PropsOf, QRL, useSignal, useStore, useTask$ } from '@qwik.dev/core';
+import { ColorPicker, Label, NumberInput } from '../../index';
 
-const ColorInput = component$(({ onInput$, color, id }: {
+interface ColorInputProps extends Omit<PropsOf<'input'>, 'onInput$'> {
   onInput$?: QRL<(newColor: string) => void>;
   color: string;
   id: string;
-}) => {
+}
+
+const ColorInput = component$(({ onInput$, color, id }: ColorInputProps) => {
   const open = useSignal(false);
 
   return (
-    <div>
-      <label for={id}>
-        <Slot />
-      </label>
-      <div class="flex gap-1 relative">
-        <div class="rounded-lum rounded-r-sm p-4 lum-bg" style={{
-          '--bg-color': color,
-        }}/>
-        <input id={id}
-          class={{
-            'lum-input lum-input-p-1 rounded-l-sm': true,
-          }}
+    <div class="flex gap-1 relative">
+      <div class="rounded-lum rounded-r-sm p-4 lum-bg" style={{
+        '--bg-color': color,
+      }}/>
+      <input id={id}
+        class={{
+          'lum-input lum-input-p-1 rounded-l-sm': true,
+        }}
+        value={color}
+        onInput$={(e, el) => {
+          const picker = document.getElementById(`${id}-picker`)!;
+          picker.dataset.value = el.value;
+          picker.dispatchEvent(new Event('input'));
+        }}
+        onMouseUp$={() => {
+          const picker = document.getElementById(`${id}-picker`)!;
+          picker.dataset.value = color;
+          picker.dispatchEvent(new Event('input'));
+          open.value = !open.value;
+          const abortController = new AbortController();
+          document.addEventListener('click', (e) => {
+            if (e.target instanceof HTMLElement && !e.target.closest(`#${id}-popup`)) {
+              abortController.abort();
+            }
+          }, { signal: abortController.signal });
+        }}
+      />
+      <div id={`${id}-popup`} stoppropagation:mousedown class={{
+        'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-1000 mt-2 left-0': true,
+        'opacity-0 scale-95 pointer-events-none': !open.value,
+      }}>
+        <ColorPicker
+          id={`${id}-picker`}
           value={color}
-          onInput$={(e, el) => {
-            const picker = document.getElementById(`${id}-picker`)!;
-            picker.dataset.value = el.value;
-            picker.dispatchEvent(new Event('input'));
-          }}
-          onMouseUp$={() => {
-            const picker = document.getElementById(`${id}-picker`)!;
-            picker.dataset.value = color;
-            picker.dispatchEvent(new Event('input'));
-            open.value = !open.value;
-            const abortController = new AbortController();
-            document.addEventListener('click', (e) => {
-              if (e.target instanceof HTMLElement && !e.target.closest(`#${id}-popup`)) {
-                abortController.abort();
-              }
-            }, { signal: abortController.signal });
-          }}
+          onInput$={onInput$}
+          showInput={false}
         />
-        <div id={`${id}-popup`} stoppropagation:mousedown class={{
-          'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-1000 mt-2 left-0': true,
-          'opacity-0 scale-95 pointer-events-none': !open.value,
-        }}>
-          <ColorPicker
-            id={`${id}-picker`}
-            value={color}
-            onInput$={onInput$}
-            showInput={false}
-          />
-        </div>
       </div>
     </div>
   );
@@ -95,139 +92,163 @@ export default component$(() => {
 
   return (
     <>
-      <NumberInput
-        id="border-radius"
-        onIncrement$={() => {
-          store['--lum-border-radius'] += 0.01;
-        }}
-        onDecrement$={() => {
-          store['--lum-border-radius'] -= 0.01;
-        }}
-        onInput$={(e, el) => {
-          store['--lum-border-radius'] = Number(el.value);
-        }}
-        input
-        value={store['--lum-border-radius']}
-      >
-        --lum-border-radius: {store['--lum-border-radius']}rem
-      </NumberInput>
-      <NumberInput
-        id="lum-border-superellipse"
-        onIncrement$={() => {
-          store['--lum-border-superellipse'] += 0.5;
-        }}
-        onDecrement$={() => {
-          store['--lum-border-superellipse'] -= 0.5;
-        }}
-        onInput$={(e, el) => {
-          store['--lum-border-superellipse'] = Number(el.value);
-        }}
-        input
-        value={store['--lum-border-superellipse']}
-      >
-        --lum-border-superellipse: {store['--lum-border-superellipse']}
-      </NumberInput>
+      <Label for="border-radius"
+        label={`--lum-border-radius: ${store['--lum-border-radius']}rem`}>
+        <NumberInput
+          id="border-radius"
+          onIncrement$={() => {
+            store['--lum-border-radius'] += 0.01;
+          }}
+          onDecrement$={() => {
+            store['--lum-border-radius'] -= 0.01;
+          }}
+          onInput$={(e, el) => {
+            store['--lum-border-radius'] = Number(el.value);
+          }}
+          input
+          value={store['--lum-border-radius']}
+        />
+      </Label>
 
-      <NumberInput
-        id="border-mix"
-        onIncrement$={() => {
-          store['--lum-border-mix'] += 1;
-        }}
-        onDecrement$={() => {
-          store['--lum-border-mix'] -= 1;
-        }}
-        onInput$={(e, el) => {
-          store['--lum-border-mix'] = Number(el.value);
-        }}
-        input
-        value={store['--lum-border-mix']}
-      >
-        --lum-border-mix: {store['--lum-border-mix']}%
-      </NumberInput>
-      <NumberInput
-        id="lum-btn-p-x"
-        onIncrement$={() => {
-          store['--lum-btn-p-x'] += 0.5;
-        }}
-        onDecrement$={() => {
-          store['--lum-btn-p-x'] -= 0.5;
-        }}
-        onInput$={(e, el) => {
-          store['--lum-btn-p-x'] = Number(el.value);
-        }}
-        input
-        value={store['--lum-btn-p-x']}
-      >
-        --lum-btn-p-x: {store['--lum-btn-p-x']}
-      </NumberInput>
-      <NumberInput
-        id="lum-input-p-x"
-        onIncrement$={() => {
-          store['--lum-input-p-x'] += 0.5;
-        }}
-        onDecrement$={() => {
-          store['--lum-input-p-x'] -= 0.5;
-        }}
-        onInput$={(e, el) => {
-          store['--lum-input-p-x'] = Number(el.value);
-        }}
-        input
-        value={store['--lum-input-p-x']}
-      >
-        --lum-input-p-x: {store['--lum-input-p-x']}
-      </NumberInput>
-      <NumberInput
-        id="lum-depth"
-        onIncrement$={() => {
-          store['--lum-depth'] += 0.5;
-        }}
-        onDecrement$={() => {
-          store['--lum-depth'] -= 0.5;
-        }}
-        onInput$={(e, el) => {
-          store['--lum-depth'] = Number(el.value);
-        }}
-        input
-        value={store['--lum-depth']}
-      >
-        --lum-depth: {store['--lum-depth']}
-      </NumberInput>
+      <Label for="lum-border-superellipse"
+        label={`--lum-border-superellipse: ${store['--lum-border-superellipse']}`}>
+        <NumberInput
+          id="lum-border-superellipse"
+          onIncrement$={() => {
+            store['--lum-border-superellipse'] += 0.5;
+          }}
+          onDecrement$={() => {
+            store['--lum-border-superellipse'] -= 0.5;
+          }}
+          onInput$={(e, el) => {
+            store['--lum-border-superellipse'] = Number(el.value);
+          }}
+          input
+          value={store['--lum-border-superellipse']}
+        />
+      </Label>
 
-      <ColorInput color={store['--color-lum-border']} id="border-color" onInput$={(newColor) => {
-        store['--color-lum-border'] = newColor;
-      }}>
-        --color-lum-border
-      </ColorInput>
-      <ColorInput color={store['--color-lum-card-bg']} id="card-bg-color" onInput$={(newColor) => {
-        store['--color-lum-card-bg'] = newColor;
-      }}>
-        --color-lum-card-bg
-      </ColorInput>
-      <ColorInput color={store['--color-lum-input-bg']} id="input-bg-color" onInput$={(newColor) => {
-        store['--color-lum-input-bg'] = newColor;
-      }}>
-        --color-lum-input-bg
-      </ColorInput>
-      <ColorInput color={store['--color-lum-input-hover-bg']} id="input-hover-bg-color" onInput$={(newColor) => {
-        store['--color-lum-input-hover-bg'] = newColor;
-      }}>
-        --color-lum-input-hover-bg
-      </ColorInput>
-      <ColorInput color={store['--color-lum-accent']} id="accent-color" onInput$={(newColor) => {
-        store['--color-lum-accent'] = newColor;
-      }}>
-        --color-lum-accent
-      </ColorInput>
-      <ColorInput color={store['--color-lum-text']} id="text-color" onInput$={(newColor) => {
-        store['--color-lum-text'] = newColor;
-      }}>
-        --color-lum-text
-      </ColorInput>
-      <ColorInput color={store['--color-lum-text-secondary']} id="text-secondary-color" onInput$={(newColor) => {
-        store['--color-lum-text-secondary'] = newColor;
-      }}>
-        --color-lum-text-secondary
-      </ColorInput>
+      <Label for="lum-border-mix"
+        label={`--lum-border-mix: ${store['--lum-border-mix']}%`}>
+        <NumberInput
+          id="border-mix"
+          onIncrement$={() => {
+            store['--lum-border-mix'] += 1;
+          }}
+          onDecrement$={() => {
+            store['--lum-border-mix'] -= 1;
+          }}
+          onInput$={(e, el) => {
+            store['--lum-border-mix'] = Number(el.value);
+          }}
+          input
+          value={store['--lum-border-mix']}
+        />
+      </Label>
+
+      <Label for="lum-btn-p-x"
+        label={`--lum-btn-p-x: ${store['--lum-btn-p-x']}`}>
+        <NumberInput
+          id="lum-btn-p-x"
+          onIncrement$={() => {
+            store['--lum-btn-p-x'] += 0.5;
+          }}
+          onDecrement$={() => {
+            store['--lum-btn-p-x'] -= 0.5;
+          }}
+          onInput$={(e, el) => {
+            store['--lum-btn-p-x'] = Number(el.value);
+          }}
+          input
+          value={store['--lum-btn-p-x']}
+        />
+      </Label>
+
+      <Label for="lum-input-p-x"
+        label={`--lum-input-p-x: ${store['--lum-input-p-x']}`}>
+        <NumberInput
+          id="lum-input-p-x"
+          onIncrement$={() => {
+            store['--lum-input-p-x'] += 0.5;
+          }}
+          onDecrement$={() => {
+            store['--lum-input-p-x'] -= 0.5;
+          }}
+          onInput$={(e, el) => {
+            store['--lum-input-p-x'] = Number(el.value);
+          }}
+          input
+          value={store['--lum-input-p-x']}
+        />
+      </Label>
+      
+      <Label for="lum-depth"
+        label={`--lum-depth: ${store['--lum-depth']}`}>
+        <NumberInput
+          id="lum-depth"
+          onIncrement$={() => {
+            store['--lum-depth'] += 0.5;
+          }}
+          onDecrement$={() => {
+            store['--lum-depth'] -= 0.5;
+          }}
+          onInput$={(e, el) => {
+            store['--lum-depth'] = Number(el.value);
+          }}
+          input
+          value={store['--lum-depth']}
+        />
+      </Label>
+
+      <Label for="border-color"
+        label="color-lum-border">
+        <ColorInput color={store['--color-lum-border']} id="border-color" onInput$={(newColor) => {
+          store['--color-lum-border'] = newColor;
+        }}/>
+      </Label>
+
+      <Label for="card-bg-color"
+        label="color-lum-card-bg">
+        <ColorInput color={store['--color-lum-card-bg']} id="card-bg-color" onInput$={(newColor) => {
+          store['--color-lum-card-bg'] = newColor;
+        }}/>
+      </Label>
+
+        <Label for="input-bg-color"
+        label="color-lum-input-bg">
+        <ColorInput color={store['--color-lum-input-bg']} id="input-bg-color" onInput$={(newColor) => {
+          store['--color-lum-input-bg'] = newColor;
+        }}/>
+      </Label>
+
+      <Label for="input-hover-bg-color"
+        label="color-lum-input-hover-bg">
+        <ColorInput color={store['--color-lum-input-hover-bg']} id="input-hover-bg-color" onInput$={(newColor) => {
+          store['--color-lum-input-hover-bg'] = newColor;
+        }}/>
+      </Label>
+
+      <Label for="accent-color"
+        label="color-lum-accent">
+        <ColorInput color={store['--color-lum-accent']} id="accent-color" onInput$={(newColor) => {
+          store['--color-lum-accent'] = newColor;
+        }}/>
+      </Label>
+
+      <Label for="text-color"
+        label="color-lum-text">
+        <ColorInput color={store['--color-lum-text']} id="text-color" onInput$={(newColor) => {
+          store['--color-lum-text'] = newColor;
+        }}/>
+      </Label>
+
+      <Label for="text-secondary-color"
+        label="color-lum-text-secondary">
+        <ColorInput color={store['--color-lum-text-secondary']} id="text-secondary-color" onInput$={(newColor) => {
+          store['--color-lum-text-secondary'] = newColor;
+        }}/>
+      </Label>
+
     </>
   );
 });

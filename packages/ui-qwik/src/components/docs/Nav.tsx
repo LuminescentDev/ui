@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Nav, SelectMenuRaw, Toggle } from '../../index';
+import { Anchor, Nav, SelectMenu, Toggle } from '../../index';
 
 interface navOptions {
   fixed?: boolean;
@@ -61,7 +61,7 @@ export default component$(({ id }: { id: string }) => {
             Center Button
           </button>
 
-          <SelectMenuRaw
+          <SelectMenu
             id="nav-dropdown"
             hover customDropdown
             q:slot="end"
@@ -79,7 +79,7 @@ export default component$(({ id }: { id: string }) => {
             <span q:slot="dropdown">
               Dropdown
             </span>
-          </SelectMenuRaw>
+          </SelectMenu>
 
           <button q:slot="mobile" class="lum-btn lum-bg-transparent">
             button 1
@@ -117,17 +117,25 @@ export default component$(({ id }: { id: string }) => {
     Center button
   </button>
 
-  <DropdownRaw id="nav-dropdown" q:slot="end" hover class={{ 'hidden sm:flex lum-bg-transparent': true }} display="Dropdown">
-    <button class={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
+  <SelectMenu
+    id="nav-dropdown"
+    hover customDropdown
+    q:slot="end"
+    class={{ 'lum-bg-transparent hidden sm:flex': true }}
+  >
+    <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
       Option 1
     </button>
-    <button class={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
+    <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
       Option 2
     </button>
-    <button class={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
+    <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
       Option 3
     </button>
-  </DropdownRaw>
+    <span q:slot="dropdown">
+      Dropdown
+    </span>
+  </SelectMenu>
 
   <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
     button 1

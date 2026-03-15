@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, SelectMenu, Toggle, ColorPicker } from '../../index';
+import { Anchor, SelectMenu, Toggle, ColorPicker, Label } from '../../index';
 
 interface colorPickerOptions {
   preview?: 'left' | 'right' | 'top' | 'bottom' | 'full';
@@ -18,24 +18,25 @@ export default component$(({ id }: { id: string }) => {
         </h2>
       </Anchor>
       <div class="flex">
-        <SelectMenu
-          id="colorpicker-preview"
-          onChange$={(e, element) =>
-            (store.preview = element.value as
-              | 'left'
-              | 'right'
-              | 'top'
-              | 'bottom'
-              | 'full')
-          }
-          values={['left', 'right', 'top', 'bottom', 'full'].map((preview) => ({
-            name: preview,
-            value: preview,
-          }))}
-          value="left"
-        >
+        <Label for="colorpicker-preview">
           preview
-        </SelectMenu>
+          <SelectMenu
+            id="colorpicker-preview"
+            onChange$={(e, element) =>
+              (store.preview = element.value as
+                | 'left'
+                | 'right'
+                | 'top'
+                | 'bottom'
+                | 'full')
+            }
+            values={['left', 'right', 'top', 'bottom', 'full'].map((preview) => ({
+              name: preview,
+              value: preview,
+            }))}
+            value="left"
+          />
+        </Label>
       </div>
       <Toggle
         id="colorpicker-horizontal"

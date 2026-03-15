@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { SelectMenu, Toggle, Anchor } from '../../index';
+import { SelectMenu, Toggle, Anchor, Label } from '../../index';
 
 interface SelectMenuOptions {
   customDropdown?: boolean;
@@ -29,48 +29,50 @@ export default component$(({ id }: { id: string }) => {
         hover
       </Toggle>
       <div class="flex">
-        <SelectMenu
-          id="selectmenu-align"
-          onChange$={(e, element) =>
-            (store.align = element.value as
-              | 'left'
-              | 'right'
-              | 'center')
-          }
-          values={['left', 'right', 'center'].map((preview) => ({
-            name: preview,
-            value: preview,
-          }))}
-          value="left"
-        >
+        <Label for="selectmenu-align">
           align
-        </SelectMenu>
+          <SelectMenu
+            id="selectmenu-align"
+            onChange$={(e, element) =>
+              (store.align = element.value as
+                | 'left'
+                | 'right'
+                | 'center')
+            }
+            values={['left', 'right', 'center'].map((preview) => ({
+              name: preview,
+              value: preview,
+            }))}
+            value="left"
+          />
+        </Label>
       </div>
       <div class="flex">
-        <SelectMenu
-          id="selectmenu-input"
-          values={[
-            {
-              name: <span class="lum-bg-red-500 p-1 rounded">Any element you want</span>,
-              value: '1',
-            },
-            { name: 'Option 2', value: '2' },
-            { name: 'Option 3', value: '3' },
-          ]}
-          value="1"
-          customDropdown={store.customDropdown}
-          hover={store.hover}
-          align={store.align}
-        >
+        <Label for="selectmenu-input">
           Select Menu
-          <p q:slot="dropdown">
-            Fallback content
-          </p>
-          <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent">
-            Option 4 (not an actual value)
-          </button>
-          <input q:slot="extra-buttons" class="lum-input lum-bg-transparent" placeholder="custom value..."/>
-        </SelectMenu>
+          <SelectMenu id="selectmenu-input"
+            values={[
+              {
+                name: <span class="lum-bg-red-500 p-1 rounded">JSX Supported</span>,
+                value: '1',
+              },
+              { name: 'Option 2', value: '2' },
+              { name: 'Option 3', value: '3' },
+            ]}
+            value="1"
+            customDropdown={store.customDropdown}
+            hover={store.hover}
+            align={store.align}
+          >
+            <p q:slot="dropdown">
+              Fallback content
+            </p>
+            <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent">
+              Option 4 (not an actual value)
+            </button>
+            <input q:slot="extra-buttons" class="lum-input lum-bg-transparent" placeholder="custom value..."/>
+          </SelectMenu>
+        </Label>
       </div>
       <textarea
         class="lum-input h-32"

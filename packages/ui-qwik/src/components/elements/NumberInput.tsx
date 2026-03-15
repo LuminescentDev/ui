@@ -1,19 +1,19 @@
 import type { PropsOf, QRL } from '@qwik.dev/core';
-import { $, Slot, component$, useStyles$ } from '@qwik.dev/core';
+import { $, component$, useStyles$ } from '@qwik.dev/core';
 import { Plus } from '../../svg/Plus';
 import { Minus } from '../../svg/Minus';
 import { getClassObject } from '../functions';
 
-interface NumberInputRawProps
+interface NumberInputProps
   extends Omit<PropsOf<'input'> & { type: 'number' }, 'type'> {
-  onDecrement$: QRL<
+  onDecrement$?: QRL<
     (
       event: PointerEvent,
       element: HTMLButtonElement,
       inputElement?: HTMLInputElement,
     ) => void
   >;
-  onIncrement$: QRL<
+  onIncrement$?: QRL<
     (
       event: PointerEvent,
       element: HTMLButtonElement,
@@ -27,22 +27,7 @@ interface NumberInputRawProps
   step?: number;
 }
 
-interface NumberInputProps extends Omit<NumberInputRawProps, 'children'> {
-  id: string;
-}
-
-export const NumberInput = component$<NumberInputProps>((props) => {
-  return (
-    <div class="flex flex-col">
-      <label for={props.id} class="pb-1 text-lum-text select-none">
-        <Slot />
-      </label>
-      <NumberInputRaw {...{ ...props, children: undefined }} />
-    </div>
-  );
-});
-
-export const NumberInputRaw = component$<NumberInputRawProps>(
+export const NumberInput = component$<NumberInputProps>(
   ({ input, class: Class, onDecrement$, onIncrement$, value = 0, step = 1, ...props }) => {
     useStyles$(`
     input::-webkit-outer-spin-button,
@@ -74,7 +59,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
                 const siblingInput =
                     element.nextElementSibling as HTMLInputElement;
                 siblingInput.stepDown();
-                await onDecrement$(event, element, siblingInput);
+                await onDecrement$?.(event, element, siblingInput);
               })
               : onDecrement$
           }
@@ -106,7 +91,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
                 const siblingInput =
                     element.previousElementSibling as HTMLInputElement;
                 siblingInput.stepUp();
-                await onIncrement$(event, element, siblingInput);
+                await onIncrement$?.(event, element, siblingInput);
               })
               : onIncrement$
           }

@@ -2,6 +2,7 @@ import { component$, useStore } from '@qwik.dev/core';
 import {
   Anchor,
   Blobs,
+  Label,
   SelectMenu,
   blobColorClasses,
 } from '@luminescent/ui-qwik';
@@ -21,34 +22,34 @@ export default component$(({ id }: { id: string }) => {
         </h2>
       </Anchor>
       <div class="flex">
-        <SelectMenu
-          id="blobs-color"
-          onChange$={(e, element) =>
-            (store.color = element.value as keyof typeof blobColorClasses)
-          }
-          values={Object.keys(blobColorClasses).map((color) => ({
-            name: color,
-            value: color,
-          }))}
-          value="darkgray"
-        >
+        <Label for="blobs-color">
           color
-        </SelectMenu>
+          <SelectMenu
+            id="blobs-color"
+            onChange$={(e, element) =>
+              (store.color = element.value as keyof typeof blobColorClasses)
+            }
+            values={Object.keys(blobColorClasses).map((color) => ({
+              name: color,
+              value: color,
+            }))}
+            value="darkgray" />
+        </Label>
       </div>
       <div class="flex">
-        <SelectMenu
-          id="blobs-blur"
-          onChange$={(e, element) =>
-            (store.blur = element.value as 'sm' | 'md' | 'lg' | 'xl')
-          }
-          values={['sm', 'md', 'lg', 'xl'].map((size) => ({
-            name: size,
-            value: size,
-          }))}
-          value="xl"
-        >
+        <Label for="blobs-blur">
           blur
-        </SelectMenu>
+          <SelectMenu
+            id="blobs-blur"
+            onChange$={(e, element) =>
+              (store.blur = element.value as 'sm' | 'md' | 'lg' | 'xl')
+            }
+            values={['sm', 'md', 'lg', 'xl'].map((size) => ({
+              name: size,
+              value: size,
+            }))}
+            value="xl" />
+        </Label>
       </div>
       <div class="relative h-96 w-96 rounded-lum border border-gray-800">
         <Blobs color={store.color} blur={store.blur} />

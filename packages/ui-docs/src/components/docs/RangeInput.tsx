@@ -1,5 +1,5 @@
 import { component$ } from '@qwik.dev/core';
-import { Anchor, Label, RangeInput } from '../../index';
+import { Anchor, Label, RangeInput } from '@luminescent/ui-qwik';
 
 export default component$(({ id }: { id: string }) => {
   return (

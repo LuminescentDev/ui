@@ -9,6 +9,7 @@ import LumInput from '~/components/docs/lum-input';
 import Anchor from '~/components/docs/Anchor';
 import Blobs from '~/components/docs/Blobs';
 import ColorPicker from '~/components/docs/ColorPicker';
+import Label from '~/components/docs/Label';
 import Dropdown from '~/components/docs/Dropdown';
 import Nav from '~/components/docs/Nav';
 import NumberInput from '~/components/docs/NumberInput';
@@ -101,6 +102,7 @@ export default component$(() => {
         <Blobs id="blobs" />
         <ColorPicker id="color-picker" />
         <Dropdown id="dropdown" />
+        <Label id="label" />
         <Nav id="nav" />
         <NumberInput id="number-input" />
         <RangeInput id="range-input" />

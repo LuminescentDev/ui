@@ -1,11 +1,11 @@
-import type { JSXChildren, PropsOf } from '@qwik.dev/core';
+import type { ClassList, JSXChildren, PropsOf } from '@qwik.dev/core';
 import { component$, Slot, useSignal, useStore } from '@qwik.dev/core';
 import { Dropdown } from './Dropdown';
 import { getClassObject } from '../functions';
 
 interface SelectMenuProps extends PropsOf<'select'> {
-  panelClass?: string;
-  btnClass?: string;
+  panelClass?: ClassList;
+  btnClass?: ClassList;
   noblur?: boolean;
   nocloseonclick?: boolean;
   customDropdown?: boolean;
@@ -17,25 +17,7 @@ interface SelectMenuProps extends PropsOf<'select'> {
   }[];
 }
 
-export const SelectMenu = component$<SelectMenuProps>((props) => {
-  return (
-    <div class="flex flex-col">
-      <label for={props.id ? `${props.id}-dropdown` : undefined} class="pb-1 text-lum-text select-none">
-        <Slot />
-      </label>
-      <SelectMenuRaw {...props}>
-        <div q:slot="dropdown">
-          {(props.customDropdown || !props.values?.length) && <Slot name="dropdown" />}
-        </div>
-        <div q:slot="extra-buttons">
-          <Slot name="extra-buttons" />
-        </div>
-      </SelectMenuRaw>
-    </div>
-  );
-});
-
-export const SelectMenuRaw = component$<SelectMenuProps>(({
+export const SelectMenu = component$<SelectMenuProps>(({
   values,
   class: Class,
   panelClass = 'lum-bg-lum-input-bg',
@@ -115,7 +97,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(({
         'pointer-events-none scale-95 opacity-0': !store.opened,
         'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75': hover,
         'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75': true,
-        [panelClass]: true,
+        ...getClassObject(panelClass),
       }}
       >
         {values?.map(({ name, value }, i) => {
@@ -123,7 +105,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(({
             <button type="button"
               class={{
                 'lum-btn rounded-lum-1': true,
-                [btnClass]: true,
+                ...getClassObject(btnClass),
               }}
               key={i}
               onClick$={(e, el) => {

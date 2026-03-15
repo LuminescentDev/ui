@@ -2,7 +2,7 @@ import { ClassList, component$ } from '@qwik.dev/core';
 import { getClassObject } from '../functions';
 
 export interface BlobProps {
-  class: ClassList;
+  class?: ClassList;
   style?: { [key: string]: string | number };
   color?: keyof typeof blobColorClasses | [ClassList, ClassList, ClassList];
   blur?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';

@@ -106,48 +106,65 @@ export default function NavDoc() {
       <textarea
         className="lum-input h-32"
         defaultValue={`
-<Nav${floating ? ' floating' : ''}${fixed ? ' fixed' : ''}${colorClass ? ` colorClass="${colorClass}"` : ''}>
-
-  <button q:slot="start" className={'lum-btn lum-bg-transparent'}>
-    Brand
-  </button>
-
-  <button q:slot="center" className={'lum-btn hidden sm:flex lum-bg-transparent'}>
-    Center button
-  </button>
-
-  <DropdownRaw id="nav-dropdown" q:slot="end" hover className={{ 'hidden sm:flex lum-bg-transparent': true }} display="Dropdown">
-    <button className={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
-      Option 1
+<Nav ${floating ? ' floating' : ''}${fixed ? ' fixed' : ''}${colorClass ? ` colorClass="${colorClass}"` : ''}
+  start={
+    <button className="lum-btn lum-bg-transparent">
+      Brand
     </button>
-    <button className={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
-      Option 2
+  }
+  center={
+    <button className="lum-btn lum-bg-transparent hidden sm:flex">
+      Center Button
     </button>
-    <button className={'lum-btn lum-bg-transparent rounded-lum-1'} q:slot="extra-buttons">
-      Option 3
-    </button>
-  </DropdownRaw>
-
-  <button className={'lum-btn lum-bg-transparent'} q:slot="mobile">
-    button 1
-  </button>
-  <button className={'lum-btn lum-bg-transparent'} q:slot="mobile">
-    button 2
-  </button>
-  <h3 q:slot="mobile" className="mx-4 py-2 text-lum-text-secondary border-b border-gray-700">
-    Dropdown
-  </h3>
-  <button className={'lum-btn lum-bg-transparent'} q:slot="mobile">
-    Option 1
-  </button>
-  <button className={'lum-btn lum-bg-transparent'} q:slot="mobile">
-    Option 2
-  </button>
-  <button className={'lum-btn lum-bg-transparent'} q:slot="mobile">
-    Option 3
-  </button>
-
-</Nav>`}
+  }
+  end={
+    <SelectMenuRaw
+      id="nav-dropdown"
+      hover customDropdown
+      className="lum-bg-transparent hidden sm:flex"
+      dropdown={
+        <p>
+          Dropdown
+        </p>
+      }
+      extra-buttons={
+        <>
+          <button className="lum-btn lum-bg-transparent rounded-lum-1">
+            Option 1
+          </button>
+          <button className="lum-btn lum-bg-transparent rounded-lum-1">
+            Option 2
+          </button>
+          <button className="lum-btn lum-bg-transparent rounded-lum-1">
+            Option 3
+          </button>
+        </>
+      }
+    />
+  }
+  mobile={
+    <>
+      <button className="lum-btn lum-bg-transparent">
+        button 1
+      </button>
+      <button className="lum-btn lum-bg-transparent">
+        button 2
+      </button>
+      <h3 className="mx-4 border-b border-gray-700 py-2 text-lum-text-secondary">
+        Dropdown
+      </h3>
+      <button className="lum-btn lum-bg-transparent">
+        Option 1
+      </button>
+      <button className="lum-btn lum-bg-transparent">
+        Option 2
+      </button>
+      <button className="lum-btn lum-bg-transparent">
+        Option 3
+      </button>
+    </>
+  }
+/>`}
       />
     </div>
   );
