@@ -10,12 +10,10 @@ import {
   getMousePosition,
 } from '../../utils/color';
 import { Shuffle } from '~/svg/Shuffle';
+import { getClassObject } from '../functions';
 
 export interface ColorPickerProps
-  extends Omit<PropsOf<'div'>, 'class' | 'onInput$'> {
-  class?: {
-    [key: string]: boolean;
-  };
+  extends Omit<PropsOf<'div'>, | 'onInput$'> {
   onInput$?: QRL<(color: string) => void>;
   value?: string;
   colors?: string[];
@@ -28,6 +26,7 @@ export interface ColorPickerProps
 export const ColorPicker = component$<ColorPickerProps>(
   ({
     id,
+    class: Class,
     value = '#000000',
     colors = [
       '#FAEDCB',
@@ -49,8 +48,7 @@ export const ColorPicker = component$<ColorPickerProps>(
     preview = 'left',
     horizontal,
     showInput = true,
-    opacity,
-    ...props
+    opacity
   }) => {
     const height = 150;
     const width = height - 25;
@@ -185,7 +183,7 @@ export const ColorPicker = component$<ColorPickerProps>(
         class={{
           'lum-card touch-none p-4': true,
           'flex-col': !horizontal,
-          ...props.class,
+          ...getClassObject(Class),
         }}
         id={id}
         onInput$={async (e, el) => {

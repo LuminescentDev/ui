@@ -8,7 +8,6 @@ interface NavProps
     React.HTMLAttributes<HTMLElement>,
     'bind:checked' | 'type' | 'children'
   > {
-  class?: { [key: string]: boolean };
   fixed?: boolean;
   floating?: boolean;
   noblur?: boolean;
@@ -63,7 +62,7 @@ export function Nav({
           true,
         fixed: fixed,
         absolute: !fixed,
-        ...props.class,
+        [props.className ?? '']: true,
       })}
     >
       {!nohamburger && (

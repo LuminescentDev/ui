@@ -1,12 +1,12 @@
 import { component$, PropsOf, Slot } from '@qwik.dev/core';
+import { getClassObject } from '../functions';
 
-interface SidebarProps extends Omit<PropsOf<'aside'>, 'class'> {
-  class?: { [key: string]: boolean };
+interface SidebarProps extends PropsOf<'aside'> {
   floating?: boolean;
   position?: 'left' | 'right';
 }
 
-export const Sidebar = component$<SidebarProps>(({ position, ...props }) => {
+export const Sidebar = component$<SidebarProps>(({ position, class: Class, ...props }) => {
   return (
     <aside
       {...props}
@@ -14,7 +14,7 @@ export const Sidebar = component$<SidebarProps>(({ position, ...props }) => {
         'hidden lg:flex sticky lum-card top-0 z-40 px-6 pb-0 rounded-none pt-20 h-dvh': true,
         'left-0 border-0 border-r': position === 'left' || !position,
         'right-0 border-0 border-l': position === 'right',
-        ...props.class,
+        ...getClassObject(Class),
       }}
     >
       <nav id="docs-sidebar" class="min-h-full relative">

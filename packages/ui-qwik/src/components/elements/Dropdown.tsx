@@ -1,9 +1,9 @@
 import type { PropsOf } from '@qwik.dev/core';
 import { component$, Slot } from '@qwik.dev/core';
 import { ChevronDown } from '../../svg/ChevronDown';
+import { getClassObject } from '../functions';
 
-interface DropdownProps extends Omit<PropsOf<'button'>, 'class'> {
-  class?: { [key: string]: boolean };
+interface DropdownProps extends PropsOf<'button'> {
   hover?: boolean;
   opened?: boolean;
 }
@@ -13,7 +13,7 @@ export const Dropdown = component$<DropdownProps>(({ class: Class, hover, opened
     <button type="button"
       class={{
         'group lum-btn': true,
-        ...Class,
+        ...getClassObject(Class),
       }}
       {...props}
     >

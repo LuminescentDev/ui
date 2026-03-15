@@ -1,15 +1,15 @@
-import type { PropsOf } from '@qwik.dev/core';
+import type { ClassList, PropsOf } from '@qwik.dev/core';
 import { Slot, component$, useSignal, useTask$ } from '@qwik.dev/core';
 import { Menu } from '~/svg/Menu';
+import { getClassObject } from '../functions';
 
-interface NavProps extends Omit<PropsOf<'nav'>, 'class'> {
-  class?: { [key: string]: boolean };
+interface NavProps extends PropsOf<'nav'> {
   fixed?: boolean;
   floating?: boolean;
   noblur?: boolean;
   nohamburger?: boolean;
   nodismiss?: boolean;
-  colorClass?: string;
+  colorClass?: ClassList;
 }
 
 export const Nav = component$<NavProps>(
@@ -19,6 +19,7 @@ export const Nav = component$<NavProps>(
     noblur,
     nohamburger,
     nodismiss,
+    class: Class,
     colorClass = 'lum-bg-lum-card-bg',
     ...props
   }) => {
@@ -51,7 +52,7 @@ export const Nav = component$<NavProps>(
           'top-0 left-0 z-50 flex w-full flex-col': true,
           fixed: fixed,
           absolute: !fixed,
-          ...props.class,
+          ...getClassObject(Class),
         }}
       >
         {!nohamburger && (
@@ -63,7 +64,7 @@ export const Nav = component$<NavProps>(
               'mt-2': menu.value,
               'pointer-events-none opacity-0 -mt-2 scale-95': !menu.value,
               'backdrop-blur-lg': !noblur,
-              [colorClass]: true,
+              ...getClassObject(colorClass),
             }}
           >
             <Slot name="mobile" />
@@ -71,7 +72,7 @@ export const Nav = component$<NavProps>(
         )}
         <div
           class={{
-            [colorClass]: !floating,
+            ...getClassObject(colorClass),
             'border-x-0! border-t-0!': !floating,
             'backdrop-blur-lg': !noblur && !floating,
             'relative mx-2 mt-2': floating,
@@ -80,7 +81,7 @@ export const Nav = component$<NavProps>(
           <div
             class={{
               'mx-auto flex w-full max-w-7xl justify-evenly px-2': true,
-              [colorClass]: floating,
+              ...getClassObject(colorClass),
               'rounded-lum border': floating,
               'backdrop-blur-lg': !noblur && floating,
             }}

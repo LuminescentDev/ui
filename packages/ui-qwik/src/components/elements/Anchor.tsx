@@ -1,18 +1,17 @@
 import type { PropsOf } from '@qwik.dev/core';
 import { Slot, component$ } from '@qwik.dev/core';
 import { Link } from '~/svg/Link';
+import { getClassObject } from '../functions';
 
-interface AnchorProps extends Omit<PropsOf<'div'>, 'class'> {
-  class?: { [key: string]: boolean };
+interface AnchorProps extends PropsOf<'div'> {
   id?: string;
 }
 
-export const Anchor = component$<AnchorProps>(({ id, ...props }) => (
+export const Anchor = component$<AnchorProps>(({ id, class: Class, ...props }) => (
   <div {...props}
     class={{
-      'group flex items-center gap-2 scroll-mt-32':
-        true,
-      ...props.class,
+      'group flex items-center gap-2 scroll-mt-32': true,
+      ...getClassObject(Class),
     }}
   >
     <Slot />

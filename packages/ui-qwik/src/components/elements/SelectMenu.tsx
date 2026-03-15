@@ -1,9 +1,9 @@
 import type { JSXChildren, PropsOf } from '@qwik.dev/core';
 import { component$, Slot, useSignal, useStore } from '@qwik.dev/core';
 import { Dropdown } from './Dropdown';
+import { getClassObject } from '../functions';
 
-interface SelectMenuProps extends Omit<PropsOf<'select'>, 'class' | 'size'> {
-  class?: { [key: string]: boolean };
+interface SelectMenuProps extends PropsOf<'select'> {
   panelClass?: string;
   btnClass?: string;
   noblur?: boolean;
@@ -79,7 +79,7 @@ export const SelectMenuRaw = component$<SelectMenuProps>(({
         opened={store.opened}
         class={{
           'w-full': true,
-          ...Class,
+          ...getClassObject(Class),
         }}
         onClick$={(e, el) => {
           if (hover) return; // do not toggle on click if hover is enabled

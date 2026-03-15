@@ -2,9 +2,10 @@ import type { PropsOf, QRL } from '@qwik.dev/core';
 import { $, Slot, component$, useStyles$ } from '@qwik.dev/core';
 import { Plus } from '../../svg/Plus';
 import { Minus } from '../../svg/Minus';
+import { getClassObject } from '../functions';
 
 interface NumberInputRawProps
-  extends Omit<PropsOf<'input'> & { type: 'number' }, 'class' | 'type'> {
+  extends Omit<PropsOf<'input'> & { type: 'number' }, 'type'> {
   onDecrement$: QRL<
     (
       event: PointerEvent,
@@ -20,7 +21,6 @@ interface NumberInputRawProps
     ) => void
   >;
   input?: boolean;
-  class?: { [key: string]: boolean };
   value?: number;
   min?: number;
   max?: number;
@@ -43,7 +43,7 @@ export const NumberInput = component$<NumberInputProps>((props) => {
 });
 
 export const NumberInputRaw = component$<NumberInputRawProps>(
-  ({ input, onDecrement$, onIncrement$, value = 0, step = 1, ...props }) => {
+  ({ input, class: Class, onDecrement$, onIncrement$, value = 0, step = 1, ...props }) => {
     useStyles$(`
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
@@ -89,7 +89,7 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
             step={step}
             class={{
               'lum-input text-center rounded-sm lum-input-p-1': true,
-              ...props.class,
+              ...getClassObject(Class),
             }}
           />
         )}

@@ -1,9 +1,10 @@
-import { component$ } from '@qwik.dev/core';
+import { ClassList, component$ } from '@qwik.dev/core';
+import { getClassObject } from '../functions';
 
 export interface BlobProps {
-  class?: { [key: string]: boolean };
+  class: ClassList;
   style?: { [key: string]: string | number };
-  color?: keyof typeof blobColorClasses | [string, string, string];
+  color?: keyof typeof blobColorClasses | [ClassList, ClassList, ClassList];
   blur?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
@@ -45,7 +46,7 @@ const blobClasses = [
 ];
 
 export const Blobs = component$<BlobProps>(
-  ({ color = 'darkgray', blur = 'xl', ...props }) => {
+  ({ class: Class, color = 'darkgray', blur = 'xl', ...props }) => {
     const blob = Math.round(Math.random() * 6);
     const colorClass =
       typeof color == 'string' ? blobColorClasses[color] : color;
@@ -55,7 +56,7 @@ export const Blobs = component$<BlobProps>(
         class={{
           'animate-in fade-in anim-duration-[2s] absolute inset-0 transition-all motion-reduce:hidden':
             true,
-          ...props.class,
+          ...getClassObject(Class),
         }}
         style={{ containerType: 'size', ...props.style }}
       >
@@ -69,7 +70,7 @@ export const Blobs = component$<BlobProps>(
             'blur-lg': blur === 'lg',
             'blur-xl': blur === 'xl',
             [blobClasses[blob]]: true,
-            [colorClass[0]]: true,
+            ...getClassObject(colorClass[0]),
           }}
         />
         <div
@@ -83,7 +84,7 @@ export const Blobs = component$<BlobProps>(
             'blur-xl': blur === 'xl',
             'anim-delay-[-5s]': true,
             [blobClasses[blob]]: true,
-            [colorClass[1]]: true,
+            ...getClassObject(colorClass[1]),
           }}
         />
         <div
@@ -97,7 +98,7 @@ export const Blobs = component$<BlobProps>(
             'blur-xl': blur === 'xl',
             'anim-delay-[-10s]': true,
             [blobClasses[blob]]: true,
-            [colorClass[2]]: true,
+            ...getClassObject(colorClass[2]),
           }}
         />
       </div>

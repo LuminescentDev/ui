@@ -1,18 +1,19 @@
 import type { PropsOf } from '@qwik.dev/core';
 import { component$, Slot } from '@qwik.dev/core';
+import { getClassObject } from '../functions';
 
 interface ToggleProps
   extends Omit<
     PropsOf<'input'> & { type: 'checkbox' },
-    'class' | 'bind:checked' | 'type' | 'children'
+    'bind:checked' | 'type' | 'children'
   > {
-  class?: string;
   checkbox?: boolean;
   round?: boolean;
 }
 
 export const Toggle = component$<ToggleProps>(
   ({
+    class: Class,
     checkbox,
     round,
     ...props
@@ -36,7 +37,7 @@ export const Toggle = component$<ToggleProps>(
               'w-12 peer-checked:after:translate-x-full': !checkbox,
               'w-7 after:opacity-0 peer-checked:after:opacity-100': checkbox,
               'lum-toggle-bg-lum-input-bg peer-checked:lum-toggle-bg-lum-accent': true,
-              [props.class ?? '']: !!props.class,
+              ...getClassObject(Class),
             }}
           />
         </label>

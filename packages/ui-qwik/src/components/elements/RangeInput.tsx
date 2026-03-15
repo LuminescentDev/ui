@@ -2,14 +2,13 @@ import type { PropsOf, QRL } from '@qwik.dev/core';
 import { Slot, component$, useComputed$, useSignal } from '@qwik.dev/core';
 
 interface RangeInputRawProps
-  extends Omit<PropsOf<'input'> & { type: 'number' }, 'class' | 'type'> {
+  extends Omit<PropsOf<'input'> & { type: 'number' }, 'type'> {
   onInput$?: QRL<
     (
       event: InputEvent,
       element: HTMLInputElement,
     ) => void
   >;
-  class?: { [key: string]: boolean };
   value?: number;
   min?: number;
   max?: number;

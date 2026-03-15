@@ -1,3 +1,5 @@
+import { ClassList } from "@qwik.dev/core";
+
 export const Hoverable = {
   onMouseMove$: (e: MouseEvent, el: HTMLElement) => {
     const rect = el.getBoundingClientRect();
@@ -15,3 +17,8 @@ export const Hoverable = {
     el.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg)';
   },
 } as const;
+
+export function getClassObject(Class: ClassList) {
+  return typeof Class === 'string' ? { [Class]: true } :
+    Array.isArray(Class) ? Object.fromEntries(Class.map(c => [c, true])) : Class;
+}
