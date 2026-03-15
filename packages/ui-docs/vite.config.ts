@@ -19,7 +19,8 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 const qwikDeps = [
   'lucide-icons-qwik',
   'simple-icons-qwik',
-  '@luminescent/ui-qwik'
+  '@luminescent/ui-qwik',
+  '@luminescent/icons-qwik'
 ]
 
 /**
