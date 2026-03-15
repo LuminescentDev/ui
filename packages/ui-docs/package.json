@@ -23,18 +23,18 @@
   },
   "devDependencies": {
     "@anuragroy/tailwindcss-animate": "^1.0.6",
-    "@cloudflare/workers-types": "^4.20260312.1",
+    "@cloudflare/workers-types": "^4.20260313.1",
     "@eslint/js": "^10.0.1",
     "@luminescent/icons-qwik": "workspace:*",
     "@luminescent/ui": "workspace:*",
     "@luminescent/ui-qwik": "workspace:*",
-    "@qwik.dev/core": "2.0.0-beta.28",
-    "@qwik.dev/router": "2.0.0-beta.28",
+    "@qwik.dev/core": "2.0.0-beta.29",
+    "@qwik.dev/router": "2.0.0-beta.29",
     "@tailwindcss/vite": "^4.2.1",
     "@types/eslint": "^9.6.1",
     "@types/node": "^25.5.0",
     "eslint": "^10.0.3",
-    "eslint-plugin-qwik": "2.0.0-beta.28",
+    "eslint-plugin-qwik": "2.0.0-beta.29",
     "globals": "^17.4.0",
     "lucide-icons-qwik": "^0.577.0-qwikv2",
     "prettier": "^3.8.1",
@@ -44,8 +44,8 @@
     "ts-morph": "27",
     "typescript": "5.9.3",
     "typescript-eslint": "^8.57.0",
-    "undici": "^7.24.0",
+    "undici": "^7.24.3",
     "vite": "8.0.0",
-    "wrangler": "^4.72.0"
+    "wrangler": "^4.73.0"
   }
 }
