@@ -181,7 +181,7 @@ export default component$(() => {
           value={store['--lum-input-p-x']}
         />
       </Label>
-      
+
       <Label for="lum-depth"
         label={`--lum-depth: ${store['--lum-depth']}`}>
         <NumberInput
@@ -214,7 +214,7 @@ export default component$(() => {
         }}/>
       </Label>
 
-        <Label for="input-bg-color"
+      <Label for="input-bg-color"
         label="color-lum-input-bg">
         <ColorInput color={store['--color-lum-input-bg']} id="input-bg-color" onInput$={(newColor) => {
           store['--color-lum-input-bg'] = newColor;

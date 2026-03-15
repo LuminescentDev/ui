@@ -1,9 +1,9 @@
-import type { ClassList, JSXChildren, PropsOf } from '@qwik.dev/core';
+import type { ClassList, JSXChildren, PropsOf, QRL } from '@qwik.dev/core';
 import { component$, Slot, useSignal, useStore } from '@qwik.dev/core';
 import { Dropdown } from './Dropdown';
 import { getClassObject } from '../functions';
 
-interface SelectMenuProps extends PropsOf<'select'> {
+interface SelectMenuProps extends Omit<PropsOf<'select'>, 'onChange$'> {
   panelClass?: ClassList;
   btnClass?: ClassList;
   noblur?: boolean;
@@ -11,6 +11,12 @@ interface SelectMenuProps extends PropsOf<'select'> {
   customDropdown?: boolean;
   hover?: boolean;
   align?: 'left' | 'right' | 'center';
+  onChange$?: QRL<
+    (
+      event: Event,
+      element: HTMLSelectElement,
+    ) => void
+  >;
   values?: {
     name: JSXChildren;
     value: string | number;
@@ -45,6 +51,7 @@ export const SelectMenu = component$<SelectMenuProps>(({
     >
       {values && (
         <select
+          onChange$={props.onChange$}
           {...props}
           ref={selectRef}
           class="hidden"
