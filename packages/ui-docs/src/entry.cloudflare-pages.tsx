@@ -1,24 +1,23 @@
 /*
  * WHAT IS THIS FILE?
  *
- * It's the entry point for Cloudflare Pages when building for production.
+ * It's the entry point for Cloudflare Workers when building for production.
  *
- * Learn more about the Cloudflare Pages integration here:
- * - https://qwik.builder.io/docs/deployments/cloudflare-pages/
+ * Learn more about the Cloudflare Workers integration here:
+ * - https://qwik.dev/docs/deployments/cloudflare-workers/
  *
  */
 import {
   createQwikRouter,
-  type PlatformCloudflarePages,
+  type PlatformCloudflarePages as PlatformCloudflareWorkers,
 } from '@qwik.dev/router/middleware/cloudflare-pages';
 import qwikRouterConfig from '@qwik-router-config';
-import { manifest } from '@qwik-client-manifest';
 import render from './entry.ssr';
 
 declare global {
-  type QwikCityPlatform = PlatformCloudflarePages;
+  type QwikCityPlatform = PlatformCloudflareWorkers;
 }
 
-const fetch = createQwikRouter({ render, qwikRouterConfig, manifest });
+const fetch = createQwikRouter({ render, qwikRouterConfig });
 
 export { fetch };
