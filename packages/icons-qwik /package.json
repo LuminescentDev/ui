@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/icons-qwik",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a small icon library",
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
