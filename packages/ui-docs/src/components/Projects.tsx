@@ -95,20 +95,27 @@ export default component$(() => {
                 {typeof project.image === 'string' ?
                   <img src={project.image} alt={`${project.title} Logo`} class="mx-auto mb-5 w-25 h-25 md:w-50 md:h-50" width={200} height={200} />
                   : project.image}
+
                 <h3 class="text-gray-100 text-base md:text-xl font-bold">
                   {project.title}
                 </h3>
+
                 <div class="hidden md:flex gap-2 items-center flex-wrap">
                   {project.tags.map((Tag, i) => (
                     <Tag key={i} />
                   ))}
                 </div>
+
                 <p class="text-gray-400 text-xs md:text-sm">
                   {project.description}
                 </p>
-                <Blobs color={[
-                  project.color, project.color, project.color,
-                ]} class={{ 'absolute overflow-clip rounded-lg -z-10': true }} style={{ transform: 'translateZ(-10px)' }}/>
+
+                <Blobs
+                  color={[project.color, project.color, project.color]}
+                  class={{ 'absolute overflow-clip rounded-lg -z-10': true }}
+                  style={{ transform: 'translateZ(-10px)' }}
+                />
+
                 <div class={{
                   'group lum-card lum-bg-gray-900/30 absolute inset-0 p-2 gap-2 w-full h-full z-10 backdrop-blur-md transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,
                 }}>

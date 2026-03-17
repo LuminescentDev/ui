@@ -1,8 +1,8 @@
 import { component$, JSXOutput } from '@qwik.dev/core';
-import { Birdflop } from '@luminescent/icons-qwik';
 import { OliTag, PurpurTag, QarthTag, SabTag } from './Tags';
 import { Component } from '@qwik.dev/core';
 
+import { Birdflop } from '@luminescent/icons-qwik';
 import Luminara from '~/components/images/Luminara.png?jsx';
 import { IconProps, SiDiscord, SiGithub } from 'simple-icons-qwik';
 import { Globe } from 'lucide-icons-qwik';
