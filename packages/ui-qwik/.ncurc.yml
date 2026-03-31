@@ -1,0 +1,2 @@
+reject:
+  - "typescript" # v6 not supported by qwik

@@ -18,7 +18,9 @@
     "isolatedModules": true,
     "types": ["vite/client"],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "root/*": ["../../*"],
+      "@luminescent/ui-qwik": ["./src/index.tsx"]
     }
   },
   "include": ["src"],

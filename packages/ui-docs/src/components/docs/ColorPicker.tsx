@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, SelectMenu, Toggle, ColorPicker, Label } from '@luminescent/ui-qwik';
+import { Anchor, SelectMenu, Toggle, ColorPicker as ColorPickerEl, Label } from '@luminescent/ui-qwik';
 
 interface colorPickerOptions {
   preview?: 'left' | 'right' | 'top' | 'bottom' | 'full';
@@ -8,7 +8,7 @@ interface colorPickerOptions {
   opacity?: boolean;
 }
 
-export default component$(({ id }: { id: string }) => {
+export const ColorPicker = component$(({ id }: { id: string }) => {
   const store = useStore<colorPickerOptions>({});
   return (
     <div class="lum-card">
@@ -57,7 +57,7 @@ export default component$(({ id }: { id: string }) => {
         opacity
       </Toggle>
       <div class="flex">
-        <ColorPicker
+        <ColorPickerEl
           id="color-picker"
           preview={store.preview}
           horizontal={store.horizontal}

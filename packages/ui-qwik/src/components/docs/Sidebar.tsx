@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Dropdown, Sidebar, Toggle } from '../../index';
+import { Anchor, Dropdown, Sidebar as SidebarEl, Toggle } from '@luminescent/ui-qwik';
 
 interface sidebarOptions {
   fixed?: boolean;
@@ -8,7 +8,7 @@ interface sidebarOptions {
   dropdownOpen?: boolean;
 }
 
-export default component$(({ id }: { id: string }) => {
+export const Sidebar = component$(({ id }: { id: string }) => {
   const store = useStore<sidebarOptions>({});
   return (
     <div class="lum-card">
@@ -24,7 +24,7 @@ export default component$(({ id }: { id: string }) => {
         floating
       </Toggle>
       <div class="lum-card h-150 p-0">
-        <Sidebar
+        <SidebarEl
           floating={store.floating}
         >
           <h3 q:slot="title" class="text-lg font-bold">
@@ -69,7 +69,7 @@ export default component$(({ id }: { id: string }) => {
               Option 3
             </button>
           </div>
-        </Sidebar>
+        </SidebarEl>
       </div>
       <textarea
         class="lum-input h-32"

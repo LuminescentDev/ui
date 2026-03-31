@@ -1,7 +1,7 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor } from '../../index';
+import { Anchor } from '@luminescent/ui-qwik';
 
-export default component$(({ id }: { id: string }) => {
+export const LumInput = component$(({ id }: { id: string }) => {
   const store = useStore({
     class: 'lum-input',
   });

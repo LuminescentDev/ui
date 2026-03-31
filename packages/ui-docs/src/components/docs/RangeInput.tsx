@@ -1,7 +1,7 @@
 import { component$ } from '@qwik.dev/core';
-import { Anchor, Label, RangeInput } from '@luminescent/ui-qwik';
+import { Anchor, Label, RangeInput as RangeInputEl } from '@luminescent/ui-qwik';
 
-export default component$(({ id }: { id: string }) => {
+export const RangeInput = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
@@ -11,7 +11,7 @@ export default component$(({ id }: { id: string }) => {
       </Anchor>
       <div>
         <Label for="range-input" label="Range Input">
-          <RangeInput id="range-input" />
+          <RangeInputEl id="range-input" />
         </Label>
       </div>
       <textarea

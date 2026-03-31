@@ -53,7 +53,7 @@ const ColorInput = component$(({ onInput$, color, id }: ColorInputProps) => {
   );
 });
 
-export default component$(() => {
+export const Settings = component$(() => {
   const store = useStore({
     '--lum-border-radius': 0.375,
     '--lum-border-superellipse': 1,

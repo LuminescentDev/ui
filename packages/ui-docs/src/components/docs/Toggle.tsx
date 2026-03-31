@@ -1,7 +1,7 @@
 import { component$, useStore } from '@qwik.dev/core';
 import {
   Anchor,
-  Toggle,
+  Toggle as ToggleEl,
 } from '@luminescent/ui-qwik';
 
 interface toggleOptions {
@@ -10,7 +10,7 @@ interface toggleOptions {
   class?: string;
 }
 
-export default component$(({ id }: { id: string }) => {
+export const Toggle = component$(({ id }: { id: string }) => {
   const store = useStore<toggleOptions>({});
   return (
     <div class="lum-card">
@@ -32,27 +32,27 @@ export default component$(({ id }: { id: string }) => {
           warning: only some classes will work because of the way tailwindcss works
         </p>
       </div>
-      <Toggle
+      <ToggleEl
         id="toggle-checkbox"
         onChange$={(e, element) => (store.checkbox = element.checked)}
       >
         checkbox
-      </Toggle>
-      <Toggle
+      </ToggleEl>
+      <ToggleEl
         id="toggle-round"
         onChange$={(e, element) => (store.round = element.checked)}
       >
         round
-      </Toggle>
+      </ToggleEl>
       <div>
-        <Toggle
+        <ToggleEl
           id="toggle-input"
           round={store.round}
           checkbox={store.checkbox}
           class={store.class}
         >
           Toggle
-        </Toggle>
+        </ToggleEl>
       </div>
       <textarea
         class="lum-input h-32"

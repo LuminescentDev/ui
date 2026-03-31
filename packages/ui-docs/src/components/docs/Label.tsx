@@ -1,7 +1,7 @@
 import { component$ } from '@qwik.dev/core';
-import { Anchor, Label } from '@luminescent/ui-qwik';
+import { Anchor, Label as LabelEl } from '@luminescent/ui-qwik';
 
-export default component$(({ id }: { id: string }) => {
+export const Label = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
@@ -11,11 +11,11 @@ export default component$(({ id }: { id: string }) => {
         <h3 class="text-sm text-lum-text-secondary">Adds a consistent label to elements that it wraps</h3>
       </Anchor>
 
-      <Label for="wrapping-element" label="Label">
+      <LabelEl for="wrapping-element" label="Label">
         <div id="wrapping-element" class="bg-red-500">
           Wrapping element
         </div>
-      </Label>
+      </LabelEl>
 
       <textarea
         class="lum-input h-32"

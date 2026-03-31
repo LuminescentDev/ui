@@ -1,21 +1,21 @@
 import { component$, useStore } from '@qwik.dev/core';
 import { Anchor } from '@luminescent/ui-qwik';
 
-export default component$(({ id }: { id: string }) => {
+export const LumBtn = component$(({ id }: { id: string }) => {
   const store = useStore({
-    class: 'lum-input',
+    class: 'lum-btn',
   });
   return (
     <div class="lum-card">
       <Anchor id={id}>
         <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
-          Input
+          Button
         </h2>
       </Anchor>
       <div>
-        <label for="input-class">class</label>
+        <label for="button-class">class</label>
         <input
-          id="input-class"
+          id="button-class"
           class="lum-input"
           onInput$={(e, el) => (store.class = el.value)}
           value={store.class}
@@ -26,23 +26,17 @@ export default component$(({ id }: { id: string }) => {
       </div>
       <div class="lum-card">
         <div>
-          <input class={store.class} />
-          <textarea
-            class={{
-              [store.class]: true,
-              'h-32': true,
-            }}
-          />
+          <button class={store.class}>
+            Button
+          </button>
         </div>
       </div>
       <textarea
         class="lum-input h-32"
         value={`
-<input class="${store.class}"/>
-<textarea class={{
-  '${store.class}': true,
-  'h-32': true,
-}} />`}
+<button class="${store.class}">
+  Button
+</button>`}
       />
     </div>
   );

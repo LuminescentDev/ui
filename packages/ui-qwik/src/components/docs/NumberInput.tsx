@@ -1,11 +1,11 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Label, NumberInput, Toggle } from '../../index';
+import { Anchor, Label, NumberInput as NumberInputEl, Toggle } from '@luminescent/ui-qwik';
 
 interface numberInputOptions {
   input?: boolean;
 }
 
-export default component$(({ id }: { id: string }) => {
+export const NumberInput = component$(({ id }: { id: string }) => {
   const store = useStore<numberInputOptions>({});
   return (
     <div class="lum-card">
@@ -22,7 +22,7 @@ export default component$(({ id }: { id: string }) => {
       </Toggle>
       <div>
         <Label for="number-input" label="Number Input">
-          <NumberInput id="number-input" input={store.input} />
+          <NumberInputEl id="number-input" input={store.input} />
         </Label>
       </div>
       <textarea

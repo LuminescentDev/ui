@@ -1,15 +1,15 @@
 import { component$ } from '@qwik.dev/core';
-import { Anchor } from '@luminescent/ui-qwik';
+import { Anchor as AnchorEl } from '@luminescent/ui-qwik';
 
-export default component$(({ id }: { id: string }) => {
+export const Anchor = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
-      <Anchor id={id}>
+      <AnchorEl id={id}>
         <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
           Anchor
         </h2>
         <h3 class="text-sm text-lum-text-secondary">The element is in the title</h3>
-      </Anchor>
+      </AnchorEl>
       <textarea
         class="lum-input h-32"
         value={`

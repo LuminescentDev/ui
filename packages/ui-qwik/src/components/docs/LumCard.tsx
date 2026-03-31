@@ -1,7 +1,7 @@
 import { component$, useStore } from '@qwik.dev/core';
 import { Anchor, Blobs, Toggle, Hoverable } from '@luminescent/ui-qwik';
 
-export default component$(({ id }: { id: string }) => {
+export const LumCard = component$(({ id }: { id: string }) => {
   const store = useStore({
     class: 'lum-card lum-hoverable max-w-md',
     hoverable: false,

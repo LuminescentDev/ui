@@ -19,7 +19,8 @@
     "noEmit": true,
     "types": ["node", "eslint", "vite/client", "@cloudflare/workers-types"],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "root/*": ["../../*"]
     },
   },
   "include": ["src", "./*.d.ts", "./*.config.ts", "../vite.config.ts"]

@@ -1,18 +1,18 @@
 import { component$, useStore } from '@qwik.dev/core';
 import {
   Anchor,
-  Blobs,
+  Blobs as BlobsEl,
   Label,
   SelectMenu,
   blobColorClasses,
-} from '../../index';
+} from '@luminescent/ui-qwik';
 
 interface blobsOptions {
   color?: keyof typeof blobColorClasses;
   blur?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-export default component$(({ id }: { id: string }) => {
+export const Blobs = component$(({ id }: { id: string }) => {
   const store = useStore<blobsOptions>({});
   return (
     <div class="lum-card">
@@ -52,7 +52,7 @@ export default component$(({ id }: { id: string }) => {
         </Label>
       </div>
       <div class="relative h-96 w-96 rounded-lum border border-gray-800">
-        <Blobs color={store.color} blur={store.blur} />
+        <BlobsEl color={store.color} blur={store.blur} />
       </div>
       <textarea
         class="lum-input h-32"

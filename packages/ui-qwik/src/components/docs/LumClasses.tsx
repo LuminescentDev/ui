@@ -1,7 +1,7 @@
 import { component$ } from '@qwik.dev/core';
 import { Anchor } from '@luminescent/ui-qwik';
 
-export default component$(({ id }: { id: string }) => {
+export const LumClasses = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>

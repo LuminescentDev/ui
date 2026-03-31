@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Nav, SelectMenu, Toggle } from '../../index';
+import { Anchor, Nav as NavEl, SelectMenu, Toggle } from '@luminescent/ui-qwik';
 
 interface navOptions {
   fixed?: boolean;
@@ -8,7 +8,7 @@ interface navOptions {
   colorClass?: string;
 }
 
-export default component$(({ id }: { id: string }) => {
+export const Nav = component$(({ id }: { id: string }) => {
   const store = useStore<navOptions>({});
   return (
     <div class="lum-card">
@@ -44,7 +44,7 @@ export default component$(({ id }: { id: string }) => {
         placeholder="lum-bg-lum-card-bg"
       />
       <div class="lum-card relative h-40">
-        <Nav
+        <NavEl
           floating={store.floating}
           fixed={store.fixed}
           nohamburger={store.nohamburger}
@@ -102,7 +102,7 @@ export default component$(({ id }: { id: string }) => {
           <button q:slot="mobile" class="lum-btn lum-bg-transparent">
             Option 3
           </button>
-        </Nav>
+        </NavEl>
       </div>
       <textarea
         class="lum-input h-32"

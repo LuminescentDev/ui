@@ -1,5 +1,5 @@
 import { component$, isBrowser, PropsOf, QRL, useSignal, useStore, useTask$ } from '@qwik.dev/core';
-import { ColorPicker, Label, NumberInput } from '../../index';
+import { ColorPicker, Label, NumberInput } from '@luminescent/ui-qwik';
 
 interface ColorInputProps extends Omit<PropsOf<'input'>, 'onInput$'> {
   onInput$?: QRL<(newColor: string) => void>;
@@ -53,7 +53,7 @@ const ColorInput = component$(({ onInput$, color, id }: ColorInputProps) => {
   );
 });
 
-export default component$(() => {
+export const Settings = component$(() => {
   const store = useStore({
     '--lum-border-radius': 0.375,
     '--lum-border-superellipse': 1,
@@ -181,7 +181,7 @@ export default component$(() => {
           value={store['--lum-input-p-x']}
         />
       </Label>
-      
+
       <Label for="lum-depth"
         label={`--lum-depth: ${store['--lum-depth']}`}>
         <NumberInput
@@ -214,7 +214,7 @@ export default component$(() => {
         }}/>
       </Label>
 
-        <Label for="input-bg-color"
+      <Label for="input-bg-color"
         label="color-lum-input-bg">
         <ColorInput color={store['--color-lum-input-bg']} id="input-bg-color" onInput$={(newColor) => {
           store['--color-lum-input-bg'] = newColor;

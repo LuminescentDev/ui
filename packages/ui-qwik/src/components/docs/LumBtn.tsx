@@ -1,7 +1,7 @@
 import { component$, useStore } from '@qwik.dev/core';
 import { Anchor } from '@luminescent/ui-qwik';
 
-export default component$(({ id }: { id: string }) => {
+export const LumBtn = component$(({ id }: { id: string }) => {
   const store = useStore({
     class: 'lum-btn',
   });

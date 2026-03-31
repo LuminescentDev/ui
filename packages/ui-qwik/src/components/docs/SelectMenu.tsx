@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { SelectMenu, Toggle, Anchor, Label } from '../../index';
+import { SelectMenu as SelectMenuEl, Toggle, Anchor, Label } from '@luminescent/ui-qwik';
 
 interface SelectMenuOptions {
   customDropdown?: boolean;
@@ -7,7 +7,7 @@ interface SelectMenuOptions {
   align?: 'left' | 'right' | 'center';
 }
 
-export default component$(({ id }: { id: string }) => {
+export const SelectMenu = component$(({ id }: { id: string }) => {
   const store = useStore<SelectMenuOptions>({});
   return (
     <div class="lum-card">
@@ -31,7 +31,7 @@ export default component$(({ id }: { id: string }) => {
       <div class="flex">
         <Label for="selectmenu-align">
           align
-          <SelectMenu
+          <SelectMenuEl
             id="selectmenu-align"
             onChange$={(e, element) =>
               (store.align = element.value as
@@ -50,7 +50,7 @@ export default component$(({ id }: { id: string }) => {
       <div class="flex">
         <Label for="selectmenu-input">
           Select Menu
-          <SelectMenu id="selectmenu-input"
+          <SelectMenuEl id="selectmenu-input"
             values={[
               {
                 name: <span class="lum-bg-red-500 p-1 rounded">JSX Supported</span>,
@@ -71,7 +71,7 @@ export default component$(({ id }: { id: string }) => {
               Option 4 (not an actual value)
             </button>
             <input q:slot="extra-buttons" class="lum-input lum-bg-transparent" placeholder="custom value..."/>
-          </SelectMenu>
+          </SelectMenuEl>
         </Label>
       </div>
       <textarea
