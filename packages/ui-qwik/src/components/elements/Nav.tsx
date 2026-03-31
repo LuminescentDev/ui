@@ -27,22 +27,21 @@ export const Nav = component$<NavProps>(
 
     useTask$(({ track }) => {
       track(() => menu.value);
-      if (menu.value && !nodismiss) {
-        const onClick = (e: PointerEvent) => {
-        // check if near any element that has class 'nav-ignore-dismiss'
-          let el = e.target as HTMLElement | null;
-          while (el) {
-            if (el.classList && el.classList.contains('nav-ignore-dismiss')) {
-              return;
-            }
-            el = el.parentElement;
+      if (!menu.value || nodismiss) return;
+      const onClick = (e: PointerEvent) => {
+      // check if near any element that has class 'nav-ignore-dismiss'
+        let el = e.target as HTMLElement | null;
+        while (el) {
+          if (el.classList && el.classList.contains('nav-ignore-dismiss')) {
+            return;
           }
+          el = el.parentElement;
+        }
 
-          menu.value = false;
-          window.removeEventListener('click', onClick);
-        };
-        window.addEventListener('click', onClick);
-      }
+        menu.value = false;
+        window.removeEventListener('click', onClick);
+      };
+      window.addEventListener('click', onClick);
     });
 
     return (
@@ -72,7 +71,7 @@ export const Nav = component$<NavProps>(
         )}
         <div
           class={{
-            ...getClassObject(colorClass),
+            ...!floating ? getClassObject(colorClass) : {},
             'border-x-0! border-t-0!': !floating,
             'backdrop-blur-lg': !noblur && !floating,
             'relative mx-2 mt-2': floating,
@@ -81,7 +80,7 @@ export const Nav = component$<NavProps>(
           <div
             class={{
               'mx-auto flex w-full max-w-7xl justify-evenly px-2': true,
-              ...getClassObject(colorClass),
+              ...floating ? getClassObject(colorClass) : {},
               'rounded-lum border': floating,
               'backdrop-blur-lg': !noblur && floating,
             }}
@@ -98,8 +97,8 @@ export const Nav = component$<NavProps>(
                 <button
                   name="Navigation Menu"
                   title="Navigation Menu"
-                  class={'lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2'}
-                  onClick$={() => (menu.value = !menu.value)}
+                  class="lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2"
+                  onClick$={() => menu.value = !menu.value}
                 >
                   <Menu size={24} />
                 </button>
