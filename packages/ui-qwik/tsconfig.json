@@ -20,7 +20,7 @@
     "paths": {
       "~/*": ["./src/*"],
       "root/*": ["../../*"],
-      "@luminescent/ui-qwik": ["./src/index.tsx"]
+      "@luminescent/ui-qwik": ["./src/index.ts"]
     }
   },
   "include": ["src"],
