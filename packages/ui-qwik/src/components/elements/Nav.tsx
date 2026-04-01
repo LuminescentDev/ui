@@ -1,5 +1,5 @@
 import type { ClassList, PropsOf } from '@qwik.dev/core';
-import { Slot, component$, useSignal, useTask$ } from '@qwik.dev/core';
+import { Slot, component$, useSignal } from '@qwik.dev/core';
 import { Menu } from '~/svg/Menu';
 import { getClassObject } from '../functions';
 
@@ -24,25 +24,6 @@ export const Nav = component$<NavProps>(
     ...props
   }) => {
     const menu = useSignal(false);
-
-    useTask$(({ track }) => {
-      track(() => menu.value);
-      if (!menu.value || nodismiss) return;
-      const onClick = (e: PointerEvent) => {
-      // check if near any element that has class 'nav-ignore-dismiss'
-        let el = e.target as HTMLElement | null;
-        while (el) {
-          if (el.classList && el.classList.contains('nav-ignore-dismiss')) {
-            return;
-          }
-          el = el.parentElement;
-        }
-
-        menu.value = false;
-        window.removeEventListener('click', onClick);
-      };
-      window.addEventListener('click', onClick);
-    });
 
     return (
       <nav
@@ -97,8 +78,30 @@ export const Nav = component$<NavProps>(
                 <button
                   name="Navigation Menu"
                   title="Navigation Menu"
-                  class="lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2"
-                  onClick$={() => menu.value = !menu.value}
+                  class={{
+                    "lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2": true,
+                    "nav-ignore-dismiss": menu.value,
+                  }}
+                  onClick$={() => {
+                    menu.value = !menu.value;
+                    if (nodismiss) return;
+
+                    function onClick(e: PointerEvent) {
+                      if (menu.value == false)
+                        return window.removeEventListener('click', onClick);
+
+                      // check if near any element that has class 'nav-ignore-dismiss'
+                      let el = e.target as HTMLElement | null;
+                      while (el) {
+                        if (el.classList.contains('nav-ignore-dismiss')) return;
+                        el = el.parentElement;
+                      }
+
+                      menu.value = false;
+                    };
+
+                    if (menu.value) window.addEventListener('click', onClick);
+                  }}
                 >
                   <Menu size={24} />
                 </button>
