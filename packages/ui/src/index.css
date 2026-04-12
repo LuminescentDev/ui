@@ -46,7 +46,7 @@
   border-color: color-mix(
     in oklab,
     var(--border-color),
-    transparent calc(var(--lum-depth) * 100%)
+    var(--bg-color) calc(var(--lum-depth) * 100%)
   );
 
   /* Shadow fades in when depth is active */
@@ -83,7 +83,7 @@
   border-color: color-mix(
     in oklab,
     var(--border-color),
-    transparent calc(var(--lum-depth) * 100%)
+    var(--gradient-color) calc(var(--lum-depth) * 100%)
   );
 
   /* Shadow fades in when depth is active */
@@ -98,6 +98,7 @@
       var(--bg-color),
       var(--gradient-color)
     );
+  background-clip: border-box;
 
   /* Allow standard color keywords */
   background-color: --value('inherit', 'transparent', 'currentColor');
@@ -123,7 +124,7 @@
   border-color: color-mix(
     in oklab,
     var(--border-color),
-    transparent calc(var(--lum-depth) * 100%)
+    var(--bg-color) calc(var(--lum-depth) * 100%)
   );
 
   /* Shadow fades in when depth is active */
@@ -151,7 +152,7 @@
   border-color: color-mix(
     in oklab,
     var(--border-color),
-    transparent calc(var(--lum-depth) * 100%)
+    var(--bg-color) calc(var(--lum-depth) * 100%)
   );
 
   /* Shadow fades in when depth is active */
@@ -173,7 +174,7 @@
     border-color: color-mix(
       in oklab,
       var(--border-color),
-      transparent calc(var(--lum-depth) * 100%)
+      var(--bg-color) calc(var(--lum-depth) * 100%)
     );
 
     /* Shadow fades in when depth is active */
