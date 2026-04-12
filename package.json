@@ -29,7 +29,8 @@
       "@tailwindcss/oxide",
       "esbuild",
       "nx",
-      "sharp"
+      "sharp",
+      "workerd"
     ]
   }
 }

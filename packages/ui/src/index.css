@@ -34,26 +34,10 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-surface-color: var(--bg-color);
 
-  @apply border border-transparent outline-none;
-
-  &:focus {
-    border-color: var(--color-lum-accent);
-  }
-
-  /* Border fades out when depth is active */
-  border-color: color-mix(
-    in oklab,
-    var(--border-color),
-    var(--bg-color) calc(var(--lum-depth) * 100%)
-  );
-
-  /* Shadow fades in when depth is active */
-  box-shadow:
-    inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--border-color),
-    0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
-    0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
+  @apply lum-depth-surface;
 
   background-color: var(--bg-color);
 
@@ -70,27 +54,11 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
   --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-surface-color: var(--gradient-color);
 
-  @apply border border-transparent outline-none;
-
-  &:focus {
-    border-color: var(--color-lum-accent);
-  }
-
-  /* Border fades out when depth is active */
-  border-color: color-mix(
-    in oklab,
-    var(--border-color),
-    var(--gradient-color) calc(var(--lum-depth) * 100%)
-  );
-
-  /* Shadow fades in when depth is active */
-  box-shadow:
-    inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--border-color),
-    0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
-    0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
+  @apply lum-depth-surface;
 
   background: 
     linear-gradient(
@@ -110,30 +78,31 @@
 
 @utility lum-bg {
   /* Base color logic */
-  --alpha: --modifier(integer);
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-surface-color: var(--bg-color);
 
+  @apply lum-depth-surface;
+
+  background-color: var(--bg-color);
+}
+
+@utility lum-depth-surface {
   @apply border border-transparent outline-none;
 
   &:focus {
-    /* Border fades out when depth is active */
     border-color: var(--color-lum-accent);
   }
 
-  /* Border fades out when depth is active */
   border-color: color-mix(
     in oklab,
-    var(--border-color),
-    var(--bg-color) calc(var(--lum-depth) * 100%)
+    var(--lum-border-color),
+    var(--lum-surface-color) calc(var(--lum-depth) * 100%)
   );
 
-  /* Shadow fades in when depth is active */
   box-shadow:
-    inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--border-color),
+    inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--lum-border-color),
     0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
     0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
-
-  background-color: var(--bg-color);
 }
 
 @utility lum-toggle-bg-* {
@@ -141,25 +110,11 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-surface-color: var(--bg-color);
+  --lum-toggle-hover-bg: --alpha(color-mix(in oklab, white 10%, --value(--color-*)) / calc(var(--alpha, 100) * 1%));
 
-  @apply border border-transparent outline-none;
-  &:focus {
-    @apply border-lum-accent;
-  }
-
-  /* Border fades out when depth is active */
-  border-color: color-mix(
-    in oklab,
-    var(--border-color),
-    var(--bg-color) calc(var(--lum-depth) * 100%)
-  );
-
-  /* Shadow fades in when depth is active */
-  box-shadow:
-    inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--border-color),
-    0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
-    0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
+  @apply lum-depth-surface;
 
   background-color: var(--bg-color);
 
@@ -171,19 +126,9 @@
     0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) --value('inherit', 'transparent', 'currentColor');
 
   &::after, &:hover {
-    border-color: color-mix(
-      in oklab,
-      var(--border-color),
-      var(--bg-color) calc(var(--lum-depth) * 100%)
-    );
-
-    /* Shadow fades in when depth is active */
-    box-shadow:
-      inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) var(--border-color),
-      0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
-      0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
-
-    background-color: --alpha(color-mix(in oklab, white 10%, --value(--color-*)) / calc(var(--alpha, 100) * 1%));
+    @apply lum-depth-surface;
+    --lum-surface-color: var(--lum-toggle-hover-bg);
+    background-color: var(--lum-toggle-hover-bg);
 
     /* Allow standard color keywords */
     background-color: --value('inherit', 'transparent', 'currentColor');
