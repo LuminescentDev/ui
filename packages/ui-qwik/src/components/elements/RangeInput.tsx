@@ -12,16 +12,17 @@ interface RangeInputProps
   value?: number;
   min?: number;
   max?: number;
+  outerProps?: PropsOf<'div'>;
 }
 
 export const RangeInput = component$<RangeInputProps>(
-  ({ value, min = 0, max = 10, onInput$, ...props }) => {
+  ({ value, min = 0, max = 10, onInput$, outerProps, ...props }) => {
     const valueSignal = useSignal<number>(value ?? min);
     const filledPercentage = useComputed$(() => ((valueSignal.value - min) / (max - min)) * 100);
     const tickCount = max - min - 1;
 
     return (
-      <div class={{
+      <div {...outerProps} class={{
         'group relative flex touch-manipulation gap-1 text-lum-text lum-input p-0': true,
       }}>
         <div class="absolute w-full flex justify-evenly">

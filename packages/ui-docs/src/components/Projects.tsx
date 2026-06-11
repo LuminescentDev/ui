@@ -1,6 +1,5 @@
 import { component$, useSignal, useVisibleTask$ } from '@qwik.dev/core';
 
-import { Blobs } from '@luminescent/ui-qwik';
 import { Projects } from './ProjectList';
 import { ChevronLeft, ChevronRight } from 'lucide-icons-qwik';
 
@@ -109,12 +108,6 @@ export default component$(() => {
                 <p class="text-gray-400 text-xs md:text-sm">
                   {project.description}
                 </p>
-
-                <Blobs
-                  color={[project.color, project.color, project.color]}
-                  class={{ 'absolute overflow-clip rounded-lg -z-10': true }}
-                  style={{ transform: 'translateZ(-10px)' }}
-                />
 
                 <div class={{
                   'group lum-card lum-bg-gray-900/30 absolute inset-0 p-2 gap-2 w-full h-full z-10 backdrop-blur-md transition duration-300 hover:duration-75 ease-out opacity-0 hover:opacity-100': true,

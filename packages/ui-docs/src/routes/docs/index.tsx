@@ -34,9 +34,6 @@ export default component$(() => {
       <a class="lum-btn lum-bg-transparent" href="#anchor">
         Anchor
       </a>
-      <a class="lum-btn lum-bg-transparent" href="#blobs">
-        Blobs
-      </a>
       <a class="lum-btn lum-bg-transparent" href="#color-picker">
         Color Picker
       </a>
@@ -89,7 +86,6 @@ export default component$(() => {
         Luminescent UI Qwik Components
       </h2>
       <Docs.Anchor id="anchor" />
-      <Docs.Blobs id="blobs" />
       <Docs.ColorPicker id="color-picker" />
       <Docs.Dropdown id="dropdown" />
       <Docs.Label id="label" />

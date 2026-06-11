@@ -25,10 +25,11 @@ interface NumberInputProps
   min?: number;
   max?: number;
   step?: number;
+  outerProps?: PropsOf<'div'>;
 }
 
 export const NumberInput = component$<NumberInputProps>(
-  ({ input, class: Class, onDecrement$, onIncrement$, value = 0, step = 1, ...props }) => {
+  ({ input, class: Class, onDecrement$, onIncrement$, value = 0, step = 1, outerProps, ...props }) => {
     useStyles$(`
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
@@ -41,7 +42,7 @@ export const NumberInput = component$<NumberInputProps>(
   `);
 
     return (
-      <div
+      <div {...outerProps}
         class={{
           'flex touch-manipulation gap-1 text-lum-text': true,
         }}

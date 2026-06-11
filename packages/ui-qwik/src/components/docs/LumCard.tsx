@@ -1,12 +1,11 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Blobs, Toggle, Hoverable } from '@luminescent/ui-qwik';
+import { Anchor, Toggle, Hoverable } from '@luminescent/ui-qwik';
 
 export const LumCard = component$(({ id }: { id: string }) => {
   const store = useStore({
     class: 'lum-card lum-hoverable max-w-md',
     hoverable: false,
     blur: false,
-    blobs: false,
     loading: false,
   });
 
@@ -38,13 +37,6 @@ export const LumCard = component$(({ id }: { id: string }) => {
         checked={store.blur}
       >
         blur
-      </Toggle>
-      <Toggle
-        id="card-blobs"
-        onChange$={(e, element) => (store.blobs = element.checked)}
-        checked={store.blobs}
-      >
-        blobs
       </Toggle>
       <Toggle
         id="card-loading"
@@ -97,15 +89,6 @@ export const LumCard = component$(({ id }: { id: string }) => {
               <h3 class="text-sm text-lum-text-secondary">This is a description</h3>
             </div>
           )}
-          {store.blobs && (
-            <Blobs
-              color="gray"
-              class={{ 'absolute overflow-clip rounded-lum': true }}
-              style={{
-                transform: 'translateZ(-10px)',
-              }}
-            />
-          )}
         </div>
       </div>
       <textarea
@@ -114,7 +97,7 @@ export const LumCard = component$(({ id }: { id: string }) => {
 ${store.hoverable ? `
 import { Hoverable } from '@luminescent/ui-qwik'
 ` : ''}
-<div class="${store.blur || store.blobs ? 'relative ' : ''}${store.class}"
+<div class="${store.blur ? 'relative ' : ''}${store.class}"
 ${store.hoverable ? `
   onMouseMove$={(e, el) => Hoverable.onMouseMove$(e, el)}
   onMouseLeave$={(e, el) => Hoverable.onMouseLeave$(e, el)}
@@ -160,15 +143,6 @@ ${store.hoverable ? `
     </h3>
   </div>
   `
-    }
-  ${
-    store.blobs
-      ? `
-    <Blobs color='gray' class={{ 'absolute overflow-clip rounded-lum': true }} style={{
-      transform: 'translateZ(-10px)',
-    }}/>
-  `
-      : ''
     }
 </div>`}
       />

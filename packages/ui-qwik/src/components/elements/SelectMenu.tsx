@@ -21,6 +21,7 @@ interface SelectMenuProps extends Omit<PropsOf<'select'>, 'onChange$'> {
     name: JSXChildren;
     value: string | number;
   }[];
+  outerProps?: PropsOf<'div'>;
 }
 
 export const SelectMenu = component$<SelectMenuProps>(({
@@ -33,6 +34,7 @@ export const SelectMenu = component$<SelectMenuProps>(({
   customDropdown,
   hover,
   align,
+  outerProps,
   ...props
 }) => {
   const store = useStore({
@@ -43,7 +45,7 @@ export const SelectMenu = component$<SelectMenuProps>(({
   const selected = values?.find(v => v.value === store.value);
 
   return (
-    <div
+    <div {...outerProps}
       class={{
         'relative touch-manipulation': true,
         group: hover,

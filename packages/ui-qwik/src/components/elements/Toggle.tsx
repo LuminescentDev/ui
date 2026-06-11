@@ -9,6 +9,7 @@ interface ToggleProps
   > {
   checkbox?: boolean;
   round?: boolean;
+  outerProps?: PropsOf<'div'>;
 }
 
 export const Toggle = component$<ToggleProps>(
@@ -16,10 +17,11 @@ export const Toggle = component$<ToggleProps>(
     class: Class,
     checkbox,
     round,
+    outerProps,
     ...props
   }) => {
     return (
-      <div class="flex touch-manipulation items-center gap-3">
+      <div {...outerProps} class="flex touch-manipulation items-center gap-3">
         <label class="relative inline-flex cursor-pointer items-center">
           <input
             type="checkbox"

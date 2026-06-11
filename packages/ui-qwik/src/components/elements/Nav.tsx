@@ -9,6 +9,7 @@ interface NavProps extends PropsOf<'nav'> {
   noblur?: boolean;
   nohamburger?: boolean;
   nodismiss?: boolean;
+  innerProps?: PropsOf<'div'>;
   colorClass?: ClassList;
 }
 
@@ -21,6 +22,7 @@ export const Nav = component$<NavProps>(
     nodismiss,
     class: Class,
     colorClass = 'lum-bg-lum-card-bg',
+    innerProps,
     ...props
   }) => {
     const menu = useSignal(false);
@@ -29,7 +31,9 @@ export const Nav = component$<NavProps>(
       <nav
         {...props}
         class={{
-          'top-0 left-0 z-50 flex w-full flex-col': true,
+          'top-0 left-0 z-50 flex flex-col': true,
+          'w-full': !floating,
+          'w-[calc(100%-(--spacing(4)))] mx-2': floating,
           fixed: fixed,
           absolute: !fixed,
           ...getClassObject(Class),
@@ -51,62 +55,52 @@ export const Nav = component$<NavProps>(
           </div>
         )}
         <div
+          {...innerProps}
+          style={!floating ? { '--lum-depth': 0 } : undefined}
           class={{
-            ...!floating ? getClassObject(colorClass) : {},
+            'flex w-full justify-evenly px-2': true,
+            'backdrop-blur-lg': !noblur,
             'border-x-0! border-t-0!': !floating,
-            'backdrop-blur-lg': !noblur && !floating,
-            'relative mx-2 mt-2': floating,
+            'mx-auto max-w-7xl mt-2 rounded-lum border': floating,
+            ...getClassObject(colorClass),
           }}
         >
-          <div
-            class={{
-              'mx-auto flex w-full max-w-7xl justify-evenly px-2': true,
-              ...floating ? getClassObject(colorClass) : {},
-              'rounded-lum border': floating,
-              'backdrop-blur-lg': !noblur && floating,
-            }}
-          >
-            <div class="flex flex-1 items-center justify-start gap-2 py-2">
-              <Slot name="start" />
-            </div>
-            <div class="flex flex-1 items-center justify-center gap-2 py-2">
-              <Slot name="center" />
-            </div>
-            <div class="flex flex-1 items-center justify-end gap-2 py-2">
-              <Slot name="end" />
-              {!nohamburger && (
-                <button
-                  name="Navigation Menu"
-                  title="Navigation Menu"
-                  class={{
-                    "lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2": true,
-                    "nav-ignore-dismiss": menu.value,
-                  }}
-                  onClick$={() => {
-                    menu.value = !menu.value;
-                    if (nodismiss) return;
-
-                    function onClick(e: PointerEvent) {
-                      if (menu.value == false)
-                        return window.removeEventListener('click', onClick);
-
-                      // check if near any element that has class 'nav-ignore-dismiss'
-                      let el = e.target as HTMLElement | null;
-                      while (el) {
-                        if (el.classList.contains('nav-ignore-dismiss')) return;
-                        el = el.parentElement;
-                      }
-
-                      menu.value = false;
-                    };
-
-                    if (menu.value) window.addEventListener('click', onClick);
-                  }}
-                >
-                  <Menu size={24} />
-                </button>
-              )}
-            </div>
+          <div {...innerProps} class="flex flex-1 items-center justify-start gap-2 py-2">
+            <Slot name="start" />
+          </div>
+          <div {...innerProps} class="flex flex-1 items-center justify-center gap-2 py-2">
+            <Slot name="center" />
+          </div>
+          <div {...innerProps} class="flex flex-1 items-center justify-end gap-2 py-2">
+            <Slot name="end" />
+            {!nohamburger && (
+              <button
+                name="Navigation Menu"
+                title="Navigation Menu"
+                class={{
+                  "lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2": true,
+                  "nav-ignore-dismiss": menu.value,
+                }}
+                onClick$={() => {
+                  menu.value = !menu.value;
+                  if (nodismiss) return;
+                  function onClick(e: PointerEvent) {
+                    if (menu.value == false)
+                      return window.removeEventListener('click', onClick);
+                    // check if near any element that has class 'nav-ignore-dismiss'
+                    let el = e.target as HTMLElement | null;
+                    while (el) {
+                      if (el.classList.contains('nav-ignore-dismiss')) return;
+                      el = el.parentElement;
+                    }
+                    menu.value = false;
+                  };
+                  if (menu.value) window.addEventListener('click', onClick);
+                }}
+              >
+                <Menu size={24} />
+              </button>
+            )}
           </div>
         </div>
       </nav>
