@@ -25,7 +25,6 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "@anuragroy/tailwindcss-animate": "^1.0.6",
     "@cloudflare/workers-types": "^4.20260331.1",
     "@eslint/js": "^10.0.1",
     "@luminescent/icons-qwik": "workspace:*",
