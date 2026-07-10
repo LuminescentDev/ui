@@ -96,12 +96,7 @@ export const Settings = component$(() => {
         label={`--lum-border-radius: ${store['--lum-border-radius']}rem`}>
         <NumberInput
           id="border-radius"
-          onIncrement$={() => {
-            store['--lum-border-radius'] += 0.01;
-          }}
-          onDecrement$={() => {
-            store['--lum-border-radius'] -= 0.01;
-          }}
+          step={0.125}
           onInput$={(e, el) => {
             store['--lum-border-radius'] = Number(el.value);
           }}
@@ -114,12 +109,7 @@ export const Settings = component$(() => {
         label={`--lum-border-superellipse: ${store['--lum-border-superellipse']}`}>
         <NumberInput
           id="lum-border-superellipse"
-          onIncrement$={() => {
-            store['--lum-border-superellipse'] += 0.5;
-          }}
-          onDecrement$={() => {
-            store['--lum-border-superellipse'] -= 0.5;
-          }}
+          step={0.5}
           onInput$={(e, el) => {
             store['--lum-border-superellipse'] = Number(el.value);
           }}
@@ -132,12 +122,6 @@ export const Settings = component$(() => {
         label={`--lum-border-mix: ${store['--lum-border-mix']}%`}>
         <NumberInput
           id="border-mix"
-          onIncrement$={() => {
-            store['--lum-border-mix'] += 1;
-          }}
-          onDecrement$={() => {
-            store['--lum-border-mix'] -= 1;
-          }}
           onInput$={(e, el) => {
             store['--lum-border-mix'] = Number(el.value);
           }}
@@ -150,12 +134,7 @@ export const Settings = component$(() => {
         label={`--lum-btn-p-x: ${store['--lum-btn-p-x']}`}>
         <NumberInput
           id="lum-btn-p-x"
-          onIncrement$={() => {
-            store['--lum-btn-p-x'] += 0.5;
-          }}
-          onDecrement$={() => {
-            store['--lum-btn-p-x'] -= 0.5;
-          }}
+          step={0.5}
           onInput$={(e, el) => {
             store['--lum-btn-p-x'] = Number(el.value);
           }}
@@ -168,12 +147,7 @@ export const Settings = component$(() => {
         label={`--lum-input-p-x: ${store['--lum-input-p-x']}`}>
         <NumberInput
           id="lum-input-p-x"
-          onIncrement$={() => {
-            store['--lum-input-p-x'] += 0.5;
-          }}
-          onDecrement$={() => {
-            store['--lum-input-p-x'] -= 0.5;
-          }}
+          step={0.5}
           onInput$={(e, el) => {
             store['--lum-input-p-x'] = Number(el.value);
           }}
@@ -186,12 +160,7 @@ export const Settings = component$(() => {
         label={`--lum-depth: ${store['--lum-depth']}`}>
         <NumberInput
           id="lum-depth"
-          onIncrement$={() => {
-            store['--lum-depth'] += 0.5;
-          }}
-          onDecrement$={() => {
-            store['--lum-depth'] -= 0.5;
-          }}
+          step={0.5}
           onInput$={(e, el) => {
             store['--lum-depth'] = Number(el.value);
           }}

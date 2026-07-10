@@ -55,8 +55,8 @@
 @utility lum-border-fade {
   border-color: color-mix(
     in oklab,
-    var(--border-color),
-    transparent calc(var(--lum-depth) * 100%)
+    var(--lum-border-color),
+    var(--lum-surface-color) calc(var(--lum-depth) * 100%)
   );
 }
 
@@ -102,8 +102,9 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
   --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-surface-color: var(--gradient-color);
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
@@ -119,7 +120,9 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-surface-color: var(--bg-color);
+  --lum-toggle-hover-bg: --alpha(color-mix(in oklab, white 10%, --value(--color-*)) / calc(var(--alpha, 100) * 1%));
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
@@ -221,7 +224,7 @@
 }
 
 @utility rounded-lum-* {
-  border-radius: calc(var(--lum-border-radius) - calc(var(--spacing) * --value(integer)));
+  border-radius: calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)));
   corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
@@ -270,12 +273,4 @@
   @apply flex flex-col gap-3 whitespace-pre-wrap lum-bg-lum-card-bg p-7;
   border-radius: var(--lum-border-radius);
   corner-shape: superellipse(var(--lum-border-superellipse));
-}
-
-@utility lum-hoverable {
-  @apply transition hover:scale-102 active:scale-102 hover:drop-shadow-lg active:drop-shadow-lg hover:duration-75 active:duration-75 ease-out;
-}
-
-@utility lum-loading {
-  @apply animate-spin border-transparent border-l-current border-t-current border-3 rounded-full;
 }
