@@ -23,8 +23,6 @@ export default component$(({ id }: { id: string }) => {
       <div>
         <NumberInput
           id="number-input"
-          onDecrement$={() => {}}
-          onIncrement$={() => {}}
           input={store.input}
         >
           Number Input

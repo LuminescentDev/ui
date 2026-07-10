@@ -5,14 +5,14 @@ import { Minus } from '../../svg/Minus';
 
 interface NumberInputRawProps
   extends Omit<PropsOf<'input'> & { type: 'number' }, 'class' | 'type'> {
-  onDecrement$: QRL<
+  onDecrement$?: QRL<
     (
       event: PointerEvent,
       element: HTMLButtonElement,
       inputElement?: HTMLInputElement,
     ) => void
   >;
-  onIncrement$: QRL<
+  onIncrement$?: QRL<
     (
       event: PointerEvent,
       element: HTMLButtonElement,
@@ -68,16 +68,12 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
           data-action="decrement"
           aria-label="Decrement"
           disabled={props.min ? value <= props.min : false}
-          onClick$={
-            input
-              ? $(async (event, element) => {
-                const siblingInput =
-                    element.nextElementSibling as HTMLInputElement;
-                siblingInput.stepDown();
-                await onDecrement$(event, element, siblingInput);
-              })
-              : onDecrement$
-          }
+          onClick$={onDecrement$ ?? $((event, element) => {
+            const siblingInput =
+              element.nextElementSibling as HTMLInputElement;
+            siblingInput.stepDown();
+            siblingInput.dispatchEvent(new Event('input', { bubbles: true }));
+          })}
         >
           <Minus size={20} />
         </button>
@@ -91,6 +87,16 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
               'lum-input text-center rounded-sm lum-input-p-1': true,
               ...props.class,
             }}
+            preventdefault:wheel
+            onWheel$={(e) => {
+              const inputElement = e.target as HTMLInputElement;
+              if (e.deltaY < 0) {
+                inputElement.stepUp();
+              } else {
+                inputElement.stepDown();
+              }
+              inputElement.dispatchEvent(new Event('input', { bubbles: true }));
+            }}
           />
         )}
         <button type="button"
@@ -100,15 +106,11 @@ export const NumberInputRaw = component$<NumberInputRawProps>(
           data-action="increment"
           aria-label="Increment"
           disabled={props.max ? value >= props.max : false}
-          onClick$={
-            input
-              ? $(async (event, element) => {
-                const siblingInput =
-                    element.previousElementSibling as HTMLInputElement;
-                siblingInput.stepUp();
-                await onIncrement$(event, element, siblingInput);
-              })
-              : onIncrement$
+          onClick$={onIncrement$ ?? $((event, element) => {
+            const siblingInput = element.previousElementSibling as HTMLInputElement;
+            siblingInput.stepUp();
+            siblingInput.dispatchEvent(new Event('input', { bubbles: true }));
+          })
           }
         >
           <Plus size={20} />
