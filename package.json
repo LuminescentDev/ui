@@ -22,7 +22,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@tailwindcss/oxide",
+      "@parcel/watcher",
       "esbuild",
       "nx",
       "sharp",

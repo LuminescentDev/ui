@@ -6,14 +6,14 @@ import { getClassObject } from '../functions';
 
 interface NumberInputProps
   extends Omit<PropsOf<'input'> & { type: 'number' }, 'type'> {
-  onDecrement$??: QRL<
+  onDecrement$?: QRL<
     (
       event: PointerEvent,
       element: HTMLButtonElement,
       inputElement?: HTMLInputElement,
     ) => void
   >;
-  onIncrement$??: QRL<
+  onIncrement$?: QRL<
     (
       event: PointerEvent,
       element: HTMLButtonElement,
@@ -72,16 +72,6 @@ export const NumberInput = component$<NumberInputProps>(
             class={{
               'lum-input text-center rounded-sm lum-input-p-1': true,
               ...getClassObject(Class),
-            }}
-            preventdefault:wheel
-            onWheel$={(e) => {
-              const inputElement = e.target as HTMLInputElement;
-              if (e.deltaY < 0) {
-                inputElement.stepUp();
-              } else {
-                inputElement.stepDown();
-              }
-              inputElement.dispatchEvent(new Event('input', { bubbles: true }));
             }}
             preventdefault:wheel
             onWheel$={(e) => {
