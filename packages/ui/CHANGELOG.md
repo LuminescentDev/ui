@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.7.1](https://github.com/LuminescentDev/ui/compare/v6.7.0...v6.7.1) (2026-07-10)
+
+
+### Bug Fixes
+
+* update border color calculations to use background color in depth utilities ([b14c761](https://github.com/LuminescentDev/ui/commit/b14c761290b9766d39807f87b7a3a6cb393327a7))
+
+
+### Code Refactoring
+
+* put depth css into one class that is shared among the other classes idk ([bad4712](https://github.com/LuminescentDev/ui/commit/bad4712912bd227186d08bd174e0b294b7b84ffa))
+
 ## [6.7.0](https://github.com/LuminescentDev/ui/compare/v6.6.3...v6.7.0) (2026-02-20)
 
 
