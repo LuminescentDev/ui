@@ -21,7 +21,10 @@ export const Toggle = component$<ToggleProps>(
     ...props
   }) => {
     return (
-      <div {...outerProps} class="flex touch-manipulation items-center gap-3">
+      <div {...outerProps} class={{
+        "flex touch-manipulation items-center gap-3": true,
+        ...getClassObject(outerProps?.class),
+      }}>
         <label class="relative inline-flex cursor-pointer items-center">
           <input
             type="checkbox"

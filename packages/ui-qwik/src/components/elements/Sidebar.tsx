@@ -6,7 +6,7 @@ interface SidebarProps extends PropsOf<'aside'> {
   position?: 'left' | 'right';
 }
 
-export const Sidebar = component$<SidebarProps>(({ position, class: Class, ...props }) => {
+export const Sidebar = component$<SidebarProps>(({ position, ...props }) => {
   return (
     <aside
       {...props}
@@ -14,7 +14,7 @@ export const Sidebar = component$<SidebarProps>(({ position, class: Class, ...pr
         'hidden lg:flex sticky lum-card top-0 z-40 px-6 pb-0 rounded-none pt-20 h-dvh': true,
         'left-0 border-0 border-r': position === 'left' || !position,
         'right-0 border-0 border-l': position === 'right',
-        ...getClassObject(Class),
+        ...getClassObject(props.class),
       }}
     >
       <nav id="docs-sidebar" class="min-h-full relative">

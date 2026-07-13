@@ -45,6 +45,7 @@ export const NumberInput = component$<NumberInputProps>(
       <div {...outerProps}
         class={{
           'flex touch-manipulation gap-1 text-lum-text': true,
+          ...getClassObject(outerProps?.class),
         }}
       >
         <button type="button"

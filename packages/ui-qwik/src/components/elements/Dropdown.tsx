@@ -8,14 +8,14 @@ interface DropdownProps extends PropsOf<'button'> {
   opened?: boolean;
 }
 
-export const Dropdown = component$<DropdownProps>(({ class: Class, hover, opened, ...props }) => {
+export const Dropdown = component$<DropdownProps>(({ hover, opened, ...props }) => {
   return (
     <button type="button"
+      {...props}
       class={{
         'group lum-btn': true,
-        ...getClassObject(Class),
+        ...getClassObject(props.class),
       }}
-      {...props}
     >
       <span class="flex-1 text-left">
         <Slot />

@@ -49,6 +49,7 @@ export const SelectMenu = component$<SelectMenuProps>(({
       class={{
         'relative touch-manipulation': true,
         group: hover,
+        ...getClassObject(outerProps?.class),
       }}
     >
       {values && (

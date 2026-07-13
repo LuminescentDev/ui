@@ -7,11 +7,11 @@ interface AnchorProps extends PropsOf<'div'> {
   id?: string;
 }
 
-export const Anchor = component$<AnchorProps>(({ id, class: Class, ...props }) => (
+export const Anchor = component$<AnchorProps>(({ id, ...props }) => (
   <div {...props}
     class={{
       'group flex items-center gap-2 scroll-mt-32': true,
-      ...getClassObject(Class),
+      ...getClassObject(props.class),
     }}
   >
     <Slot />

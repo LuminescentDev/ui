@@ -1,5 +1,6 @@
 import type { PropsOf, QRL } from '@qwik.dev/core';
 import { component$, useComputed$, useSignal } from '@qwik.dev/core';
+import { getClassObject } from '~/index';
 
 interface RangeInputProps
   extends Omit<PropsOf<'input'> & { type: 'number' }, 'type'> {
@@ -24,6 +25,7 @@ export const RangeInput = component$<RangeInputProps>(
     return (
       <div {...outerProps} class={{
         'group relative flex touch-manipulation gap-1 text-lum-text lum-input p-0': true,
+        ...getClassObject(outerProps?.class),
       }}>
         <div class="absolute w-full flex justify-evenly">
           {tickCount > 0 && [...Array(tickCount)].map((_, i) => {
