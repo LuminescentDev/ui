@@ -1,5 +1,6 @@
 import type { PropsOf } from '@qwik.dev/core';
 import { component$, Slot } from '@qwik.dev/core';
+import { getClassObject } from '../functions';
 
 interface LabelProps extends PropsOf<'label'> {
   label?: string,
@@ -12,8 +13,14 @@ export const Label = component$<LabelProps>(({
   ...props
 }) => {
   return (
-    <div class="flex flex-col" {...outerProps}>
-      <label {...props} class="pb-1 text-lum-text select-none">
+    <div class={{
+      "flex flex-col gap-1": true,
+      ...getClassObject(outerProps?.class),
+    }} {...outerProps}>
+      <label {...props} class={{
+        "pb-1 text-lum-text select-none": true,
+        ...getClassObject(props.class),
+      }}>
         {label}
         <Slot q:slot="label" />
       </label>
