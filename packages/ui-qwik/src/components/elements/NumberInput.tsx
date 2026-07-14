@@ -26,10 +26,11 @@ interface NumberInputProps
   max?: number;
   step?: number;
   outerProps?: PropsOf<'div'>;
+  btnProps?: PropsOf<'button'>;
 }
 
 export const NumberInput = component$<NumberInputProps>(
-  ({ input, class: Class, onDecrement$, onIncrement$, value = 0, step = 1, outerProps, ...props }) => {
+  ({ input, class: Class, onDecrement$, onIncrement$, value = 0, step = 1, outerProps, btnProps, ...props }) => {
     useStyles$(`
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
@@ -49,8 +50,10 @@ export const NumberInput = component$<NumberInputProps>(
         }}
       >
         <button type="button"
+          {...btnProps}
           class={{
             'lum-btn p-2 rounded-r-sm': true,
+            ...getClassObject(btnProps?.class)
           }}
           data-action="decrement"
           aria-label="Decrement"
@@ -87,8 +90,10 @@ export const NumberInput = component$<NumberInputProps>(
           />
         )}
         <button type="button"
+          {...btnProps}
           class={{
             'lum-btn p-2 rounded-l-sm': true,
+            ...getClassObject(btnProps?.class)
           }}
           data-action="increment"
           aria-label="Increment"
@@ -97,8 +102,7 @@ export const NumberInput = component$<NumberInputProps>(
             const siblingInput = element.previousElementSibling as HTMLInputElement;
             siblingInput.stepUp();
             siblingInput.dispatchEvent(new Event('input', { bubbles: true }));
-          })
-          }
+          })}
         >
           <Plus size={20} />
         </button>
