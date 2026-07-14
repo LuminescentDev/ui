@@ -4,10 +4,11 @@ import { ColorPicker, Label, NumberInput } from '@luminescent/ui-qwik';
 interface ColorInputProps extends Omit<PropsOf<'input'>, 'onInput$'> {
   onInput$?: QRL<(newColor: string) => void>;
   color: string;
+  opacity?: boolean;
   id: string;
 }
 
-const ColorInput = component$(({ onInput$, color, id }: ColorInputProps) => {
+const ColorInput = component$(({ onInput$, color, opacity, id }: ColorInputProps) => {
   const open = useSignal(false);
 
   return (
@@ -42,7 +43,7 @@ const ColorInput = component$(({ onInput$, color, id }: ColorInputProps) => {
         'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-1000 mt-2 left-0': true,
         'opacity-0 scale-95 pointer-events-none': !open.value,
       }}>
-        <ColorPicker
+        <ColorPicker opacity={opacity}
           id={`${id}-picker`}
           value={color}
           onInput$={onInput$}
@@ -171,49 +172,49 @@ export const Settings = component$(() => {
 
       <Label for="border-color"
         label="color-lum-border">
-        <ColorInput color={store['--color-lum-border']} id="border-color" onInput$={(newColor) => {
+        <ColorInput opacity color={store['--color-lum-border']} id="border-color" onInput$={(newColor) => {
           store['--color-lum-border'] = newColor;
         }}/>
       </Label>
 
       <Label for="card-bg-color"
         label="color-lum-card-bg">
-        <ColorInput color={store['--color-lum-card-bg']} id="card-bg-color" onInput$={(newColor) => {
+        <ColorInput opacity color={store['--color-lum-card-bg']} id="card-bg-color" onInput$={(newColor) => {
           store['--color-lum-card-bg'] = newColor;
         }}/>
       </Label>
 
       <Label for="input-bg-color"
         label="color-lum-input-bg">
-        <ColorInput color={store['--color-lum-input-bg']} id="input-bg-color" onInput$={(newColor) => {
+        <ColorInput opacity color={store['--color-lum-input-bg']} id="input-bg-color" onInput$={(newColor) => {
           store['--color-lum-input-bg'] = newColor;
         }}/>
       </Label>
 
       <Label for="input-hover-bg-color"
         label="color-lum-input-hover-bg">
-        <ColorInput color={store['--color-lum-input-hover-bg']} id="input-hover-bg-color" onInput$={(newColor) => {
+        <ColorInput opacity color={store['--color-lum-input-hover-bg']} id="input-hover-bg-color" onInput$={(newColor) => {
           store['--color-lum-input-hover-bg'] = newColor;
         }}/>
       </Label>
 
       <Label for="accent-color"
         label="color-lum-accent">
-        <ColorInput color={store['--color-lum-accent']} id="accent-color" onInput$={(newColor) => {
+        <ColorInput opacity color={store['--color-lum-accent']} id="accent-color" onInput$={(newColor) => {
           store['--color-lum-accent'] = newColor;
         }}/>
       </Label>
 
       <Label for="text-color"
         label="color-lum-text">
-        <ColorInput color={store['--color-lum-text']} id="text-color" onInput$={(newColor) => {
+        <ColorInput opacity color={store['--color-lum-text']} id="text-color" onInput$={(newColor) => {
           store['--color-lum-text'] = newColor;
         }}/>
       </Label>
 
       <Label for="text-secondary-color"
         label="color-lum-text-secondary">
-        <ColorInput color={store['--color-lum-text-secondary']} id="text-secondary-color" onInput$={(newColor) => {
+        <ColorInput opacity color={store['--color-lum-text-secondary']} id="text-secondary-color" onInput$={(newColor) => {
           store['--color-lum-text-secondary'] = newColor;
         }}/>
       </Label>
