@@ -13,12 +13,17 @@ export const Label = component$<LabelProps>(({
   ...props
 }) => {
   return (
-    <div class={{
-      "flex flex-col gap-1": true,
-      ...getClassObject(outerProps?.class),
-    }} {...outerProps}>
+    <div style={{
+        gap: "var(--lum-label-gap)",
+      }}
+      {...outerProps}
+      class={{
+        "flex flex-col": true,
+        ...getClassObject(outerProps?.class),
+      }}
+    >
       <label {...props} class={{
-        "pb-1 text-lum-text select-none": true,
+        "text-lum-text select-none flex items-center gap-1": true,
         ...getClassObject(props.class),
       }}>
         <Slot name="before-label" />

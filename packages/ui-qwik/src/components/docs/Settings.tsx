@@ -62,6 +62,7 @@ export const Settings = component$(() => {
     '--lum-btn-p-x': 2,
     '--lum-input-p-x': 1.5,
     '--lum-depth': 0,
+    '--lum-label-gap': 0.25,
     '--color-lum-border': 'var(--color-gray-300)',
     '--color-lum-card-bg': 'var(--color-gray-900)',
     '--color-lum-input-bg': 'var(--color-gray-800)',
@@ -83,7 +84,7 @@ export const Settings = component$(() => {
       if (key == '--lum-border-mix') {
         suffix = '%';
       }
-      if (key == '--lum-border-radius') {
+      if (key == '--lum-border-radius' || key == '--lum-label-gap') {
         suffix = 'rem';
       }
       console.log(key, store[key as keyof typeof store], suffix);
@@ -93,10 +94,10 @@ export const Settings = component$(() => {
 
   return (
     <>
-      <Label for="border-radius"
+      <Label for="lum-border-radius"
         label={`--lum-border-radius: ${store['--lum-border-radius']}rem`}>
         <NumberInput
-          id="border-radius"
+          id="lum-border-radius"
           step={0.125}
           onInput$={(e, el) => {
             store['--lum-border-radius'] = Number(el.value);
@@ -154,6 +155,19 @@ export const Settings = component$(() => {
           }}
           input
           value={store['--lum-input-p-x']}
+        />
+      </Label>
+
+      <Label for="lum-label-gap"
+        label={`--lum-label-gap: ${store['--lum-label-gap']}rem`}>
+        <NumberInput
+          id="lum-label-gap"
+          step={0.125}
+          onInput$={(e, el) => {
+            store['--lum-label-gap'] = Number(el.value);
+          }}
+          input
+          value={store['--lum-label-gap']}
         />
       </Label>
 

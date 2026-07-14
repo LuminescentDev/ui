@@ -12,6 +12,7 @@
   --color-luminescent-950: oklch(28.4% 0.109 327.907);
   --lum-btn-p-x: 2;
   --lum-input-p-x: 1.5;
+  --lum-label-gap: 0.25rem;
   --lum-border-radius: var(--radius-lg);
   --lum-border-superellipse: 1;
   --lum-border-mix: 20%;
