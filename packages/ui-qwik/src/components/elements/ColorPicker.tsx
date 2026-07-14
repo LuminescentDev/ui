@@ -80,21 +80,21 @@ export const ColorPicker = component$<ColorPickerProps>(
       await onInput$?.(store.value);
     });
 
-    const hueChange = $(async (e: MouseEvent | TouchEvent, hOffset: number) => {
-      const { y } = getMousePosition(e);
-      store.hue.position = clamp(maxHue - (y - hOffset), 0, maxHue);
-      const hsvColor = rgbToHsv(hexToRgba((store.value)));
-      const h = store.hue.position / maxHue;
-      hsvColor.h = h;
-      store.hue.color = rgbToHex(hsvToRgb({ h, s: 1, v: 1, a: hsvColor.a }));
-
-      store.value = rgbToHex(hsvToRgb(hsvColor));
-      await onInput$?.(store.value);
-    });
-
     const hueMouseDown = $(
       async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
         const hOffset = el.getBoundingClientRect().top;
+        const hueChange = async (e: MouseEvent | TouchEvent, hOffset: number) => {
+          const { y } = getMousePosition(e);
+          store.hue.position = clamp(maxHue - (y - hOffset), 0, maxHue);
+          const hsvColor = rgbToHsv(hexToRgba((store.value)));
+          const h = store.hue.position / maxHue;
+          hsvColor.h = h;
+          store.hue.color = rgbToHex(hsvToRgb({ h, s: 1, v: 1, a: hsvColor.a }));
+
+          store.value = rgbToHex(hsvToRgb(hsvColor));
+          await onInput$?.(store.value);
+        };
+
         await hueChange(e, hOffset);
         const eventListener = (e: MouseEvent | TouchEvent) =>
           void hueChange(e, hOffset);
@@ -111,27 +111,27 @@ export const ColorPicker = component$<ColorPickerProps>(
       },
     );
 
-    const sbChange = $(async (e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
-      const { x, y } = getMousePosition(e);
-      store.bPosition = clamp(y - hOffset.top, 0, maxHue);
-      store.sPosition = clamp(x - hOffset.left, 0, width);
-      const s = store.sPosition / width;
-      const v = 1 - store.bPosition / maxHue;
-
-      store.value = rgbToHex(
-        hsvToRgb({
-          h: store.hue.position / maxHue,
-          s,
-          v,
-          a: store.opacity.position !== undefined ? 1 - store.opacity.position / maxHue : 1,
-        }),
-      );
-      await onInput$?.(store.value);
-    });
-
     const sbMouseDown = $(
       async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
         const offset = el.getBoundingClientRect();
+        const sbChange = async (e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
+          const { x, y } = getMousePosition(e);
+          store.bPosition = clamp(y - hOffset.top, 0, maxHue);
+          store.sPosition = clamp(x - hOffset.left, 0, width);
+          const s = store.sPosition / width;
+          const v = 1 - store.bPosition / maxHue;
+
+          store.value = rgbToHex(
+            hsvToRgb({
+              h: store.hue.position / maxHue,
+              s,
+              v,
+              a: store.opacity.position !== undefined ? 1 - store.opacity.position / maxHue : 1,
+            }),
+          );
+          await onInput$?.(store.value);
+        };
+
         await sbChange(e, offset);
         const eventListener = (e: MouseEvent | TouchEvent) =>
           void sbChange(e, offset);
@@ -148,20 +148,19 @@ export const ColorPicker = component$<ColorPickerProps>(
       },
     );
 
-    const opacityChange = $(
-      async (e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
-        const { x } = getMousePosition(e);
-        store.opacity.position = clamp(x - hOffset.left, 0, maxHue);
-        const a = 1 - (store.opacity.position / maxHue);
-        const hsvColor = rgbToHsv(hexToRgba((store.value)));
-        hsvColor.a = a;
-        store.value = rgbToHex(hsvToRgb(hsvColor));
-        await onInput$?.(store.value);
-      },
-    );
     const opacityMouseDown = $(
       async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
         const offset = el.getBoundingClientRect();
+        const opacityChange = async (e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
+          const { x } = getMousePosition(e);
+          store.opacity.position = clamp(x - hOffset.left, 0, maxHue);
+          const a = 1 - (store.opacity.position / maxHue);
+          const hsvColor = rgbToHsv(hexToRgba((store.value)));
+          hsvColor.a = a;
+          store.value = rgbToHex(hsvToRgb(hsvColor));
+          await onInput$?.(store.value);
+        };
+
         await opacityChange(e, offset);
         const eventListener = (e: MouseEvent | TouchEvent) =>
           void opacityChange(e, offset);
@@ -177,6 +176,7 @@ export const ColorPicker = component$<ColorPickerProps>(
         window.addEventListener('touchend', mouseUpListener);
       },
     );
+
 
     return (
       <div
