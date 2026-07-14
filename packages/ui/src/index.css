@@ -35,13 +35,13 @@
 
 @utility lum-depth-shadow {
   box-shadow:
-    inset 0 1px 2px var(--border-color),
+    inset 0 1px 2px var(--lum-border-color),
     0 1px 2px rgba(0, 0, 0, 0.05),
     0 1px 3px rgba(0, 0, 0, 0.1);
 }
 @utility lum-depth-shadow-fade {
   box-shadow:
-    inset 0 calc(0.5px * var(--lum-depth)) calc(1px * var(--lum-depth)) var(--border-color),
+    inset 0 calc(0.5px * var(--lum-depth)) calc(1px * var(--lum-depth)) var(--lum-border-color),
     0 calc(0.5px * var(--lum-depth)) calc(1px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
     0 calc(0.5px * var(--lum-depth)) calc(1.5px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
 }
@@ -71,7 +71,8 @@
 
 @utility lum-bg {
   /* Inlined base color logic (previously in lum-bg-base) */
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-surface-color: var(--bg-color);
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
@@ -86,7 +87,8 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-surface-color: var(--bg-color);
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
@@ -122,12 +124,11 @@
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
   --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
   --lum-surface-color: var(--bg-color);
-  --lum-toggle-hover-bg: --alpha(color-mix(in oklab, white 10%, --value(--color-*)) / calc(var(--alpha, 100) * 1%));
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
 
-  border-color: var(--border-color);
+  border-color: var(--lum-border-color);
   background-color: var(--bg-color);
 
   @apply lum-allow-keywords;
@@ -138,13 +139,14 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
   --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-surface-color: var(--gradient-color);
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
 
-  border-color: var(--border-color);
+  border-color: var(--lum-border-color);
   background: linear-gradient(var(--lum-gradient-angle), var(--bg-color), var(--gradient-color));
 
   @apply lum-allow-keywords;
@@ -155,7 +157,8 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-surface-color: var(--bg-color);
 
   @apply lum-depth-shadow;
 
@@ -169,8 +172,9 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
   --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-surface-color: var(--gradient-color);
 
   @apply lum-depth-shadow;
 
@@ -184,8 +188,9 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
   --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-surface-color: var(--gradient-color);
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
@@ -200,7 +205,9 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-surface-color: var(--bg-color);
+  --lum-toggle-hover-bg: --alpha(color-mix(in oklab, white 10%, --value(--color-*)) / calc(var(--alpha, 100) * 1%));
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
@@ -210,9 +217,10 @@
   @apply lum-allow-keywords;
 
   &::after, &:hover {
+    --lum-surface-color: var(--lum-toggle-hover-bg);
+    background-color: var(--lum-toggle-hover-bg);
     @apply lum-border-fade;
     @apply lum-depth-shadow-fade;
-    background-color: --alpha(color-mix(in oklab, white 10%, --value(--color-*)) / calc(var(--alpha, 100) * 1%));
     @apply lum-allow-keywords;
   }
 }

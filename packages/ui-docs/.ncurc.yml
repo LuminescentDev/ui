@@ -1,3 +1,2 @@
 reject:
-  - "vite" # frozen on v8
   - "typescript" # v6 not supported by qwik
