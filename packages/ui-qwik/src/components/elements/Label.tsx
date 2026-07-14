@@ -22,7 +22,7 @@ export const Label = component$<LabelProps>(({
         ...getClassObject(props.class),
       }}>
         {label}
-        <Slot q:slot="label" />
+        <Slot name="label" />
       </label>
       <Slot />
     </div>
