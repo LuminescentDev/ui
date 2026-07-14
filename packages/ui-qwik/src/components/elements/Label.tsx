@@ -21,8 +21,9 @@ export const Label = component$<LabelProps>(({
         "pb-1 text-lum-text select-none": true,
         ...getClassObject(props.class),
       }}>
+        <Slot name="before-label" />
         {label}
-        <Slot name="label" />
+        <Slot name="after-label" />
       </label>
       <Slot />
     </div>
