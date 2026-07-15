@@ -1,9 +1,27 @@
 {
   "name": "@luminescent/ui-qwik",
   "version": "7.0.0-11",
+  "private": false,
   "description": "Luminescent UI library - Qwik",
+  "homepage": "https://ui.luminescent.dev",
+  "bugs": {
+    "url": "https://github.com/LuminescentDev/ui/issues"
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": {
+    "name": "saboooor",
+    "url": "https://saboor.ca"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LuminescentDev/ui.git"
+  },
+  "files": [
+    "lib"
+  ],
+  "type": "module",
+  "sideEffects": false,
   "main": "./lib/index.qwik.mjs",
-  "qwik": "./lib/index.qwik.mjs",
   "types": "./lib/index.d.ts",
   "exports": {
     ".": {
@@ -12,23 +30,6 @@
       "require": "./lib/index.qwik.cjs"
     }
   },
-  "files": [
-    "lib"
-  ],
-  "engines": {
-    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
-  },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "11.13.0",
-      "onFail": "download"
-    }
-  },
-  "license": "AGPL-3.0-or-later",
-  "private": false,
-  "sideEffects": false,
-  "type": "module",
   "publishConfig": {
     "access": "public"
   },
@@ -58,5 +59,16 @@
   },
   "peerDependencies": {
     "@luminescent/ui": "workspace:*"
-  }
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.13.0",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+  },
+  "qwik": "./lib/index.qwik.mjs"
 }

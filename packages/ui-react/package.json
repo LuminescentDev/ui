@@ -1,28 +1,30 @@
 {
   "name": "@luminescent/ui-react",
   "version": "6.8.3-1",
+  "private": false,
   "description": "Luminescent UI library - React",
-  "engines": {
-    "node": ">=23.11.0"
-  },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "11.13.0",
-      "onFail": "download"
-    }
+  "homepage": "https://ui.luminescent.dev",
+  "bugs": {
+    "url": "https://github.com/LuminescentDev/ui/issues"
   },
   "license": "AGPL-3.0-or-later",
-  "private": false,
-  "type": "module",
-  "publishConfig": {
-    "access": "public"
+  "author": {
+    "name": "saboooor",
+    "url": "https://saboor.ca"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LuminescentDev/ui.git"
   },
   "files": [
     "dist"
   ],
+  "type": "module",
   "main": "dist/ui-react.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "vp dev",
     "dev": "vp dev",
@@ -50,5 +52,15 @@
   },
   "peerDependencies": {
     "@luminescent/ui": "workspace:*"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.13.0",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": ">=23.11.0"
   }
 }

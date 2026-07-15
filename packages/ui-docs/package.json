@@ -1,18 +1,21 @@
 {
   "name": "@luminescent/ui-docs",
-  "description": "Luminescent UI Documentation",
   "private": true,
-  "engines": {
-    "node": ">=23.11.0"
+  "description": "Luminescent UI Documentation",
+  "homepage": "https://ui.luminescent.dev",
+  "bugs": {
+    "url": "https://github.com/LuminescentDev/ui/issues"
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "11.13.0",
-      "onFail": "download"
-    }
+  "author": {
+    "name": "saboooor",
+    "url": "https://saboor.ca"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LuminescentDev/ui.git"
   },
   "type": "module",
+  "sideEffects": false,
   "scripts": {
     "build": "qwik build",
     "build.client": "vp build",
@@ -27,7 +30,6 @@
     "start.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --forcenode --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "qwik": "qwik"
   },
-  "sideEffects": false,
   "devDependencies": {
     "@luminescent/icons-qwik": "workspace:*",
     "@luminescent/ui": "workspace:*",
@@ -46,8 +48,18 @@
     "typescript-plugin-css-modules": "latest",
     "undici": "^8.7.0",
     "vite": "catalog:",
+    "vite-plus": "catalog:",
     "vite-tsconfig-paths": "^6.1.1",
-    "wrangler": "^4.110.0",
-    "vite-plus": "catalog:"
+    "wrangler": "^4.110.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.13.0",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": ">=23.11.0"
   }
 }

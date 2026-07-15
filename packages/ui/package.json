@@ -1,18 +1,30 @@
 {
   "name": "@luminescent/ui",
   "version": "7.0.2",
+  "private": false,
   "description": "Luminescent UI library",
-  "exports": {
-    ".": "./src/index.css",
-    "./formatting": "./src/formatting.css"
+  "homepage": "https://ui.luminescent.dev",
+  "bugs": {
+    "url": "https://github.com/LuminescentDev/ui/issues"
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": {
+    "name": "saboooor",
+    "url": "https://saboor.ca"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LuminescentDev/ui.git"
   },
   "files": [
     "src/index.css",
     "src/formatting.css"
   ],
-  "license": "AGPL-3.0-or-later",
-  "private": false,
   "type": "module",
+  "exports": {
+    ".": "./src/index.css",
+    "./formatting": "./src/formatting.css"
+  },
   "publishConfig": {
     "access": "public"
   },
