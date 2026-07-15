@@ -1,5 +1,10 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Label, NumberInput as NumberInputEl, Toggle } from '@luminescent/ui-qwik';
+import {
+  Anchor,
+  Label,
+  NumberInput as NumberInputEl,
+  Toggle,
+} from '@luminescent/ui-qwik';
 
 interface numberInputOptions {
   input?: boolean;
@@ -10,7 +15,10 @@ export const NumberInput = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           NumberInput
         </h2>
       </Anchor>

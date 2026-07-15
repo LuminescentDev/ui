@@ -13,9 +13,7 @@ import {
 export default component$(() => {
   return (
     <>
-      <h2>
-        Icons
-      </h2>
+      <h2>Icons</h2>
       <div>
         <Birdflop size={40} />
         <Fabric size={40} />

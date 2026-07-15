@@ -1,5 +1,11 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, SelectMenu, Toggle, ColorPicker as ColorPickerEl, Label } from '@luminescent/ui-qwik';
+import {
+  Anchor,
+  SelectMenu,
+  Toggle,
+  ColorPicker as ColorPickerEl,
+  Label,
+} from '@luminescent/ui-qwik';
 
 interface colorPickerOptions {
   preview?: 'left' | 'right' | 'top' | 'bottom' | 'full';
@@ -13,7 +19,10 @@ export const ColorPicker = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           ColorPicker
         </h2>
       </Anchor>
@@ -30,10 +39,12 @@ export const ColorPicker = component$(({ id }: { id: string }) => {
                 | 'bottom'
                 | 'full')
             }
-            values={['left', 'right', 'top', 'bottom', 'full'].map((preview) => ({
-              name: preview,
-              value: preview,
-            }))}
+            values={['left', 'right', 'top', 'bottom', 'full'].map(
+              (preview) => ({
+                name: preview,
+                value: preview,
+              })
+            )}
             value="left"
           />
         </Label>

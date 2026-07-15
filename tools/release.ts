@@ -41,7 +41,7 @@ await releaseChangelog({
 // An explicit null value here means that no changes were detected across any package
 if (workspaceVersion === null) {
   console.log(
-    '⏭️ No changes detected across any package, skipping publish step altogether',
+    '⏭️ No changes detected across any package, skipping publish step altogether'
   );
 } else {
   const publishStatus = await releasePublish({

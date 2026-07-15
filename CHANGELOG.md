@@ -230,7 +230,7 @@ This was a version bump only, there were no code changes.
 
 - update a bunch of stuff ([3e7ed79](https://github.com/LuminescentDev/ui/commit/3e7ed79))
 - update Toggle component for new lum-bg classes and enhance customization options ([d965fb6](https://github.com/LuminescentDev/ui/commit/d965fb6))
-- add more color variables   --color-lum-card-bg: var(--color-gray-900);   --color-lum-input-bg: var(--color-gray-800);   --color-lum-input-hover-bg: var(--color-gray-700);   --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
+- add more color variables --color-lum-card-bg: var(--color-gray-900); --color-lum-input-bg: var(--color-gray-800); --color-lum-input-hover-bg: var(--color-gray-700); --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
 - update text color variables to use lum-text and lum-text-secondary ([7934342](https://github.com/LuminescentDev/ui/commit/7934342))
 - add Sidebar component and update imports in elements and root ([6301903](https://github.com/LuminescentDev/ui/commit/6301903))
 - add Luminescent UI React library with components and documentation ([28d224b](https://github.com/LuminescentDev/ui/commit/28d224b))
@@ -247,9 +247,9 @@ This was a version bump only, there were no code changes.
 - **SelectMenu:** refactor to use useSignal for select reference and remove id prop ([fde776b](https://github.com/LuminescentDev/ui/commit/fde776b))
 - **hoverable:** use bounding rect for mouse coords, correct rotation math, and add smooth enter/leave transitions ([137de44](https://github.com/LuminescentDev/ui/commit/137de44))
 - **lum-bg:** make focus state depth-aware with fading border and shadow ([87a97dc](https://github.com/LuminescentDev/ui/commit/87a97dc))
-- **lum-btn:** add gap to lum-btn-p-* utility for consistent button spacing ([6d022a4](https://github.com/LuminescentDev/ui/commit/6d022a4))
+- **lum-btn:** add gap to lum-btn-p-\* utility for consistent button spacing ([6d022a4](https://github.com/LuminescentDev/ui/commit/6d022a4))
 - **lum-btn:** make button gap scalable via --lum-btn-gap-scale and remove hardcoded gap ([15f68d0](https://github.com/LuminescentDev/ui/commit/15f68d0))
-- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
+- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-\* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
 - **nav:** add title attribute to hamburger button for accessibility ([63647dd](https://github.com/LuminescentDev/ui/commit/63647dd))
 - **styles:** update focus styles for improved visibility and consistency ([9fe48cb](https://github.com/LuminescentDev/ui/commit/9fe48cb))
 - **styles:** simplify focus border color for consistency ([a6d3fec](https://github.com/LuminescentDev/ui/commit/a6d3fec))
@@ -264,9 +264,9 @@ This was a version bump only, there were no code changes.
 
 ### 🩹 Fixes
 
-- **lum-btn:** add gap to lum-btn-p-* utility for consistent button spacing ([6d022a4](https://github.com/LuminescentDev/ui/commit/6d022a4))
+- **lum-btn:** add gap to lum-btn-p-\* utility for consistent button spacing ([6d022a4](https://github.com/LuminescentDev/ui/commit/6d022a4))
 - **lum-btn:** make button gap scalable via --lum-btn-gap-scale and remove hardcoded gap ([15f68d0](https://github.com/LuminescentDev/ui/commit/15f68d0))
-- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
+- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-\* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
 - **nav:** add title attribute to hamburger button for accessibility ([63647dd](https://github.com/LuminescentDev/ui/commit/63647dd))
 - **styles:** update focus styles for improved visibility and consistency ([9fe48cb](https://github.com/LuminescentDev/ui/commit/9fe48cb))
 - **styles:** simplify focus border color for consistency ([a6d3fec](https://github.com/LuminescentDev/ui/commit/a6d3fec))
@@ -302,7 +302,7 @@ This was a version bump only, there were no code changes.
 
 ### 🩹 Fixes
 
-- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
+- **lum-btn:** use clamp-based scaling for gap in lum-btn-p-\* utility, removing --lum-btn-gap-scale ([8bd2ac3](https://github.com/LuminescentDev/ui/commit/8bd2ac3))
 
 ### ❤️ Thank You
 
@@ -320,7 +320,7 @@ This was a version bump only, there were no code changes.
 
 - **hoverable:** use bounding rect for mouse coords, correct rotation math, and add smooth enter/leave transitions ([137de44](https://github.com/LuminescentDev/ui/commit/137de44))
 - **lum-bg:** make focus state depth-aware with fading border and shadow ([87a97dc](https://github.com/LuminescentDev/ui/commit/87a97dc))
-- **lum-btn:** add gap to lum-btn-p-* utility for consistent button spacing ([6d022a4](https://github.com/LuminescentDev/ui/commit/6d022a4))
+- **lum-btn:** add gap to lum-btn-p-\* utility for consistent button spacing ([6d022a4](https://github.com/LuminescentDev/ui/commit/6d022a4))
 - **lum-btn:** make button gap scalable via --lum-btn-gap-scale and remove hardcoded gap ([15f68d0](https://github.com/LuminescentDev/ui/commit/15f68d0))
 
 ### ❤️ Thank You
@@ -387,7 +387,7 @@ This was a version bump only, there were no code changes.
 
 - saboooor
 
-Added depth-based border fade and shadow to lum-bg-* classes. The depth variable can be adjusted globally to change the intensity of the effect.
+Added depth-based border fade and shadow to lum-bg-\* classes. The depth variable can be adjusted globally to change the intensity of the effect.
 
 example:
 
@@ -396,6 +396,7 @@ example:
   --lum-depth: 0; /* default */
 }
 ```
+
 ```css
 @theme {
   --lum-depth: 1; /* depth enabled */
@@ -405,16 +406,16 @@ example:
 ## 5.2.0 (2025-07-29)
 
 Breaking Changes:
+
 - the Toggle component's label is now passed as children instead of a label prop.
   Migration Guide:
 
 ```jsx
 <Toggle id="toggle-input" label="Toggle" />
 ```
+
 ```jsx
-<Toggle id="toggle-input">
-  Toggle
-</Toggle>
+<Toggle id="toggle-input">Toggle</Toggle>
 ```
 
 ## 5.1.0 (2025-07-29)
@@ -505,7 +506,7 @@ This was a version bump only, there were no code changes.
 
 - update a bunch of stuff ([3e7ed79](https://github.com/LuminescentDev/ui/commit/3e7ed79))
 - update Toggle component for new lum-bg classes and enhance customization options ([d965fb6](https://github.com/LuminescentDev/ui/commit/d965fb6))
-- add more color variables   --color-lum-card-bg: var(--color-gray-900);   --color-lum-input-bg: var(--color-gray-800);   --color-lum-input-hover-bg: var(--color-gray-700);   --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
+- add more color variables --color-lum-card-bg: var(--color-gray-900); --color-lum-input-bg: var(--color-gray-800); --color-lum-input-hover-bg: var(--color-gray-700); --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
 - update text color variables to use lum-text and lum-text-secondary ([7934342](https://github.com/LuminescentDev/ui/commit/7934342))
 - add Sidebar component and update imports in elements and root ([6301903](https://github.com/LuminescentDev/ui/commit/6301903))
 
@@ -538,6 +539,7 @@ added align prop to select menu for aligning the dropdown content, which can be 
 added theme colors to formatting
 
 Breaking Changes:
+
 - the SelectMenu component now takes up the full width of its parent container by default, in addition to the align prop. If you want to change the width, you can use the `w-auto` class.
 
 ## 4.1.1 (2025-06-16)
@@ -554,7 +556,7 @@ Breaking Changes:
 
 ### 🚀 Features
 
-- add more color variables   --color-lum-card-bg: var(--color-gray-900);   --color-lum-input-bg: var(--color-gray-800);   --color-lum-input-hover-bg: var(--color-gray-700);   --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
+- add more color variables --color-lum-card-bg: var(--color-gray-900); --color-lum-input-bg: var(--color-gray-800); --color-lum-input-hover-bg: var(--color-gray-700); --color-lum-accent: var(--color-blue-500); ([6bee32e](https://github.com/LuminescentDev/ui/commit/6bee32e))
 
 ### ❤️ Thank You
 
@@ -596,7 +598,11 @@ Migration Guide:
 ```
 
 ```html
-<Toggle id="toggle-input" label="Toggle" class="lum-toggle-bg-slate-600 peer-checked:lum-toggle-bg-green-600" />
+<Toggle
+  id="toggle-input"
+  label="Toggle"
+  class="lum-toggle-bg-slate-600 peer-checked:lum-toggle-bg-green-600"
+/>
 ```
 
 Added some variables that you can change on your global.css file to change the default values
@@ -616,7 +622,6 @@ You can use the rounded-lum utility to apply the default border radius to any el
 
 In addition, you can also nest rounded border radius classes by appending the amount of padding to the class name, such as `rounded-lum-2` for an element that has the `p-2` class.
 
-
 Added border-gradient- utility class to apply a gradient border to an element.
 
 Example:
@@ -625,17 +630,24 @@ Example:
 <div class="border-gradient-1 before:from-blue-500 before:to-purple-500">
   This is a div with a gradient border
 </div>
-<div class="border-gradient-2 before:bg-gradient-to-r before:from-blue-500 before:to-purple-500">
+<div
+  class="border-gradient-2 before:bg-gradient-to-r before:from-blue-500 before:to-purple-500"
+>
   This is a div with a gradient border that goes from left to right
 </div>
 ```
 
 Added mouse-tracking card that follows the mouse cursor around the screen. qwik only for now.
+
 ```jsx
 import { Hoverable } from '@luminescent/ui-qwik';
-<div class="lum-card lum-hoverable" onMouseMove$={(e, el) => Hoverable.onMouseMove$(e, el)} onMouseLeave$={(e, el) => Hoverable.onMouseLeave$(e, el)}>
+<div
+  class="lum-card lum-hoverable"
+  onMouseMove$={(e, el) => Hoverable.onMouseMove$(e, el)}
+  onMouseLeave$={(e, el) => Hoverable.onMouseLeave$(e, el)}
+>
   This card follows the mouse cursor around the screen
-</div>
+</div>;
 ```
 
 Added a 'lum-hoverable' class that applies a pop out effect on hover to any element.
@@ -665,7 +677,7 @@ Migration Guide:
 New formatting import that applies default formatting to various elements
 
 ```css
-@import 'luminescent/ui/formatting'
+@import 'luminescent/ui/formatting';
 ```
 
 All icon size properties have been renamed from 'width' to 'size'
@@ -673,11 +685,11 @@ All icon size properties have been renamed from 'width' to 'size'
 Migration Guide:
 
 ```html
-<LogoLuminescent width={20}>
+<LogoLuminescent width="{20}"></LogoLuminescent>
 ```
 
 ```html
-<LogoLuminescent size={20}>
+<LogoLuminescent size="{20}"></LogoLuminescent>
 ```
 
 Dropdown has been renamed to SelectMenu, display property has been moved to a slot. It's recommended to also use the slot if you need a fallback value to show as a display
@@ -696,13 +708,14 @@ Migration Guide
 ```html
 <SelectMenu customDropdown>
   Select Menu
-  <p q:slot="dropdown">
-    Select Menu uwu
+  <p q:slot="dropdown">Select Menu uwu</p>
+
   <p>
-  <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent">
-    Option 4 (not an actual value)
-  </button>
-</SelectMenu>
+    <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent">
+      Option 4 (not an actual value)
+    </button>
+  </p></SelectMenu
+>
 ```
 
 Icons have been updated to use lucide icons
@@ -714,9 +727,7 @@ Removed the Header element, Anchor is now its own element that wraps around any 
 Migration guide:
 
 ```html
-<Header>
-  This is a header
-</Header>
+<header>This is a header</header>
 ```
 
 ```html
@@ -726,9 +737,7 @@ Migration guide:
 ```
 
 ```html
-<Header id="anchor" anchor>
-  This is a header with an anchor
-</Header>
+<header id="anchor" anchor>This is a header with an anchor</header>
 ```
 
 ```html
@@ -740,18 +749,16 @@ Migration guide:
 ```
 
 ```html
-<Header subheader="This is a subheader">
+<header subheader="This is a subheader">
   This is a header with a subheader
-</Header>
+</header>
 ```
 
 ```html
 <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
   This is a header with a subheader
 </h2>
-<h3 class="text-sm text-lum-text-secondary">
-  This is a subheader
-</h3>
+<h3 class="text-sm text-lum-text-secondary">This is a subheader</h3>
 ```
 
 # 2.0.0 (2025-05-06)
@@ -773,6 +780,7 @@ lum-pad-3xl > lum-btn-p-6
 lum-pad-4xl > lum-btn-p-7
 lum-pad-5xl > lum-btn-p-8
 ```
+
 ```
 lum-pad-equal-xs > p-1.5
 lum-pad-equal-sm > p-2

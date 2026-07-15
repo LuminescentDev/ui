@@ -13,20 +13,22 @@ export default function SelectMenuDoc() {
       </h2>
       <Toggle
         id="selectmenu-customDropdown"
-        onInput={(e) => (setCustomDropdown(e.currentTarget.checked))}
+        onInput={(e) => setCustomDropdown(e.currentTarget.checked)}
       >
         customDropdown
       </Toggle>
       <Toggle
         id="selectmenu-hover"
-        onInput={(e) => (setHover(e.currentTarget.checked))}
+        onInput={(e) => setHover(e.currentTarget.checked)}
       >
         hover
       </Toggle>
       <div className="flex">
         <SelectMenu
           id="selectmenu-align"
-          onChange={(e) => (setAlign(e.currentTarget.value as 'left' | 'right' | 'center'))}
+          onChange={(e) =>
+            setAlign(e.currentTarget.value as 'left' | 'right' | 'center')
+          }
           values={['left', 'right', 'center'].map((preview) => ({
             name: preview,
             value: preview,
@@ -51,17 +53,17 @@ export default function SelectMenuDoc() {
           customDropdown={customDropdown}
           hover={hover}
           align={align}
-          dropdown={
-            <p>Fallback content</p>
+          dropdown={<p>Fallback content</p>}
+          extra-buttons={
+            <>
+              <button className="lum-btn lum-bg-transparent">
+                Option 4 (not an actual value)
+              </button>
+              <button className="lum-btn lum-bg-transparent">
+                Option 4 (not an actual value)
+              </button>
+            </>
           }
-          extra-buttons={<>
-            <button className="lum-btn lum-bg-transparent">
-              Option 4 (not an actual value)
-            </button>
-            <button className="lum-btn lum-bg-transparent">
-              Option 4 (not an actual value)
-            </button>
-          </>}
         >
           Select Menu
         </SelectMenu>
@@ -93,4 +95,4 @@ export default function SelectMenuDoc() {
       />
     </div>
   );
-};
+}

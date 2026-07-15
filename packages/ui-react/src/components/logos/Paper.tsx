@@ -28,4 +28,4 @@ export function LogoPaper({ size, ...props }: IconProps) {
       <path fill="currentColor" d="m12 18-4-2 10-9-6 11Z" />
     </svg>
   );
-};
+}

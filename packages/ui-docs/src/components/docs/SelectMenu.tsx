@@ -1,5 +1,10 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { SelectMenu as SelectMenuEl, Toggle, Anchor, Label } from '@luminescent/ui-qwik';
+import {
+  SelectMenu as SelectMenuEl,
+  Toggle,
+  Anchor,
+  Label,
+} from '@luminescent/ui-qwik';
 import Plus from 'lucide-icons-qwik/icons/Plus';
 
 interface SelectMenuOptions {
@@ -13,7 +18,10 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           SelectMenu
         </h2>
       </Anchor>
@@ -35,10 +43,7 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
           <SelectMenuEl
             id="selectmenu-align"
             onChange$={(e, element) =>
-              (store.align = element.value as
-                | 'left'
-                | 'right'
-                | 'center')
+              (store.align = element.value as 'left' | 'right' | 'center')
             }
             values={['left', 'right', 'center'].map((preview) => ({
               name: preview,
@@ -51,7 +56,8 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
       <div class="flex">
         <Label for="selectmenu-input">
           Select Menu
-          <SelectMenuEl id="selectmenu-input"
+          <SelectMenuEl
+            id="selectmenu-input"
             values={[
               {
                 name: 'Custom Button',
@@ -67,11 +73,9 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
             hover={store.hover}
             align={store.align}
           >
-            <p q:slot="dropdown">
-              Fallback content
-            </p>
+            <p q:slot="dropdown">Fallback content</p>
 
-            <button class="lum-bg-red-500 p-1 rounded" q:slot="1">
+            <button class="lum-bg-red-500 rounded p-1" q:slot="1">
               Custom Button
             </button>
 
@@ -80,7 +84,11 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
             <button q:slot="extra-content" class="lum-btn lum-bg-transparent">
               Option 5 (not an actual value)
             </button>
-            <input q:slot="extra-content" class="lum-input lum-bg-transparent" placeholder="custom value..."/>
+            <input
+              q:slot="extra-content"
+              class="lum-input lum-bg-transparent"
+              placeholder="custom value..."
+            />
           </SelectMenuEl>
         </Label>
       </div>

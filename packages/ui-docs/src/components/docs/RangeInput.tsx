@@ -1,11 +1,18 @@
 import { component$ } from '@qwik.dev/core';
-import { Anchor, Label, RangeInput as RangeInputEl } from '@luminescent/ui-qwik';
+import {
+  Anchor,
+  Label,
+  RangeInput as RangeInputEl,
+} from '@luminescent/ui-qwik';
 
 export const RangeInput = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           RangeInput
         </h2>
       </Anchor>

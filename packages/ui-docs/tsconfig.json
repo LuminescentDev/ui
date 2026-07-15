@@ -17,8 +17,11 @@
     "isolatedModules": true,
     "outDir": "tmp",
     "noEmit": true,
+    "types": ["vite/client"],
+    "rootDir": "../../",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "root/*": ["../../*"]
     },
     /* if you do not use CSS modules, remove this line and delete the typescript-plugin-css-modules module from package.json */
     "plugins": [{ "name": "typescript-plugin-css-modules" }]

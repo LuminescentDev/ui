@@ -335,9 +335,7 @@ const messages = {
         : 'Offer to apply manually.'
     }`,
   fix_needs_review: () =>
-    `Fix available but needs review. Verification: ${
-      verificationStatus || 'N/A'
-    }`,
+    `Fix available but needs review. Verification: ${verificationStatus || 'N/A'}`,
   fix_apply_ready: () => 'Fix available and verified. Ready to apply.',
   fix_needs_local_verify: (extra) =>
     `Fix available. ${extra.verifiableTaskIds.length} task(s) need local verification.`,

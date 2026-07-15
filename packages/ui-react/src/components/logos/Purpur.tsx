@@ -71,4 +71,4 @@ export function LogoPurpur({ size, ...props }: IconProps) {
       />
     </svg>
   );
-};
+}

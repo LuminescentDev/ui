@@ -1,4 +1,12 @@
-import { component$, isBrowser, PropsOf, QRL, useSignal, useStore, useTask$ } from '@qwik.dev/core';
+import {
+  component$,
+  isBrowser,
+  PropsOf,
+  QRL,
+  useSignal,
+  useStore,
+  useTask$,
+} from '@qwik.dev/core';
 import { ColorPicker, Label, NumberInput } from '@luminescent/ui-qwik';
 
 interface ColorInputProps extends Omit<PropsOf<'input'>, 'onInput$'> {
@@ -8,51 +16,69 @@ interface ColorInputProps extends Omit<PropsOf<'input'>, 'onInput$'> {
   id: string;
 }
 
-const ColorInput = component$(({ onInput$, color, opacity, id }: ColorInputProps) => {
-  const open = useSignal(false);
+const ColorInput = component$(
+  ({ onInput$, color, opacity, id }: ColorInputProps) => {
+    const open = useSignal(false);
 
-  return (
-    <div class="flex gap-1 relative">
-      <div class="rounded-lum rounded-r-sm p-4 lum-bg" style={{
-        '--bg-color': color,
-      }}/>
-      <input id={id}
-        class={{
-          'lum-input lum-input-p-1 rounded-l-sm': true,
-        }}
-        value={color}
-        onInput$={(e, el) => {
-          const picker = document.getElementById(`${id}-picker`)!;
-          picker.dataset.value = el.value;
-          picker.dispatchEvent(new Event('input'));
-        }}
-        onMouseUp$={() => {
-          const picker = document.getElementById(`${id}-picker`)!;
-          picker.dataset.value = color;
-          picker.dispatchEvent(new Event('input'));
-          open.value = !open.value;
-          const abortController = new AbortController();
-          document.addEventListener('click', (e) => {
-            if (e.target instanceof HTMLElement && !e.target.closest(`#${id}-popup`)) {
-              abortController.abort();
-            }
-          }, { signal: abortController.signal });
-        }}
-      />
-      <div id={`${id}-popup`} stoppropagation:mousedown class={{
-        'flex flex-col gap-2 motion-safe:transition-all absolute top-full z-1000 mt-2 left-0': true,
-        'opacity-0 scale-95 pointer-events-none': !open.value,
-      }}>
-        <ColorPicker opacity={opacity}
-          id={`${id}-picker`}
-          value={color}
-          onInput$={onInput$}
-          showInput={false}
+    return (
+      <div class="relative flex gap-1">
+        <div
+          class="rounded-lum lum-bg rounded-r-sm p-4"
+          style={{
+            '--bg-color': color,
+          }}
         />
+        <input
+          id={id}
+          class={{
+            'lum-input lum-input-p-1 rounded-l-sm': true,
+          }}
+          value={color}
+          onInput$={(e, el) => {
+            const picker = document.getElementById(`${id}-picker`)!;
+            picker.dataset.value = el.value;
+            picker.dispatchEvent(new Event('input'));
+          }}
+          onMouseUp$={() => {
+            const picker = document.getElementById(`${id}-picker`)!;
+            picker.dataset.value = color;
+            picker.dispatchEvent(new Event('input'));
+            open.value = !open.value;
+            const abortController = new AbortController();
+            document.addEventListener(
+              'click',
+              (e) => {
+                if (
+                  e.target instanceof HTMLElement &&
+                  !e.target.closest(`#${id}-popup`)
+                ) {
+                  abortController.abort();
+                }
+              },
+              { signal: abortController.signal }
+            );
+          }}
+        />
+        <div
+          id={`${id}-popup`}
+          stoppropagation:mousedown
+          class={{
+            'absolute top-full left-0 z-1000 mt-2 flex flex-col gap-2 motion-safe:transition-all': true,
+            'pointer-events-none scale-95 opacity-0': !open.value,
+          }}
+        >
+          <ColorPicker
+            opacity={opacity}
+            id={`${id}-picker`}
+            value={color}
+            onInput$={onInput$}
+            showInput={false}
+          />
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 export const Settings = component$(() => {
   const store = useStore({
@@ -88,14 +114,19 @@ export const Settings = component$(() => {
         suffix = 'rem';
       }
       console.log(key, store[key as keyof typeof store], suffix);
-      document.documentElement.style.setProperty(key, `${store[key as keyof typeof store]}${suffix}`);
+      document.documentElement.style.setProperty(
+        key,
+        `${store[key as keyof typeof store]}${suffix}`
+      );
     });
   });
 
   return (
     <>
-      <Label for="lum-border-radius"
-        label={`--lum-border-radius: ${store['--lum-border-radius']}rem`}>
+      <Label
+        for="lum-border-radius"
+        label={`--lum-border-radius: ${store['--lum-border-radius']}rem`}
+      >
         <NumberInput
           id="lum-border-radius"
           step={0.125}
@@ -107,8 +138,10 @@ export const Settings = component$(() => {
         />
       </Label>
 
-      <Label for="lum-border-superellipse"
-        label={`--lum-border-superellipse: ${store['--lum-border-superellipse']}`}>
+      <Label
+        for="lum-border-superellipse"
+        label={`--lum-border-superellipse: ${store['--lum-border-superellipse']}`}
+      >
         <NumberInput
           id="lum-border-superellipse"
           step={0.5}
@@ -120,8 +153,10 @@ export const Settings = component$(() => {
         />
       </Label>
 
-      <Label for="lum-border-mix"
-        label={`--lum-border-mix: ${store['--lum-border-mix']}%`}>
+      <Label
+        for="lum-border-mix"
+        label={`--lum-border-mix: ${store['--lum-border-mix']}%`}
+      >
         <NumberInput
           id="border-mix"
           onInput$={(e, el) => {
@@ -132,8 +167,10 @@ export const Settings = component$(() => {
         />
       </Label>
 
-      <Label for="lum-btn-p-x"
-        label={`--lum-btn-p-x: ${store['--lum-btn-p-x']}`}>
+      <Label
+        for="lum-btn-p-x"
+        label={`--lum-btn-p-x: ${store['--lum-btn-p-x']}`}
+      >
         <NumberInput
           id="lum-btn-p-x"
           step={0.5}
@@ -145,8 +182,10 @@ export const Settings = component$(() => {
         />
       </Label>
 
-      <Label for="lum-input-p-x"
-        label={`--lum-input-p-x: ${store['--lum-input-p-x']}`}>
+      <Label
+        for="lum-input-p-x"
+        label={`--lum-input-p-x: ${store['--lum-input-p-x']}`}
+      >
         <NumberInput
           id="lum-input-p-x"
           step={0.5}
@@ -158,8 +197,10 @@ export const Settings = component$(() => {
         />
       </Label>
 
-      <Label for="lum-label-gap"
-        label={`--lum-label-gap: ${store['--lum-label-gap']}rem`}>
+      <Label
+        for="lum-label-gap"
+        label={`--lum-label-gap: ${store['--lum-label-gap']}rem`}
+      >
         <NumberInput
           id="lum-label-gap"
           step={0.125}
@@ -171,8 +212,7 @@ export const Settings = component$(() => {
         />
       </Label>
 
-      <Label for="lum-depth"
-        label={`--lum-depth: ${store['--lum-depth']}`}>
+      <Label for="lum-depth" label={`--lum-depth: ${store['--lum-depth']}`}>
         <NumberInput
           id="lum-depth"
           step={0.5}
@@ -184,55 +224,82 @@ export const Settings = component$(() => {
         />
       </Label>
 
-      <Label for="border-color"
-        label="color-lum-border">
-        <ColorInput opacity color={store['--color-lum-border']} id="border-color" onInput$={(newColor) => {
-          store['--color-lum-border'] = newColor;
-        }}/>
+      <Label for="border-color" label="color-lum-border">
+        <ColorInput
+          opacity
+          color={store['--color-lum-border']}
+          id="border-color"
+          onInput$={(newColor) => {
+            store['--color-lum-border'] = newColor;
+          }}
+        />
       </Label>
 
-      <Label for="card-bg-color"
-        label="color-lum-card-bg">
-        <ColorInput opacity color={store['--color-lum-card-bg']} id="card-bg-color" onInput$={(newColor) => {
-          store['--color-lum-card-bg'] = newColor;
-        }}/>
+      <Label for="card-bg-color" label="color-lum-card-bg">
+        <ColorInput
+          opacity
+          color={store['--color-lum-card-bg']}
+          id="card-bg-color"
+          onInput$={(newColor) => {
+            store['--color-lum-card-bg'] = newColor;
+          }}
+        />
       </Label>
 
-      <Label for="input-bg-color"
-        label="color-lum-input-bg">
-        <ColorInput opacity color={store['--color-lum-input-bg']} id="input-bg-color" onInput$={(newColor) => {
-          store['--color-lum-input-bg'] = newColor;
-        }}/>
+      <Label for="input-bg-color" label="color-lum-input-bg">
+        <ColorInput
+          opacity
+          color={store['--color-lum-input-bg']}
+          id="input-bg-color"
+          onInput$={(newColor) => {
+            store['--color-lum-input-bg'] = newColor;
+          }}
+        />
       </Label>
 
-      <Label for="input-hover-bg-color"
-        label="color-lum-input-hover-bg">
-        <ColorInput opacity color={store['--color-lum-input-hover-bg']} id="input-hover-bg-color" onInput$={(newColor) => {
-          store['--color-lum-input-hover-bg'] = newColor;
-        }}/>
+      <Label for="input-hover-bg-color" label="color-lum-input-hover-bg">
+        <ColorInput
+          opacity
+          color={store['--color-lum-input-hover-bg']}
+          id="input-hover-bg-color"
+          onInput$={(newColor) => {
+            store['--color-lum-input-hover-bg'] = newColor;
+          }}
+        />
       </Label>
 
-      <Label for="accent-color"
-        label="color-lum-accent">
-        <ColorInput opacity color={store['--color-lum-accent']} id="accent-color" onInput$={(newColor) => {
-          store['--color-lum-accent'] = newColor;
-        }}/>
+      <Label for="accent-color" label="color-lum-accent">
+        <ColorInput
+          opacity
+          color={store['--color-lum-accent']}
+          id="accent-color"
+          onInput$={(newColor) => {
+            store['--color-lum-accent'] = newColor;
+          }}
+        />
       </Label>
 
-      <Label for="text-color"
-        label="color-lum-text">
-        <ColorInput opacity color={store['--color-lum-text']} id="text-color" onInput$={(newColor) => {
-          store['--color-lum-text'] = newColor;
-        }}/>
+      <Label for="text-color" label="color-lum-text">
+        <ColorInput
+          opacity
+          color={store['--color-lum-text']}
+          id="text-color"
+          onInput$={(newColor) => {
+            store['--color-lum-text'] = newColor;
+          }}
+        />
       </Label>
 
-      <Label for="text-secondary-color"
-        label="color-lum-text-secondary">
-        <ColorInput opacity color={store['--color-lum-text-secondary']} id="text-secondary-color" onInput$={(newColor) => {
-          store['--color-lum-text-secondary'] = newColor;
-        }}/>
+      <Label for="text-secondary-color" label="color-lum-text-secondary">
+        <ColorInput
+          opacity
+          color={store['--color-lum-text-secondary']}
+          id="text-secondary-color"
+          onInput$={(newColor) => {
+            store['--color-lum-text-secondary'] = newColor;
+          }}
+        />
       </Label>
-
     </>
   );
 });

@@ -24,7 +24,7 @@ export function LogoLuminescent({ size, ...props }: IconProps) {
       </g>
     </svg>
   );
-};
+}
 
 /**
  * @deprecated Icons are going to be moved to a separate package @luminescent/icons-react.
@@ -99,4 +99,4 @@ export function LogoLuminescentFull({ size, ...props }: IconProps) {
       </g>
     </svg>
   );
-};
+}

@@ -31,7 +31,11 @@
 
 /* Shared utilities to reduce duplication across background utilities */
 @utility lum-bg-gradient-vars {
-  --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --gradient-color: color-mix(
+    in oklab,
+    var(--color-lum-gradient) var(--lum-gradient-mix),
+    var(--bg-color)
+  );
 }
 
 @utility lum-depth-shadow {
@@ -42,9 +46,12 @@
 }
 @utility lum-depth-shadow-fade {
   box-shadow:
-    inset 0 calc(0.5px * var(--lum-depth)) calc(1px * var(--lum-depth)) var(--lum-border-color),
-    0 calc(0.5px * var(--lum-depth)) calc(1px * var(--lum-depth)) rgba(0, 0, 0, 0.05),
-    0 calc(0.5px * var(--lum-depth)) calc(1.5px * var(--lum-depth)) rgba(0, 0, 0, 0.1);
+    inset 0 calc(0.5px * var(--lum-depth)) calc(1px * var(--lum-depth))
+      var(--lum-border-color),
+    0 calc(0.5px * var(--lum-depth)) calc(1px * var(--lum-depth))
+      rgba(0, 0, 0, 0.05),
+    0 calc(0.5px * var(--lum-depth)) calc(1.5px * var(--lum-depth))
+      rgba(0, 0, 0, 0.1);
 }
 
 @utility lum-focus-border {
@@ -64,15 +71,22 @@
 @utility lum-allow-keywords {
   background-color: --value('inherit', 'transparent', 'currentColor');
   border-color: --value('inherit', 'transparent', 'currentColor');
-  box-shadow: inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) --value('inherit', 'transparent', 'currentColor'),
-    0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth)) --value('inherit', 'transparent', 'currentColor'),
-    0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth)) --value('inherit', 'transparent', 'currentColor');
+  box-shadow:
+    inset 0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth))
+      --value('inherit', 'transparent', 'currentColor'),
+    0 calc(1px * var(--lum-depth)) calc(2px * var(--lum-depth))
+      --value('inherit', 'transparent', 'currentColor'),
+    0 calc(1px * var(--lum-depth)) calc(3px * var(--lum-depth))
+      --value('inherit', 'transparent', 'currentColor');
 }
-
 
 @utility lum-bg {
   /* Inlined base color logic (previously in lum-bg-base) */
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--bg-color);
 
   @apply border border-transparent outline-none;
@@ -88,7 +102,11 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--bg-color);
 
   @apply border border-transparent outline-none;
@@ -105,8 +123,16 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
-  --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
+  --gradient-color: color-mix(
+    in oklab,
+    var(--color-lum-gradient) var(--lum-gradient-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--gradient-color);
 
   @apply border border-transparent outline-none;
@@ -114,7 +140,11 @@
   @apply lum-border-fade;
   @apply lum-depth-shadow-fade;
 
-  background: linear-gradient(var(--lum-gradient-angle), var(--bg-color), var(--gradient-color));
+  background: linear-gradient(
+    var(--lum-gradient-angle),
+    var(--bg-color),
+    var(--gradient-color)
+  );
   @apply lum-allow-keywords;
 }
 
@@ -123,7 +153,11 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--bg-color);
 
   @apply border border-transparent outline-none;
@@ -140,15 +174,27 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
-  --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
+  --gradient-color: color-mix(
+    in oklab,
+    var(--color-lum-gradient) var(--lum-gradient-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--gradient-color);
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
 
   border-color: var(--lum-border-color);
-  background: linear-gradient(var(--lum-gradient-angle), var(--bg-color), var(--gradient-color));
+  background: linear-gradient(
+    var(--lum-gradient-angle),
+    var(--bg-color),
+    var(--gradient-color)
+  );
 
   @apply lum-allow-keywords;
 }
@@ -158,7 +204,11 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--bg-color);
 
   @apply lum-depth-shadow;
@@ -173,13 +223,25 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
-  --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
+  --gradient-color: color-mix(
+    in oklab,
+    var(--color-lum-gradient) var(--lum-gradient-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--gradient-color);
 
   @apply lum-depth-shadow;
 
-  background: linear-gradient(var(--lum-gradient-angle), var(--bg-color), var(--gradient-color));
+  background: linear-gradient(
+    var(--lum-gradient-angle),
+    var(--bg-color),
+    var(--gradient-color)
+  );
 
   @apply lum-allow-keywords;
 }
@@ -189,8 +251,16 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
-  --gradient-color: color-mix(in oklab, var(--color-lum-gradient) var(--lum-gradient-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
+  --gradient-color: color-mix(
+    in oklab,
+    var(--color-lum-gradient) var(--lum-gradient-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--gradient-color);
 
   @apply border border-transparent outline-none;
@@ -198,7 +268,11 @@
   @apply lum-border-fade;
   @apply lum-depth-shadow-fade;
 
-  background: linear-gradient(var(--lum-gradient-angle), var(--bg-color), var(--gradient-color));
+  background: linear-gradient(
+    var(--lum-gradient-angle),
+    var(--bg-color),
+    var(--gradient-color)
+  );
 }
 
 @utility lum-toggle-bg-* {
@@ -206,9 +280,16 @@
   --alpha: --modifier(integer);
   --bg-color: --alpha(--value([color]) / calc(var(--alpha, 100) * 1%));
   --bg-color: --alpha(--value(--color-*) / calc(var(--alpha, 100) * 1%));
-  --lum-border-color: color-mix(in oklab, var(--color-lum-border) var(--lum-border-mix), var(--bg-color));
+  --lum-border-color: color-mix(
+    in oklab,
+    var(--color-lum-border) var(--lum-border-mix),
+    var(--bg-color)
+  );
   --lum-surface-color: var(--bg-color);
-  --lum-toggle-hover-bg: --alpha(color-mix(in oklab, white 10%, --value(--color-*)) / calc(var(--alpha, 100) * 1%));
+  --lum-toggle-hover-bg: --alpha(
+    color-mix(in oklab, white 10%, --value(--color-*)) /
+      calc(var(--alpha, 100) * 1%)
+  );
 
   @apply border border-transparent outline-none;
   @apply lum-focus-border;
@@ -217,7 +298,8 @@
   background-color: var(--bg-color);
   @apply lum-allow-keywords;
 
-  &::after, &:hover {
+  &::after,
+  &:hover {
     --lum-surface-color: var(--lum-toggle-hover-bg);
     background-color: var(--lum-toggle-hover-bg);
     @apply lum-border-fade;
@@ -226,14 +308,15 @@
   }
 }
 
-
 @utility rounded-lum {
   border-radius: var(--lum-border-radius);
   corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
 @utility rounded-lum-* {
-  border-radius: calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)));
+  border-radius: calc(
+    var(--lum-border-radius) - calc(var(--spacing) * --value(number))
+  );
   corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
@@ -242,7 +325,7 @@
   border-width: calc(--value(integer) * 1px);
   border-color: transparent !important;
   &::before {
-    @apply bg-gradient-to-br content-[''] absolute inset-0 z-[-1];
+    @apply absolute inset-0 z-[-1] bg-gradient-to-br content-[''];
     margin: calc(--value(integer) * -1px);
     border-radius: inherit;
   }
@@ -250,9 +333,9 @@
 
 @utility lum-btn-p-* {
   padding: calc(var(--spacing) * --value(integer))
-           calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x))
-           calc(var(--spacing) * --value(integer))
-           calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x));
+    calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x))
+    calc(var(--spacing) * --value(integer))
+    calc(var(--spacing) * --value(integer) * var(--lum-btn-p-x));
 
   gap: calc(
     var(--spacing) * --value(integer) * clamp(0.65, 4 / --value(integer), 1)
@@ -267,19 +350,19 @@
 }
 
 @utility lum-input {
-  @apply flex motion-safe:transition duration-300 hover:duration-75 active:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg active:drop-shadow-lg whitespace-nowrap touch-manipulation select-none lum-input-p-2 lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg;
+  @apply lum-input-p-2 lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg flex touch-manipulation whitespace-nowrap duration-300 ease-out select-none hover:drop-shadow-lg hover:duration-75 active:drop-shadow-lg active:duration-75 disabled:opacity-50 motion-safe:transition;
   border-radius: var(--lum-border-radius);
   corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
 @utility lum-btn {
-  @apply flex items-center motion-safe:transition duration-300 hover:duration-75 active:duration-75 ease-out disabled:opacity-50 hover:drop-shadow-lg active:drop-shadow-lg motion-safe:active:scale-95 whitespace-nowrap touch-manipulation select-none lum-btn-p-2 text-base lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg;
+  @apply lum-btn-p-2 lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg flex touch-manipulation items-center text-base whitespace-nowrap duration-300 ease-out select-none hover:drop-shadow-lg hover:duration-75 active:drop-shadow-lg active:duration-75 disabled:opacity-50 motion-safe:transition motion-safe:active:scale-95;
   border-radius: var(--lum-border-radius);
   corner-shape: superellipse(var(--lum-border-superellipse));
 }
 
 @utility lum-card {
-  @apply flex flex-col gap-3 whitespace-pre-wrap lum-bg-lum-card-bg p-7;
+  @apply lum-bg-lum-card-bg flex flex-col gap-3 p-7 whitespace-pre-wrap;
   border-radius: var(--lum-border-radius);
   corner-shape: superellipse(var(--lum-border-superellipse));
 }

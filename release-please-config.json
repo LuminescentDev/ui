@@ -13,17 +13,17 @@
     "packages/ui": {
       "package-name": "Luminescent UI",
       "component": "ui",
-      "extra-files": [ "package.json" ]
+      "extra-files": ["package.json"]
     },
     "packages/ui-react": {
       "package-name": "Luminescent UI React",
       "component": "ui-react",
-      "extra-files": [ "package.json" ]
+      "extra-files": ["package.json"]
     },
     "packages/ui-qwik": {
       "package-name": "Luminescent UI Qwik",
       "component": "ui-qwik",
-      "extra-files": [ "package.json" ]
+      "extra-files": ["package.json"]
     }
   },
   "changelog-sections": [

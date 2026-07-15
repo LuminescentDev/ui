@@ -26,4 +26,4 @@ export function LogoForge({ size, ...props }: IconProps) {
       />
     </svg>
   );
-};
+}

@@ -4,20 +4,22 @@ import { Plus } from '../../svg/Plus';
 import { Minus } from '../../svg/Minus';
 import { getClassObject } from '../functions';
 
-interface NumberInputProps
-  extends Omit<PropsOf<'input'> & { type: 'number' }, 'type'> {
+interface NumberInputProps extends Omit<
+  PropsOf<'input'> & { type: 'number' },
+  'type'
+> {
   onDecrement$?: QRL<
     (
       event: PointerEvent,
       element: HTMLButtonElement,
-      inputElement?: HTMLInputElement,
+      inputElement?: HTMLInputElement
     ) => void
   >;
   onIncrement$?: QRL<
     (
       event: PointerEvent,
       element: HTMLButtonElement,
-      inputElement?: HTMLInputElement,
+      inputElement?: HTMLInputElement
     ) => void
   >;
   input?: boolean;
@@ -30,7 +32,17 @@ interface NumberInputProps
 }
 
 export const NumberInput = component$<NumberInputProps>(
-  ({ input, class: Class, onDecrement$, onIncrement$, value = 0, step = 1, outerProps, btnProps, ...props }) => {
+  ({
+    input,
+    class: Class,
+    onDecrement$,
+    onIncrement$,
+    value = 0,
+    step = 1,
+    outerProps,
+    btnProps,
+    ...props
+  }) => {
     useStyles$(`
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
@@ -43,27 +55,32 @@ export const NumberInput = component$<NumberInputProps>(
   `);
 
     return (
-      <div {...outerProps}
+      <div
+        {...outerProps}
         class={{
-          'flex touch-manipulation gap-1 text-lum-text': true,
+          'text-lum-text flex touch-manipulation gap-1': true,
           ...getClassObject(outerProps?.class),
         }}
       >
-        <button type="button"
+        <button
+          type="button"
           {...btnProps}
           class={{
-            'lum-btn p-2 rounded-r-sm': true,
-            ...getClassObject(btnProps?.class)
+            'lum-btn rounded-r-sm p-2': true,
+            ...getClassObject(btnProps?.class),
           }}
           data-action="decrement"
           aria-label="Decrement"
           disabled={props.min ? value <= props.min : false}
-          onClick$={onDecrement$ ?? $((event, element) => {
-            const siblingInput =
-              element.nextElementSibling as HTMLInputElement;
-            siblingInput.stepDown();
-            siblingInput.dispatchEvent(new Event('input', { bubbles: true }));
-          })}
+          onClick$={
+            onDecrement$ ??
+            $((event, element) => {
+              const siblingInput =
+                element.nextElementSibling as HTMLInputElement;
+              siblingInput.stepDown();
+              siblingInput.dispatchEvent(new Event('input', { bubbles: true }));
+            })
+          }
         >
           <Minus size={20} />
         </button>
@@ -74,7 +91,7 @@ export const NumberInput = component$<NumberInputProps>(
             value={value}
             step={step}
             class={{
-              'lum-input text-center rounded-sm lum-input-p-1': true,
+              'lum-input lum-input-p-1 rounded-sm text-center': true,
               ...getClassObject(Class),
             }}
             preventdefault:wheel
@@ -89,24 +106,29 @@ export const NumberInput = component$<NumberInputProps>(
             }}
           />
         )}
-        <button type="button"
+        <button
+          type="button"
           {...btnProps}
           class={{
-            'lum-btn p-2 rounded-l-sm': true,
-            ...getClassObject(btnProps?.class)
+            'lum-btn rounded-l-sm p-2': true,
+            ...getClassObject(btnProps?.class),
           }}
           data-action="increment"
           aria-label="Increment"
           disabled={props.max ? value >= props.max : false}
-          onClick$={onIncrement$ ?? $((event, element) => {
-            const siblingInput = element.previousElementSibling as HTMLInputElement;
-            siblingInput.stepUp();
-            siblingInput.dispatchEvent(new Event('input', { bubbles: true }));
-          })}
+          onClick$={
+            onIncrement$ ??
+            $((event, element) => {
+              const siblingInput =
+                element.previousElementSibling as HTMLInputElement;
+              siblingInput.stepUp();
+              siblingInput.dispatchEvent(new Event('input', { bubbles: true }));
+            })
+          }
         >
           <Plus size={20} />
         </button>
       </div>
     );
-  },
+  }
 );

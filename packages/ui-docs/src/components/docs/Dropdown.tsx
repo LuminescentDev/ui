@@ -8,7 +8,10 @@ export const Dropdown = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           Dropdown
         </h2>
       </Anchor>
@@ -29,7 +32,8 @@ export const Dropdown = component$(({ id }: { id: string }) => {
         <DropdownEl
           opened={opened.value}
           hover={hover.value}
-          onClick$={() => (opened.value = !opened.value)}>
+          onClick$={() => (opened.value = !opened.value)}
+        >
           Dropdown
         </DropdownEl>
       </div>

@@ -15,8 +15,13 @@
 }
 
 .nerfed-markdown {
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-lg font-bold my-0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply my-0 text-lg font-bold;
   }
   pre {
     @apply lum-bg-gray-800;

@@ -9,7 +9,7 @@ pnpm install @luminescent/ui
 Once installed, include the following to your tailwind css file
 
 ```css
-@import "@luminescent/ui";
+@import '@luminescent/ui';
 @plugin "@luminescent/ui/lum-bg";
 ```
 
@@ -20,7 +20,7 @@ Once finished, you can use the classes included, shown in the documentation.
 This is mainly for people who would like to easily format Markdown elements, you can add it to your tailwind css file. You can see the formatting in action in the [Markdown Documentation](https://ui.luminescent.dev/docs/markdown).
 
 ```css
-@import "@luminescent/ui/formatting";
+@import '@luminescent/ui/formatting';
 ```
 
 ## To use the Luminescent UI Qwik Library, you need to install the qwik package from npm in addition to the main package.

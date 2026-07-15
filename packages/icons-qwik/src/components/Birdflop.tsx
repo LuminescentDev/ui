@@ -77,5 +77,5 @@ export const Birdflop = component$<BirdflopProps>(
         )}
       </svg>
     );
-  },
+  }
 );

@@ -1,17 +1,26 @@
 import { component$ } from '@qwik.dev/core';
 import { Link } from '@qwik.dev/router';
 import { Nav } from '@luminescent/ui-qwik';
-import { LuminescentFull } from '../../../icons-qwik/lib/index.qwik.mjs';
+import { LuminescentFull } from '@luminescent/icons-qwik';
 import SiGithub from 'simple-icons-qwik/icons/SiGithub';
 import SiDiscord from 'simple-icons-qwik/icons/SiDiscord';
 import Book from 'lucide-icons-qwik/icons/Book';
 
 export default component$(() => {
   return (
-    <Nav floating fixed colorClass="lum-bg-lum-input-bg/50 !text-lum-text" style={{
-      '--lum-border-radius': '1rem',
-    }}>
-      <Link q:slot="start" href="/" class="lum-btn lum-bg-transparent rounded-lum-2">
+    <Nav
+      floating
+      fixed
+      colorClass="lum-bg-lum-input-bg/50 !text-lum-text"
+      style={{
+        '--lum-border-radius': '1rem',
+      }}
+    >
+      <Link
+        q:slot="start"
+        href="/"
+        class="lum-btn lum-bg-transparent rounded-lum-2"
+      >
         <div
           class="flex items-center gap-1 fill-[#f0ccfb] font-semibold text-[#f0ccfb]"
           style="filter: drop-shadow(0 0 1rem #CB6CE6);"
@@ -24,7 +33,7 @@ export default component$(() => {
         q:slot="end"
         href="/docs"
         class={{
-          'lum-btn lum-bg-transparent hidden sm:flex rounded-lum-2 text-sm': true,
+          'lum-btn lum-bg-transparent rounded-lum-2 hidden text-sm sm:flex': true,
         }}
       >
         <Book size={20} />
@@ -41,7 +50,11 @@ export default component$(() => {
         <SocialButtons />
       </div>
 
-      <Link q:slot="mobile" href="/docs" class="lum-btn lum-bg-transparent rounded-lum-2">
+      <Link
+        q:slot="mobile"
+        href="/docs"
+        class="lum-btn lum-bg-transparent rounded-lum-2"
+      >
         <Book size={20} />
         Docs
       </Link>
@@ -62,28 +75,30 @@ export default component$(() => {
 });
 
 export const SocialButtons = component$(({ large }: { large?: boolean }) => {
-  return <>
-    <a
-      href="https://github.com/LuminescentDev"
-      title="GitHub"
-      class={{
-        'lum-btn lum-bg-transparent fill-current': true,
-        'p-3': large,
-        'rounded-lum-2 p-2': !large,
-      }}
-    >
-      <SiGithub size={large ? 32 : 20} />
-    </a>
-    <a
-      href="/discord"
-      title="Discord"
-      class={{
-        'lum-btn lum-bg-transparent fill-current': true,
-        'p-3': large,
-        'rounded-lum-2 p-2': !large,
-      }}
-    >
-      <SiDiscord size={large ? 32 : 20} />
-    </a>
-  </>;
+  return (
+    <>
+      <a
+        href="https://github.com/LuminescentDev"
+        title="GitHub"
+        class={{
+          'lum-btn lum-bg-transparent fill-current': true,
+          'p-3': large,
+          'rounded-lum-2 p-2': !large,
+        }}
+      >
+        <SiGithub size={large ? 32 : 20} />
+      </a>
+      <a
+        href="/discord"
+        title="Discord"
+        class={{
+          'lum-btn lum-bg-transparent fill-current': true,
+          'p-3': large,
+          'rounded-lum-2 p-2': !large,
+        }}
+      >
+        <SiDiscord size={large ? 32 : 20} />
+      </a>
+    </>
+  );
 });

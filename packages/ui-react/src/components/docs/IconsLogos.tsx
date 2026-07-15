@@ -35,4 +35,4 @@ export function IconsLogos() {
       </div>
     </div>
   );
-};
+}

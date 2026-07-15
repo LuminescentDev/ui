@@ -1,8 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import {
-  Anchor,
-  Toggle as ToggleEl,
-} from '@luminescent/ui-qwik';
+import { Anchor, Toggle as ToggleEl } from '@luminescent/ui-qwik';
 
 interface toggleOptions {
   checkbox?: boolean;
@@ -15,7 +12,10 @@ export const Toggle = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           Toggle
         </h2>
       </Anchor>
@@ -24,12 +24,13 @@ export const Toggle = component$(({ id }: { id: string }) => {
         <input
           id="card-class"
           class="lum-input w-full"
-          placeholder='lum-toggle-bg-gray-800 peer-checked:lum-toggle-bg-blue-500'
+          placeholder="lum-toggle-bg-gray-800 peer-checked:lum-toggle-bg-blue-500"
           onInput$={(e, el) => (store.class = el.value)}
           value={store.class}
         />
         <p class="text-lum-text-secondary">
-          warning: only some classes will work because of the way tailwindcss works
+          warning: only some classes will work because of the way tailwindcss
+          works
         </p>
       </div>
       <ToggleEl

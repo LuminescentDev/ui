@@ -26,4 +26,4 @@ export function LogoPterodactyl({ size, ...props }: IconProps) {
       </g>
     </svg>
   );
-};
+}

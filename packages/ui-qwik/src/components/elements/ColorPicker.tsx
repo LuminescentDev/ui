@@ -12,8 +12,7 @@ import {
 import { Shuffle } from '~/svg/Shuffle';
 import { getClassObject } from '../functions';
 
-export interface ColorPickerProps
-  extends Omit<PropsOf<'div'>, | 'onInput$'> {
+export interface ColorPickerProps extends Omit<PropsOf<'div'>, 'onInput$'> {
   onInput$?: QRL<(color: string) => void>;
   value?: string;
   colors?: string[];
@@ -48,7 +47,7 @@ export const ColorPicker = component$<ColorPickerProps>(
     preview = 'left',
     horizontal,
     showInput = true,
-    opacity
+    opacity,
   }) => {
     const height = 150;
     const width = height - 25;
@@ -83,13 +82,18 @@ export const ColorPicker = component$<ColorPickerProps>(
     const hueMouseDown = $(
       async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
         const hOffset = el.getBoundingClientRect().top;
-        const hueChange = async (e: MouseEvent | TouchEvent, hOffset: number) => {
+        const hueChange = async (
+          e: MouseEvent | TouchEvent,
+          hOffset: number
+        ) => {
           const { y } = getMousePosition(e);
           store.hue.position = clamp(maxHue - (y - hOffset), 0, maxHue);
-          const hsvColor = rgbToHsv(hexToRgba((store.value)));
+          const hsvColor = rgbToHsv(hexToRgba(store.value));
           const h = store.hue.position / maxHue;
           hsvColor.h = h;
-          store.hue.color = rgbToHex(hsvToRgb({ h, s: 1, v: 1, a: hsvColor.a }));
+          store.hue.color = rgbToHex(
+            hsvToRgb({ h, s: 1, v: 1, a: hsvColor.a })
+          );
 
           store.value = rgbToHex(hsvToRgb(hsvColor));
           await onInput$?.(store.value);
@@ -108,13 +112,16 @@ export const ColorPicker = component$<ColorPickerProps>(
         };
         window.addEventListener('mouseup', mouseUpListener);
         window.addEventListener('touchend', mouseUpListener);
-      },
+      }
     );
 
     const sbMouseDown = $(
       async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
         const offset = el.getBoundingClientRect();
-        const sbChange = async (e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
+        const sbChange = async (
+          e: MouseEvent | TouchEvent,
+          hOffset: DOMRect
+        ) => {
           const { x, y } = getMousePosition(e);
           store.bPosition = clamp(y - hOffset.top, 0, maxHue);
           store.sPosition = clamp(x - hOffset.left, 0, width);
@@ -126,8 +133,11 @@ export const ColorPicker = component$<ColorPickerProps>(
               h: store.hue.position / maxHue,
               s,
               v,
-              a: store.opacity.position !== undefined ? 1 - store.opacity.position / maxHue : 1,
-            }),
+              a:
+                store.opacity.position !== undefined
+                  ? 1 - store.opacity.position / maxHue
+                  : 1,
+            })
           );
           await onInput$?.(store.value);
         };
@@ -145,17 +155,20 @@ export const ColorPicker = component$<ColorPickerProps>(
         };
         window.addEventListener('mouseup', mouseUpListener);
         window.addEventListener('touchend', mouseUpListener);
-      },
+      }
     );
 
     const opacityMouseDown = $(
       async (e: MouseEvent | TouchEvent, el: HTMLDivElement) => {
         const offset = el.getBoundingClientRect();
-        const opacityChange = async (e: MouseEvent | TouchEvent, hOffset: DOMRect) => {
+        const opacityChange = async (
+          e: MouseEvent | TouchEvent,
+          hOffset: DOMRect
+        ) => {
           const { x } = getMousePosition(e);
           store.opacity.position = clamp(x - hOffset.left, 0, maxHue);
-          const a = 1 - (store.opacity.position / maxHue);
-          const hsvColor = rgbToHsv(hexToRgba((store.value)));
+          const a = 1 - store.opacity.position / maxHue;
+          const hsvColor = rgbToHsv(hexToRgba(store.value));
           hsvColor.a = a;
           store.value = rgbToHex(hsvToRgb(hsvColor));
           await onInput$?.(store.value);
@@ -174,9 +187,8 @@ export const ColorPicker = component$<ColorPickerProps>(
         };
         window.addEventListener('mouseup', mouseUpListener);
         window.addEventListener('touchend', mouseUpListener);
-      },
+      }
     );
-
 
     return (
       <div
@@ -205,8 +217,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             <div class="h-37.5 w-31.25 rounded-md border border-gray-700 bg-linear-to-b from-transparent to-black" />
             <div
               class={{
-                'absolute -top-2 -left-2 h-4 w-4 rounded-md border lum-bg drop-shadow-lg':
-                  true,
+                'lum-bg absolute -top-2 -left-2 h-4 w-4 rounded-md border drop-shadow-lg': true,
               }}
               style={{
                 '--bg-color': store.value,
@@ -226,7 +237,7 @@ export const ColorPicker = component$<ColorPickerProps>(
             preventdefault:touchstart
           >
             <div
-              class="absolute -bottom-2 -left-1.25 h-4 w-4 rounded-md lum-bg! bg-[#ff0000] "
+              class="lum-bg! absolute -bottom-2 -left-1.25 h-4 w-4 rounded-md bg-[#ff0000]"
               style={{
                 transform: `translateY(${-store.hue.position}px)`,
                 '--bg-color': store.hue.color,
@@ -290,7 +301,7 @@ export const ColorPicker = component$<ColorPickerProps>(
               {preview != 'full' && (
                 <div
                   class={{
-                    'border border-gray-700 rounded-sm': true,
+                    'rounded-sm border border-gray-700': true,
                     'aspect-square h-full':
                       preview == 'left' || preview == 'right',
                     'h-3 w-full': preview == 'top' || preview == 'bottom',
@@ -304,7 +315,7 @@ export const ColorPicker = component$<ColorPickerProps>(
               )}
               <input
                 class={{
-                  'lum-input w-full p-1 text-xs rounded-sm': true,
+                  'lum-input w-full rounded-sm p-1 text-xs': true,
                   'rounded-t-none border-t-0': preview == 'top',
                   'rounded-b-none border-b-0': preview == 'bottom',
                 }}
@@ -312,14 +323,12 @@ export const ColorPicker = component$<ColorPickerProps>(
                 style={
                   preview == 'full'
                     ? {
-                      backgroundColor: `${store.value}`,
-                      color:
-                          getBrightness(
-                            hexToRgba((store.value)),
-                          ) > 0.5
+                        backgroundColor: `${store.value}`,
+                        color:
+                          getBrightness(hexToRgba(store.value)) > 0.5
                             ? 'black'
                             : 'white',
-                    }
+                      }
                     : {}
                 }
                 onInput$={async (e, el) => {
@@ -330,11 +339,12 @@ export const ColorPicker = component$<ColorPickerProps>(
           )}
           {colors.map((color, i) => {
             return (
-              <button type="button"
+              <button
+                type="button"
                 key={i}
                 name={color}
                 class={{
-                  'lum-btn rounded-sm h-[1.6rem] w-[1.6rem] p-0 lum-bg hover:brightness-150': true,
+                  'lum-btn lum-bg h-[1.6rem] w-[1.6rem] rounded-sm p-0 hover:brightness-150': true,
                   'border-lum-accent': color === store.value,
                 }}
                 style={{
@@ -346,18 +356,19 @@ export const ColorPicker = component$<ColorPickerProps>(
               ></button>
             );
           })}
-          <button type="button"
-            class="lum-btn rounded-sm h-[1.6rem] w-[1.6rem] p-0.5"
+          <button
+            type="button"
+            class="lum-btn h-[1.6rem] w-[1.6rem] rounded-sm p-0.5"
             name="Randomize"
             onClick$={async () => {
               const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
               await setColor(color);
             }}
           >
-            <Shuffle class="p-0.5 pl-0.5 text-lum-text" />
+            <Shuffle class="text-lum-text p-0.5 pl-0.5" />
           </button>
         </div>
       </div>
     );
-  },
+  }
 );

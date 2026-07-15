@@ -3,11 +3,10 @@ import { getClasses } from '../functions';
 import type React from 'react';
 import { useEffect, useState } from 'react';
 
-interface NavProps
-  extends Omit<
-    React.HTMLAttributes<HTMLElement>,
-    'bind:checked' | 'type' | 'children'
-  > {
+interface NavProps extends Omit<
+  React.HTMLAttributes<HTMLElement>,
+  'bind:checked' | 'type' | 'children'
+> {
   fixed?: boolean;
   floating?: boolean;
   noblur?: boolean;
@@ -58,8 +57,7 @@ export function Nav({
     <nav
       {...props}
       className={getClasses({
-        'top-0 left-0 z-50 flex w-full flex-col duration-200':
-          true,
+        'top-0 left-0 z-50 flex w-full flex-col duration-200': true,
         fixed: fixed,
         absolute: !fixed,
         [props.className ?? '']: true,
@@ -115,7 +113,7 @@ export function Nav({
             <button
               name="Navigation Menu"
               title="Navigation Menu"
-              className="lum-btn lum-bg-transparent p-2 sm:hidden rounded-lum-2"
+              className="lum-btn lum-bg-transparent rounded-lum-2 p-2 sm:hidden"
               onClick={() => setMenu(!menu)}
             >
               <MenuIcon size={24} />
@@ -125,4 +123,4 @@ export function Nav({
       </div>
     </nav>
   );
-};
+}

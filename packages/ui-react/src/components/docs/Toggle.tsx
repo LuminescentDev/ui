@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import {
-  Toggle,
-} from '../../index';
+import { Toggle } from '../../index';
 
 export default function ToggleDoc() {
   const [checkbox, setCheckbox] = useState(false);
@@ -18,23 +16,24 @@ export default function ToggleDoc() {
         <input
           id="card-class"
           className="lum-input w-full"
-          placeholder='lum-toggle-bg-gray-800 peer-checked:lum-toggle-bg-blue-500'
-          onInput={(e) => (setClassName(e.currentTarget.value))}
+          placeholder="lum-toggle-bg-gray-800 peer-checked:lum-toggle-bg-blue-500"
+          onInput={(e) => setClassName(e.currentTarget.value)}
           value={className[0]}
         />
         <p className="text-lum-text-secondary">
-          warning: only some classes will work because of the way tailwindcss works
+          warning: only some classes will work because of the way tailwindcss
+          works
         </p>
       </div>
       <Toggle
         id="toggle-checkbox"
-        onChange={(e) => (setCheckbox(e.currentTarget.checked))}
+        onChange={(e) => setCheckbox(e.currentTarget.checked)}
       >
         checkbox
       </Toggle>
       <Toggle
         id="toggle-round"
-        onChange={(e) => (setRound(e.currentTarget.checked))}
+        onChange={(e) => setRound(e.currentTarget.checked)}
       >
         round
       </Toggle>
@@ -57,4 +56,4 @@ export default function ToggleDoc() {
       />
     </div>
   );
-};
+}

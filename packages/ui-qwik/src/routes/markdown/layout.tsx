@@ -11,11 +11,11 @@ export type MarkdownItems = Record<string, MDX>;
 
 export default component$(() => {
   return (
-    <div class="max-w-7xl mx-auto min-h-dvh">
+    <div class="mx-auto min-h-dvh max-w-7xl">
       <main class="contents">
-        <div class="w-full mt-48 sm:mt-30 min-w-48">
-          <article class="px-4 markdown">
-            <h1 class="font-bold text-center border-b border-gray-700 pb-4">
+        <div class="mt-48 w-full min-w-48 sm:mt-30">
+          <article class="markdown px-4">
+            <h1 class="border-b border-gray-700 pb-4 text-center font-bold">
               Markdown Documentation
             </h1>
             <Slot />

@@ -13,7 +13,10 @@ export const Nav = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           Nav
         </h2>
       </Anchor>
@@ -63,22 +66,30 @@ export const Nav = component$(({ id }: { id: string }) => {
 
           <SelectMenu
             id="nav-dropdown"
-            hover customDropdown
+            hover
+            customDropdown
             q:slot="end"
             class={{ 'lum-bg-transparent hidden sm:flex': true }}
           >
-            <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
+            <button
+              q:slot="extra-buttons"
+              class="lum-btn lum-bg-transparent rounded-lum-1"
+            >
               Option 1
             </button>
-            <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
+            <button
+              q:slot="extra-buttons"
+              class="lum-btn lum-bg-transparent rounded-lum-1"
+            >
               Option 2
             </button>
-            <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
+            <button
+              q:slot="extra-buttons"
+              class="lum-btn lum-bg-transparent rounded-lum-1"
+            >
               Option 3
             </button>
-            <span q:slot="dropdown">
-              Dropdown
-            </span>
+            <span q:slot="dropdown">Dropdown</span>
           </SelectMenu>
 
           <button q:slot="mobile" class="lum-btn lum-bg-transparent">
@@ -89,7 +100,7 @@ export const Nav = component$(({ id }: { id: string }) => {
           </button>
           <h3
             q:slot="mobile"
-            class="mx-4 border-b border-gray-700 py-2 text-lum-text-secondary"
+            class="text-lum-text-secondary mx-4 border-b border-gray-700 py-2"
           >
             Dropdown
           </h3>

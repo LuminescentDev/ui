@@ -12,21 +12,15 @@ export default function NavDoc() {
       <h2 className="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
         Nav
       </h2>
-      <Toggle
-        id="nav-fixed"
-        onChange={(e) => (setFixed(e.target.checked))}
-      >
+      <Toggle id="nav-fixed" onChange={(e) => setFixed(e.target.checked)}>
         fixed
       </Toggle>
-      <Toggle
-        id="nav-floating"
-        onChange={(e) => (setFloating(e.target.checked))}
-      >
+      <Toggle id="nav-floating" onChange={(e) => setFloating(e.target.checked)}>
         floating
       </Toggle>
       <Toggle
         id="nav-nohamburger"
-        onChange={(e) => (setNoHamburger(e.target.checked))}
+        onChange={(e) => setNoHamburger(e.target.checked)}
       >
         nohamburger
       </Toggle>
@@ -34,7 +28,7 @@ export default function NavDoc() {
       <input
         id="nav-colorclass"
         className="lum-input"
-        onInput={(e) => (setColorClass(e.currentTarget.value))}
+        onInput={(e) => setColorClass(e.currentTarget.value)}
         value={colorClass}
         placeholder="lum-bg-lum-card-bg"
       />
@@ -44,11 +38,7 @@ export default function NavDoc() {
           fixed={fixed}
           nohamburger={nohamburger}
           colorClass={colorClass}
-          start={
-            <button className="lum-btn lum-bg-transparent">
-              Brand
-            </button>
-          }
+          start={<button className="lum-btn lum-bg-transparent">Brand</button>}
           center={
             <button className="lum-btn lum-bg-transparent hidden sm:flex">
               Center Button
@@ -57,13 +47,10 @@ export default function NavDoc() {
           end={
             <SelectMenuRaw
               id="nav-dropdown"
-              hover customDropdown
+              hover
+              customDropdown
               className="lum-bg-transparent hidden sm:flex"
-              dropdown={
-                <p>
-                  Dropdown
-                </p>
-              }
+              dropdown={<p>Dropdown</p>}
               extra-buttons={
                 <>
                   <button className="lum-btn lum-bg-transparent rounded-lum-1">
@@ -81,24 +68,14 @@ export default function NavDoc() {
           }
           mobile={
             <>
-              <button className="lum-btn lum-bg-transparent">
-                button 1
-              </button>
-              <button className="lum-btn lum-bg-transparent">
-                button 2
-              </button>
-              <h3 className="mx-4 border-b border-gray-700 py-2 text-lum-text-secondary">
+              <button className="lum-btn lum-bg-transparent">button 1</button>
+              <button className="lum-btn lum-bg-transparent">button 2</button>
+              <h3 className="text-lum-text-secondary mx-4 border-b border-gray-700 py-2">
                 Dropdown
               </h3>
-              <button className="lum-btn lum-bg-transparent">
-                Option 1
-              </button>
-              <button className="lum-btn lum-bg-transparent">
-                Option 2
-              </button>
-              <button className="lum-btn lum-bg-transparent">
-                Option 3
-              </button>
+              <button className="lum-btn lum-bg-transparent">Option 1</button>
+              <button className="lum-btn lum-bg-transparent">Option 2</button>
+              <button className="lum-btn lum-bg-transparent">Option 3</button>
             </>
           }
         />
@@ -168,4 +145,4 @@ export default function NavDoc() {
       />
     </div>
   );
-};
+}

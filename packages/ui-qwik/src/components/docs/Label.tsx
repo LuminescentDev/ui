@@ -5,10 +5,15 @@ export const Label = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           Label
         </h2>
-        <h3 class="text-sm text-lum-text-secondary">Adds a consistent label to elements that it wraps</h3>
+        <h3 class="text-lum-text-secondary text-sm">
+          Adds a consistent label to elements that it wraps
+        </h3>
       </Anchor>
 
       <LabelEl for="wrapping-element" label="Label">

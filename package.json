@@ -1,16 +1,10 @@
 {
   "name": "@luminescent/ui-monorepo",
   "private": true,
-  "engines": {
-    "node": "24"
-  },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "11.13.0",
-      "onFail": "download"
-    }
-  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "type": "module",
   "scripts": {
     "build:release": "bun run build && bun run release",
     "build": "bun nx run-many -t build --output-style=stream --parallel=false",
@@ -18,7 +12,6 @@
     "start:docs": "bun run build && cd packages/ui-docs && bun run start",
     "prepare": "vp config"
   },
-  "type": "module",
   "devDependencies": {
     "@nx/js": "^22.3.3",
     "@types/node": "^25.0.3",
@@ -30,7 +23,14 @@
     "vite-plus": "catalog:",
     "yargs": "^18.0.0"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.13.0",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": "24"
+  }
 }

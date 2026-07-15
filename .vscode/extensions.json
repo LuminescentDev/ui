@@ -1,7 +1,4 @@
 {
-  "recommendations": [
-    "unifiedjs.vscode-mdx",
-    "VoidZero.vite-plus-extension-pack"
-  ],
+  "recommendations": ["unifiedjs.vscode-mdx", "VoidZero.vite-plus-extension-pack"],
   "unwantedRecommendations": []
 }

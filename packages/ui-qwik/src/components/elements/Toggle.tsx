@@ -2,41 +2,31 @@ import type { PropsOf } from '@qwik.dev/core';
 import { component$, Slot } from '@qwik.dev/core';
 import { getClassObject } from '../functions';
 
-interface ToggleProps
-  extends Omit<
-    PropsOf<'input'> & { type: 'checkbox' },
-    'bind:checked' | 'type' | 'children'
-  > {
+interface ToggleProps extends Omit<
+  PropsOf<'input'> & { type: 'checkbox' },
+  'bind:checked' | 'type' | 'children'
+> {
   checkbox?: boolean;
   round?: boolean;
   outerProps?: PropsOf<'div'>;
 }
 
 export const Toggle = component$<ToggleProps>(
-  ({
-    class: Class,
-    checkbox,
-    round,
-    outerProps,
-    ...props
-  }) => {
+  ({ class: Class, checkbox, round, outerProps, ...props }) => {
     return (
-      <div {...outerProps} class={{
-        "flex touch-manipulation items-center gap-3": true,
-        ...getClassObject(outerProps?.class),
-      }}>
+      <div
+        {...outerProps}
+        class={{
+          'flex touch-manipulation items-center gap-3': true,
+          ...getClassObject(outerProps?.class),
+        }}
+      >
         <label class="relative inline-flex cursor-pointer items-center">
-          <input
-            type="checkbox"
-            {...props}
-            class="peer sr-only"
-          />
+          <input type="checkbox" {...props} class="peer sr-only" />
           <div
             class={{
-              'peer h-7 duration-300 ease-out hover:duration-75 peer-focus:border-blue-500':
-                true,
-              'after:absolute after:top-1 after:left-1 after:h-5 after:w-5 after:border after:duration-300 after:ease-out after:content-[\'\'] after:hover:duration-75 after:motion-safe:transition-transform':
-                true,
+              'peer h-7 duration-300 ease-out peer-focus:border-blue-500 hover:duration-75': true,
+              "after:absolute after:top-1 after:left-1 after:h-5 after:w-5 after:border after:duration-300 after:ease-out after:content-[''] after:hover:duration-75 after:motion-safe:transition-transform": true,
               'rounded-lum after:rounded-lum-1': !round,
               'rounded-full after:rounded-full': round,
               'w-12 peer-checked:after:translate-x-full': !checkbox,
@@ -46,10 +36,13 @@ export const Toggle = component$<ToggleProps>(
             }}
           />
         </label>
-        <label for={props.id} class="flex gap-2 text-lum-text select-none empty:hidden">
+        <label
+          for={props.id}
+          class="text-lum-text flex gap-2 select-none empty:hidden"
+        >
           <Slot />
         </label>
       </div>
     );
-  },
+  }
 );

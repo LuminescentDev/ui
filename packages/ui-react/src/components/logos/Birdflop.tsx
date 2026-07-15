@@ -8,7 +8,12 @@ interface LogoBirdflopProps extends IconProps {
 /**
  * @deprecated Icons are going to be moved to a separate package @luminescent/icons-react.
  */
-export function LogoBirdflop({ confused, fillGradient, size, ...props }: LogoBirdflopProps) {
+export function LogoBirdflop({
+  confused,
+  fillGradient,
+  size,
+  ...props
+}: LogoBirdflopProps) {
   const gradientId = fillGradient?.join('-').replace('#', '');
   return (
     <svg
@@ -80,4 +85,4 @@ export function LogoBirdflop({ confused, fillGradient, size, ...props }: LogoBir
       )}
     </svg>
   );
-};
+}

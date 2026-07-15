@@ -8,7 +8,10 @@ export const LumBtn = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           Button
         </h2>
       </Anchor>
@@ -21,14 +24,13 @@ export const LumBtn = component$(({ id }: { id: string }) => {
           value={store.class}
         />
         <p class="text-lum-text-secondary">
-          warning: only some classes will work because of the way tailwindcss works
+          warning: only some classes will work because of the way tailwindcss
+          works
         </p>
       </div>
       <div class="lum-card">
         <div>
-          <button class={store.class}>
-            Button
-          </button>
+          <button class={store.class}>Button</button>
         </div>
       </div>
       <textarea

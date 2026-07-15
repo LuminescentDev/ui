@@ -1,11 +1,10 @@
 import type React from 'react';
 import { getClasses } from '../functions';
 
-interface ToggleProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement> & { type: 'checkbox' },
-    'bind:checked' | 'type' | 'children'
-  > {
+interface ToggleProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement> & { type: 'checkbox' },
+  'bind:checked' | 'type' | 'children'
+> {
   children?: React.ReactNode;
   checkbox?: boolean;
   round?: boolean;
@@ -21,17 +20,11 @@ export function Toggle({
   return (
     <div className="flex touch-manipulation items-center gap-3">
       <label className="relative inline-flex cursor-pointer items-center">
-        <input
-          type="checkbox"
-          {...props}
-          className="peer sr-only"
-        />
+        <input type="checkbox" {...props} className="peer sr-only" />
         <div
           className={getClasses({
-            'peer h-7 duration-300 ease-out hover:duration-75':
-              true,
-            'after:absolute after:top-1 after:left-1 after:h-5 after:w-5 after:border after:duration-300 after:ease-out after:content-[\'\'] after:hover:duration-75 after:motion-safe:transition-transform':
-              true,
+            'peer h-7 duration-300 ease-out hover:duration-75': true,
+            "after:absolute after:top-1 after:left-1 after:h-5 after:w-5 after:border after:duration-300 after:ease-out after:content-[''] after:hover:duration-75 after:motion-safe:transition-transform": true,
             'rounded-lum after:rounded-lum-1': !round,
             'rounded-full after:rounded-full': round,
             'w-12 peer-checked:after:translate-x-full': !checkbox,
@@ -42,7 +35,10 @@ export function Toggle({
         />
       </label>
       {children && (
-        <label htmlFor={props.id} className="flex gap-2 text-lum-text select-none empty:hidden">
+        <label
+          htmlFor={props.id}
+          className="text-lum-text flex gap-2 select-none empty:hidden"
+        >
           {children}
         </label>
       )}

@@ -6,9 +6,9 @@
  * Note that this is the only place the Qwik renderer is called.
  * On the client, containers resume and do not call render.
  */
-import { createRenderer } from "@qwik.dev/router";
+import { createRenderer } from '@qwik.dev/router';
 
-import Root from "./root";
+import Root from './root';
 
 export default createRenderer((opts) => {
   return {
@@ -17,7 +17,7 @@ export default createRenderer((opts) => {
       ...opts,
       // Use container attributes to set attributes on the html tag.
       containerAttributes: {
-        lang: "en-us",
+        lang: 'en-us',
         ...opts.containerAttributes,
       },
       serverData: {

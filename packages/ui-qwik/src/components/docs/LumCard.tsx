@@ -12,7 +12,10 @@ export const LumCard = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card border-gradient-1 before:from-red-500 before:to-blue-500">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           Card
         </h2>
       </Anchor>
@@ -25,7 +28,8 @@ export const LumCard = component$(({ id }: { id: string }) => {
           value={store.class}
         />
         <p class="text-lum-text-secondary">
-          warning: only some classes will work because of the way tailwindcss works
+          warning: only some classes will work because of the way tailwindcss
+          works
         </p>
       </div>
       <Toggle
@@ -61,8 +65,12 @@ export const LumCard = component$(({ id }: { id: string }) => {
             [store.class]: true,
             relative: true,
           }}
-          onMouseMove$={(e, el) => (store.hoverable ? Hoverable.onMouseMove$(e, el) : null)}
-          onMouseLeave$={(e, el) => (store.hoverable ? Hoverable.onMouseLeave$(e, el) : null)}
+          onMouseMove$={(e, el) =>
+            store.hoverable ? Hoverable.onMouseMove$(e, el) : null
+          }
+          onMouseLeave$={(e, el) =>
+            store.hoverable ? Hoverable.onMouseLeave$(e, el) : null
+          }
         >
           {store.blur && (
             <div class="lum-card lum-bg-transparent absolute inset-0 z-10 h-full w-full opacity-0 backdrop-blur-xl transition hover:opacity-100">
@@ -77,7 +85,9 @@ export const LumCard = component$(({ id }: { id: string }) => {
                 <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
                   This is a card
                 </h2>
-                <h3 class="text-sm text-lum-text-secondary">This is a description</h3>
+                <h3 class="text-lum-text-secondary text-sm">
+                  This is a description
+                </h3>
               </div>
               <div class="lum-loading h-5 w-5"></div>
             </div>
@@ -86,7 +96,9 @@ export const LumCard = component$(({ id }: { id: string }) => {
               <h2 class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
                 This is a card
               </h2>
-              <h3 class="text-sm text-lum-text-secondary">This is a description</h3>
+              <h3 class="text-lum-text-secondary text-sm">
+                This is a description
+              </h3>
             </div>
           )}
         </div>
@@ -94,14 +106,22 @@ export const LumCard = component$(({ id }: { id: string }) => {
       <textarea
         class="lum-input h-32"
         value={`
-${store.hoverable ? `
+${
+  store.hoverable
+    ? `
 import { Hoverable } from '@luminescent/ui-qwik'
-` : ''}
+`
+    : ''
+}
 <div class="${store.blur ? 'relative ' : ''}${store.class}"
-${store.hoverable ? `
+${
+  store.hoverable
+    ? `
   onMouseMove$={(e, el) => Hoverable.onMouseMove$(e, el)}
   onMouseLeave$={(e, el) => Hoverable.onMouseLeave$(e, el)}
-` : ''}
+`
+    : ''
+}
 >
   ${
     store.blur
@@ -113,7 +133,7 @@ ${store.hoverable ? `
   </div>
   `
       : ''
-    }
+  }
   ${
     store.loading
       ? `
@@ -143,7 +163,7 @@ ${store.hoverable ? `
     </h3>
   </div>
   `
-    }
+  }
 </div>`}
       />
     </div>

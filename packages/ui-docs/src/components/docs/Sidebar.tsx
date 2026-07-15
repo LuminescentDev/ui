@@ -1,5 +1,10 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Dropdown, Sidebar as SidebarEl, Toggle } from '@luminescent/ui-qwik';
+import {
+  Anchor,
+  Dropdown,
+  Sidebar as SidebarEl,
+  Toggle,
+} from '@luminescent/ui-qwik';
 
 interface sidebarOptions {
   fixed?: boolean;
@@ -13,7 +18,10 @@ export const Sidebar = component$(({ id }: { id: string }) => {
   return (
     <div class="lum-card">
       <Anchor id={id}>
-        <h2 id={id} class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl">
+        <h2
+          id={id}
+          class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
+        >
           Sidebar
         </h2>
       </Anchor>
@@ -24,18 +32,16 @@ export const Sidebar = component$(({ id }: { id: string }) => {
         floating
       </Toggle>
       <div class="lum-card h-150 p-0">
-        <SidebarEl
-          floating={store.floating}
-        >
+        <SidebarEl floating={store.floating}>
           <h3 q:slot="title" class="text-lg font-bold">
             Sidebar
           </h3>
 
-          <div class="flex gap-3 items-center">
+          <div class="flex items-center gap-3">
             <input
               type="text"
               placeholder="Search..."
-              class="w-full lum-input lum-btn-p-1"
+              class="lum-input lum-btn-p-1 w-full"
             />
           </div>
 
@@ -43,22 +49,25 @@ export const Sidebar = component$(({ id }: { id: string }) => {
             Button
           </button>
 
-          <Dropdown opened={store.dropdownOpen}
+          <Dropdown
+            opened={store.dropdownOpen}
             id="sidebar-dropdown"
             onClick$={() => {
               store.dropdownOpen = !store.dropdownOpen;
             }}
             class={{
-              'w-full lum-bg-transparent border-b-lum-border/10 -mb-4': true,
+              'lum-bg-transparent border-b-lum-border/10 -mb-4 w-full': true,
             }}
           >
             Dropdown
           </Dropdown>
-          <div class={{
-            'transition-all duration-200 overflow-hidden flex flex-col gap-1 pl-2 pt-2 border-l border-l-lum-border/10': true,
-            'max-h-0 opacity-0 scale-98': !store.dropdownOpen,
-            'max-h-screen opacity-100 mt-1': store.dropdownOpen,
-          }}>
+          <div
+            class={{
+              'border-l-lum-border/10 flex flex-col gap-1 overflow-hidden border-l pt-2 pl-2 transition-all duration-200': true,
+              'max-h-0 scale-98 opacity-0': !store.dropdownOpen,
+              'mt-1 max-h-screen opacity-100': store.dropdownOpen,
+            }}
+          >
             <button class="lum-btn lum-bg-transparent lum-btn-p-1">
               Option 1
             </button>
