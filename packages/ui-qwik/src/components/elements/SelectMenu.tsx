@@ -113,15 +113,13 @@ export const SelectMenu = component$<SelectMenuProps>(
           }}
         >
           {values?.map(({ name, value, custom }, i) => {
-            if (custom) return <Slot key={i} name={value.toString()} />;
-
             return (
               <button
                 key={i}
                 type="button"
                 class={{
                   ...getClassObject(btnProps?.class),
-                  'lum-btn rounded-lum-1 lum-bg-transparent': true,
+                  'lum-btn rounded-lum-1 lum-bg-transparent': !custom,
                 }}
                 onClick$={(e, el) => {
                   // close the dropdown
@@ -138,7 +136,8 @@ export const SelectMenu = component$<SelectMenuProps>(
                 }}
               >
                 <Slot key={i} name={`before-${value}`} />
-                {name}
+                {!custom && <>{name}</>}
+                {custom && <Slot key={i} name={value.toString()} />}
                 <Slot key={i} name={`after-${value}`} />
               </button>
             );
