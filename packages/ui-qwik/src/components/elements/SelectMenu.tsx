@@ -39,7 +39,8 @@ export const SelectMenu = component$<SelectMenuProps>(
       value: props.value,
     });
     const selectRef = useSignal<HTMLSelectElement>();
-    const selected = values?.find((v) => v.value === store.value);
+    const selected =
+      values?.find((v) => v.value === store.value) ?? values?.[0];
 
     return (
       <div
@@ -92,9 +93,18 @@ export const SelectMenu = component$<SelectMenuProps>(
             document.addEventListener('click', listener);
           }}
         >
-          {customDropdown && <Slot name="dropdown" />}
-          {!customDropdown &&
-            (selected?.name ?? values?.[0]?.name ?? <Slot name="dropdown" />)}
+          <Slot name={`before-${selected?.value}`} />
+          {(customDropdown || !selected?.name) && <Slot name="dropdown" />}
+          {!customDropdown && (
+            <>
+              {selected?.custom ? (
+                <Slot name={selected?.value.toString()} />
+              ) : (
+                selected?.name
+              )}
+            </>
+          )}
+          <Slot name={`after-${selected?.value}`} />
         </Dropdown>
         {hover && <div class="absolute h-2 w-full" />}
         <div
