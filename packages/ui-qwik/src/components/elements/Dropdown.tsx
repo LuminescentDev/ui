@@ -19,7 +19,7 @@ export const Dropdown = component$<DropdownProps>(
           ...getClassObject(props.class),
         }}
       >
-        <span class="flex-1 text-left">
+        <span class="flex flex-1 items-center gap-2 text-left">
           <Slot />
         </span>
         <ChevronDown
