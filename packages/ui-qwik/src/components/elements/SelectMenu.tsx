@@ -1,4 +1,4 @@
-import type { JSXChildren, PropsOf, QRL } from '@qwik.dev/core';
+import type { PropsOf, QRL } from '@qwik.dev/core';
 import { component$, Slot, useSignal, useStore } from '@qwik.dev/core';
 import { Dropdown } from './Dropdown';
 import { getClassObject } from '../functions';
@@ -18,8 +18,9 @@ interface SelectMenuProps extends Omit<PropsOf<'select'>, 'onChange$'> {
     ) => void
   >;
   values?: {
-    name: JSXChildren;
+    name: string;
     value: string | number;
+    custom?: boolean;
   }[];
   outerProps?: PropsOf<'div'>;
 }
@@ -110,14 +111,16 @@ export const SelectMenu = component$<SelectMenuProps>(({
         'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75': hover,
       }}
       >
-        {values?.map(({ name, value }, i) => {
+        {values?.map(({ name, value, custom }, i) => {
+          if (custom) return <Slot key={i} name={value.toString()} />;
+
           return (
-            <button type="button"
+            <button key={i}
+              type="button"
               class={{
                 ...getClassObject(btnProps?.class),
                 'lum-btn rounded-lum-1 lum-bg-transparent': true,
               }}
-              key={i}
               onClick$={(e, el) => {
                 // close the dropdown
                 el.blur();
@@ -132,11 +135,13 @@ export const SelectMenu = component$<SelectMenuProps>(({
                 store.value = value.toString();
               }}
             >
+              <Slot key={i} name={`before-${value}`} />
               {name}
+              <Slot key={i} name={`after-${value}`} />
             </button>
           );
         })}
-        <Slot name="extra-buttons" />
+        <Slot name="extra-content" />
       </div>
     </div>
   );

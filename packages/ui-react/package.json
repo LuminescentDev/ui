@@ -5,6 +5,13 @@
   "engines": {
     "node": ">=23.11.0"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.13.0",
+      "onFail": "download"
+    }
+  },
   "license": "AGPL-3.0-or-later",
   "private": false,
   "type": "module",
@@ -17,12 +24,11 @@
   "main": "dist/ui-react.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "tsc --p ./tsconfig.json && vite build --mode lib",
+    "start": "vp dev",
+    "dev": "vp dev",
+    "build": "tsc --p ./tsconfig.json && vp build --mode lib",
     "build.types": "tsc --emitDeclarationOnly",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vp preview"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",
@@ -30,20 +36,17 @@
     "react-dom": "^19.2.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
-    "eslint": "^9.39.2",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.26",
     "globals": "^16.5.0",
+    "oxlint-plugin-qwik": "^0.0.9",
     "tailwindcss": "^4.1.18",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.50.1",
-    "vite": "^7.3.0",
-    "vite-plugin-dts": "^4.5.4"
+    "vite": "catalog:",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plus": "catalog:"
   },
   "peerDependencies": {
     "@luminescent/ui": "workspace:*"

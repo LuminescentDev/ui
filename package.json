@@ -4,11 +4,19 @@
   "engines": {
     "node": "24"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.13.0",
+      "onFail": "download"
+    }
+  },
   "scripts": {
     "build:release": "bun run build && bun run release",
     "build": "bun nx run-many -t build --output-style=stream --parallel=false",
     "release": "tsx tools/release.ts",
-    "start:docs": "bun run build && cd packages/ui-docs && bun run start"
+    "start:docs": "bun run build && cd packages/ui-docs && bun run start",
+    "prepare": "vp config"
   },
   "type": "module",
   "devDependencies": {
@@ -18,16 +26,9 @@
     "dotenv": "^17.2.3",
     "nx": "22.3.3",
     "tsx": "^4.21.0",
+    "vite": "catalog:",
+    "vite-plus": "catalog:",
     "yargs": "^18.0.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "nx",
-      "sharp",
-      "workerd"
-    ]
   },
   "workspaces": [
     "packages/*"

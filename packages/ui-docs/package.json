@@ -5,51 +5,49 @@
   "engines": {
     "node": ">=23.11.0"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.13.0",
+      "onFail": "download"
+    }
+  },
   "type": "module",
   "scripts": {
     "build": "qwik build",
-    "build.client": "vite build",
-    "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "qwik check-client src dist && vite build -c adapters/cloudflare-workers/vite.config.ts",
+    "build.client": "vp build",
+    "build.preview": "vp build --ssr src/entry.preview.tsx",
+    "build.server": "qwik check-client src dist && vp build -c adapters/cloudflare-workers/vite.config.ts",
     "build.types": "tsc --noEmit",
     "cf-typegen": "wrangler types",
     "deploy": "wrangler deploy",
-    "fmt": "prettier --write .",
-    "fmt.check": "prettier --check .",
-    "lint": "eslint \"src/**/*.ts*\"",
-    "preview": "qwik build preview && vite preview",
+    "preview": "qwik build preview && vp preview",
     "serve": "wrangler dev",
-    "start": "vite --mode ssr --host",
+    "start": "vp dev --mode ssr --host",
     "start.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --forcenode --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "qwik": "qwik"
   },
   "sideEffects": false,
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260714.1",
-    "@eslint/js": "^10.0.1",
     "@luminescent/icons-qwik": "workspace:*",
     "@luminescent/ui": "workspace:*",
     "@luminescent/ui-qwik": "workspace:*",
     "@qwik.dev/core": "https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@8785",
     "@qwik.dev/router": "https://pkg.pr.new/QwikDev/qwik/@qwik.dev/router@8785",
     "@tailwindcss/vite": "^4.3.2",
-    "@types/eslint": "^9.6.1",
     "@types/node": "^26.1.1",
-    "eslint": "^10.7.0",
-    "eslint-plugin-qwik": "https://pkg.pr.new/QwikDev/qwik/eslint-plugin-qwik@8785",
     "globals": "^17.7.0",
     "lucide-icons-qwik": "1.16.0-qwik-v2",
-    "prettier": "^3.9.5",
-    "prettier-plugin-tailwindcss": "^0.8.0",
+    "oxlint-plugin-qwik": "^0.0.9",
     "simple-icons-qwik": "16.19.0-qwik-v2",
     "tailwindcss": "^4.3.2",
     "ts-morph": "28",
     "typescript": "5.9.3",
-    "typescript-eslint": "^8.64.0",
     "typescript-plugin-css-modules": "latest",
     "undici": "^8.7.0",
-    "vite": "8.1.4",
+    "vite": "catalog:",
     "vite-tsconfig-paths": "^6.1.1",
-    "wrangler": "^4.110.0"
+    "wrangler": "^4.110.0",
+    "vite-plus": "catalog:"
   }
 }

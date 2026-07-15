@@ -1,9 +1,10 @@
 import { component$ } from '@qwik.dev/core';
 import { Link } from '@qwik.dev/router';
 import { Nav } from '@luminescent/ui-qwik';
-import { LuminescentFull } from '@luminescent/icons-qwik';
-import { SiGithub, SiDiscord } from 'simple-icons-qwik';
-import { Book } from 'lucide-icons-qwik';
+import { LuminescentFull } from '../../../icons-qwik/lib/index.qwik.mjs';
+import SiGithub from 'simple-icons-qwik/icons/SiGithub';
+import SiDiscord from 'simple-icons-qwik/icons/SiDiscord';
+import Book from 'lucide-icons-qwik/icons/Book';
 
 export default component$(() => {
   return (

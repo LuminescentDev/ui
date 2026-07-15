@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, lazyPlugins } from 'vite-plus';
 import pkg from './package.json';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
@@ -25,5 +25,5 @@ export default defineConfig({
       ],
     },
   },
-  plugins: [react(), dts({ include: ['src'] }), tailwindcss()],
+  plugins: lazyPlugins(() => [react(), dts({ include: ['src'] }), tailwindcss()]),
 });

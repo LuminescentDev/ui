@@ -7,3 +7,25 @@ onlyBuiltDependencies:
   - nx
   - sharp
   - workerd
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.4
+  vite-plus: 0.2.4
+overrides:
+  vite: 'catalog:'
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: '*'
+
+blockExoticSubdeps: false
+
+minimumReleaseAgeExclude:
+  - '@cloudflare/workers-types@5.20260714.1'
+
+allowBuilds:
+  '@parcel/watcher': set this to true or false
+  esbuild: set this to true or false
+  nx: set this to true or false
+  sharp: set this to true or false
+  workerd: set this to true or false

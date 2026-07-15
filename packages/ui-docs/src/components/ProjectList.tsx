@@ -2,10 +2,11 @@ import { component$, JSXOutput } from '@qwik.dev/core';
 import { OliTag, PurpurTag, QarthTag, SabTag } from './Tags';
 import { Component } from '@qwik.dev/core';
 
-import { Birdflop } from '@luminescent/icons-qwik';
+import { Birdflop } from '../../../icons-qwik/lib/index.qwik.mjs';
 import Luminara from '~/components/images/Luminara.png?jsx';
-import { IconProps, SiDiscord, SiGithub } from 'simple-icons-qwik';
-import { Globe } from 'lucide-icons-qwik';
+import SiDiscord from 'simple-icons-qwik/icons/SiDiscord';
+import SiGithub from 'simple-icons-qwik/icons/SiGithub';
+import Globe from 'lucide-icons-qwik/icons/Globe';
 export const LuminaraIcon = component$(() => {
   return <Luminara class="mx-auto mb-5 w-25 h-25 md:w-50 md:h-50" />;
 });
@@ -21,7 +22,7 @@ export type Project = {
 }
 
 type Button = {
-  icon: Component<IconProps>;
+  icon: Component<any>;
   title: string;
   href: string;
 }

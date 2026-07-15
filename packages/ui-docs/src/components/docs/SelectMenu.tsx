@@ -1,5 +1,6 @@
 import { component$, useStore } from '@qwik.dev/core';
 import { SelectMenu as SelectMenuEl, Toggle, Anchor, Label } from '@luminescent/ui-qwik';
+import Plus from 'lucide-icons-qwik/icons/Plus';
 
 interface SelectMenuOptions {
   customDropdown?: boolean;
@@ -53,11 +54,13 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
           <SelectMenuEl id="selectmenu-input"
             values={[
               {
-                name: <span class="lum-bg-red-500 p-1 rounded">JSX Supported</span>,
+                name: 'Custom Button',
                 value: '1',
+                custom: true,
               },
-              { name: 'Option 2', value: '2' },
+              { name: 'Button with a plus icon', value: '2' },
               { name: 'Option 3', value: '3' },
+              { name: 'Option 4', value: '4' },
             ]}
             value="1"
             customDropdown={store.customDropdown}
@@ -67,36 +70,53 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
             <p q:slot="dropdown">
               Fallback content
             </p>
-            <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent">
-              Option 4 (not an actual value)
+
+            <button class="lum-bg-red-500 p-1 rounded" q:slot="1">
+              Custom Button
             </button>
-            <input q:slot="extra-buttons" class="lum-input lum-bg-transparent" placeholder="custom value..."/>
+
+            <Plus q:slot="before-2" size={20} />
+
+            <button q:slot="extra-content" class="lum-btn lum-bg-transparent">
+              Option 5 (not an actual value)
+            </button>
+            <input q:slot="extra-content" class="lum-input lum-bg-transparent" placeholder="custom value..."/>
           </SelectMenuEl>
         </Label>
       </div>
       <textarea
         class="lum-input h-32"
         value={`
-<SelectMenu
-  id="selectmenu-input"
+<SelectMenu id="selectmenu-input"
   values={[
     {
-      name: <span class="lum-bg-red-500">Any element you want</span>,
+      name: 'Custom Button',
       value: '1',
+      custom: true,
     },
-    { name: 'Option 2', value: '2' },
+    { name: 'Button with a plus icon', value: '2' },
     { name: 'Option 3', value: '3' },
+    { name: 'Option 4', value: '4' },
   ]}
-  value="1"${store.customDropdown ? ' customDropdown' : ''}${store.hover ? ' hover' : ''}${store.align ? ` align="${store.align}"` : ''}
+  value="1"
+  customDropdown={store.customDropdown}
+  hover={store.hover}
+  align={store.align}
 >
-  Select Menu
   <p q:slot="dropdown">
     Fallback content
   </p>
-  <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent">
-    Option 4 (not an actual value)
+
+  <button class="lum-bg-red-500 p-1 rounded" q:slot="1">
+    Custom Button
   </button>
-  <input q:slot="extra-buttons" class="lum-input lum-bg-transparent" placeholder="custom value..."/>
+
+  <Plus q:slot="before-2" size={20} />
+
+  <button q:slot="extra-content" class="lum-btn lum-bg-transparent">
+    Option 5 (not an actual value)
+  </button>
+  <input q:slot="extra-content" class="lum-input lum-bg-transparent" placeholder="custom value..."/>
 </SelectMenu>`}
       />
     </div>

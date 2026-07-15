@@ -1,16 +1,16 @@
 import { component$ } from '@qwik.dev/core';
 import { Link, type DocumentHead } from '@qwik.dev/router';
 
-import { LuminescentFull } from '@luminescent/icons-qwik';
+import { LuminescentFull } from '../../../icons-qwik/lib/index.qwik.mjs';
 import { SocialButtons } from '~/components/Nav';
 
 import Projects from '~/components/Projects';
-import { Book } from 'lucide-icons-qwik';
+import Book from 'lucide-icons-qwik/icons/Book';
 
 export const QwikTag = component$(() => {
   return (
     <p class="lum-btn lum-bg-purple-800/50 rounded-lum text-xs gap-1.5 font-semibold p-1 pr-2">
-      {/* eslint-disable-next-line qwik/jsx-img */}
+      {/* oxlint-disable-next-line qwik/jsx-img */}
       <img src="/qwik.svg" alt="Qwik Logo" width={16} height={16} />
       Qwik
     </p>
@@ -19,7 +19,7 @@ export const QwikTag = component$(() => {
 export const ReactTag = component$(() => {
   return (
     <p class="lum-btn lum-bg-blue-800/50 rounded-lum text-xs gap-1.5 font-semibold p-1 pr-2">
-      {/* eslint-disable-next-line qwik/jsx-img */}
+      {/* oxlint-disable-next-line qwik/jsx-img */}
       <img src="/react.svg" alt="React Logo" width={16} height={16} />
       React
     </p>

@@ -6,3 +6,4 @@ node_modules
 .nx/workspace-data
 .env
 .nx/polygraph
+dummy-non-existing-folder

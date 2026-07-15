@@ -1,8 +1,9 @@
 import { qwikVite } from "@qwik.dev/core/optimizer";
 import { qwikRouter } from "@qwik.dev/router/vite";
-import { defineConfig, type UserConfig } from "vite";
+import { defineConfig, type UserConfig, lazyPlugins } from "vite-plus";
 import pkg from "./package.json";
 import tailwindcss from "@tailwindcss/vite";
+import { fmt, lint } from "./vite.lint";
 
 const { dependencies = {}, peerDependencies = {} } = pkg as any;
 const makeRegex = (dep: string) => new RegExp(`^${dep}(/.*)?$`);
@@ -10,6 +11,11 @@ const excludeAll = (obj: Record<string, unknown>) => Object.keys(obj).map(makeRe
 
 export default defineConfig((): UserConfig => {
   return {
+    staged: {
+      "*": "vp check --fix",
+    },
+    fmt,
+    lint,
     resolve: {
       tsconfigPaths: true,
     },
@@ -20,8 +26,7 @@ export default defineConfig((): UserConfig => {
         entry: "./src/index",
         formats: ["es", "cjs"] as const,
         // This adds .qwik so all files are processed by the optimizer
-        fileName: (format, entryName) =>
-          `${entryName}.qwik.${format === "es" ? "mjs" : "cjs"}`,
+        fileName: (format, entryName) => `${entryName}.qwik.${format === "es" ? "mjs" : "cjs"}`,
       },
       rollupOptions: {
         output: {
@@ -29,13 +34,9 @@ export default defineConfig((): UserConfig => {
           preserveModulesRoot: "src",
         },
         // externalize deps that shouldn't be bundled into the library
-        external: [
-          /^node:.*/,
-          ...excludeAll(dependencies),
-          ...excludeAll(peerDependencies),
-        ],
+        external: [/^node:.*/, ...excludeAll(dependencies), ...excludeAll(peerDependencies)],
       },
     },
-    plugins: [qwikVite(), qwikRouter(), tailwindcss()],
+    plugins: lazyPlugins(() => [qwikVite(), qwikRouter(), tailwindcss()]),
   };
 });

@@ -52,7 +52,7 @@ Next.js app tsconfigs have unique patterns compared to Vite:
 
 ### `next.config.js` Lint Warning
 
-Imported Next.js configs may have `// eslint-disable-next-line @typescript-eslint/no-var-requires` but the project ESLint config enables different rule sets. This produces `Unused eslint-disable directive` warnings. Harmless — remove the comment or ignore.
+Imported Next.js configs may have `// oxlint-disable-next-line @typescript-eslint/no-var-requires` but the project ESLint config enables different rule sets. This produces `Unused oxlint-disable directive` warnings. Harmless — remove the comment or ignore.
 
 ### `@nx/next:init` Rewrites All npm Scripts (Whole-Repo Import)
 

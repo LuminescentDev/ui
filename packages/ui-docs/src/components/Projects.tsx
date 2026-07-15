@@ -1,14 +1,15 @@
 import { component$, useSignal, useVisibleTask$ } from '@qwik.dev/core';
 
 import { Projects } from './ProjectList';
-import { ChevronLeft, ChevronRight } from 'lucide-icons-qwik';
+import ChevronLeft from 'lucide-icons-qwik/icons/ChevronLeft';
+import ChevronRight from 'lucide-icons-qwik/icons/ChevronRight';
 
 export default component$(() => {
   const translateX = useSignal(0);
   const targetX = useSignal(0);
   const containerRef = useSignal<HTMLDivElement>();
 
-  // eslint-disable-next-line qwik/no-use-visible-task
+  // oxlint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
     const animate = () => {
       const el = containerRef.value;
