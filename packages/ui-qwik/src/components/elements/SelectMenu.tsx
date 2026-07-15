@@ -93,7 +93,7 @@ export const SelectMenu = component$<SelectMenuProps>(
             document.addEventListener('click', listener);
           }}
         >
-          <Slot name={`before-${selected?.value}`} />
+          <Slot name="dropdown-before" />
           {(customDropdown || !selected?.name) && <Slot name="dropdown" />}
           {!customDropdown && (
             <>
@@ -104,7 +104,7 @@ export const SelectMenu = component$<SelectMenuProps>(
               )}
             </>
           )}
-          <Slot name={`after-${selected?.value}`} />
+          <Slot name="dropdown-after" />
         </Dropdown>
         {hover && <div class="absolute h-2 w-full" />}
         <div
