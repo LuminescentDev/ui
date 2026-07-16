@@ -1,10 +1,17 @@
-import { component$, Fragment, PropsOf, Slot, useSignal } from '@qwik.dev/core';
+import {
+  component$,
+  Fragment,
+  PropsOf,
+  QRL,
+  Slot,
+  useSignal,
+} from '@qwik.dev/core';
 import { getClassObject } from '../functions';
 import { Dropdown, DropdownProps } from './Dropdown';
 
 interface SelectMenuProps extends Omit<DropdownProps, 'onChange$'> {
   customDropdownButton?: boolean;
-  onChange$?: PropsOf<'select'>['onChange$'];
+  onChange$?: QRL<(event: Event, element: HTMLSelectElement) => void>;
   selectProps?: Omit<PropsOf<'select'>, 'onChange$'>;
   btnProps?: PropsOf<'button'>;
   values: {
@@ -21,7 +28,6 @@ export const SelectMenu = component$<SelectMenuProps>(
     selectProps,
     btnProps,
     values,
-    class: Class,
     ...props
   }) => {
     const selectValue = useSignal(props.value);
