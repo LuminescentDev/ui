@@ -94,16 +94,10 @@ export const SelectMenu = component$<SelectMenuProps>(
           }}
         >
           <Slot name="dropdown-before" />
-          {(customDropdown || !selected?.name) && <Slot name="dropdown" />}
-          {!customDropdown && (
-            <>
-              {selected?.custom ? (
-                <Slot name={selected?.value.toString()} />
-              ) : (
-                selected?.name
-              )}
-            </>
+          {(customDropdown || !selected?.name || selected?.custom) && (
+            <Slot name="dropdown" />
           )}
+          {!customDropdown && !selected?.custom && selected?.name}
           <Slot name="dropdown-after" />
         </Dropdown>
         {hover && <div class="absolute h-2 w-full" />}
@@ -129,7 +123,7 @@ export const SelectMenu = component$<SelectMenuProps>(
                 type="button"
                 class={{
                   ...getClassObject(btnProps?.class),
-                  'lum-btn rounded-lum-1 lum-bg-transparent': !custom,
+                  'lum-btn rounded-lum-1 lum-bg-transparent': true,
                 }}
                 onClick$={(e, el) => {
                   // close the dropdown
