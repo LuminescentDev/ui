@@ -69,6 +69,8 @@ export const SelectMenu = component$<SelectMenuProps>(
               class={{
                 ...getClassObject(btnProps?.class),
                 'lum-btn rounded-lum-1 lum-bg-transparent': true,
+                'lum-bg-lum-accent/80 hover:lum-bg-lum-accent/100':
+                  selectValue.value === value.toString(),
               }}
               onClick$={(e, el) => {
                 // blur the button to remove focus and close the dropdown
