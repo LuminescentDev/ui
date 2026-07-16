@@ -1,28 +1,13 @@
-import type { PropsOf, QRL } from '@qwik.dev/core';
+import type { PropsOf } from '@qwik.dev/core';
 import { $, component$, useStyles$ } from '@qwik.dev/core';
 import { Plus } from '../../svg/Plus';
 import { Minus } from '../../svg/Minus';
 import { getClassObject } from '../functions';
 
-interface NumberInputProps extends Omit<
+interface BaseNumberInputProps extends Omit<
   PropsOf<'input'> & { type: 'number' },
   'type'
 > {
-  onDecrement$?: QRL<
-    (
-      event: PointerEvent,
-      element: HTMLButtonElement,
-      inputElement?: HTMLInputElement
-    ) => void
-  >;
-  onIncrement$?: QRL<
-    (
-      event: PointerEvent,
-      element: HTMLButtonElement,
-      inputElement?: HTMLInputElement
-    ) => void
-  >;
-  input?: boolean;
   value?: number;
   min?: number;
   max?: number;
@@ -30,6 +15,20 @@ interface NumberInputProps extends Omit<
   outerProps?: PropsOf<'div'>;
   btnProps?: PropsOf<'button'>;
 }
+
+type NumberInputProps = BaseNumberInputProps &
+  (
+    | {
+        input: true;
+        onDecrement$?: PropsOf<'button'>['onClick$'];
+        onIncrement$?: PropsOf<'button'>['onClick$'];
+      }
+    | {
+        input?: false;
+        onDecrement$: PropsOf<'button'>['onClick$'];
+        onIncrement$: PropsOf<'button'>['onClick$'];
+      }
+  );
 
 export const NumberInput = component$<NumberInputProps>(
   ({

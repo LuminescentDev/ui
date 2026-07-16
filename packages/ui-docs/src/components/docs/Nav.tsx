@@ -1,5 +1,5 @@
 import { component$, useStore } from '@qwik.dev/core';
-import { Anchor, Nav as NavEl, SelectMenu, Toggle } from '@luminescent/ui-qwik';
+import { Anchor, Dropdown, Nav as NavEl, Toggle } from '@luminescent/ui-qwik';
 
 interface navOptions {
   fixed?: boolean;
@@ -64,33 +64,23 @@ export const Nav = component$(({ id }: { id: string }) => {
             Center Button
           </button>
 
-          <SelectMenu
+          <Dropdown
             id="nav-dropdown"
             hover
-            customDropdown
             q:slot="end"
             class={{ 'lum-bg-transparent hidden sm:flex': true }}
           >
-            <button
-              q:slot="extra-buttons"
-              class="lum-btn lum-bg-transparent rounded-lum-1"
-            >
+            <span q:slot="dropdown">Dropdown</span>
+            <button class="lum-btn lum-bg-transparent rounded-lum-1">
               Option 1
             </button>
-            <button
-              q:slot="extra-buttons"
-              class="lum-btn lum-bg-transparent rounded-lum-1"
-            >
+            <button class="lum-btn lum-bg-transparent rounded-lum-1">
               Option 2
             </button>
-            <button
-              q:slot="extra-buttons"
-              class="lum-btn lum-bg-transparent rounded-lum-1"
-            >
+            <button class="lum-btn lum-bg-transparent rounded-lum-1">
               Option 3
             </button>
-            <span q:slot="dropdown">Dropdown</span>
-          </SelectMenu>
+          </Dropdown>
 
           <button q:slot="mobile" class="lum-btn lum-bg-transparent">
             button 1
@@ -128,25 +118,23 @@ export const Nav = component$(({ id }: { id: string }) => {
     Center button
   </button>
 
-  <SelectMenu
+  <Dropdown
     id="nav-dropdown"
-    hover customDropdown
+    hover
     q:slot="end"
     class={{ 'lum-bg-transparent hidden sm:flex': true }}
   >
-    <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
+    <span q:slot="dropdown">Dropdown</span>
+    <button class="lum-btn lum-bg-transparent rounded-lum-1">
       Option 1
     </button>
-    <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
+    <button class="lum-btn lum-bg-transparent rounded-lum-1">
       Option 2
     </button>
-    <button q:slot="extra-buttons" class="lum-btn lum-bg-transparent rounded-lum-1">
+    <button class="lum-btn lum-bg-transparent rounded-lum-1">
       Option 3
     </button>
-    <span q:slot="dropdown">
-      Dropdown
-    </span>
-  </SelectMenu>
+  </Dropdown>
 
   <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
     button 1

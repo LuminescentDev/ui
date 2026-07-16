@@ -1,6 +1,7 @@
 export * from './elements/Anchor';
 export * from './elements/ColorPicker';
 export * from './elements/Dropdown';
+export * from './elements/DropdownButton';
 export * from './elements/Label';
 export * from './elements/Nav';
 export * from './elements/NumberInput';

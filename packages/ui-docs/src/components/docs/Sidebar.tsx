@@ -1,7 +1,7 @@
 import { component$, useStore } from '@qwik.dev/core';
 import {
   Anchor,
-  Dropdown,
+  DropdownButton,
   Sidebar as SidebarEl,
   Toggle,
 } from '@luminescent/ui-qwik';
@@ -49,7 +49,7 @@ export const Sidebar = component$(({ id }: { id: string }) => {
             Button
           </button>
 
-          <Dropdown
+          <DropdownButton
             opened={store.dropdownOpen}
             id="sidebar-dropdown"
             onClick$={() => {
@@ -60,7 +60,7 @@ export const Sidebar = component$(({ id }: { id: string }) => {
             }}
           >
             Dropdown
-          </Dropdown>
+          </DropdownButton>
           <div
             class={{
               'border-l-lum-border/10 flex flex-col gap-1 overflow-hidden border-l pt-2 pl-2 transition-all duration-200': true,
@@ -100,7 +100,7 @@ export const Sidebar = component$(({ id }: { id: string }) => {
     Button
   </button>
 
-  <Dropdown opened={store.dropdownOpen}
+  <DropdownButton opened={store.dropdownOpen}
     id="sidebar-dropdown"
     onClick$={() => {
       store.dropdownOpen = !store.dropdownOpen;
@@ -110,7 +110,7 @@ export const Sidebar = component$(({ id }: { id: string }) => {
     }}
   >
     Dropdown
-  </Dropdown>
+  </DropdownButton>
   <div class={{
     'transition-all duration-200 overflow-hidden flex flex-col gap-1 pl-2 pt-2 border-l border-l-lum-border/10': true,
     'max-h-0 opacity-0 scale-98': !store.dropdownOpen,

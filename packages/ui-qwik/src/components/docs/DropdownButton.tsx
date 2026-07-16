@@ -1,7 +1,11 @@
 import { component$, useSignal } from '@qwik.dev/core';
-import { Anchor, Dropdown as DropdownEl, Toggle } from '@luminescent/ui-qwik';
+import {
+  Anchor,
+  DropdownButton as DropdownButtonEl,
+  Toggle,
+} from '@luminescent/ui-qwik';
 
-export const Dropdown = component$(({ id }: { id: string }) => {
+export const DropdownButton = component$(({ id }: { id: string }) => {
   const opened = useSignal(false);
   const hover = useSignal(false);
 
@@ -12,7 +16,7 @@ export const Dropdown = component$(({ id }: { id: string }) => {
           id={id}
           class="text-xl font-bold whitespace-nowrap text-white sm:text-2xl"
         >
-          Dropdown
+          DropdownButton
         </h2>
       </Anchor>
       <Toggle
@@ -29,22 +33,22 @@ export const Dropdown = component$(({ id }: { id: string }) => {
         opened
       </Toggle>
       <div>
-        <DropdownEl
+        <DropdownButtonEl
           opened={opened.value}
           hover={hover.value}
           onClick$={() => (opened.value = !opened.value)}
         >
           Dropdown
-        </DropdownEl>
+        </DropdownButtonEl>
       </div>
       <textarea
         class="lum-input h-32"
         value={`
-<Dropdown ${hover.value ? 'hover' : ''}
+<DropdownButton ${hover.value ? 'hover' : ''}
   opened={opened.value}
   onClick$={() => (opened.value = !opened.value)}>
   Dropdown
-</Dropdown>`}
+</DropdownButton>`}
       />
     </div>
   );

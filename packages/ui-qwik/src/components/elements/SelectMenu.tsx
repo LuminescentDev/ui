@@ -1,154 +1,91 @@
-import type { PropsOf, QRL } from '@qwik.dev/core';
-import { component$, Slot, useSignal, useStore } from '@qwik.dev/core';
-import { Dropdown } from './Dropdown';
+import { component$, Fragment, PropsOf, Slot, useSignal } from '@qwik.dev/core';
 import { getClassObject } from '../functions';
+import { Dropdown, DropdownProps } from './Dropdown';
 
-interface SelectMenuProps extends Omit<PropsOf<'select'>, 'onChange$'> {
-  panelProps?: PropsOf<'div'>;
+interface SelectMenuProps extends Omit<DropdownProps, 'onChange$'> {
+  customDropdownButton?: boolean;
+  onChange$?: PropsOf<'select'>['onChange$'];
+  selectProps?: Omit<PropsOf<'select'>, 'onChange$'>;
   btnProps?: PropsOf<'button'>;
-  noblur?: boolean;
-  nocloseonclick?: boolean;
-  customDropdown?: boolean;
-  hover?: boolean;
-  align?: 'left' | 'right' | 'center';
-  onChange$?: QRL<(event: Event, element: HTMLSelectElement) => void>;
-  values?: {
+  values: {
     name: string;
     value: string | number;
     custom?: boolean;
   }[];
-  outerProps?: PropsOf<'div'>;
 }
 
 export const SelectMenu = component$<SelectMenuProps>(
   ({
+    customDropdownButton,
+    onChange$,
+    selectProps,
+    btnProps,
     values,
     class: Class,
-    panelProps,
-    btnProps,
-    noblur,
-    nocloseonclick,
-    customDropdown,
-    hover,
-    align,
-    outerProps,
     ...props
   }) => {
-    const store = useStore({
-      opened: false,
-      value: props.value,
-    });
+    const selectValue = useSignal(props.value);
     const selectRef = useSignal<HTMLSelectElement>();
     const selected =
-      values?.find((v) => v.value === store.value) ?? values?.[0];
+      values?.find((v) => v.value === selectValue.value) ?? values?.[0];
 
     return (
-      <div
-        {...outerProps}
-        class={{
-          'relative touch-manipulation': true,
-          group: hover,
-          ...getClassObject(outerProps?.class),
-        }}
-      >
-        {values && (
-          <select
-            onChange$={props.onChange$}
-            {...props}
-            ref={selectRef}
-            class="hidden"
-          >
-            {values.map((value, i) => {
-              return (
-                <option key={i} value={value.value}>{`${value.value}`}</option>
-              );
-            })}
-          </select>
-        )}
-        <Dropdown
-          id={props.id ? `${props.id}-dropdown` : undefined}
-          opened={store.opened}
-          class={{
-            'w-full': true,
-            ...getClassObject(Class),
-          }}
-          onClick$={(e, el) => {
-            if (hover) return; // do not toggle on click if hover is enabled
-            store.opened = !store.opened;
-            if (nocloseonclick) return; // do not close on click if nocloseonclick is true
-            // close on click
-            const listener = (e: MouseEvent) => {
-              // if the dropdown is already closed, remove the listener
-              if (!store.opened)
-                return document.removeEventListener('click', listener);
-
-              // check if the click is outside the button
-              const path = e.composedPath();
-              if (path.includes(el)) return;
-
-              // close the dropdown and remove the listener
-              store.opened = false;
-              document.removeEventListener('click', listener);
-            };
-            document.addEventListener('click', listener);
-          }}
+      <Dropdown {...props}>
+        <select
+          q:slot="outer"
+          onChange$={onChange$}
+          {...selectProps}
+          ref={selectRef}
+          class="hidden"
         >
-          <Slot name="dropdown-before" />
-          {(customDropdown || !selected?.name || selected?.custom) && (
-            <Slot name="dropdown" />
-          )}
-          {!customDropdown && !selected?.custom && selected?.name}
-          <Slot name="dropdown-after" />
-        </Dropdown>
-        {hover && <div class="absolute h-2 w-full" />}
-        <div
-          class={{
-            ...getClassObject(panelProps?.class),
-            'lum-bg-lum-input-bg absolute z-1000 mt-2': true,
-            'lum-scroll rounded-lum flex max-h-72 flex-col gap-1 overflow-auto border p-1 ease-out select-none motion-safe:transition-all': true,
-            'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75': true,
-            'backdrop-blur-lg': !noblur,
-            'left-0': align === 'left',
-            'right-0': align === 'right',
-            'left-1/2 -translate-x-1/2': align === 'center',
-            'pointer-events-none scale-95 opacity-0': !store.opened,
-            'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75':
-              hover,
-          }}
-        >
-          {values?.map(({ name, value, custom }, i) => {
+          {values.map((value, i) => {
             return (
-              <button
-                key={i}
-                type="button"
-                class={{
-                  ...getClassObject(btnProps?.class),
-                  'lum-btn rounded-lum-1 lum-bg-transparent': true,
-                }}
-                onClick$={(e, el) => {
-                  // close the dropdown
-                  el.blur();
-                  store.opened = false;
-
-                  // set the value of the select element
-                  const select = selectRef.value;
-                  if (select) {
-                    select.value = value.toString();
-                    select.dispatchEvent(new Event('change'));
-                  }
-                  store.value = value.toString();
-                }}
-              >
-                <Slot key={i} name={`before-${value}`} />
-                {!custom && <>{name}</>}
-                {custom && <Slot key={i} name={value.toString()} />}
-                <Slot key={i} name={`after-${value}`} />
-              </button>
+              <option key={i} value={value.value}>{`${value.value}`}</option>
             );
           })}
-          <Slot name="extra-content" />
-        </div>
-      </div>
+        </select>
+
+        <Fragment q:slot="dropdown">
+          <Slot name="dropdown-before" />
+          {(customDropdownButton || !selected?.name || selected?.custom) && (
+            <Slot name="dropdown" />
+          )}
+          {!customDropdownButton && !selected?.custom && selected?.name}
+          <Slot name="dropdown-after" />
+        </Fragment>
+
+        {values.map(({ name, value, custom }, i) => {
+          return (
+            <button
+              key={i}
+              type="button"
+              data-dismissDropdown="true"
+              class={{
+                ...getClassObject(btnProps?.class),
+                'lum-btn rounded-lum-1 lum-bg-transparent': true,
+              }}
+              onClick$={(e, el) => {
+                // blur the button to remove focus and close the dropdown
+                el.blur();
+
+                // set the value of the select element
+                const select = selectRef.value;
+                if (select) {
+                  select.value = value.toString();
+                  select.dispatchEvent(new Event('change'));
+                }
+                selectValue.value = value.toString();
+              }}
+            >
+              <Slot key={i} name={`before-${value}`} />
+              {!custom && <>{name}</>}
+              {custom && <Slot key={i} name={value.toString()} />}
+              <Slot key={i} name={`after-${value}`} />
+            </button>
+          );
+        })}
+        <Slot name="extra-content" />
+      </Dropdown>
     );
   }
 );

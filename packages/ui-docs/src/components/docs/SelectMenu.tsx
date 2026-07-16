@@ -1,4 +1,4 @@
-import { component$, useStore } from '@qwik.dev/core';
+import { component$, Fragment, useStore } from '@qwik.dev/core';
 import {
   SelectMenu as SelectMenuEl,
   Toggle,
@@ -8,7 +8,7 @@ import {
 import Plus from 'lucide-icons-qwik/icons/Plus';
 
 interface SelectMenuOptions {
-  customDropdown?: boolean;
+  customDropdownButton?: boolean;
   hover?: boolean;
   align?: 'left' | 'right' | 'center';
 }
@@ -26,10 +26,10 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
         </h2>
       </Anchor>
       <Toggle
-        id="selectmenu-customDropdown"
-        onInput$={(e, el) => (store.customDropdown = el.checked)}
+        id="selectmenu-customDropdownButton"
+        onInput$={(e, el) => (store.customDropdownButton = el.checked)}
       >
-        customDropdown
+        customDropdownButton
       </Toggle>
       <Toggle
         id="selectmenu-hover"
@@ -69,15 +69,15 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
               { name: 'Option 4', value: '4' },
             ]}
             value="1"
-            customDropdown={store.customDropdown}
+            customDropdownButton={store.customDropdownButton}
             hover={store.hover}
             align={store.align}
           >
-            <p q:slot="dropdown">Fallback content</p>
+            <Fragment q:slot="dropdown">Fallback content</Fragment>
 
-            <button class="lum-bg-red-500 rounded p-1" q:slot="1">
+            <span q:slot="1" class="lum-bg-red-500 rounded p-1">
               Custom Button
-            </button>
+            </span>
 
             <Plus q:slot="before-2" size={20} />
 
@@ -107,17 +107,17 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
     { name: 'Option 4', value: '4' },
   ]}
   value="1"
-  customDropdown={store.customDropdown}
+  customDropdownButton={store.customDropdownButton}
   hover={store.hover}
   align={store.align}
 >
-  <p q:slot="dropdown">
+  <Fragment q:slot="dropdown">
     Fallback content
-  </p>
+  </Fragment>
 
-  <button class="lum-bg-red-500 p-1 rounded" q:slot="1">
+  <span q:slot="1" class="lum-bg-red-500 p-1 rounded">
     Custom Button
-  </button>
+  </span>
 
   <Plus q:slot="before-2" size={20} />
 

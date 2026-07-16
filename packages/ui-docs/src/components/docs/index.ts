@@ -1,7 +1,7 @@
 // docs for ui components
 export * from './Anchor';
 export * from './ColorPicker';
-export * from './Dropdown';
+export * from './DropdownButton';
 export * from './Label';
 export * from './Nav';
 export * from './NumberInput';

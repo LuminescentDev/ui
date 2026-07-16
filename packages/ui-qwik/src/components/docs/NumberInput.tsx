@@ -1,4 +1,4 @@
-import { component$, useStore } from '@qwik.dev/core';
+import { $, component$, useStore } from '@qwik.dev/core';
 import {
   Anchor,
   Label,
@@ -30,7 +30,16 @@ export const NumberInput = component$(({ id }: { id: string }) => {
       </Toggle>
       <div>
         <Label for="number-input" label="Number Input">
-          <NumberInputEl id="number-input" input={store.input} />
+          {store.input ? (
+            <NumberInputEl id="number-input" input={true} />
+          ) : (
+            <NumberInputEl
+              id="number-input"
+              input={false}
+              onDecrement$={() => {}}
+              onIncrement$={() => {}}
+            />
+          )}
         </Label>
       </div>
       <textarea
