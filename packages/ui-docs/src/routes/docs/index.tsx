@@ -88,7 +88,7 @@ export default component$(() => {
         </h2>
         <Docs.Anchor id="anchor" />
         <Docs.ColorPicker id="color-picker" />
-        <Docs.Dropdown id="dropdown" />
+        <Docs.DropdownButton id="dropdown-button" />
         <Docs.Label id="label" />
         <Docs.Nav id="nav" />
         <Docs.NumberInput id="number-input" />

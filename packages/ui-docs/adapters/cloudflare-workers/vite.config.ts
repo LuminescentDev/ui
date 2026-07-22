@@ -4,7 +4,7 @@ import { lazyPlugins } from 'vite-plus';
 import baseConfig from '../../vite.config.ts';
 
 // oxlint-disable-next-line typescript/no-unsafe-argument typescript/no-unnecessary-type-assertion
-export default extendConfig(baseConfig as any, () => {
+export default extendConfig(baseConfig, () => {
   return {
     build: {
       ssr: true,

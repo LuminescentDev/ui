@@ -10,15 +10,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { fmt, lint } from '../../vite.lint';
 import { strict } from 'oxlint-plugin-qwik';
 
-let platform = {};
-
-if (process.env.NODE_ENV === 'development') {
-  const { getPlatformProxy } = await import('wrangler');
-  platform = await getPlatformProxy();
-}
-
 type PkgDep = Record<string, string>;
-const { dependencies = {}, devDependencies = {} } = pkg as any as {
+const { dependencies = {}, devDependencies = {} } = pkg as unknown as {
   dependencies: PkgDep;
   devDependencies: PkgDep;
   [key: string]: unknown;

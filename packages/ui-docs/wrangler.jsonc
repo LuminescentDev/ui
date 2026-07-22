@@ -15,9 +15,7 @@
   "observability": {
     "enabled": true,
   },
-  // "routes": [
-  // 	{ "pattern": "ui.luminescent.dev", "custom_domain": true }
-  // ],
+  "routes": [{ "pattern": "ui.luminescent.dev", "custom_domain": true }],
   "preview_urls": true,
   /**
    * Smart Placement
