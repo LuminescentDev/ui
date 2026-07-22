@@ -18,10 +18,13 @@ export const Hoverable = {
   },
 } as const;
 
-export function getClassObject(Class: ClassList) {
+export function getClassObject(Class: ClassList): Record<string, boolean> {
   return typeof Class === 'string'
     ? { [Class]: true }
     : Array.isArray(Class)
-      ? Object.fromEntries(Class.map((c) => [c, true]))
-      : Class;
+      ? (Object.fromEntries(Class.map((c) => [c, true])) as Record<
+          string,
+          true
+        >)
+      : (Class as Record<string, boolean>);
 }
