@@ -9,6 +9,7 @@ export interface DropdownProps extends DropdownButtonProps {
   nocloseonclick?: boolean;
   hover?: boolean;
   align?: 'left' | 'right' | 'center';
+  top?: boolean;
   outerProps?: PropsOf<'div'>;
 }
 
@@ -20,6 +21,7 @@ export const Dropdown = component$<DropdownProps>(
     nocloseonclick,
     hover,
     align,
+    top,
     outerProps,
     ...props
   }) => {
@@ -74,17 +76,26 @@ export const Dropdown = component$<DropdownProps>(
         >
           <Slot name="dropdown" />
         </DropdownButton>
-        {hover && <div class="absolute h-2 w-full" />}
+        {hover && (
+          <div
+            class={{
+              'absolute h-2 w-full': true,
+              'bottom-full': top,
+            }}
+          />
+        )}
         <div
           class={{
             ...getClassObject(panelProps?.class),
-            'lum-bg-lum-input-bg absolute z-1000 mt-2': true,
+            'lum-bg-lum-input-bg absolute z-1000': true,
             'lum-scroll rounded-lum flex max-h-72 flex-col gap-1 overflow-auto border p-1 ease-out select-none motion-safe:transition-all': true,
             'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75': true,
             'backdrop-blur-lg': !noblur,
             'left-0': align === 'left',
             'right-0': align === 'right',
             'left-1/2 -translate-x-1/2': align === 'center',
+            'bottom-full mb-2': top,
+            'mt-2': !top,
             'pointer-events-none scale-95 opacity-0': !opened.value,
             'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75':
               hover,

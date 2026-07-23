@@ -20,14 +20,12 @@ export const DropdownButton = component$<DropdownButtonProps>(
           ...getClassObject(props.class),
         }}
       >
-        <span class="flex flex-1 items-center gap-2 text-left">
-          <Slot />
-        </span>
+        <Slot />
         {!noChevron && (
           <ChevronDown
             size={16}
             class={{
-              'ease-out motion-safe:transition-transform': true,
+              'ml-auto ease-out motion-safe:transition-transform': true,
               'rotate-180 transform': opened,
               'duration-300 group-hover:rotate-180 group-hover:transform group-hover:duration-75':
                 hover,

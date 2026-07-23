@@ -10,6 +10,7 @@ import { Plus } from '~/svg/Plus';
 interface SelectMenuOptions {
   customDropdownButton?: boolean;
   hover?: boolean;
+  top?: boolean;
   align?: 'left' | 'right' | 'center';
 }
 
@@ -53,6 +54,12 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
           />
         </Label>
       </div>
+      <Toggle
+        id="selectmenu-top"
+        onInput$={(e, el) => (store.top = el.checked)}
+      >
+        top
+      </Toggle>
       <div class="flex">
         <Label for="selectmenu-input">
           Select Menu
@@ -71,6 +78,7 @@ export const SelectMenu = component$(({ id }: { id: string }) => {
             value="1"
             customDropdownButton={store.customDropdownButton}
             hover={store.hover}
+            top={store.top}
             align={store.align}
           >
             <Fragment q:slot="dropdown">Fallback content</Fragment>
