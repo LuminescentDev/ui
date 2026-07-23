@@ -55,12 +55,16 @@
 }
 
 @utility lum-focus-border {
-  &:focus {
-    border-color: var(--color-lum-accent);
+  outline: 1px solid transparent;
+  outline-offset: -1px;
+
+  &:focus-visible {
+    outline-color: var(--color-lum-accent);
   }
 }
 
 @utility lum-border-fade {
+  border-width: calc(1px * (1 - clamp(0, var(--lum-depth), 1)));
   border-color: color-mix(
     in oklab,
     var(--lum-border-color),
@@ -287,7 +291,7 @@
   );
   --lum-surface-color: var(--bg-color);
   --lum-toggle-hover-bg: --alpha(
-    color-mix(in oklab, white 10%, --value(--color-*)) /
+    color-mix(in oklab, white 25%, --value(--color-*)) /
       calc(var(--alpha, 100) * 1%)
   );
 
@@ -314,8 +318,9 @@
 }
 
 @utility rounded-lum-* {
-  border-radius: calc(
-    var(--lum-border-radius) - calc(var(--spacing) * --value(number))
+  border-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
   );
   corner-shape: superellipse(var(--lum-border-superellipse));
 }

@@ -30,6 +30,11 @@ export const Dropdown = component$<DropdownProps>(
     return (
       <div
         {...outerProps}
+        onKeyDown$={(e) => {
+          if (e.key === 'Escape' && opened.value) {
+            opened.value = false;
+          }
+        }}
         class={{
           'relative touch-manipulation': true,
           group: hover,
@@ -88,7 +93,7 @@ export const Dropdown = component$<DropdownProps>(
           class={{
             ...getClassObject(panelProps?.class),
             'lum-bg-lum-input-bg absolute z-1000': true,
-            'lum-scroll rounded-lum flex max-h-72 flex-col gap-1 overflow-auto border p-1 ease-out select-none motion-safe:transition-all': true,
+            'lum-scroll rounded-lum flex max-h-72 transform-gpu flex-col gap-1 overflow-auto border p-1 ease-out select-none motion-safe:transition-all': true,
             'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75': true,
             'backdrop-blur-lg': !noblur,
             'left-0': align === 'left',

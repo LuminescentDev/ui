@@ -14,6 +14,8 @@ export const DropdownButton = component$<DropdownButtonProps>(
     return (
       <button
         type="button"
+        aria-expanded={opened}
+        aria-haspopup="true"
         {...props}
         class={{
           'group lum-btn': true,

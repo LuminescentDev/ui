@@ -65,6 +65,8 @@ export const SelectMenu = component$<SelectMenuProps>(
             <button
               key={i}
               type="button"
+              role="option"
+              aria-selected={selectValue.value === value.toString()}
               data-dismissDropdown="true"
               class={{
                 ...getClassObject(btnProps?.class),
