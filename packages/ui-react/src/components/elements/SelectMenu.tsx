@@ -1,162 +1,109 @@
 import type React from 'react';
-import { getClasses } from '../functions';
-import { Dropdown } from './Dropdown';
 import { useRef, useState } from 'react';
+import { Dropdown } from './Dropdown';
+import type { DropdownProps } from './Dropdown';
+import { getClasses } from '../functions';
 
-interface SelectMenuProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectMenuProps extends Omit<DropdownProps, 'onChange'> {
+  customDropdownButton?: boolean;
   customDropdown?: boolean;
-  panelClass?: string;
-  btnClass?: string;
-  noblur?: boolean;
-  nocloseonclick?: boolean;
-  hover?: boolean;
-  align?: 'left' | 'right' | 'center';
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectProps?: Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'onChange'>;
+  btnProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
   values?: {
     name: React.ReactNode;
     value: string | number;
+    custom?: boolean;
   }[];
-  dropdown?: React.ReactNode;
-  'extra-buttons'?: React.ReactNode;
+  dropdownBefore?: React.ReactNode;
+  dropdownAfter?: React.ReactNode;
+  extraContent?: React.ReactNode;
 }
 
-export function SelectMenu({ children, ...props }: SelectMenuProps) {
-  return (
-    <div className="flex flex-col">
-      <label htmlFor={props.id} className="text-lum-text pb-1 select-none">
-        {children}
-      </label>
-      <SelectMenuRaw
-        {...props}
-        dropdown={
-          props.customDropdown || !props.values?.length
-            ? props.dropdown
-            : undefined
-        }
-        extra-buttons={props['extra-buttons']}
-      ></SelectMenuRaw>
-    </div>
-  );
-}
-
-export function SelectMenuRaw({
-  values,
-  className,
-  panelClass = 'lum-bg-lum-input-bg',
-  btnClass = 'lum-bg-transparent',
-  noblur,
-  nocloseonclick,
+export function SelectMenu({
+  customDropdownButton,
   customDropdown,
-  hover,
-  align,
+  onChange,
+  selectProps,
+  btnProps,
+  values,
+  dropdownBefore,
+  dropdownAfter,
+  extraContent,
+  children,
   ...props
 }: SelectMenuProps) {
-  const [opened, setOpened] = useState(false);
-  const [value, setValue] = useState(
-    props.value?.toString() || (values && values[0]?.value.toString()) || ''
-  );
+  const isCustomButton = customDropdownButton || customDropdown;
+  const initialVal =
+    (typeof props.value === 'string' || typeof props.value === 'number'
+      ? props.value
+      : values?.[0]?.value) ?? '';
+
+  const [selectValue, setSelectValue] = useState<string | number>(initialVal);
   const selectRef = useRef<HTMLSelectElement>(null);
+  const selected =
+    values?.find((v) => v.value.toString() === selectValue.toString()) ??
+    values?.[0];
+
+  const dropdownLabel = (
+    <>
+      {dropdownBefore}
+      {(isCustomButton || !selected?.name || selected?.custom) && children}
+      {!isCustomButton && !selected?.custom && selected?.name}
+      {dropdownAfter}
+    </>
+  );
 
   return (
-    <div
-      className={getClasses({
-        'relative touch-manipulation': true,
-        group: hover,
-      })}
-    >
+    <Dropdown {...props} dropdown={dropdownLabel}>
       {values && (
-        <select {...props} className="hidden" ref={selectRef}>
-          {values.map((value, i) => {
-            return (
-              <option key={i} value={value.value}>{`${value.value}`}</option>
-            );
-          })}
+        <select
+          onChange={(e) => {
+            setSelectValue(e.target.value);
+            if (onChange) onChange(e);
+          }}
+          {...selectProps}
+          ref={selectRef}
+          value={selectValue}
+          className="hidden"
+        >
+          {values.map((val, i) => (
+            <option key={i} value={val.value}>
+              {`${val.value}`}
+            </option>
+          ))}
         </select>
       )}
-      <Dropdown
-        opened={opened}
-        className={getClasses({
-          'w-full': true,
-          [className ?? '']: !!className,
-        })}
-        onClick={(e) => {
-          if (hover) return; // do not toggle on click if hover is enabled
-          setOpened(!opened);
-          if (nocloseonclick) return; // do not close on click if nocloseonclick is true
-          const el = e.currentTarget;
-          // close on click
-          const listener = (e: MouseEvent) => {
-            // check if the click is outside the button
-            const path = e.composedPath();
-            if (path.includes(el)) return;
-            console.log('listener', e, el);
 
-            // close the dropdown and remove the listener
-            setOpened(false);
-            document.removeEventListener('click', listener);
-          };
-          document.addEventListener('click', listener);
-        }}
-      >
-        {customDropdown && props.dropdown}
-        {!customDropdown && (
-          <span>
-            {values &&
-              (values.find((v) => v.value.toString() === value)?.name ??
-                values[0].name)}
-            {!values && props.dropdown}
-          </span>
-        )}
-      </Dropdown>
-      {hover && <div className="absolute h-2 w-full" />}
-      <div
-        className={getClasses({
-          'absolute z-1000 mt-2': true,
-          'backdrop-blur-lg': !noblur,
-          'lum-scroll flex max-h-72 flex-col gap-1 overflow-auto rounded-lum border p-1 select-none motion-safe:transition-all ease-out': true,
-          'left-0': align === 'left',
-          'right-0': align === 'right',
-          'left-1/2 -translate-x-1/2': align === 'center',
-          'pointer-events-none scale-95 opacity-0': !opened,
-          'duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-hover:duration-75':
-            hover,
-          'focus-within:pointer-events-auto focus-within:scale-100 focus-within:opacity-100 focus-within:duration-75': true,
-          [panelClass]: true,
-        })}
-      >
-        {values?.map(({ name, value }, i) => {
-          return (
-            <button
-              type="button"
-              className={getClasses({
-                'lum-btn rounded-lum-1': true,
-                [btnClass]: true,
-              })}
-              key={i}
-              onClick={(e) => {
-                // close the dropdown
-                e.currentTarget.blur();
-                setOpened(false);
-
-                // set the value of the select element
-                const select = selectRef.current;
-                if (select) {
-                  select.value = value.toString();
-                  select.dispatchEvent(
-                    new Event('change', {
-                      bubbles: true,
-                      cancelable: true,
-                    })
-                  );
-                }
-                setValue(value.toString());
-              }}
-            >
-              {name}
-            </button>
-          );
-        })}
-        {props['extra-buttons']}
-      </div>
-    </div>
+      {values?.map(({ name, value }, i) => (
+        <button
+          key={i}
+          type="button"
+          role="option"
+          aria-selected={selectValue.toString() === value.toString()}
+          data-dismiss-dropdown="true"
+          className={getClasses({
+            'lum-btn rounded-lum-1 lum-bg-transparent': true,
+            'lum-bg-lum-accent/80 hover:lum-bg-lum-accent/100':
+              selectValue.toString() === value.toString(),
+            [btnProps?.className ?? '']: !!btnProps?.className,
+          })}
+          onClick={(e) => {
+            e.currentTarget.blur();
+            const select = selectRef.current;
+            if (select) {
+              select.value = value.toString();
+              select.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            setSelectValue(value.toString());
+          }}
+        >
+          {name}
+        </button>
+      ))}
+      {extraContent}
+    </Dropdown>
   );
 }
+
+export const SelectMenuRaw = SelectMenu;
