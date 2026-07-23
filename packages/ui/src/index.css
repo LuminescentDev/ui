@@ -14,7 +14,8 @@
   --lum-input-p-x: 1.5;
   --lum-label-gap: 0.25rem;
   --lum-border-radius: var(--radius-lg);
-  --lum-border-superellipse: 1;
+  --lum-border-superellipse: 2;
+  --lum-border-superellipse-radius-multiplier: 2;
   --lum-border-mix: 20%;
   --lum-depth: 0;
   --lum-gradient-mix: 20%;
@@ -314,7 +315,13 @@
 
 @utility rounded-lum {
   border-radius: var(--lum-border-radius);
-  corner-shape: superellipse(var(--lum-border-superellipse));
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
 }
 
 @utility rounded-lum-* {
@@ -322,7 +329,17 @@
     0px,
     calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
   );
-  corner-shape: superellipse(var(--lum-border-superellipse));
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
 }
 
 @utility border-gradient-* {
@@ -333,6 +350,7 @@
     @apply absolute inset-0 z-[-1] bg-gradient-to-br content-[''];
     margin: calc(--value(integer) * -1px);
     border-radius: inherit;
+    corner-shape: inherit;
   }
 }
 
@@ -357,17 +375,35 @@
 @utility lum-input {
   @apply lum-input-p-2 lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg flex touch-manipulation whitespace-nowrap duration-300 ease-out select-none hover:drop-shadow-lg hover:duration-75 active:drop-shadow-lg active:duration-75 disabled:opacity-50 motion-safe:transition;
   border-radius: var(--lum-border-radius);
-  corner-shape: superellipse(var(--lum-border-superellipse));
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
 }
 
 @utility lum-btn {
   @apply lum-btn-p-2 lum-bg-lum-input-bg hover:lum-bg-lum-input-hover-bg active:lum-bg-lum-input-hover-bg flex touch-manipulation items-center text-base whitespace-nowrap duration-300 ease-out select-none hover:drop-shadow-lg hover:duration-75 active:drop-shadow-lg active:duration-75 disabled:opacity-50 motion-safe:transition motion-safe:active:scale-95;
   border-radius: var(--lum-border-radius);
-  corner-shape: superellipse(var(--lum-border-superellipse));
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
 }
 
 @utility lum-card {
   @apply lum-bg-lum-card-bg flex flex-col gap-3 p-7 whitespace-pre-wrap;
   border-radius: var(--lum-border-radius);
-  corner-shape: superellipse(var(--lum-border-superellipse));
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
 }
