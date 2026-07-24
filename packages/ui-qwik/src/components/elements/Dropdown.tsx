@@ -90,6 +90,7 @@ export const Dropdown = component$<DropdownProps>(
           />
         )}
         <div
+          {...panelProps}
           class={{
             ...getClassObject(panelProps?.class),
             'lum-bg-lum-input-bg absolute z-1000': true,

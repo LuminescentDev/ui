@@ -31,6 +31,7 @@ export function SelectMenu({
   dropdownAfter,
   extraContent,
   children,
+  panelProps,
   ...props
 }: SelectMenuProps) {
   const isCustomButton = customDropdownButton || customDropdown;
@@ -55,7 +56,11 @@ export function SelectMenu({
   );
 
   return (
-    <Dropdown {...props} dropdown={dropdownLabel}>
+    <Dropdown
+      {...props}
+      panelProps={{ role: 'listbox', ...panelProps }}
+      dropdown={dropdownLabel}
+    >
       {values && (
         <select
           onChange={(e) => {

@@ -28,6 +28,7 @@ export const SelectMenu = component$<SelectMenuProps>(
     selectProps,
     btnProps,
     values,
+    panelProps,
     ...props
   }) => {
     const selectValue = useSignal(props.value);
@@ -36,7 +37,7 @@ export const SelectMenu = component$<SelectMenuProps>(
       values?.find((v) => v.value === selectValue.value) ?? values?.[0];
 
     return (
-      <Dropdown {...props}>
+      <Dropdown panelProps={{ role: 'listbox', ...panelProps }} {...props}>
         <select
           q:slot="outer"
           onChange$={onChange$}
