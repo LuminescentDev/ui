@@ -12,6 +12,18 @@ export default component$(() => {
         <h3 q:slot="title" class="text-lg font-bold">
           Luminescent UI Documentation
         </h3>
+        <div class="mt-2 flex gap-1">
+          <a class="lum-btn lum-bg-blue/20 lum-btn-p-1 text-xs" href="/ai">
+            🤖 AI Docs
+          </a>
+          <a
+            class="lum-btn lum-bg-transparent lum-btn-p-1 text-xs"
+            href="/llms.txt"
+            target="_blank"
+          >
+            /llms.txt
+          </a>
+        </div>
 
         <h4 class="border-b-lum-border/10 mt-4 ml-2 border-b pb-2 text-lg font-bold">
           Tailwind Components
