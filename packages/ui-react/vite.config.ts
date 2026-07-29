@@ -35,9 +35,7 @@ export default defineConfig({
       ],
     },
   },
-  plugins: lazyPlugins(() => [
-    react(),
-    dts({ include: ['src'] }),
-    tailwindcss(),
-  ]),
+  plugins: lazyPlugins(
+    () => [...react(), dts({ include: ['src'] }), tailwindcss()] as any
+  ),
 });
