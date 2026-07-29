@@ -60,7 +60,7 @@ export function Nav({
     <nav
       {...props}
       className={getClasses({
-        'top-0 left-0 z-50 flex w-full flex-col duration-200': true,
+        'top-0 left-0 z-50 flex w-full flex-col': true,
         fixed: fixed,
         absolute: !fixed,
         [props.className ?? '']: true,
@@ -84,7 +84,7 @@ export function Nav({
       {mobile && (
         <ButtonContainer
           className={getClasses({
-            'fixed right-0 bottom-0 left-0 z-50 mx-2 mb-1 flex backdrop-blur-lg sm:hidden': true,
+            'fixed right-0 bottom-0 left-0 z-50 mx-2 mb-[calc(0.25rem+env(safe-area-inset-bottom,0px))] flex transform-gpu backdrop-blur-lg sm:hidden': true,
             [colorClass]: true,
           })}
           style={
