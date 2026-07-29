@@ -2,6 +2,7 @@ import { MenuIcon } from 'lucide-react';
 import { getClasses } from '../functions';
 import type React from 'react';
 import { useEffect, useState } from 'react';
+import { ButtonContainer } from './ButtonContainer';
 
 interface NavProps extends Omit<
   React.HTMLAttributes<HTMLElement>,
@@ -15,6 +16,7 @@ interface NavProps extends Omit<
   start?: React.ReactNode;
   center?: React.ReactNode;
   end?: React.ReactNode;
+  hamburger?: React.ReactNode;
   mobile?: React.ReactNode;
   colorClass?: string;
 }
@@ -29,6 +31,7 @@ export function Nav({
   start,
   center,
   end,
+  hamburger,
   mobile,
   ...props
 }: NavProps) {
@@ -75,8 +78,24 @@ export function Nav({
             [colorClass]: true,
           })}
         >
-          {mobile}
+          {hamburger}
         </div>
+      )}
+      {mobile && (
+        <ButtonContainer
+          className={getClasses({
+            'fixed right-0 bottom-0 left-0 z-50 mx-2 mb-1 flex backdrop-blur-lg sm:hidden': true,
+            [colorClass]: true,
+          })}
+          style={
+            {
+              '--lum-border-radius': '1.5rem',
+              '--lum-btn-p-x': '2.5',
+            } as React.CSSProperties
+          }
+        >
+          {mobile}
+        </ButtonContainer>
       )}
       <div
         className={getClasses({

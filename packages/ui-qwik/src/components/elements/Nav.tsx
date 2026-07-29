@@ -2,6 +2,7 @@ import type { ClassList, PropsOf } from '@qwik.dev/core';
 import { Slot, component$, useSignal } from '@qwik.dev/core';
 import { Menu } from '~/svg/Menu';
 import { getClassObject } from '../functions';
+import { ButtonContainer } from './ButtonContainer';
 
 interface NavProps extends PropsOf<'nav'> {
   fixed?: boolean;
@@ -10,6 +11,8 @@ interface NavProps extends PropsOf<'nav'> {
   nohamburger?: boolean;
   nodismiss?: boolean;
   innerProps?: PropsOf<'div'>;
+  panelProps?: PropsOf<'div'>;
+  mobileNavProps?: PropsOf<'div'>;
   colorClass?: ClassList;
 }
 
@@ -23,6 +26,8 @@ export const Nav = component$<NavProps>(
     class: Class,
     colorClass = 'lum-bg-lum-card-bg',
     innerProps,
+    panelProps,
+    mobileNavProps,
     ...props
   }) => {
     const menu = useSignal(false);
@@ -41,6 +46,7 @@ export const Nav = component$<NavProps>(
       >
         {!nohamburger && (
           <div
+            {...panelProps}
             class={{
               'lum-card absolute top-full max-w-7xl gap-2 px-2 py-4 motion-safe:transition-all sm:hidden': true,
               'mx-4 w-[calc(100%-(--spacing(8)))]': floating,
@@ -49,11 +55,22 @@ export const Nav = component$<NavProps>(
               'pointer-events-none -mt-2 scale-95 opacity-0': !menu.value,
               'backdrop-blur-lg': !noblur,
               ...getClassObject(colorClass),
+              ...getClassObject(panelProps?.class),
             }}
           >
-            <Slot name="mobile" />
+            <Slot name="hamburger" />
           </div>
         )}
+        <ButtonContainer
+          {...mobileNavProps}
+          class={{
+            'fixed right-0 bottom-0 left-0 z-50 mx-2 mb-1 flex backdrop-blur-lg sm:hidden': true,
+            ...getClassObject(colorClass),
+            ...getClassObject(mobileNavProps?.class),
+          }}
+        >
+          <Slot name="mobile" />
+        </ButtonContainer>
         <div
           {...innerProps}
           style={!floating ? { '--lum-depth': 0 } : undefined}
@@ -63,23 +80,33 @@ export const Nav = component$<NavProps>(
             'border-x-0! border-t-0!': !floating,
             'rounded-lum mx-auto mt-2 max-w-7xl border': floating,
             ...getClassObject(colorClass),
+            ...getClassObject(innerProps?.class),
           }}
         >
           <div
             {...innerProps}
-            class="flex flex-1 items-center justify-start gap-2 py-2"
+            class={{
+              'flex flex-1 items-center justify-start gap-2 py-2 empty:hidden': true,
+              ...getClassObject(innerProps?.class),
+            }}
           >
             <Slot name="start" />
           </div>
           <div
             {...innerProps}
-            class="flex flex-1 items-center justify-center gap-2 py-2"
+            class={{
+              'flex flex-1 items-center justify-center gap-2 py-2 empty:hidden': true,
+              ...getClassObject(innerProps?.class),
+            }}
           >
             <Slot name="center" />
           </div>
           <div
             {...innerProps}
-            class="flex flex-1 items-center justify-end gap-2 py-2"
+            class={{
+              'flex flex-1 items-center justify-end gap-2 py-2 empty:hidden': true,
+              ...getClassObject(innerProps?.class),
+            }}
           >
             <Slot name="end" />
             {!nohamburger && (

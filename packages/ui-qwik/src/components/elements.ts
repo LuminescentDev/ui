@@ -1,4 +1,5 @@
 export * from './elements/Anchor';
+export * from './elements/ButtonContainer';
 export * from './elements/ColorPicker';
 export * from './elements/Dropdown';
 export * from './elements/DropdownButton';
@@ -8,4 +9,5 @@ export * from './elements/NumberInput';
 export * from './elements/RangeInput';
 export * from './elements/SelectMenu';
 export * from './elements/Sidebar';
+export * from './elements/Tabs';
 export * from './elements/Toggle';

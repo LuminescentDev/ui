@@ -19,8 +19,9 @@
     "paths": {
       "~/*": ["./src/*"],
       "root/*": ["../../*"],
-      "@luminescent/ui-qwik": ["./src/index.ts"]
+      "@luminescent/ui-qwik": ["./src/index.ts"],
+      "ui-docs/*": ["../ui-docs/src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../ui-docs/src"]
 }

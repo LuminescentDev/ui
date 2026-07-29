@@ -82,26 +82,36 @@ export const Nav = component$(({ id }: { id: string }) => {
             </button>
           </Dropdown>
 
-          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
-            button 1
+          <button q:slot="hamburger" class="lum-btn lum-bg-transparent">
+            hamburger button 1
           </button>
-          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
-            button 2
+          <button q:slot="hamburger" class="lum-btn lum-bg-transparent">
+            hamburger button 2
           </button>
           <h3
-            q:slot="mobile"
+            q:slot="hamburger"
             class="text-lum-text-secondary mx-4 border-b border-gray-700 py-2"
           >
             Dropdown
           </h3>
-          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
+          <button q:slot="hamburger" class="lum-btn lum-bg-transparent">
             Option 1
           </button>
-          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
+          <button q:slot="hamburger" class="lum-btn lum-bg-transparent">
             Option 2
           </button>
-          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
+          <button q:slot="hamburger" class="lum-btn lum-bg-transparent">
             Option 3
+          </button>
+
+          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
+            Mobile 1
+          </button>
+          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
+            Mobile 2
+          </button>
+          <button q:slot="mobile" class="lum-btn lum-bg-transparent">
+            Mobile 3
           </button>
         </NavEl>
       </div>
@@ -136,23 +146,33 @@ export const Nav = component$(({ id }: { id: string }) => {
     </button>
   </Dropdown>
 
-  <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
-    button 1
+  <button class={'lum-btn lum-bg-transparent'} q:slot="hamburger">
+    hamburger button 1
   </button>
-  <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
-    button 2
+  <button class={'lum-btn lum-bg-transparent'} q:slot="hamburger">
+    hamburger button 2
   </button>
-  <h3 q:slot="mobile" class="mx-4 py-2 text-lum-text-secondary border-b border-gray-700">
+  <h3 q:slot="hamburger" class="mx-4 py-2 text-lum-text-secondary border-b border-gray-700">
     Dropdown
   </h3>
-  <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
+  <button class={'lum-btn lum-bg-transparent'} q:slot="hamburger">
     Option 1
   </button>
-  <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
+  <button class={'lum-btn lum-bg-transparent'} q:slot="hamburger">
     Option 2
   </button>
-  <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
+  <button class={'lum-btn lum-bg-transparent'} q:slot="hamburger">
     Option 3
+  </button>
+
+  <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
+    Mobile 1
+  </button>
+  <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
+    Mobile 2
+  </button>
+  <button class={'lum-btn lum-bg-transparent'} q:slot="mobile">
+    Mobile 3
   </button>
 
 </Nav>`}

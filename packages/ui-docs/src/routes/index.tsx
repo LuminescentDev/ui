@@ -10,7 +10,7 @@ import Book from 'lucide-icons-qwik/icons/Book';
 export const QwikTag = component$(() => {
   return (
     <p class="lum-btn lum-bg-purple-800/50 rounded-lum gap-1.5 p-1 pr-2 text-xs font-semibold">
-      {/* oxlint-disable-next-line qwik/jsx-img */}
+      {/* oxlint-disable-next-line qwik/jsx-img-tag */}
       <img src="/qwik.svg" alt="Qwik Logo" width={16} height={16} />
       Qwik
     </p>
@@ -19,7 +19,7 @@ export const QwikTag = component$(() => {
 export const ReactTag = component$(() => {
   return (
     <p class="lum-btn lum-bg-blue-800/50 rounded-lum gap-1.5 p-1 pr-2 text-xs font-semibold">
-      {/* oxlint-disable-next-line qwik/jsx-img */}
+      {/* oxlint-disable-next-line qwik/jsx-img-tag */}
       <img src="/react.svg" alt="React Logo" width={16} height={16} />
       React
     </p>

@@ -10,6 +10,7 @@
     "src/routes/**",
     "src/root.tsx",
     "src/entry.ssr.tsx",
-    "src/entry.dev.tsx"
+    "src/entry.dev.tsx",
+    "../ui-docs/src/**"
   ]
 }

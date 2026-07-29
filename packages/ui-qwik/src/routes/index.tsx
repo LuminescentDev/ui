@@ -35,11 +35,17 @@ export default component$(() => {
         <a class="lum-btn lum-bg-transparent" href="#anchor">
           Anchor
         </a>
+        <a class="lum-btn lum-bg-transparent" href="#button-container">
+          Button Container
+        </a>
         <a class="lum-btn lum-bg-transparent" href="#color-picker">
           Color Picker
         </a>
         <a class="lum-btn lum-bg-transparent" href="#dropdown">
           Dropdown
+        </a>
+        <a class="lum-btn lum-bg-transparent" href="#dropdown-button">
+          Dropdown Button
         </a>
         <a class="lum-btn lum-bg-transparent" href="#label">
           Label
@@ -55,6 +61,9 @@ export default component$(() => {
         </a>
         <a class="lum-btn lum-bg-transparent" href="#sidebar">
           Sidebar
+        </a>
+        <a class="lum-btn lum-bg-transparent" href="#tabs">
+          Tabs
         </a>
         <a class="lum-btn lum-bg-transparent" href="#toggle">
           Toggle
@@ -87,7 +96,9 @@ export default component$(() => {
           Luminescent UI Qwik Components
         </h2>
         <Docs.Anchor id="anchor" />
+        <Docs.ButtonContainer id="button-container" />
         <Docs.ColorPicker id="color-picker" />
+        <Docs.Dropdown id="dropdown" />
         <Docs.DropdownButton id="dropdown-button" />
         <Docs.Label id="label" />
         <Docs.Nav id="nav" />
@@ -95,6 +106,7 @@ export default component$(() => {
         <Docs.RangeInput id="range-input" />
         <Docs.SelectMenu id="select-menu" />
         <Docs.Sidebar id="sidebar" />
+        <Docs.Tabs id="tabs" />
         <Docs.Toggle id="toggle" />
       </section>
       <Sidebar
