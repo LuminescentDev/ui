@@ -41,7 +41,7 @@ export const Tabs = component$<TabsProps>(
             {...tabProps}
             class={{
               'lum-btn lum-btn-p-1 relative': true,
-              'pr-1': !!onDelete$,
+              'pr-1': !!onDelete$ && !tab.permanent,
               'lum-grad-bg-lum-accent!': value?.value === tab.value,
               ...getClassObject(tabProps?.class),
             }}
