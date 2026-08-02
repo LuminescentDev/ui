@@ -4,7 +4,7 @@ import { Anchor, Tabs as TabsEl, TabValue } from '@luminescent/ui-qwik';
 export const Tabs = component$(({ id }: { id: string }) => {
   const tabs = useSignal<TabValue[]>([
     { name: 'Tab 1', value: '1' },
-    { name: 'Tab 2', value: '2' },
+    { name: 'Permanent Tab 2', value: '2', permanent: true },
     { name: 'Tab 3', value: '3' },
   ]);
   const activeTab = useSignal<TabValue>(tabs.value[0]);

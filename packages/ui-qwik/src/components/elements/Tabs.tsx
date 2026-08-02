@@ -5,7 +5,7 @@ import { Plus } from '~/svg/Plus';
 import { X } from '~/svg/X';
 import { getClassObject } from '../functions';
 
-export type TabValue = { name: string; value: string };
+export type TabValue = { name: string; value: string; permanent?: boolean };
 
 export interface TabsProps extends Omit<PropsOf<'div'>, 'onClick$'> {
   onPlus$?: PropsOf<'button'>['onClick$'];
@@ -54,13 +54,13 @@ export const Tabs = component$<TabsProps>(
               {tab.name}
             </button>
             <Slot name={`after-${tab.value}`} />
-            {onDelete$ && (
+            {onDelete$ && !tab.permanent && (
               <button
                 class="lum-btn lum-bg-transparent hover:lum-bg-red-600 z-10 rounded-full p-0"
                 title={`Delete ${tab.name}`}
                 onClick$={async () => {
                   if (confirm(`Are you sure you want to delete ${tab.name}?`)) {
-                    await onDelete$?.(tab);
+                    await onDelete$(tab);
                   }
                 }}
               >
