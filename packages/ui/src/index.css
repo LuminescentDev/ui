@@ -342,6 +342,514 @@
   }
 }
 
+@utility rounded-lum-t {
+  border-top-left-radius: var(--lum-border-radius);
+  border-top-right-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-left-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+    border-top-right-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-t-* {
+  border-top-left-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  border-top-right-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-left-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+    border-top-right-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-b {
+  border-bottom-right-radius: var(--lum-border-radius);
+  border-bottom-left-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-bottom-right-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+    border-bottom-left-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-b-* {
+  border-bottom-right-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  border-bottom-left-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-bottom-right-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+    border-bottom-left-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-l {
+  border-top-left-radius: var(--lum-border-radius);
+  border-bottom-left-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-left-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+    border-bottom-left-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-l-* {
+  border-top-left-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  border-bottom-left-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-left-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+    border-bottom-left-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-r {
+  border-top-right-radius: var(--lum-border-radius);
+  border-bottom-right-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-right-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+    border-bottom-right-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-r-* {
+  border-top-right-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  border-bottom-right-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-right-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+    border-bottom-right-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-tl {
+  border-top-left-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-left-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-tl-* {
+  border-top-left-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-left-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-tr {
+  border-top-right-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-right-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-tr-* {
+  border-top-right-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-top-right-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-bl {
+  border-bottom-left-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-bottom-left-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-bl-* {
+  border-bottom-left-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-bottom-left-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-br {
+  border-bottom-right-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-bottom-right-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-br-* {
+  border-bottom-right-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-bottom-right-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-s {
+  border-start-start-radius: var(--lum-border-radius);
+  border-end-start-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-start-start-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+    border-end-start-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-s-* {
+  border-start-start-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  border-end-start-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-start-start-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+    border-end-start-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-e {
+  border-start-end-radius: var(--lum-border-radius);
+  border-end-end-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-start-end-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+    border-end-end-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-e-* {
+  border-start-end-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  border-end-end-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-start-end-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+    border-end-end-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-ss {
+  border-start-start-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-start-start-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-ss-* {
+  border-start-start-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-start-start-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-se {
+  border-start-end-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-start-end-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-se-* {
+  border-start-end-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-start-end-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-ee {
+  border-end-end-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-end-end-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-ee-* {
+  border-end-end-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-end-end-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
+@utility rounded-lum-es {
+  border-end-start-radius: var(--lum-border-radius);
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-end-start-radius: calc(
+      var(--lum-border-radius) *
+        var(--lum-border-superellipse-radius-multiplier)
+    );
+  }
+}
+
+@utility rounded-lum-es-* {
+  border-end-start-radius: max(
+    0px,
+    calc(var(--lum-border-radius) - calc(var(--spacing) * --value(number)))
+  );
+  @supports (corner-shape: squircle) {
+    corner-shape: superellipse(var(--lum-border-superellipse));
+    border-end-start-radius: max(
+      0px,
+      calc(
+        var(--lum-border-radius) *
+          var(--lum-border-superellipse-radius-multiplier) -
+          calc(var(--spacing) * --value(number))
+      )
+    );
+  }
+}
+
 @utility border-gradient-* {
   @apply relative box-border bg-clip-padding;
   border-width: calc(--value(integer) * 1px);

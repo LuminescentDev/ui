@@ -40,6 +40,15 @@ export const LumClasses = component$(({ id }: { id: string }) => {
       <p class="lum-input whitespace-pre-wrap">lum-btn lum-card lum-input</p>
       <p>Padding Classes</p>
       <p class="lum-input whitespace-pre-wrap">lum-btn-p-{'<size>'}</p>
+      <p>Border Radius Classes</p>
+      <p class="lum-input whitespace-pre-wrap">
+        rounded-lum{'\n'}
+        rounded-lum-{'<size>'}
+        {'\n'}
+        rounded-lum-{'<t|b|l|r|tl|tr|bl|br|s|e|ss|se|ee|es>'}
+        {'\n'}
+        rounded-lum-{'<t|b|l|r|tl|tr|bl|br|s|e|ss|se|ee|es>-<size>'}
+      </p>
     </div>
   );
 });
