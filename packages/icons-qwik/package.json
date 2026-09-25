@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/icons-qwik",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "a small icon library",
   "homepage": "https://ui.luminescent.dev",
@@ -45,8 +45,8 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@qwik.dev/core": "https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@8785",
-    "@qwik.dev/router": "https://pkg.pr.new/QwikDev/qwik/@qwik.dev/router@8785",
+    "@qwik.dev/core": "^2.0.0-beta.45",
+    "@qwik.dev/router": "^2.0.0-beta.45",
     "@types/node": "25.5.0",
     "globals": "17.4.0",
     "np": "^11.0.2",

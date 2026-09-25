@@ -3,15 +3,22 @@ packages:
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
+  - '@parcel/watcher@2.5.6'
   - esbuild
+  - esbuild@0.28.1
   - nx
   - sharp
+  - sharp@0.34.5
   - workerd
+  - workerd@1.20260708.1
+
 catalog:
   vite: npm:@voidzero-dev/vite-plus-core@0.2.4
   vite-plus: 0.2.4
+
 overrides:
   vite: 'catalog:'
+
 peerDependencyRules:
   allowAny:
     - vite

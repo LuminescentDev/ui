@@ -1,6 +1,6 @@
 {
   "name": "@luminescent/ui-qwik",
-  "version": "7.0.0-30",
+  "version": "7.0.0-31",
   "private": false,
   "description": "Luminescent UI library - Qwik",
   "homepage": "https://ui.luminescent.dev",
@@ -45,8 +45,8 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@qwik.dev/core": "https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@8785",
-    "@qwik.dev/router": "https://pkg.pr.new/QwikDev/qwik/@qwik.dev/router@8785",
+    "@qwik.dev/core": "^2.0.0-beta.45",
+    "@qwik.dev/router": "^2.0.0-beta.45",
     "@tailwindcss/vite": "^4.3.2",
     "@types/node": "26.1.1",
     "globals": "17.7.0",
