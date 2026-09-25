@@ -1,5 +1,29 @@
 # Changelog
 
+## [6.8.0](https://github.com/LuminescentDev/ui/compare/v6.7.0...v6.8.0) (2026-09-25)
+
+
+### Features
+
+* add --lum-label-gap variable and update Label component for dynamic gap styling ([1128c44](https://github.com/LuminescentDev/ui/commit/1128c44dfb1b0a8390d33163bbc609ea59acf7e3))
+* add border radius utility classes for enhanced styling options ([e906038](https://github.com/LuminescentDev/ui/commit/e9060387b9116cc1c8eeb221b7589818577c9daf))
+* enhance border-radius utilities with superellipse support and multipliers ([da184de](https://github.com/LuminescentDev/ui/commit/da184de6aba665018860997a0e06e4dd67d2594f))
+* enhance LumClasses and CSS utilities with detailed background class descriptions and improved utility definitions ([75e607e](https://github.com/LuminescentDev/ui/commit/75e607e6d88626dd2eedf85faecc71ac27cf5ef5))
+* improved CSS utility styles, and dropdown interaction updates and accessibility ([b2f18d5](https://github.com/LuminescentDev/ui/commit/b2f18d5b07d6e8bee6891bc363ee45fd21881c5b))
+* update package.json files across multiple packages to include homepage, bugs, author, and repository information ([397765f](https://github.com/LuminescentDev/ui/commit/397765f6ea4ccd323a782a515e94db650df9f1c0))
+* vite+ ([73796db](https://github.com/LuminescentDev/ui/commit/73796dba80c1fe2e20e26ce1d600f5bd507d721a))
+
+
+### Bug Fixes
+
+* update border color calculations to use background color in depth utilities ([b14c761](https://github.com/LuminescentDev/ui/commit/b14c761290b9766d39807f87b7a3a6cb393327a7))
+
+
+### Code Refactoring
+
+* consolidate component architecture and unify build configuration across UI packages ([7f6552e](https://github.com/LuminescentDev/ui/commit/7f6552eb0be61ad5ecc00ace1e1b313cf51e96a0))
+* put depth css into one class that is shared among the other classes idk ([bad4712](https://github.com/LuminescentDev/ui/commit/bad4712912bd227186d08bd174e0b294b7b84ffa))
+
 ## [6.7.0](https://github.com/LuminescentDev/ui/compare/v6.6.3...v6.7.0) (2026-02-20)
 
 ### Features
