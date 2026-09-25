@@ -47,7 +47,7 @@
   "devDependencies": {
     "@qwik.dev/core": "https://pkg.pr.new/QwikDev/qwik/@qwik.dev/core@8785",
     "@qwik.dev/router": "https://pkg.pr.new/QwikDev/qwik/@qwik.dev/router@8785",
-    "@types/node": "25.5.0",
+    "@types/node": "25.9.8",
     "globals": "17.4.0",
     "np": "^11.0.2",
     "oxlint-plugin-qwik": "^0.0.9",
