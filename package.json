@@ -7,7 +7,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=10.10.0"
   },
-  "packageManager": "pnpm@10.26.1",
+  "packageManager": "pnpm@12.6.0",
   "scripts": {
     "build:release": "pnpm build && pnpm release",
     "build": "pnpm nx run-many -t build --output-style=stream --parallel=false",
@@ -19,7 +19,7 @@
     "@nx/js": "^22.3.3",
     "@types/node": "^25.0.3",
     "@types/yargs": "^17.0.35",
-    "dotenv": "^17.2.3",
+    "dotenv": "^18.0.0",
     "nx": "22.3.3",
     "tsx": "^4.21.0",
     "yargs": "^18.0.0"
