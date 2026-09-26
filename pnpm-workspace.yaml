@@ -13,7 +13,7 @@ onlyBuiltDependencies:
   - workerd@1.20260708.1
 
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@0.2.4
+  vite: npm:@voidzero-dev/vite-plus-core@0.3.3
   vite-plus: 0.2.4
 
 overrides:
