@@ -13,11 +13,11 @@ onlyBuiltDependencies:
   - workerd@1.20260708.1
 
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@0.3.3
-  vite-plus: 0.3.3
+  vite: npm:@voidzero-dev/vite-plus-core@1.0.0
+  vite-plus: 1.0.0
 
 overrides:
-  vite: 'catalog:'
+  vite@*: 'catalog:'
 
 peerDependencyRules:
   allowAny:
@@ -29,10 +29,20 @@ blockExoticSubdeps: false
 
 minimumReleaseAgeExclude:
   - '@cloudflare/workers-types@5.20260714.1'
+  - '@voidzero-dev/vite-plus-core@1.0.0'
+  - '@voidzero-dev/vite-plus-darwin-arm64@1.0.0'
+  - '@voidzero-dev/vite-plus-darwin-x64@1.0.0'
+  - '@voidzero-dev/vite-plus-linux-arm64-gnu@1.0.0'
+  - '@voidzero-dev/vite-plus-linux-arm64-musl@1.0.0'
+  - '@voidzero-dev/vite-plus-linux-x64-gnu@1.0.0'
+  - '@voidzero-dev/vite-plus-linux-x64-musl@1.0.0'
+  - '@voidzero-dev/vite-plus-win32-arm64-msvc@1.0.0'
+  - '@voidzero-dev/vite-plus-win32-x64-msvc@1.0.0'
+  - vite-plus@1.0.0
 
 allowBuilds:
-  '@parcel/watcher': set this to true or false
-  esbuild: set this to true or false
+  '@parcel/watcher': true
+  esbuild: true
   nx: true
   sharp: set this to true or false
-  workerd: set this to true or false
+  workerd: true
