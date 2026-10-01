@@ -1,5 +1,5 @@
 import type React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ShuffleIcon } from 'lucide-react';
 import {
   clamp,
@@ -8,6 +8,7 @@ import {
   hsvToRgb,
   rgbToHex,
   rgbToHsv,
+  getBrightness,
 } from '../../utils/color';
 import { getClasses } from '../functions';
 
@@ -56,6 +57,8 @@ export function ColorPicker({
   const maxHue = height - 2;
 
   const [colorValue, setColorValue] = useState(value);
+  const dragCleanup = useRef<(() => void) | undefined>(undefined);
+  useEffect(() => () => dragCleanup.current?.(), []);
   const hsvColor = rgbToHsv(hexToRgba(colorValue));
 
   const [huePos, setHuePos] = useState(hsvColor.h * maxHue);
@@ -88,6 +91,7 @@ export function ColorPicker({
   const handleHueMouseDown = (
     e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
   ) => {
+    dragCleanup.current?.();
     const el = e.currentTarget;
     const hOffset = el.getBoundingClientRect().top;
     const updateHue = (evt: MouseEvent | TouchEvent) => {
@@ -111,6 +115,7 @@ export function ColorPicker({
       window.removeEventListener('touchmove', onMove);
       window.removeEventListener('touchend', onUp);
     };
+    dragCleanup.current = onUp;
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', onUp);
     window.addEventListener('touchmove', onMove);
@@ -120,6 +125,7 @@ export function ColorPicker({
   const handleSatMouseDown = (
     e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
   ) => {
+    dragCleanup.current?.();
     const el = e.currentTarget;
     const rect = el.getBoundingClientRect();
     const updateSat = (evt: MouseEvent | TouchEvent) => {
@@ -146,17 +152,43 @@ export function ColorPicker({
       window.removeEventListener('touchmove', onMove);
       window.removeEventListener('touchend', onUp);
     };
+    dragCleanup.current = onUp;
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', onUp);
     window.addEventListener('touchmove', onMove);
     window.addEventListener('touchend', onUp);
   };
 
+  const handleOpacityDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    dragCleanup.current?.();
+    const rect = event.currentTarget.getBoundingClientRect();
+    const hsv = rgbToHsv(hexToRgba(colorValue));
+    const update = (clientX: number) => {
+      const a = 1 - clamp((clientX - rect.left) / rect.width, 0, 1);
+      updateColor(rgbToHex(hsvToRgb({ ...hsv, a })));
+    };
+    update(event.clientX);
+    const move = (event: PointerEvent) => update(event.clientX);
+    const cleanup = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', cleanup);
+      window.removeEventListener('pointercancel', cleanup);
+    };
+    dragCleanup.current = cleanup;
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', cleanup);
+    window.addEventListener('pointercancel', cleanup);
+  };
+
   return (
     <div
       {...props}
+      id={id}
       className={getClasses({
-        'flex flex-col gap-2 p-2': true,
+        'lum-card touch-none gap-4 p-4': true,
+        'flex-col': !horizontal,
+        'flex-row': horizontal,
         [className ?? '']: !!className,
       })}
     >
@@ -188,7 +220,7 @@ export function ColorPicker({
           style={{
             height: `${height}px`,
             background:
-              'linear-gradient(to top, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000)',
+              'linear-gradient(to bottom, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000)',
           }}
           onMouseDown={handleHueMouseDown}
           onTouchStart={handleHueMouseDown}
@@ -200,14 +232,90 @@ export function ColorPicker({
         </div>
       </div>
 
-      {showInput && (
-        <div className="flex items-center gap-2">
-          <input
-            type="text"
-            className="lum-input lum-input-p-1 text-lum-text w-full rounded-sm text-center text-sm"
-            value={colorValue}
-            onChange={(e) => updateColor(e.target.value)}
-          />
+      <div className="flex w-37.5 flex-col gap-2">
+        {opacity && (
+          <div
+            role="slider"
+            aria-label="Opacity"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round((hsvColor.a ?? 1) * 100)}
+            tabIndex={0}
+            className="relative h-2 w-full cursor-pointer rounded-md border border-gray-700"
+            style={{
+              background: `linear-gradient(to right, ${rgbToHex(hsvToRgb({ ...hsvColor, a: 1 }))}, transparent), repeating-conic-gradient(#ccc 0% 25%, white 0% 50%) 0 / 8px 8px`,
+            }}
+            onPointerDown={handleOpacityDown}
+            onKeyDown={(event) => {
+              if (
+                !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)
+              )
+                return;
+              event.preventDefault();
+              const a =
+                event.key === 'Home'
+                  ? 1
+                  : event.key === 'End'
+                    ? 0
+                    : clamp(
+                        (hsvColor.a ?? 1) +
+                          (event.key === 'ArrowLeft' ? 0.01 : -0.01),
+                        0,
+                        1
+                      );
+              updateColor(rgbToHex(hsvToRgb({ ...hsvColor, a })));
+            }}
+          >
+            <div
+              className="absolute -top-1 h-4 w-4 -translate-x-1/2 rounded-full border border-white"
+              style={{
+                left: `${(1 - (hsvColor.a ?? 1)) * 100}%`,
+                backgroundColor: colorValue,
+              }}
+            />
+          </div>
+        )}
+        {showInput && (
+          <div
+            className={getClasses({
+              'flex gap-1': true,
+              'flex-row': preview === 'left' || preview === 'full',
+              'flex-row-reverse': preview === 'right',
+              'flex-col': preview === 'top',
+              'flex-col-reverse': preview === 'bottom',
+            })}
+          >
+            {preview !== 'full' && (
+              <div
+                className={getClasses({
+                  'rounded-sm border border-gray-700': true,
+                  'w-8 shrink-0': preview === 'left' || preview === 'right',
+                  'h-3 w-full': preview === 'top' || preview === 'bottom',
+                })}
+                style={{ backgroundColor: colorValue }}
+              />
+            )}
+            <input
+              type="text"
+              className="lum-input lum-input-p-1 text-lum-text w-full rounded-sm text-center text-sm"
+              value={colorValue}
+              aria-label="Hex color"
+              style={
+                preview === 'full'
+                  ? {
+                      backgroundColor: colorValue,
+                      color:
+                        getBrightness(hexToRgba(colorValue)) > 0.5
+                          ? 'black'
+                          : 'white',
+                    }
+                  : undefined
+              }
+              onChange={(e) => updateColor(e.target.value)}
+            />
+          </div>
+        )}
+        <div className="flex flex-wrap gap-1.5 pt-1">
           <button
             type="button"
             className="lum-btn rounded-sm p-1.5"
@@ -224,22 +332,23 @@ export function ColorPicker({
           >
             <ShuffleIcon size={16} />
           </button>
+          {colors && colors.length > 0 && (
+            <>
+              {colors.map((c, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Select ${c}`}
+                  aria-pressed={c.toLowerCase() === colorValue.toLowerCase()}
+                  className="h-5 w-5 rounded-sm border border-black/20 transition-transform hover:scale-110"
+                  style={{ backgroundColor: c }}
+                  onClick={() => updateColor(c)}
+                />
+              ))}
+            </>
+          )}
         </div>
-      )}
-
-      {colors && colors.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 pt-1">
-          {colors.map((c, i) => (
-            <button
-              key={i}
-              type="button"
-              className="h-5 w-5 rounded-sm border border-black/20 transition-transform hover:scale-110"
-              style={{ backgroundColor: c }}
-              onClick={() => updateColor(c)}
-            />
-          ))}
-        </div>
-      )}
+      </div>
     </div>
   );
 }

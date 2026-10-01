@@ -30,6 +30,7 @@
     "dev": "vp dev",
     "build": "tsc -p tsconfig.json && vp build --mode lib && pnpm run build.types",
     "build.types": "tsc -p tsconfig.types.json --incremental false",
+    "test": "vp test tests",
     "preview": "vp preview"
   },
   "dependencies": {

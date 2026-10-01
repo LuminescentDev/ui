@@ -3,7 +3,7 @@ import { PlusIcon, XIcon } from 'lucide-react';
 import { ButtonContainer } from './ButtonContainer';
 import { getClasses } from '../functions';
 
-export type TabValue = { name: string; value: string };
+export type TabValue = { name: string; value: string; permanent?: boolean };
 
 export interface TabsProps extends Omit<
   React.HTMLAttributes<HTMLDivElement>,
@@ -14,6 +14,9 @@ export interface TabsProps extends Omit<
   onDelete?: (value: TabValue) => void;
   values?: TabValue[];
   value?: TabValue;
+  tabProps?: Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'>;
+  renderBefore?: (tab: TabValue) => React.ReactNode;
+  renderAfter?: (tab: TabValue) => React.ReactNode;
 }
 
 export function Tabs({
@@ -23,6 +26,9 @@ export function Tabs({
   value,
   onClick,
   onDelete,
+  tabProps,
+  renderBefore,
+  renderAfter,
   ...props
 }: TabsProps) {
   return (
@@ -36,17 +42,27 @@ export function Tabs({
       {values?.map((tab) => (
         <div
           key={tab.value}
+          {...tabProps}
           className={getClasses({
-            'flex p-0!': true,
+            'lum-btn lum-btn-p-1 relative': true,
+            'pr-1': !!onDelete && !tab.permanent,
             'lum-grad-bg-lum-accent!': value?.value === tab.value,
+            [tabProps?.className ?? '']: !!tabProps?.className,
           })}
         >
-          <button className="lum-btn-p-1 pr-0" onClick={() => onClick?.(tab)}>
+          {renderBefore?.(tab)}
+          <button
+            type="button"
+            className="p-0 after:absolute after:inset-0 after:content-['']"
+            onClick={() => onClick?.(tab)}
+          >
             {tab.name}
           </button>
-          {onDelete && (
+          {renderAfter?.(tab)}
+          {onDelete && !tab.permanent && (
             <button
-              className="lum-btn lum-bg-transparent hover:lum-bg-red rounded-lum-2 m-1 p-0.5"
+              type="button"
+              className="lum-btn lum-bg-transparent hover:lum-bg-red-600 z-10 rounded-full p-0"
               title={`Delete ${tab.name}`}
               onClick={() => {
                 if (confirm(`Are you sure you want to delete ${tab.name}?`)) {
@@ -60,7 +76,7 @@ export function Tabs({
         </div>
       ))}
       {onPlus && (
-        <button onClick={onPlus} title="Add new tab">
+        <button type="button" onClick={onPlus} title="Add new tab">
           <PlusIcon size={16} />
         </button>
       )}

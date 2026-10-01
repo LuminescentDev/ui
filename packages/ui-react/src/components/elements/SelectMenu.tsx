@@ -18,6 +18,9 @@ export interface SelectMenuProps extends Omit<DropdownProps, 'onChange'> {
   dropdownBefore?: React.ReactNode;
   dropdownAfter?: React.ReactNode;
   extraContent?: React.ReactNode;
+  renderBefore?: (value: string | number) => React.ReactNode;
+  renderAfter?: (value: string | number) => React.ReactNode;
+  renderOption?: (value: string | number) => React.ReactNode;
 }
 
 export function SelectMenu({
@@ -32,6 +35,9 @@ export function SelectMenu({
   extraContent,
   children,
   panelProps,
+  renderBefore,
+  renderAfter,
+  renderOption,
   ...props
 }: SelectMenuProps) {
   const isCustomButton = customDropdownButton || customDropdown;
@@ -40,7 +46,8 @@ export function SelectMenu({
       ? props.value
       : values?.[0]?.value) ?? '';
 
-  const [selectValue, setSelectValue] = useState<string | number>(initialVal);
+  const [internalValue, setSelectValue] = useState<string | number>(initialVal);
+  const selectValue = props.value ?? internalValue;
   const selectRef = useRef<HTMLSelectElement>(null);
   const selected =
     values?.find((v) => v.value.toString() === selectValue.toString()) ??
@@ -60,29 +67,31 @@ export function SelectMenu({
       {...props}
       panelProps={{ role: 'listbox', ...panelProps }}
       dropdown={dropdownLabel}
+      outerContent={
+        values && (
+          <select
+            {...selectProps}
+            onChange={(e) => {
+              setSelectValue(e.target.value);
+              if (onChange) onChange(e);
+            }}
+            ref={selectRef}
+            value={selectValue}
+            className="hidden"
+          >
+            {values.map((val, i) => (
+              <option key={i} value={val.value}>
+                {`${val.value}`}
+              </option>
+            ))}
+          </select>
+        )
+      }
     >
-      {values && (
-        <select
-          onChange={(e) => {
-            setSelectValue(e.target.value);
-            if (onChange) onChange(e);
-          }}
-          {...selectProps}
-          ref={selectRef}
-          value={selectValue}
-          className="hidden"
-        >
-          {values.map((val, i) => (
-            <option key={i} value={val.value}>
-              {`${val.value}`}
-            </option>
-          ))}
-        </select>
-      )}
-
-      {values?.map(({ name, value }, i) => (
+      {values?.map(({ name, value, custom }, i) => (
         <button
           key={i}
+          {...btnProps}
           type="button"
           role="option"
           aria-selected={selectValue.toString() === value.toString()}
@@ -94,6 +103,8 @@ export function SelectMenu({
             [btnProps?.className ?? '']: !!btnProps?.className,
           })}
           onClick={(e) => {
+            btnProps?.onClick?.(e);
+            if (e.defaultPrevented) return;
             e.currentTarget.blur();
             const select = selectRef.current;
             if (select) {
@@ -103,7 +114,9 @@ export function SelectMenu({
             setSelectValue(value.toString());
           }}
         >
-          {name}
+          {renderBefore?.(value)}
+          {custom ? (renderOption?.(value) ?? name) : name}
+          {renderAfter?.(value)}
         </button>
       ))}
       {extraContent}

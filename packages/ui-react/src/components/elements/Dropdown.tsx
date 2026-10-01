@@ -1,5 +1,5 @@
 import type React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { DropdownButton } from './DropdownButton';
 import type { DropdownButtonProps } from './DropdownButton';
 import { getClasses } from '../functions';
@@ -13,6 +13,7 @@ export interface DropdownProps extends DropdownButtonProps {
   top?: boolean;
   outerProps?: React.HTMLAttributes<HTMLDivElement>;
   dropdown?: React.ReactNode;
+  outerContent?: React.ReactNode;
 }
 
 export function Dropdown({
@@ -25,10 +26,12 @@ export function Dropdown({
   top,
   outerProps,
   dropdown,
+  outerContent,
   children,
   ...props
 }: DropdownProps) {
   const [opened, setOpened] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!opened || nocloseonclick || hover) return;
@@ -38,7 +41,7 @@ export function Dropdown({
         (el) =>
           el instanceof HTMLElement && el.dataset.dismissDropdown === 'true'
       );
-      if (isDismissable) {
+      if (isDismissable || !path.includes(triggerRef.current as EventTarget)) {
         setOpened(false);
       }
     };
@@ -50,6 +53,7 @@ export function Dropdown({
     <div
       {...outerProps}
       onKeyDown={(e) => {
+        outerProps?.onKeyDown?.(e);
         if (e.key === 'Escape' && opened) {
           setOpened(false);
         }
@@ -60,8 +64,10 @@ export function Dropdown({
         [outerProps?.className ?? '']: !!outerProps?.className,
       })}
     >
+      {outerContent}
       <DropdownButton
         {...props}
+        ref={triggerRef}
         id={props.id ? `${props.id}-dropdown` : undefined}
         opened={opened}
         hover={hover}
@@ -69,7 +75,9 @@ export function Dropdown({
           'w-full': true,
           [className ?? '']: !!className,
         })}
-        onClick={() => {
+        onClick={(event) => {
+          props.onClick?.(event);
+          if (event.defaultPrevented) return;
           if (hover) return;
           setOpened(!opened);
         }}

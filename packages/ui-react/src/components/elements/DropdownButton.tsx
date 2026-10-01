@@ -2,7 +2,7 @@ import type React from 'react';
 import { ChevronDownIcon } from 'lucide-react';
 import { getClasses } from '../functions';
 
-export interface DropdownButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface DropdownButtonProps extends React.ComponentPropsWithRef<'button'> {
   hover?: boolean;
   opened?: boolean;
   noChevron?: boolean;

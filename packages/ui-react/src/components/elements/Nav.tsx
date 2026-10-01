@@ -4,7 +4,7 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { ButtonContainer } from './ButtonContainer';
 
-interface NavProps extends Omit<
+export interface NavProps extends Omit<
   React.HTMLAttributes<HTMLElement>,
   'bind:checked' | 'type' | 'children'
 > {
@@ -19,6 +19,9 @@ interface NavProps extends Omit<
   hamburger?: React.ReactNode;
   mobile?: React.ReactNode;
   colorClass?: string;
+  innerProps?: React.HTMLAttributes<HTMLDivElement>;
+  panelProps?: React.HTMLAttributes<HTMLDivElement>;
+  mobileNavProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export function Nav({
@@ -33,6 +36,9 @@ export function Nav({
   end,
   hamburger,
   mobile,
+  innerProps,
+  panelProps,
+  mobileNavProps,
   ...props
 }: NavProps) {
   const [menu, setMenu] = useState(false);
@@ -53,6 +59,7 @@ export function Nav({
         window.removeEventListener('click', onClick);
       };
       window.addEventListener('click', onClick);
+      return () => window.removeEventListener('click', onClick);
     }
   }, [menu, nodismiss]);
 
@@ -60,7 +67,9 @@ export function Nav({
     <nav
       {...props}
       className={getClasses({
-        'top-0 left-0 z-50 flex w-full flex-col duration-200': true,
+        'top-0 left-0 z-50 flex flex-col': true,
+        'w-full': !floating,
+        'mx-2 w-[calc(100%-(--spacing(4)))]': floating,
         fixed: fixed,
         absolute: !fixed,
         [props.className ?? '']: true,
@@ -68,7 +77,9 @@ export function Nav({
     >
       {!nohamburger && (
         <div
+          {...panelProps}
           className={getClasses({
+            [panelProps?.className ?? '']: !!panelProps?.className,
             'absolute top-full lum-card motion-safe:transition-all sm:hidden max-w-7xl gap-2 px-2 py-4': true,
             'w-[calc(100%-(--spacing(8)))] mx-4': floating,
             'w-[calc(100%-(--spacing(4)))] mx-2': !floating,
@@ -83,14 +94,17 @@ export function Nav({
       )}
       {mobile && (
         <ButtonContainer
+          {...mobileNavProps}
           className={getClasses({
             'fixed right-0 bottom-0 left-0 z-50 mx-2 mb-1 flex backdrop-blur-lg sm:hidden': true,
             [colorClass]: true,
+            [mobileNavProps?.className ?? '']: !!mobileNavProps?.className,
           })}
           style={
             {
               '--lum-border-radius': '1.5rem',
               '--lum-btn-p-x': '2.5',
+              ...mobileNavProps?.style,
             } as React.CSSProperties
           }
         >
@@ -98,7 +112,15 @@ export function Nav({
         </ButtonContainer>
       )}
       <div
+        {...innerProps}
+        style={
+          {
+            ...(!floating ? { '--lum-depth': 0 } : {}),
+            ...innerProps?.style,
+          } as React.CSSProperties
+        }
         className={getClasses({
+          [innerProps?.className ?? '']: !!innerProps?.className,
           [colorClass]: !floating,
           'border-x-0! border-t-0!': !floating,
           'backdrop-blur-lg': !noblur && !floating,
@@ -132,7 +154,8 @@ export function Nav({
             <button
               name="Navigation Menu"
               title="Navigation Menu"
-              className="lum-btn lum-bg-transparent rounded-lum-2 p-2 sm:hidden"
+              aria-expanded={menu}
+              className="lum-btn lum-bg-transparent rounded-lum-2 nav-ignore-dismiss p-2 sm:hidden"
               onClick={() => setMenu(!menu)}
             >
               <MenuIcon size={24} />

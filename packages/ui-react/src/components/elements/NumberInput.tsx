@@ -65,7 +65,7 @@ export function NumberInput({
           value={value}
           step={step}
           className={getClasses({
-            'lum-input lum-input-p-1 rounded-sm text-center': true,
+            'lum-input lum-input-p-1 rounded-sm text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none': true,
             [className ?? '']: !!className,
           })}
           onWheel={(e) => {
