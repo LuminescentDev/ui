@@ -48,7 +48,7 @@
     "@qwik.dev/core": "^2.0.0-beta.45",
     "@qwik.dev/router": "^2.0.0-beta.45",
     "@tailwindcss/vite": "^4.3.2",
-    "@types/node": "26.1.1",
+    "@types/node": "26.6.3",
     "globals": "17.13.0",
     "np": "^11.2.2",
     "oxlint-plugin-qwik": "^0.0.9",
