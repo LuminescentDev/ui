@@ -22,7 +22,8 @@
     "tsx": "^4.23.15",
     "vite": "catalog:",
     "vite-plus": "catalog:",
-    "yargs": "^18.2.0"
+    "yargs": "^18.2.0",
+    "node-gyp": "^13.0.2"
   },
   "devEngines": {
     "packageManager": {
