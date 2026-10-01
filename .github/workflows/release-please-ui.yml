@@ -5,6 +5,7 @@ on:
     branches:
       - qwik-v2
     paths:
+      - '.github/workflows/release-please-ui.yml'
       - 'packages/ui/**'
       - '.release-please-manifest.json'
       - 'release-please-config.json'
@@ -24,6 +25,7 @@ jobs:
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          target-branch: ${{ github.ref_name }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
