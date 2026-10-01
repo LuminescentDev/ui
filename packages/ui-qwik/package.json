@@ -45,12 +45,12 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@qwik.dev/core": "^2.0.0-beta.45",
-    "@qwik.dev/router": "^2.0.0-beta.45",
-    "@tailwindcss/vite": "^4.3.2",
+    "@qwik.dev/core": "^2.0.0-rc.0",
+    "@qwik.dev/router": "^2.0.0-rc.0",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/node": "26.6.3",
     "globals": "17.13.0",
-    "np": "^12.0.0",
+    "np": "^12.1.1",
     "oxlint-plugin-qwik": "^0.0.9",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",

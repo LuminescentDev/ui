@@ -8,7 +8,7 @@ import {
   Paper,
   Purpur,
   Waterfall,
-} from '../index';
+} from '@luminescent/icons-qwik';
 
 export default component$(() => {
   return (

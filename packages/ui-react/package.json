@@ -28,26 +28,25 @@
   "scripts": {
     "start": "vp dev",
     "dev": "vp dev",
-    "build": "tsc --p ./tsconfig.json && vp build --mode lib",
-    "build.types": "tsc --emitDeclarationOnly",
+    "build": "tsc -p tsconfig.json && vp build --mode lib && pnpm run build.types",
+    "build.types": "tsc -p tsconfig.types.json --incremental false",
     "preview": "vp preview"
   },
   "dependencies": {
-    "lucide-react": "^1.0.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "lucide-react": "^1.49.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.0",
-    "globals": "^17.0.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "globals": "^17.13.0",
     "oxlint-plugin-qwik": "^0.0.9",
-    "tailwindcss": "^4.1.18",
-    "typescript": "~7.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~7.0.2",
     "vite": "catalog:",
-    "vite-plugin-dts": "^5.0.0",
     "vite-plus": "catalog:"
   },
   "peerDependencies": {

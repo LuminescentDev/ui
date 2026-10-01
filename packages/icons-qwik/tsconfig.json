@@ -18,8 +18,9 @@
     "types": ["vite/client"],
     "paths": {
       "~/*": ["./src/*"],
-      "root/*": ["../../*"]
+      "root/*": ["../../*"],
+      "@luminescent/icons-qwik": ["./src/index.ts"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../ui-docs/src"]
 }

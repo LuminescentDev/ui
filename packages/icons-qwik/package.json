@@ -45,11 +45,11 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@qwik.dev/core": "^2.0.0-beta.45",
-    "@qwik.dev/router": "^2.0.0-beta.45",
+    "@qwik.dev/core": "^2.0.0-rc.0",
+    "@qwik.dev/router": "^2.0.0-rc.0",
     "@types/node": "26.6.3",
     "globals": "17.13.0",
-    "np": "^12.0.0",
+    "np": "^12.1.1",
     "oxlint-plugin-qwik": "^0.0.9",
     "typescript": "7.0.2",
     "vite": "catalog:",
