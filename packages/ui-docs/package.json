@@ -44,7 +44,7 @@
     "simple-icons-qwik": "16.19.0-qwik-v2",
     "tailwindcss": "^4.3.2",
     "ts-morph": "28",
-    "typescript": "5.9.3",
+    "typescript": "7.0.2",
     "typescript-plugin-css-modules": "latest",
     "undici": "^8.7.0",
     "vite": "catalog:",
