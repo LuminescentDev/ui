@@ -3,7 +3,7 @@ name: Release Please Qwik Package
 on:
   push:
     branches:
-      - main
+      - qwik-v2
     paths:
       - 'packages/ui-qwik/**'
       - '.release-please-manifest.json'
