@@ -65,7 +65,7 @@ jobs:
 
       - name: Publish to npm
         working-directory: packages/ui
-        run: npm publish --provenance --access public
+        run: pnpm publish --provenance --access public
         env:
           # it is currently imperative to set NODE_AUTH_TOKEN to an empty string for OIDC auth to work
           # https://github.com/actions/setup-node/blob/633bb92bc0aabcae06e8ea93b85aecddd374c402/src/authutil.ts#L57
@@ -101,7 +101,7 @@ jobs:
 
       - name: Publish to npm
         working-directory: packages/ui-react
-        run: npm publish --provenance --access public
+        run: pnpm publish --provenance --access public
         env:
           # it is currently imperative to set NODE_AUTH_TOKEN to an empty string for OIDC auth to work
           # https://github.com/actions/setup-node/blob/633bb92bc0aabcae06e8ea93b85aecddd374c402/src/authutil.ts#L57
@@ -137,7 +137,7 @@ jobs:
 
       - name: Publish to npm
         working-directory: packages/ui-qwik
-        run: npm publish --provenance --access public
+        run: pnpm publish --provenance --access public
         env:
           # it is currently imperative to set NODE_AUTH_TOKEN to an empty string for OIDC auth to work
           # https://github.com/actions/setup-node/blob/633bb92bc0aabcae06e8ea93b85aecddd374c402/src/authutil.ts#L57
