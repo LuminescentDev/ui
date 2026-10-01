@@ -33,5 +33,5 @@ allowBuilds:
   '@parcel/watcher': true
   esbuild: true
   nx: true
-  sharp: set this to true or false
+  sharp: true
   workerd: true
