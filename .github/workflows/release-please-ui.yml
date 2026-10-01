@@ -1,4 +1,4 @@
-name: Release Please Tailwind Package
+name: Release Please UI Packages
 
 on:
   push:
@@ -7,8 +7,14 @@ on:
     paths:
       - '.github/workflows/release-please-ui.yml'
       - 'packages/ui/**'
+      - 'packages/ui-react/**'
+      - 'packages/ui-qwik/**'
       - '.release-please-manifest.json'
       - 'release-please-config.json'
+
+concurrency:
+  group: release-please-${{ github.ref_name }}
+  cancel-in-progress: false
 
 permissions:
   id-token: write # Required for OIDC
@@ -19,6 +25,10 @@ permissions:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      ui-released: ${{ steps.release.outputs['packages/ui--release_created'] }}
+      ui-react-released: ${{ steps.release.outputs['packages/ui-react--release_created'] }}
+      ui-qwik-released: ${{ steps.release.outputs['packages/ui-qwik--release_created'] }}
 
     steps:
       - uses: googleapis/release-please-action@v5
@@ -29,16 +39,19 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
+  publish-ui:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.ui-released == 'true' }}
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout code
-        if: ${{ steps.release.outputs['packages/ui--release_created'] }}
         uses: actions/checkout@v7
 
       - name: Setup pnpm
-        if: ${{ steps.release.outputs['packages/ui--release_created'] }}
         uses: pnpm/action-setup@v6
 
       - name: Setup Node.js
-        if: ${{ steps.release.outputs['packages/ui--release_created'] }}
         uses: actions/setup-node@v7
         with:
           node-version: 24
@@ -47,13 +60,83 @@ jobs:
           scope: '@birdflop'
 
       - name: Install dependencies
-        if: ${{ steps.release.outputs['packages/ui--release_created'] }}
         working-directory: packages/ui
         run: pnpm install --frozen-lockfile
 
       - name: Publish to npm
-        if: ${{ steps.release.outputs['packages/ui--release_created'] }}
         working-directory: packages/ui
+        run: npm publish --provenance --access public
+        env:
+          # it is currently imperative to set NODE_AUTH_TOKEN to an empty string for OIDC auth to work
+          # https://github.com/actions/setup-node/blob/633bb92bc0aabcae06e8ea93b85aecddd374c402/src/authutil.ts#L57
+          NODE_AUTH_TOKEN: ''
+
+  publish-ui-react:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.ui-react-released == 'true' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@birdflop'
+
+      - name: Install dependencies
+        working-directory: packages/ui-react
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm nx run @luminescent/ui-react:build
+        working-directory: .
+
+      - name: Publish to npm
+        working-directory: packages/ui-react
+        run: npm publish --provenance --access public
+        env:
+          # it is currently imperative to set NODE_AUTH_TOKEN to an empty string for OIDC auth to work
+          # https://github.com/actions/setup-node/blob/633bb92bc0aabcae06e8ea93b85aecddd374c402/src/authutil.ts#L57
+          NODE_AUTH_TOKEN: ''
+
+  publish-ui-qwik:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.ui-qwik-released == 'true' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@birdflop'
+
+      - name: Install dependencies
+        working-directory: packages/ui-qwik
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm nx run @luminescent/ui-qwik:build
+        working-directory: .
+
+      - name: Publish to npm
+        working-directory: packages/ui-qwik
         run: npm publish --provenance --access public
         env:
           # it is currently imperative to set NODE_AUTH_TOKEN to an empty string for OIDC auth to work
