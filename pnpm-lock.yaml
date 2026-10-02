@@ -334,7 +334,7 @@ importers:
         version: 6.1.1(@voidzero-dev/vite-plus-core@1.0.0(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(less@4.6.7)(sass@1.101.0)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@7.2.0)(typescript@7.0.2)
       wrangler:
         specifier: ^4.146.0
-        version: 4.146.0(@types/node@26.6.4)
+        version: 4.147.0(@types/node@26.6.4)
 
   packages/ui-qwik:
     dependencies:
@@ -6217,8 +6217,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.146.0:
-    resolution: {integrity: sha512-c27eHUH0Isr8HTmgZ6cLtLr/0cxtiBoLren6ywBeTW8ZIzj/dINVNBcqsbZc+iETnI5jrzO7E7Z8mLgLZ/l9iw==}
+  wrangler@4.147.0:
+    resolution: {integrity: sha512-pQYRoiq8PTAxphaG69z8+GC1DkSGd19EDZehQ8zxjo/Ko3mRB6Qs1mTrd8ZuKAarLklIjTqr1lUdCK9r4q2hUg==}
     engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
@@ -12734,7 +12734,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261001.1
       '@cloudflare/workerd-windows-64': 1.20261001.1
 
-  wrangler@4.146.0(@types/node@26.6.4):
+  wrangler@4.147.0(@types/node@26.6.4):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261001.1)
