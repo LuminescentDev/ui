@@ -87,10 +87,6 @@ code {
   @apply bg-lum-card-bg rounded-lum border-b-lum-border/20 border-b-2 px-1 py-0.5 break-all select-all sm:break-normal;
 }
 
-table {
-  @apply my-5;
-}
-
 th,
 td {
   @apply p-2 align-top;
@@ -112,4 +108,39 @@ img {
 
 hr {
   @apply border-t-lum-border/20 my-8 border-t-1;
+}
+
+table {
+  @apply lum-card lum-btn-p-4 my-5;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-block: 1.5rem;
+  overflow-x: auto;
+  white-space: normal;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+table th,
+table td {
+  min-width: 10rem;
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+table th {
+  color: var(--color-lum-text);
+  font-weight: 600;
+  text-align: left;
+}
+
+table tr + tr > *,
+table tbody tr:first-child > * {
+  border-top: 1px solid --alpha(var(--color-lum-border) / 20%);
+}
+
+table tr > * + * {
+  border-left: 1px solid --alpha(var(--color-lum-border) / 20%);
 }
