@@ -14,7 +14,7 @@
     "deploy": "cd packages/ui-docs && pnpm run deploy"
   },
   "devDependencies": {
-    "@nx/js": "^23.2.1",
+    "@nx/js": "^24.0.0",
     "@types/node": "^26.6.3",
     "@types/yargs": "^17.0.35",
     "dotenv": "^18.0.5",
