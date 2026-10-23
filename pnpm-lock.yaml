@@ -180,7 +180,7 @@ importers:
     devDependencies:
       '@nx/js':
         specifier: ^24.0.0
-        version: 24.0.1(@babel/traverse@7.29.8(supports-color@7.2.0))(nx@24.0.0)(supports-color@7.2.0)
+        version: 24.0.1(@babel/traverse@7.29.8(supports-color@7.2.0))(nx@24.0.1)(supports-color@7.2.0)
       '@types/node':
         specifier: ^26.6.3
         version: 26.6.5
@@ -194,8 +194,8 @@ importers:
         specifier: ^13.0.2
         version: 13.1.0
       nx:
-        specifier: 24.0.0
-        version: 24.0.0
+        specifier: 24.0.1
+        version: 24.0.1
       tsx:
         specifier: ^4.23.15
         version: 4.23.15
@@ -1694,19 +1694,9 @@ packages:
       verdaccio:
         optional: true
 
-  '@nx/nx-darwin-arm64@24.0.0':
-    resolution: {integrity: sha512-ZHXmqkMVF7aA6QShvc5lVkCU6JHjGV19m8eplw0pL06AFgNdQ9u16013HJPm+Ys6fKnltYDWl/Ef7meQjT+u3Q==}
-    cpu: [arm64]
-    os: [darwin]
-
   '@nx/nx-darwin-arm64@24.0.1':
     resolution: {integrity: sha512-6ODLtFQ1v9Em8lSqTezTXRX5W5QVeqyIxwcUmBWwNWskQ10hFGscoyPihENmZipj1xMRq7Z8qTfkMOoxGhNi4Q==}
     cpu: [arm64]
-    os: [darwin]
-
-  '@nx/nx-darwin-x64@24.0.0':
-    resolution: {integrity: sha512-a+cpg/VQvD/vF7BJsl70vulc1GxCamtU0XwzkGOzzDATn3JcKBNpBFx0Iqp5frJYN0X00Supz4zhgCEe9LpCow==}
-    cpu: [x64]
     os: [darwin]
 
   '@nx/nx-darwin-x64@24.0.1':
@@ -1714,31 +1704,15 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@nx/nx-freebsd-x64@24.0.0':
-    resolution: {integrity: sha512-PAGVaLbJxEzBXSQvg82g/8mDoqoMQFIX/EchuJbJGekIiz3BM2Xgyiy5qAD2/2meLVOTFtbkBQR+4ZSymgqGWw==}
-    cpu: [x64]
-    os: [freebsd]
-
   '@nx/nx-freebsd-x64@24.0.1':
     resolution: {integrity: sha512-muKwDfORGxxQY0IXt5gqC0a5kuwHWnhFiPAddbBhfbHVhZMryhsZlEQfgCTpB1fYAmBmBU7DXDCZZG7ibNckCw==}
     cpu: [x64]
     os: [freebsd]
 
-  '@nx/nx-linux-arm-gnueabihf@24.0.0':
-    resolution: {integrity: sha512-WOWBIlTb+1FNP86GcodUF4BHdjVyGCwrVH/lqUvNAmT/FPopirCzVLdoj1P5kfWC/F0II/qAu7X698yKzIu71A==}
-    cpu: [arm]
-    os: [linux]
-
   '@nx/nx-linux-arm-gnueabihf@24.0.1':
     resolution: {integrity: sha512-j5ZW6McnC0IZ7Nb5EtR41ZqBsv3U2naSug8Xmz2VPSaA7vNTo+A7MmunYvQyz2B7NSwSdZp+d+powfyIN8/owQ==}
     cpu: [arm]
     os: [linux]
-
-  '@nx/nx-linux-arm64-gnu@24.0.0':
-    resolution: {integrity: sha512-vASWIfOijXd5cdOn0Z6Wcd2iwtFxlBoBre6w+c8wuLLLPN3r4SRQyL+jAEB+eHkUHz39mMxSwa8DY+VlS9luVw==}
-    cpu: [arm64]
-    os: [linux]
-    libc: [glibc]
 
   '@nx/nx-linux-arm64-gnu@24.0.1':
     resolution: {integrity: sha512-9pqRs9H/LgbR84TKlgWTw3giZlLL6rhlRfsA8X4DyW2zKqvTquEpoNGGKplQUQ4oB6OTBi95Uav4ia95TwpmSQ==}
@@ -1746,23 +1720,11 @@ packages:
     os: [linux]
     libc: [glibc]
 
-  '@nx/nx-linux-arm64-musl@24.0.0':
-    resolution: {integrity: sha512-ZiG9Kjq1AvYmFK3p03OOjCcYXwiBpF2Z7Ih/QnKsRMcnT7GbjDpfuO3FkSMtuE0OWoAdAt9Kb2yXBP3L9IZc6w==}
-    cpu: [arm64]
-    os: [linux]
-    libc: [musl]
-
   '@nx/nx-linux-arm64-musl@24.0.1':
     resolution: {integrity: sha512-75mxGC7JYmvjMERA7Hw4B3UDqW+Bl/BjiYiFGTETZHbaK0NhgMf4e8LYJo6KtHNGjqBRuQN1EMwmDeY0BvyiSg==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
-
-  '@nx/nx-linux-x64-gnu@24.0.0':
-    resolution: {integrity: sha512-FstnaQtRkxD0RGYtCJb7QYq9Sgzu+vCKYO+p3/uq+q2kKLwlu4ovvzUeDctTuCIjx1tFamp/Uu8n+bHavUE7KQ==}
-    cpu: [x64]
-    os: [linux]
-    libc: [glibc]
 
   '@nx/nx-linux-x64-gnu@24.0.1':
     resolution: {integrity: sha512-m2kfeJ6YRLeOnbOd68M0DiPcgSKyuSa51vFlJS0WFnlb9YuE2BVEhi2WAtwZyUJUbudzA6QXhg1ezJbCJYt2Gg==}
@@ -1770,31 +1732,15 @@ packages:
     os: [linux]
     libc: [glibc]
 
-  '@nx/nx-linux-x64-musl@24.0.0':
-    resolution: {integrity: sha512-dBFcWaSOhl17ZzZ+ybi9ctPlYPwDTlJjGgkpV5e/O6D7V9MFziJ4xZG/mVgacYbW3f5HS6QRVno9yPtSyLj2MA==}
-    cpu: [x64]
-    os: [linux]
-    libc: [musl]
-
   '@nx/nx-linux-x64-musl@24.0.1':
     resolution: {integrity: sha512-lpFLA/T7BdfzDfA1135kbtk1Td20xAH8KAsujhuyxdXYz4Rh916etAlzyNGveK8qzUlCU0St1HKgNpm4y1L+PA==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@nx/nx-win32-arm64-msvc@24.0.0':
-    resolution: {integrity: sha512-u2t4v71qCT7Nj4QbxuJ8X3iii881goaXJ7fjTcYw4EhSk1FemF6lh7mlSaHSczQ+/JFbiVppu649NYaVlIxGcw==}
-    cpu: [arm64]
-    os: [win32]
-
   '@nx/nx-win32-arm64-msvc@24.0.1':
     resolution: {integrity: sha512-4abQqdo2lGtFAhDFVxiNcpnz5lFfztbm7EYYeZI2EIcAJQQ19csTfvDl+/d2yv54mjWXhB8dgiTvExN0c/mZzg==}
     cpu: [arm64]
-    os: [win32]
-
-  '@nx/nx-win32-x64-msvc@24.0.0':
-    resolution: {integrity: sha512-Rv464/mLVw3lKdsxhFJXk3WI2KyaCoGbTNUzLi8nlzEuZ0ZcBK4VKxAxlvVCAVrxPIZkbUFDYE7vRvdZ2DGikg==}
-    cpu: [x64]
     os: [win32]
 
   '@nx/nx-win32-x64-msvc@24.0.1':
@@ -4795,18 +4741,6 @@ packages:
     resolution: {integrity: sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ==}
     engines: {node: '>=0.10.0'}
 
-  nx@24.0.0:
-    resolution: {integrity: sha512-LchM3SyEUYL6qjHUneiSuyYlUscv8t6qpAYWUqnUY5OoSQSLIOLT/xrerLCKUTTcu7Yq1o/TDo9TiwhaBLvM4Q==}
-    hasBin: true
-    peerDependencies:
-      '@swc-node/register': ^1.11.1
-      '@swc/core': ^1.15.8
-    peerDependenciesMeta:
-      '@swc-node/register':
-        optional: true
-      '@swc/core':
-        optional: true
-
   nx@24.0.1:
     resolution: {integrity: sha512-znPLIZed09YJeJHXcWVSbBLqfbQs6S8cRcCkfBhp/V1ROYGHqooNjnCamAli8imZC9J5gD7DttpwjX7Qw5p4jQ==}
     hasBin: true
@@ -7361,15 +7295,6 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
 
-  '@nx/devkit@24.0.1(nx@24.0.0)':
-    dependencies:
-      ejs: 5.0.1
-      minimatch: 10.2.5
-      nx: 24.0.0
-      semver: 7.8.5
-      tslib: 2.8.1
-      yargs-parser: 21.1.1
-
   '@nx/devkit@24.0.1(nx@24.0.1)':
     dependencies:
       ejs: 5.0.1
@@ -7379,7 +7304,7 @@ snapshots:
       tslib: 2.8.1
       yargs-parser: 21.1.1
 
-  '@nx/js@24.0.1(@babel/traverse@7.29.8(supports-color@7.2.0))(nx@24.0.0)(supports-color@7.2.0)':
+  '@nx/js@24.0.1(@babel/traverse@7.29.8(supports-color@7.2.0))(nx@24.0.1)(supports-color@7.2.0)':
     dependencies:
       '@babel/core': 7.29.7(supports-color@7.2.0)
       '@babel/plugin-proposal-decorators': 7.29.7(@babel/core@7.29.7(supports-color@7.2.0))(supports-color@7.2.0)
@@ -7391,7 +7316,7 @@ snapshots:
       '@babel/preset-env': 7.29.7(@babel/core@7.29.7(supports-color@7.2.0))(supports-color@7.2.0)
       '@babel/preset-typescript': 7.29.7(@babel/core@7.29.7(supports-color@7.2.0))(supports-color@7.2.0)
       '@babel/runtime': 7.29.7
-      '@nx/devkit': 24.0.1(nx@24.0.0)
+      '@nx/devkit': 24.0.1(nx@24.0.1)
       '@nx/workspace': 24.0.1
       '@zkochan/js-yaml': 0.0.7
       babel-plugin-const-enum: 1.2.0(@babel/core@7.29.7(supports-color@7.2.0))(supports-color@7.2.0)
@@ -7417,61 +7342,31 @@ snapshots:
       - nx
       - supports-color
 
-  '@nx/nx-darwin-arm64@24.0.0':
-    optional: true
-
   '@nx/nx-darwin-arm64@24.0.1':
-    optional: true
-
-  '@nx/nx-darwin-x64@24.0.0':
     optional: true
 
   '@nx/nx-darwin-x64@24.0.1':
     optional: true
 
-  '@nx/nx-freebsd-x64@24.0.0':
-    optional: true
-
   '@nx/nx-freebsd-x64@24.0.1':
-    optional: true
-
-  '@nx/nx-linux-arm-gnueabihf@24.0.0':
     optional: true
 
   '@nx/nx-linux-arm-gnueabihf@24.0.1':
     optional: true
 
-  '@nx/nx-linux-arm64-gnu@24.0.0':
-    optional: true
-
   '@nx/nx-linux-arm64-gnu@24.0.1':
-    optional: true
-
-  '@nx/nx-linux-arm64-musl@24.0.0':
     optional: true
 
   '@nx/nx-linux-arm64-musl@24.0.1':
     optional: true
 
-  '@nx/nx-linux-x64-gnu@24.0.0':
-    optional: true
-
   '@nx/nx-linux-x64-gnu@24.0.1':
-    optional: true
-
-  '@nx/nx-linux-x64-musl@24.0.0':
     optional: true
 
   '@nx/nx-linux-x64-musl@24.0.1':
     optional: true
 
-  '@nx/nx-win32-arm64-msvc@24.0.0':
-    optional: true
-
   '@nx/nx-win32-arm64-msvc@24.0.1':
-    optional: true
-
-  '@nx/nx-win32-x64-msvc@24.0.0':
     optional: true
 
   '@nx/nx-win32-x64-msvc@24.0.1':
@@ -10633,108 +10528,6 @@ snapshots:
       boolbase: 1.0.0
 
   number-is-nan@1.0.1: {}
-
-  nx@24.0.0:
-    dependencies:
-      '@clack/core': 1.4.3
-      '@clack/prompts': 1.7.0
-      '@emnapi/core': 1.4.5
-      '@emnapi/runtime': 1.4.5
-      '@emnapi/wasi-threads': 1.0.4
-      '@jest/diff-sequences': 30.0.1
-      '@napi-rs/wasm-runtime': 0.2.4
-      '@tybys/wasm-util': 0.9.0
-      '@yarnpkg/lockfile': 1.1.0
-      '@zkochan/js-yaml': 0.0.7
-      ansi-regex: 5.0.1
-      ansi-styles: 4.3.0
-      argparse: 2.0.1
-      balanced-match: 4.0.3
-      base64-js: 1.5.1
-      bl: 4.1.0
-      brace-expansion: 5.0.12
-      buffer: 5.7.1
-      chalk: 4.1.2
-      cli-cursor: 3.1.0
-      cli-spinners: 2.6.1
-      cliui: 8.0.1
-      clone: 1.0.4
-      color-convert: 2.0.1
-      color-name: 1.1.4
-      defaults: 1.0.4
-      dotenv: 16.4.7
-      dotenv-expand: 12.0.3
-      ejs: 5.0.1
-      emoji-regex: 8.0.0
-      end-of-stream: 1.4.5
-      escalade: 3.2.0
-      escape-string-regexp: 1.0.5
-      fast-string-truncated-width: 3.0.3
-      fast-string-width: 3.0.2
-      fast-wrap-ansi: 0.2.0
-      figures: 3.2.0
-      fs-constants: 1.0.0
-      get-caller-file: 2.0.5
-      has-flag: 4.0.0
-      ieee754: 1.2.1
-      ignore: 7.0.12
-      inherits: 2.0.4
-      is-fullwidth-code-point: 3.0.0
-      is-interactive: 1.0.0
-      is-unicode-supported: 0.1.0
-      isexe: 2.0.0
-      json5: 2.2.3
-      jsonc-parser: 3.3.1
-      lines-and-columns: 2.0.3
-      log-symbols: 4.1.0
-      mimic-fn: 2.1.0
-      minimatch: 10.2.5
-      minimist: 1.2.8
-      npm-run-path: 4.0.1
-      once: 1.4.0
-      onetime: 5.1.2
-      ora: 5.4.1
-      path-key: 3.1.1
-      picocolors: 1.1.1
-      readable-stream: 3.6.2
-      require-directory: 2.1.1
-      resolve.exports: 2.0.3
-      restore-cursor: 3.1.0
-      safe-buffer: 5.2.1
-      semver: 7.8.5
-      signal-exit: 3.0.7
-      sisteransi: 1.0.5
-      smol-toml: 1.9.0
-      string-width: 4.2.3
-      string_decoder: 1.3.0
-      strip-ansi: 6.0.1
-      strip-bom: 3.0.0
-      supports-color: 7.2.0
-      tar-stream: 2.2.0
-      tmp: 0.2.7
-      tsconfig-paths: 4.2.0
-      tslib: 2.8.1
-      undici: 7.29.0
-      util-deprecate: 1.0.2
-      wcwidth: 1.0.1
-      which: 3.0.1
-      wrap-ansi: 7.0.0
-      wrappy: 1.0.2
-      y18n: 5.0.8
-      yaml: 2.9.0
-      yargs: 17.7.2
-      yargs-parser: 21.1.1
-    optionalDependencies:
-      '@nx/nx-darwin-arm64': 24.0.0
-      '@nx/nx-darwin-x64': 24.0.0
-      '@nx/nx-freebsd-x64': 24.0.0
-      '@nx/nx-linux-arm-gnueabihf': 24.0.0
-      '@nx/nx-linux-arm64-gnu': 24.0.0
-      '@nx/nx-linux-arm64-musl': 24.0.0
-      '@nx/nx-linux-x64-gnu': 24.0.0
-      '@nx/nx-linux-x64-musl': 24.0.0
-      '@nx/nx-win32-arm64-msvc': 24.0.0
-      '@nx/nx-win32-x64-msvc': 24.0.0
 
   nx@24.0.1:
     dependencies:
