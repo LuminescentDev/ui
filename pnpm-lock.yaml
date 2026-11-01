@@ -221,8 +221,8 @@ importers:
         specifier: 26.6.6
         version: 26.6.6
       globals:
-        specifier: 17.13.0
-        version: 17.13.0
+        specifier: 17.14.0
+        version: 17.14.0
       np:
         specifier: ^12.1.1
         version: 12.1.1(@types/node@26.6.6)(typescript@7.0.2)
@@ -330,8 +330,8 @@ importers:
         specifier: 26.6.6
         version: 26.6.6
       globals:
-        specifier: 17.13.0
-        version: 17.13.0
+        specifier: 17.14.0
+        version: 17.14.0
       np:
         specifier: ^12.1.1
         version: 12.1.1(@types/node@26.6.6)(typescript@7.0.2)
@@ -3812,6 +3812,10 @@ packages:
 
   globals@17.13.0:
     resolution: {integrity: sha512-RwMTC61u7hrG3ZJMkZQOK4JLJrKS8QtoTii63EmWvFXHqycY9FObBJQCbsLxSO8kjKhWE5kV1GC+Vb1g3RI0Zg==}
+    engines: {node: '>=18'}
+
+  globals@17.14.0:
+    resolution: {integrity: sha512-UtdkTVyAJePQv0J2M9Xe4L0ruNSDV314XiIJsADI2Zf40bcdAonE/D/OhAU8AT99oij9mhLByb+NvA3QWZYgCg==}
     engines: {node: '>=18'}
 
   globby@14.1.0:
@@ -9141,6 +9145,8 @@ snapshots:
       ini: 4.1.1
 
   globals@17.13.0: {}
+
+  globals@17.14.0: {}
 
   globby@14.1.0:
     dependencies:
