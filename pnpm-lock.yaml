@@ -273,7 +273,7 @@ importers:
         version: 26.6.6
       globals:
         specifier: ^17.13.0
-        version: 17.13.0
+        version: 17.14.0
       lucide-icons-qwik:
         specifier: 1.16.0-qwik-v2
         version: 1.16.0-qwik-v2
@@ -380,7 +380,7 @@ importers:
         version: 6.1.2(@voidzero-dev/vite-plus-core@1.4.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))
       globals:
         specifier: ^17.13.0
-        version: 17.13.0
+        version: 17.14.0
       oxlint-plugin-qwik:
         specifier: ^0.0.9
         version: 0.0.9(oxlint@1.89.0(oxlint-tsgolint@7.0.2004)(vite-plus@1.4.0(@types/node@26.6.6)(@vitest/ui@5.0.5)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0)))
@@ -3808,10 +3808,6 @@ packages:
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
-    engines: {node: '>=18'}
-
-  globals@17.13.0:
-    resolution: {integrity: sha512-RwMTC61u7hrG3ZJMkZQOK4JLJrKS8QtoTii63EmWvFXHqycY9FObBJQCbsLxSO8kjKhWE5kV1GC+Vb1g3RI0Zg==}
     engines: {node: '>=18'}
 
   globals@17.14.0:
@@ -9143,8 +9139,6 @@ snapshots:
   global-directory@4.0.1:
     dependencies:
       ini: 4.1.1
-
-  globals@17.13.0: {}
 
   globals@17.14.0: {}
 
