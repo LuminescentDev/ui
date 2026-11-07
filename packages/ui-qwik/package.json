@@ -52,7 +52,7 @@
     "globals": "17.14.0",
     "np": "^12.1.1",
     "oxlint-plugin-qwik": "^0.0.9",
-    "tailwindcss": "4.3.4",
+    "tailwindcss": "4.3.5",
     "typescript": "7.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:"
