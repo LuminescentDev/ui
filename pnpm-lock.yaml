@@ -213,10 +213,10 @@ importers:
     devDependencies:
       '@qwik.dev/core':
         specifier: ^2.0.0-rc.0
-        version: 2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
+        version: 2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
       '@qwik.dev/router':
         specifier: ^2.0.0-rc.0
-        version: 2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@7.2.0)(typescript@7.0.2)
+        version: 2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@7.2.0)(typescript@7.0.2)
       '@types/node':
         specifier: 26.6.6
         version: 26.6.6
@@ -261,10 +261,10 @@ importers:
         version: link:../ui-qwik
       '@qwik.dev/core':
         specifier: ^2.0.0-rc.0
-        version: 2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
+        version: 2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
       '@qwik.dev/router':
         specifier: ^2.0.0-rc.0
-        version: 2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@7.2.0)(typescript@7.0.2)
+        version: 2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@7.2.0)(typescript@7.0.2)
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.5(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))
@@ -319,10 +319,10 @@ importers:
     devDependencies:
       '@qwik.dev/core':
         specifier: ^2.0.0-rc.0
-        version: 2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
+        version: 2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
       '@qwik.dev/router':
         specifier: ^2.0.0-rc.0
-        version: 2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@10.2.2)(typescript@7.0.2)
+        version: 2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@10.2.2)(typescript@7.0.2)
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.5(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))
@@ -2399,8 +2399,8 @@ packages:
   '@poppinss/exception@1.2.3':
     resolution: {integrity: sha512-dCED+QRChTVatE9ibtoaxc+WkdzOSjYTKi/+uacHWIsfodVfpsueo3+DKpgU5Px8qXjgmXkSvhXvSCz3fnP9lw==}
 
-  '@qwik.dev/core@2.0.0-rc.4':
-    resolution: {integrity: sha512-z6M5WHPHD0IlCOFWCfuwk8ngUyQYQkkVdIlWBFWr5S9uTIVkYm8rugdF6JE06ICCh+08OHJsxjsuG0QA5wSVmw==}
+  '@qwik.dev/core@2.0.0-rc.5':
+    resolution: {integrity: sha512-Gr6LS2fcXM6Yazh3rUzd+efB82eEkDZ2c/lqWmx3h5rqH8mgu0g6b8BnJALuc3Hxs+zU3QkQEfAdFMXVRTWjZQ==}
     engines: {node: ^20.3.0 || >=21.0.0}
     hasBin: true
     peerDependencies:
@@ -2413,8 +2413,8 @@ packages:
       vitest:
         optional: true
 
-  '@qwik.dev/optimizer@2.1.0-rc.10':
-    resolution: {integrity: sha512-0yI+yY15xSEbBG0LSK5SYQSGU7EVXysHhea/BWb4yy0sGwThZsT6k4D7CgUrwVcuhfHPfBqSXALLvO8O5tc92Q==}
+  '@qwik.dev/optimizer@2.1.0-rc.11':
+    resolution: {integrity: sha512-8djnR+6zgLPSTpR7jcwb3V6DtfmgDgpQ5cndPNrLq0VRhsWD5ySX4uAySOIeTo90Ye3NT8MpC9R1VppandB79Q==}
     engines: {node: ^20.3.0 || >=21.0.0}
 
   '@qwik.dev/router@2.0.0-rc.4':
@@ -7668,11 +7668,11 @@ snapshots:
 
   '@poppinss/exception@1.2.3': {}
 
-  '@qwik.dev/core@2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)':
+  '@qwik.dev/core@2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)':
     dependencies:
       '@emnapi/core': 1.11.3
       '@emnapi/runtime': 1.11.3
-      '@qwik.dev/optimizer': 2.1.0-rc.10
+      '@qwik.dev/optimizer': 2.1.0-rc.11
       csstype: 3.2.3
       launch-editor: 2.14.2
       magic-regexp: 0.11.2(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)
@@ -7698,11 +7698,11 @@ snapshots:
       - unloader
       - webpack
 
-  '@qwik.dev/core@2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)':
+  '@qwik.dev/core@2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)':
     dependencies:
       '@emnapi/core': 1.11.3
       '@emnapi/runtime': 1.11.3
-      '@qwik.dev/optimizer': 2.1.0-rc.10
+      '@qwik.dev/optimizer': 2.1.0-rc.11
       csstype: 3.2.3
       launch-editor: 2.14.2
       magic-regexp: 0.11.2(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)
@@ -7728,14 +7728,14 @@ snapshots:
       - unloader
       - webpack
 
-  '@qwik.dev/optimizer@2.1.0-rc.10': {}
+  '@qwik.dev/optimizer@2.1.0-rc.11': {}
 
-  '@qwik.dev/router@2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@10.2.2)(typescript@7.0.2)':
+  '@qwik.dev/router@2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@10.2.2)(typescript@7.0.2)':
     dependencies:
       '@azure/functions': 3.5.1
       '@mdx-js/mdx': 3.1.1(supports-color@10.2.2)
       '@netlify/edge-functions': 3.0.8
-      '@qwik.dev/core': 2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
+      '@qwik.dev/core': 2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@10.2.2))(sass@1.106.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
       '@types/mdx': 2.0.14
       estree-util-value-to-estree: 3.5.0
       github-slugger: 2.0.0
@@ -7765,12 +7765,12 @@ snapshots:
       - supports-color
       - typescript
 
-  '@qwik.dev/router@2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@7.2.0)(typescript@7.0.2)':
+  '@qwik.dev/router@2.0.0-rc.4(@qwik.dev/core@2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0))(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(supports-color@7.2.0)(typescript@7.0.2)':
     dependencies:
       '@azure/functions': 3.5.1
       '@mdx-js/mdx': 3.1.1(supports-color@7.2.0)
       '@netlify/edge-functions': 3.0.8
-      '@qwik.dev/core': 2.0.0-rc.4(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
+      '@qwik.dev/core': 2.0.0-rc.5(@oxc-project/types@0.157.0)(@voidzero-dev/vite-plus-core@1.5.0(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(less@4.9.1(supports-color@7.2.0))(sass@1.106.1)(stylus@0.62.0(supports-color@7.2.0))(tsx@4.23.15)(typescript@7.0.2)(yaml@2.9.0))(esbuild@0.28.2)(prettier@3.9.5)(vitest@5.1.0)
       '@types/mdx': 2.0.14
       estree-util-value-to-estree: 3.5.0
       github-slugger: 2.0.0
