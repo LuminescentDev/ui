@@ -189,7 +189,7 @@ importers:
         version: 17.0.35
       dotenv:
         specifier: ^18.0.5
-        version: 18.0.9
+        version: 18.0.10
       node-gyp:
         specifier: ^13.0.2
         version: 13.1.0
@@ -3545,8 +3545,8 @@ packages:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
-  dotenv@18.0.9:
-    resolution: {integrity: sha512-3fVOW4cB02R066PUSwn8O4TJyz9NckQl7F81blIbaq9jKBm2tSmOKky7ZHIXzGvkVPXCSn6jkpziBPZdGFs8Tw==}
+  dotenv@18.0.10:
+    resolution: {integrity: sha512-89FAA1xchzK2mxVWdr5F/0rldwiueXs6zJM86rO66EzekR1iBdiXRthyG+m5GvkJaFH3C2LESzamTkgndmLT2A==}
     engines: {node: '>=12'}
     hasBin: true
 
@@ -8808,7 +8808,7 @@ snapshots:
 
   dotenv@16.6.1: {}
 
-  dotenv@18.0.9: {}
+  dotenv@18.0.10: {}
 
   ejs@5.0.1: {}
 
