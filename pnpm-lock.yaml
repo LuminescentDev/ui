@@ -303,7 +303,7 @@ importers:
         version: 7.0.2
       typescript-plugin-css-modules:
         specifier: latest
-        version: 5.3.0(supports-color@7.2.0)(typescript@7.0.2)
+        version: 5.3.1(supports-color@7.2.0)(typescript@7.0.2)
       undici:
         specifier: ^8.11.2
         version: 8.13.1
@@ -367,7 +367,7 @@ importers:
         version: link:../ui
       lucide-react:
         specifier: ^1.49.0
-        version: 1.77.0(@types/react@19.3.0)(react@19.3.1)
+        version: 1.78.0(@types/react@19.3.0)(react@19.3.1)
       react:
         specifier: ^19.3.0
         version: 19.3.1
@@ -4473,8 +4473,8 @@ packages:
     resolution: {integrity: sha512-wTDi5WK/DIBbgP8/mer2vgQ0zUeag3/DgrGHqYRZADZMZWU0xvQQhFP/WMHJ3R6vkugTq8akFJTc+35APgJMiw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
 
-  lucide-react@1.77.0:
-    resolution: {integrity: sha512-VS6sOi8ZUH1qm6swBL/tpI4xAhB6pFTdHvw3pfCJD+DaTJwpyynVzfOS6mdyMZ+OCdY/GMSQbqinOMOPbNSrQA==}
+  lucide-react@1.78.0:
+    resolution: {integrity: sha512-61NFdT5ZfAY8xs3LWKkB78GVeuiCcjYFEXeHWxWP+mQhP+UWLGsA9hJZQPtIyXRDhOvT8kgmWwAIyH5L7RIhAA==}
     peerDependencies:
       '@types/react': '*'
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -5720,8 +5720,8 @@ packages:
   type-level-regexp@0.1.17:
     resolution: {integrity: sha512-wTk4DH3cxwk196uGLK/E9pE45aLfeKJacKmcEgEOA/q5dnPGNxXt0cfYdFxb57L+sEpf1oJH4Dnx/pnRcku9jg==}
 
-  typescript-plugin-css-modules@5.3.0:
-    resolution: {integrity: sha512-ZCSp+b7MmI2bqvSg55hHUk6XDnRPSsZQnoFacLBLTlNrHmiK/vKDMOfcGg+j5yT8nphah54UBg8EPzf8xCwdcA==}
+  typescript-plugin-css-modules@5.3.1:
+    resolution: {integrity: sha512-H4b2uxM2fI1+NXcOA7MfbSqIrqxxGmfY8PyPa+xpM9dYMjFz/ImW4ra2yCF/UxmN8yFxJ95zNvxDtk0R5Be/4A==}
     engines: {node: '>=20'}
     peerDependencies:
       typescript: '>=4.0.0'
@@ -10010,7 +10010,7 @@ snapshots:
 
   lucide-icons-qwik@1.16.0-qwik-v2: {}
 
-  lucide-react@1.77.0(@types/react@19.3.0)(react@19.3.1):
+  lucide-react@1.78.0(@types/react@19.3.0)(react@19.3.1):
     dependencies:
       react: 19.3.1
     optionalDependencies:
@@ -12071,7 +12071,7 @@ snapshots:
 
   type-level-regexp@0.1.17: {}
 
-  typescript-plugin-css-modules@5.3.0(supports-color@7.2.0)(typescript@7.0.2):
+  typescript-plugin-css-modules@5.3.1(supports-color@7.2.0)(typescript@7.0.2):
     dependencies:
       '@types/postcss-modules-local-by-default': 4.0.2
       '@types/postcss-modules-scope': 3.0.4
